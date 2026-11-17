@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><title>probe</title></head><body>
+<script>
+window.__errs = [];
+window.addEventListener('error', function(e){ window.__errs.push({type:'error', msg: String(e.message||''), src: (e.filename||'')+':'+(e.lineno||0)}); }, true);
+window.addEventListener('unhandledrejection', function(e){ window.__errs.push({type:'rejection', msg: String((e.reason && (e.reason.message||e.reason)) || '')}); });
+(function(){ var oe = console.error; console.error = function(){ try{ window.__errs.push({type:'console.error', msg: Array.prototype.map.call(arguments, function(a){ return (a && a.message) ? a.message : String(a); }).join(' ')}); }catch(_){}; return oe.apply(console, arguments); }; })();
+fetch('audiobook_v22_67.html').then(function(r){ return r.text(); }).then(function(t){ document.open(); document.write(t); document.close(); }).catch(function(e){ window.__errs.push({type:'fetch', msg:String(e)}); });
+</script>
+</body></html>
