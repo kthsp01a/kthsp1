@@ -4755,17 +4755,20 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     btn.disabled = true;
     btn.innerHTML = '<span class="spin"></span> 분석 중…';
     try {
-      var text;
+      var text, jsonTitle = '';
       if (/\.pdf$/i.test(f.name) || f.type === 'application/pdf') text = await extractPdf(f);
       else if (/\.json$/i.test(f.name) || f.type === 'application/json') {
         var raw = decodeText(await f.arrayBuffer());
-        text = jsonToText(JSON.parse(raw));
+        var obj = JSON.parse(raw);
+        text = jsonToText(obj);
+        if (obj && !Array.isArray(obj) && typeof obj === 'object' && typeof obj.title === 'string' && obj.title.trim()) jsonTitle = obj.title.trim();
       } else {
         text = decodeText(await f.arrayBuffer());
       }
       var parsed = parseManuscript(text);
       if (!parsed.blocks.length) throw new Error('본문 문단을 찾지 못했습니다');
       var book = makeBook(f.name, text, parsed);
+      if (jsonTitle) book.title = jsonTitle.length > 70 ? jsonTitle.slice(0, 70) : jsonTitle;
       var rec = {
         id: book.id, title: book.title, text: text, index: 0, bookmarks: [],
         blocks: parsed.stats.blocks, chapters: parsed.stats.chapters, speakable: parsed.stats.speakable,
