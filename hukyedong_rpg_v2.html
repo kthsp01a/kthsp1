@@ -154,6 +154,7 @@ body.v-title #hud,body.v-title #truthBar{display:none;}
 .slot .idx{font-family:var(--mono);font-size:9px;color:#3f5b58;}
 .slot .nm{flex:1;color:#c3ded6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .slot .kd{font-size:9px;color:#6f9c8e;border:1px solid #24403c;padding:0 4px;border-radius:2px;flex:0 0 auto;}
+.slot .kd.nd{border:0;color:#3f5b58;padding:0;}
 .slot.found{border-color:#2b4a48;background:#0a1a19;}
 .slot.found .nm{color:#e2fff6;}
 .slot.found .idx{color:var(--mint);}
@@ -204,19 +205,15 @@ body.v-invest #art{height:39vh;max-height:360px;min-height:240px;}
 body.v-vn #panel,body.v-battle #panel{flex:0 0 auto;}
 body.v-battle #artTag{display:none;}
 .enemy{position:absolute;inset:0;z-index:3;display:flex;align-items:flex-end;justify-content:center;padding:6px 0 2%;pointer-events:none;}
-/* 인물 대치: 괴수 이미지 대신 어둠 속 실루엣 밴드 */
+/* 인물 대치: 괴수 이미지 없이, 장면 위에 암전과 표찰만 */
 .enemy .crowd{position:absolute;inset:0;background:
-   radial-gradient(120% 80% at 50% 100%,rgba(0,0,0,.15) 0%,rgba(2,5,7,.55) 60%,rgba(2,5,7,.92) 100%);}
-.enemy .fig{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:6%;height:74%;width:100%;padding:0 9%;}
-.enemy .fig i{display:block;width:16%;height:100%;border-radius:46% 46% 6% 6% / 18% 18% 4% 4%;
-  background:linear-gradient(180deg,rgba(8,14,17,.2) 0%,rgba(10,18,22,.98) 34%,rgba(4,8,10,1) 100%);
-  box-shadow:0 0 26px rgba(0,0,0,.9),inset 0 0 22px rgba(94,242,192,.05);
-  border:1px solid rgba(94,242,192,.10);transform-origin:50% 100%;}
-.enemy .fig i:nth-child(1){height:92%;width:19%;}
-.enemy .fig i:nth-child(2){height:74%;width:15%;}
-.enemy .fig i:nth-child(3){height:84%;width:17%;}
-.enemy.hurt .fig i{transform:translateX(7px) scale(.98);filter:brightness(1.6);}
-.enemy.stagger .fig i{transform:translateY(9px) scale(.97);filter:brightness(.8);}
+   radial-gradient(120% 80% at 50% 100%,rgba(0,0,0,.10) 0%,rgba(2,5,7,.45) 60%,rgba(2,5,7,.86) 100%);
+  transition:filter .12s;}
+.enemy .mobtag{position:absolute;left:12px;bottom:10px;font-size:9.5px;letter-spacing:1.2px;color:#ffd9a0;
+  border:1px solid rgba(255,200,94,.38);background:rgba(4,10,12,.72);padding:2px 7px;border-radius:2px;}
+.enemy .mobtag b{color:#fff;font-weight:400;}
+.enemy.hurt .crowd{background:radial-gradient(120% 80% at 50% 100%,rgba(255,84,104,.22) 0%,rgba(2,5,7,.5) 60%,rgba(2,5,7,.9) 100%);}
+.enemy.stagger .crowd{filter:brightness(.82);}
 .enemy-hud{position:absolute;top:0;left:0;right:0;z-index:7;pointer-events:none;padding:6px 12px 7px;
   background:linear-gradient(180deg,rgba(3,7,10,.92),rgba(3,7,10,.55) 75%,rgba(3,7,10,0));}
 .eh-top{display:flex;justify-content:space-between;align-items:baseline;font-size:10.5px;color:#d9e6f2;}
@@ -564,7 +561,7 @@ var COMBOS = [
 
 var STMTS = [
   { id: 's1', who: '감시원', text: '저는 가스 점검하러 왔습니다. 관리사무소에서 연락받고 왔어요.', ev: 'cctv',
-    short: '\"관리사무소에서 연락받고 왔습니다.\" — 그 기록의 서명은, 본인이 직접 적었다.',
+    short: '\"관리사무소에서 연락받고 왔습니다.\" — 그 기록의 서명은, 본인의 손으로 적혀 있었다.',
     ok: '경비실 기록에 21:12, 목적 \'가스 점검\', 서명 \'종수\'. 그런데 김반장은 오늘 가스 점검 요청을 받은 적이 없습니다.\n그 기록은 당신이 직접 적은 거예요. 이름까지, 정확하게.',
     no: '그 증거로는 방문 목적을 흔들지 못합니다.' },
   { id: 's2', who: '감시원', text: '사진은 안 찍었어요. 제 폰에 그런 거 없습니다.', ev: 'shadow',
@@ -826,7 +823,7 @@ function cutIn(opt, cb) {
   timer = setTimeout(next, 6000);
 }
 function strikeFx(s, cb) {
-  var n = G.strikes.length + 1;
+  var n = G.strikes.length;
   cutIn({
     k: 'CONTRADICTION · 0' + n + ' / 03',
     t: '모순 포착',
@@ -966,7 +963,7 @@ function renderInvest() {
     '<div class="slots">' + POINTS.map(function (p, i) {
       var got = G.clues.indexOf(p.clue) >= 0;
       var c = CLUES[p.clue];
-      return '<div class="slot' + (got ? ' found' : '') + '"><span class="idx">' + ('0' + (i + 1)) + '</span><span class="nm">' + (got ? esc(c.n) : esc(p.lbl) + ' · 미확인') + '</span><span class="kd">' + (got ? c.k : '·') + '</span></div>';
+      return '<div class="slot' + (got ? ' found' : '') + '"><span class="idx">' + ('0' + (i + 1)) + '</span><span class="nm">' + (got ? esc(c.n) : esc(p.lbl) + ' · 미확인') + '</span><span class="kd' + (got ? '' : ' nd') + '">' + (got ? c.k : '—') + '</span></div>';
     }).join('') + '</div>' +
     '<div class="inv-tip"><div>반짝이는 곳을 눌러 조사한다. 단서 둘을 <b>수첩</b>에서 붙이면 추리, 추리 둘이 서면 <b>증언</b>이 열린다.</div></div>' +
     '<div class="inv-foot">' +
@@ -1089,7 +1086,7 @@ function renderCourt() {
     return '<button class="stmt' + (hit ? ' hit' : '') + '" data-s="' + s.id + '"><span class="who">' + esc(s.who) + '</span>' + esc(s.text) + '</button>';
   }).join('');
   $('#panel').innerHTML =
-    '<div class="court-head">증인 <b>' + esc(WHO.감시원.r) + '</b> 남자 · 남은 모순 ' + (3 - G.strikes.length) + '개<br>문장을 누르고, 어긋나는 증거를 고른다.</div>' +
+    '<div class="court-head">증인 · <b>감시원</b> (자칭 \'가스 점검\') · 남은 모순 ' + (3 - G.strikes.length) + '개<br>문장을 누르고, 어긋나는 증거를 고른다.</div>' +
     '<div class="stmts">' + list + '</div>' +
     '<div class="court-note">증거가 맞으면 진실 게이지가 오르고, 틀리면 15가 내려간다. 세 문장을 모두 무너뜨리면, 그가 값을 말한다.</div>' +
     '<div class="nb-bar"><button class="btn" id="cNote">수첩</button><button class="btn ghost" id="cBack">현장으로</button></div>';
@@ -1224,7 +1221,7 @@ function renderBattle(first) {
   var bpct = clamp(e.brk / e.brkMax * 100, 0, 100);
   var art = $('#art');
   var html = '<div class="enemy' + (e.stagger > 0 ? ' stagger' : '') + '" id="enemyBox">' +
-    '<div class="crowd"></div><div class="fig"><i></i><i></i><i></i></div></div>' +
+    '<div class="crowd"></div><div class="mobtag">감시원 일행 <b>3</b> · 골목 어귀</div></div>' +
     '<div class="enemy-hud" id="enemyHud"><div class="eh-top"><span class="eh-name">' + esc(e.name) + '</span><span>기세 ' + e.hp + ' / ' + e.max + '</span></div>' +
     '<div class="bar hp"><i style="width:' + pct + '%"></i><span class="tick"></span></div>' +
     '<div class="eh-top" style="margin-top:4px"><span style="font-size:9px;color:#9fd0ff">빈틈</span><span style="font-size:9px;color:#9fd0ff">' + Math.round(e.brk / e.brkMax * 100) + '%</span></div>' +
