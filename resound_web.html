@@ -640,6 +640,7 @@ button:active{transform:scale(.985)}
   var BUILD = 'web-1.0.0';
   var PARSER = window.ReSoundParser || { parse: function () { return { blocks: [], chapters: [], stats: {}, codeMap: {} }; }, version: 'missing', toSpeech: function (t) { return t; } };
   var PARSER_VERSION = PARSER.version;
+  var parseManuscript = PARSER.parse;
   var LS_KEY = 'resound.web.v1';
 
   /* ------------------------------------------------------------------ *
