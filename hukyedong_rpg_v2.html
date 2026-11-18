@@ -235,7 +235,7 @@ body.v-battle #artTag{display:none;}
 .bt-head{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:7px 12px 5px;border-bottom:1px solid #12232a;}
 .bt-head .turn{font-size:11.5px;color:var(--mint);letter-spacing:.3px;}
 .bt-head .meta{margin-left:auto;font-family:var(--mono);font-size:9.5px;color:#6d8a84;}
-.bt-log{flex:0 0 auto;height:52px;overflow:hidden;padding:4px 14px 0;font-size:11px;line-height:1.55;color:#a9c4be;}
+.bt-log{flex:0 0 auto;height:46px;overflow:hidden;padding:4px 14px 0;font-size:11px;line-height:1.55;color:#a9c4be;}
 .bt-log div{opacity:.55;}
 .bt-log div:last-child{opacity:1;color:#e2f2ec;}
 .bt-party{flex:0 0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:5px 10px 6px;}
@@ -249,7 +249,7 @@ body.v-battle #artTag{display:none;}
 .pcard .pb i.mid{background:linear-gradient(90deg,#f0b23c,#ffd98b);}
 .pcard .pb i.low{background:linear-gradient(90deg,#ff5468,#ff8a5e);}
 .pcard .pt{display:flex;justify-content:space-between;font-size:8.5px;color:#7d9892;margin-top:3px;}
-.bt-cmds{flex:0 0 auto;margin-top:auto;padding:6px 10px 10px;display:flex;flex-direction:column;gap:6px;}
+.bt-cmds{flex:0 0 auto;margin-top:auto;padding:5px 10px 8px;display:flex;flex-direction:column;gap:5px;}
 .cmd-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
 .cmd{padding:9px 8px;border:1px solid var(--line2);border-radius:3px;background:linear-gradient(180deg,#101e23,#0a1317);
   text-align:left;font-size:12px;line-height:1.25;box-shadow:0 2px 0 #000;transition:transform .07s,border-color .12s;}
@@ -260,6 +260,8 @@ body.v-battle #artTag{display:none;}
 .cmd.res.off{border-color:var(--line2);color:#5b7770;background:#0a1317;font-weight:400;}
 .cmd.price{grid-column:1 / -1;border-color:#7a5f22;color:#ffe0a8;background:linear-gradient(180deg,#1d1608,#120d04);}
 .cmd.price.off{border-color:var(--line2);color:#5b7770;background:#0a1317;}
+.condbar{grid-column:1 / -1;font-size:9.5px;letter-spacing:.2px;color:#7f9a94;border:1px dashed #24403c;
+  border-radius:3px;padding:5px 8px;background:rgba(6,16,18,.55);}
 .cmd.cap{grid-column:1 / -1;border-color:var(--amber);color:#1c1402;background:linear-gradient(180deg,#ffd98b,#f0b23c);font-weight:800;
   animation:capPulse .8s infinite alternate;}
 @keyframes capPulse{from{box-shadow:0 0 0 rgba(255,200,94,0)}to{box-shadow:0 0 16px rgba(255,200,94,.65)}}
@@ -1253,7 +1255,7 @@ function renderBattle(first) {
   var perfectReady = e.stagger > 0 && BAT.press >= 6 && e.hp <= Math.round(e.max * 0.55);
   var cap = perfectReady
     ? '<button class="cmd cap" id="cmdCap">확언 · 덫을 뒤집다<span class="k" style="color:#3a2a05">증거 3연타 + 추궁 6</span></button>'
-    : '<button class="cmd" disabled style="grid-column:1 / -1;opacity:.75">확언 조건 · 흐트러짐 ' + (e.stagger > 0 ? '✓' : '✗') + ' · 추궁 ' + BAT.press + '/6 · 기세 ' + Math.round(e.hp / e.max * 100) + '%/55%↓</button>';
+    : '<div class="condbar">확언 조건 · 흐트러짐 ' + (e.stagger > 0 ? '완료' : '아직') + ' · 추궁 ' + BAT.press + '/6 · 기세 ' + Math.round(e.hp / e.max * 100) + '% (55% 이하)</div>';
   var priceBtn = '<button class="cmd price' + ((BAT.priceChosen || BAT.busy) ? ' off' : '') + '" id="cmdPrice"' + (BAT.priceChosen || BAT.busy ? ' disabled' : '') + '>유코의 문턱 <span class="k" style="color:inherit;opacity:.75">' + (BAT.priceChosen ? '값을 물었고, 답했다' : '대가를 치를 수 있다') + '</span></button>';
   var busyAttr = BAT.busy ? ' disabled' : '';
   var guard = '<button class="cmd" id="cmdGuard"' + busyAttr + '>숨죽이기<span class="k">다음 공격 피해 절반</span></button>';
