@@ -2738,15 +2738,24 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
   function watchInput(inp, onFile) {
     if (!inp) return;
     var t0 = Date.now();
-    var iv = setInterval(function () {
-      if (!inp.isConnected || Date.now() - t0 > 10000) { clearInterval(iv); return; }
+    var iv = null;
+    function stop() {
+      if (iv) { clearInterval(iv); iv = null; }
+      window.removeEventListener('focus', check);
+    }
+    function check() {
       var f = inp.files && inp.files[0];
       if (f && inp.dataset.taken !== f.name + f.size) {
         inp.dataset.taken = f.name + f.size;
-        clearInterval(iv);
+        stop();
         onFile(f);
       }
+    }
+    iv = setInterval(function () {
+      if (!inp.isConnected || Date.now() - t0 > 60000) { stop(); return; }
+      check();
     }, 350);
+    window.addEventListener('focus', check);
   }
   /* 근거 문단으로 이동할 때는 스튜디오를 닫고 감상 화면으로 넘어간다 */
   function jumpTo(i, autoplay) {
