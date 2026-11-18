@@ -2717,6 +2717,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
   var ifPreset = 'flip';
   var ifCustom = '';
   var pod = { turns: [], i: 0, playing: false, token: 0, audioEl: null, timer: null };
+  var fallback = null;   // 모델 호출 실패 기록(조용한 실패 금지)
 
   var TABS = [
     { id: 'summary', label: '요약', icon: '📝' },
@@ -2847,6 +2848,13 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     else if (tab === 'quiz') renderQuiz();
     else if (tab === 'qa') renderQa();
     else renderImagebook();
+    if (fallback && Date.now() - fallback.at < 15 * 60000) {
+      var note = document.createElement('div');
+      note.className = 'warnBox';
+      note.setAttribute('data-fallback', fallback.kind);
+      note.textContent = '모델 호출에 실패해 규칙 엔진 결과를 보여줍니다 — ' + fallback.msg;
+      body.insertBefore(note, body.firstChild);
+    }
   }
 
   function loadingCard(text) {
@@ -3206,10 +3214,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     if (geminiOn()) {
       ai().geminiStudio(a, 'briefs', { key: H.gemini().key, model: H.gemini().textModel })
         .then(done)
-        .catch(function (e) {
-          H.toast('AI 생성 실패 — 규칙 엔진으로 대신 만듭니다: ' + shortErr(e));
-          done(localBriefs(a));
-        });
+        .catch(function (e) { noteFallback('briefs', e); done(localBriefs(a)); });
     } else done(localBriefs(a));
   }
 
@@ -3234,10 +3239,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     if (geminiOn()) {
       ai().geminiStudio(a, 'overview', { key: H.gemini().key, model: H.gemini().textModel, format: format, length: lengthMode, focus: focusText })
         .then(done)
-        .catch(function (e) {
-          H.toast('AI 생성 실패 — 규칙 엔진으로 대신 만듭니다: ' + shortErr(e));
-          done(ai().overview(a, opts));
-        });
+        .catch(function (e) { noteFallback('overview', e); done(ai().overview(a, opts)); });
     } else done(ai().overview(a, opts));
   }
   function generateQuiz() {
@@ -3251,10 +3253,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     if (geminiOn()) {
       ai().geminiStudio(a, 'quiz', { key: H.gemini().key, model: H.gemini().textModel, count: 10 })
         .then(done)
-        .catch(function (e) {
-          H.toast('AI 생성 실패 — 규칙 엔진으로 대신 만듭니다: ' + shortErr(e));
-          done(ai().quiz(a, { count: 10 }));
-        });
+        .catch(function (e) { noteFallback('quiz', e); done(ai().quiz(a, { count: 10 })); });
     } else done(ai().quiz(a, { count: 10 }));
   }
 
@@ -3270,10 +3269,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     if (geminiOn()) {
       ai().geminiStudio(a, 'if', { key: H.gemini().key, model: H.gemini().textModel, preset: ifPreset, presetLabel: preset.label, custom: ifCustom })
         .then(done)
-        .catch(function (e) {
-          H.toast('AI 생성 실패 — 규칙 엔진으로 대신 씁니다: ' + shortErr(e));
-          done(ai().ifScenario(a, { preset: ifPreset, custom: ifCustom }));
-        });
+        .catch(function (e) { noteFallback('if', e); done(ai().ifScenario(a, { preset: ifPreset, custom: ifCustom })); });
     } else done(ai().ifScenario(a, { preset: ifPreset, custom: ifCustom }));
   }
 
@@ -3289,14 +3285,17 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     if (geminiOn()) {
       ai().geminiStudio(a, 'qa', { key: H.gemini().key, model: H.gemini().textModel, question: qText })
         .then(done)
-        .catch(function (e) {
-          H.toast('AI 답변 실패 — 원고 검색으로 답합니다: ' + shortErr(e));
-          done(ai().qa(a, qText));
-        });
+        .catch(function (e) { noteFallback('qa', e); done(ai().qa(a, qText)); });
     } else done(ai().qa(a, qText));
   }
 
   function shortErr(e) { var m = String((e && e.message) || e); return m.length > 90 ? m.slice(0, 90) + '…' : m; }
+  function noteFallback(kind, e) {
+    var msg = shortErr(e);
+    fallback = { kind: kind, msg: msg, at: Date.now() };
+    (root.__rsAiLog = root.__rsAiLog || []).push({ kind: kind, error: msg, at: fallback.at });
+    H.toast('모델 호출 실패 — 규칙 엔진으로 대신합니다: ' + msg, 3600);
+  }
 
   /* ------------------------------------------------------------------ *
    * 생성물 저장/복원
@@ -3539,7 +3538,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     });
     H.hooks.onBookOpen.push(function () {
       gen.briefs = null; gen.overview = null; gen.quiz = null; gen.ifs = null; gen.qa = [];
-      gen.artifacts = []; pod.turns = []; pod.i = 0; quizState.answered = {};
+      gen.artifacts = []; pod.turns = []; pod.i = 0; quizState.answered = {}; fallback = null;
       stopPodcast();
     });
     H.hooks.onViewChange.push(function (v) { if (v !== 'studio' && pod.playing) stopPodcast(); });
