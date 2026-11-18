@@ -957,14 +957,22 @@ input[type=range]{accent-color:var(--amber);height:26px}
       },
       {
         i: 2, kind: 'narration', speaker: '성우 샘플', unresolved: false,
-        text: '6명의 배역이 차례로 짧은 대사를 말하는 샘플입니다. 재생을 누르면 이 문단부터 성우 목소리로 들립니다. 문단을 누르면 그 문단부터 바로 재생되는 것도 함께 확인해 보세요.',
+        text: '6명의 배역이 차례로 짧은 대사를 말하는 샘플입니다. 미리 만들어 둔 오디오를 그대로 재생합니다.',
         speech: ''
+      },
+      {
+        i: 3, kind: 'cue', speech: '',
+        text: '책(TXT·PDF·JSON)을 넣으면 이 화면처럼 문단 카드가 만들어집니다. 지문은 화면에만 남고 읽지 않습니다.'
+      },
+      {
+        i: 4, kind: 'cue', speech: '',
+        text: '문단을 누르면 그 문단부터 바로 재생됩니다. 아래 버튼으로 이전·정지·다음·배속(0.8~2.0×)을 조절하고, ☆ 로 책갈피를 꽂으세요.'
       }
     ];
     demoBookCache = {
       id: 'demo', demo: true, title: '성우 샘플 · Gemini 6배역 몽타주',
       text: '', blocks: blocks, chapters: [{ i: 0, title: '내장 성우 샘플', level: 2 }],
-      stats: { blocks: 3, chapters: 1, dialogue: 0, narration: 1, cueBlocks: 1, speakable: 1, chars: 0, speakers: 1, droppedMeta: 0, droppedDecor: 0, droppedSection: 0, droppedMetaLine: 0, inlineCues: 0, unknownSpeakers: 0 },
+      stats: { blocks: 5, chapters: 1, dialogue: 0, narration: 1, cueBlocks: 3, speakable: 1, chars: 0, speakers: 1, droppedMeta: 0, droppedDecor: 0, droppedSection: 0, droppedMetaLine: 0, inlineCues: 0, unknownSpeakers: 0 },
       audio: url ? { perBlock: new Map([[2, { url: url }]]), label: '성우 오디오(내장 샘플)' } : null,
       index: 0, bookmarks: []
     };
@@ -1512,7 +1520,7 @@ input[type=range]{accent-color:var(--amber);height:26px}
     P.lockScroll = !!state.scrollLock;
     renderReader(book);
     showView('reader');
-    state.lastBookId = book.id;
+    if (!book.demo) state.lastBookId = book.id;
     state.screen = 'reader';
     if (rec) { rec.lastAt = Date.now(); rec.index = P.i; }
     persist();
