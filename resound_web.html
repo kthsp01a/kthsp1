@@ -2177,19 +2177,12 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     });
   }
 
-  function runSearch() {
-    var book = H.book(); if (!book) return;
-    var q = String(searchState.q || '').trim();
-    var countEl = $('qCount'), box = $('qResults');
-    if (!box) return;
-    if (q.length < 1) {
-      if (countEl) countEl.textContent = '검색어를 입력하세요';
-      box.innerHTML = '<div class="empty">대사·화자·낱말을 입력하면 그 문단으로 바로 이동해 재생합니다.</div>';
-      return;
-    }
-    var lower = q.toLowerCase();
+  function searchBlocks(q, scope) {
+    var book = H.book();
+    if (!book || !q) return [];
+    var lower = String(q).toLowerCase();
     var out = [];
-    var scope = searchState.scope;
+    scope = scope || 'all';
     for (var i = 0; i < book.blocks.length; i++) {
       var b = book.blocks[i];
       if (b.kind === 'cue' && scope !== 'all' && scope !== 'cue') continue;
@@ -2206,6 +2199,21 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
       out.push({ i: i, kind: b.kind, speaker: b.speaker, text: text, hitSpk: hitSpk, chapter: b.chapter });
       if (out.length >= 200) break;
     }
+    return out;
+  }
+
+  function runSearch() {
+    var book = H.book(); if (!book) return;
+    var q = String(searchState.q || '').trim();
+    var countEl = $('qCount'), box = $('qResults');
+    if (!box) return;
+    if (q.length < 1) {
+      if (countEl) countEl.textContent = '검색어를 입력하세요';
+      box.innerHTML = '<div class="empty">대사·화자·낱말을 입력하면 그 문단으로 바로 이동해 재생합니다.</div>';
+      return;
+    }
+    var lower = q.toLowerCase();
+    var out = searchBlocks(q, searchState.scope);
     searchState.results = out;
     if (countEl) countEl.textContent = out.length ? (out.length + (out.length >= 200 ? '+' : '') + '개 문단') : '일치하는 문단이 없습니다';
     if (!out.length) {
@@ -2411,6 +2419,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     H.store.stats().then(function (s) {
       if (!s || !s.ok) { box.innerHTML = '<div class="warnBox">IndexedDB를 쓸 수 없습니다: ' + H.esc(H.store.error() || '알 수 없음') + '</div>'; return; }
       H.store.estimate().then(function (est) {
+        window.__rsIdb = { ok: true, texts: s.texts, audio: s.audio, images: s.images, artifacts: s.artifacts, textBytes: s.textBytes, usage: est && est.usage, quota: est && est.quota, at: Date.now() };
         var used = est && est.usage ? (est.usage / 1048576).toFixed(1) + 'MB' : '—';
         var quota = est && est.quota ? (est.quota / 1048576 / 1024).toFixed(1) + 'GB' : '—';
         box.innerHTML = '<div class="statGrid">' +
@@ -2657,7 +2666,9 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     saveAudioFiles: saveAudioFiles,
     hydrateAudio: hydrateAudio,
     refreshStage: refreshStage,
-    testSpeaker: testSpeaker
+    testSpeaker: testSpeaker,
+    searchBlocks: searchBlocks,
+    setTheme: setTheme, setFs: setFs, setLh: setLh
   };
 })(window);
 
@@ -4950,7 +4961,19 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
       studio: function () { return window.ReSoundStudio ? window.ReSoundStudio.state() : null; },
       studioOpen: function (t) { if (window.ReSoundStudio) { window.ReSoundStudio.open(t); return true; } return false; },
       features: function () { return window.ReSoundFeatures ? window.ReSoundFeatures.timerState() : null; },
-      maxRead: function () { return host.maxReadIndex(); }
+      maxRead: function () { return host.maxReadIndex(); },
+      idb: function () { return window.__rsIdb || null; },
+      timerTest: function (sec) {
+        if (!window.ReSoundFeatures) return false;
+        window.ReSoundFeatures.startTimer('minutes', Math.max(0.03, (sec || 6) / 60));
+        return true;
+      },
+      cast: function (name) { return castFor(name); },
+      sheet: function () { return sheetOpenName; },
+      renderStats: function () {
+        var list = $('rList');
+        return { blocks: list ? list.children.length : 0, scrollW: list ? list.scrollWidth : 0, clientW: list ? list.clientWidth : 0 };
+      }
     };
     // 보던 화면 복원
     if (state.screen === 'reader' && state.lastBookId) {
