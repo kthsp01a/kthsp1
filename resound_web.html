@@ -1220,7 +1220,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
       var best = null;
       s.blocks.forEach(function (bi) {
         var t = clean(blocks[bi].text);
-        if (t.length < 12 || t.length > 120) return;
+        if (t.length < 6 || t.length > 120) return;
         var score = t.length + (/[?!？！]$/.test(t) ? 40 : 0);
         if (!best || score > best.score) best = { score: score, text: t, i: bi };
       });
