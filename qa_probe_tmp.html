@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>QA PROBE</title>
+<style>
+  html,body{margin:0;background:#111;color:#8f8;font:12px/1.4 monospace}
+  #log{padding:6px;white-space:pre-wrap}
+  iframe{width:390px;height:844px;border:0;display:block;background:#000}
+</style>
+</head>
+<body>
+<div id="log">init</div>
+<iframe id="f"></iframe>
+<script>
+var errs = [], logEl = document.getElementById('log'), f = document.getElementById('f');
+var started = Date.now();
+function push(s){ errs.push(s); }
+
+fetch('hukyedong_rpg_v1.html').then(function(r){ return r.text(); }).then(function(t){
+  var w = f.contentWindow;
+  w.addEventListener('error', function(e){ push('ERROR|' + (e.message||'') + '|' + (e.filename||'') + ':' + (e.lineno||'') + ':' + (e.colno||'')); });
+  w.addEventListener('unhandledrejection', function(e){ push('REJECT|' + String((e.reason && (e.reason.message||e.reason.stack)) || e.reason)); });
+  ['error','warn'].forEach(function(k){
+    var o = (w.console[k] || function(){}).bind(w.console);
+    w.console[k] = function(){ try{ var a=[].slice.call(arguments).map(function(x){ try{ return typeof x==='object'?JSON.stringify(x):String(x); }catch(_){ return String(x); } }); push('console.' + k + '|' + a.join(' ')); }catch(_){} o.apply(null, arguments); };
+  });
+  var d = f.contentDocument;
+  d.open(); d.write(t); d.close();
+
+  setTimeout(function(){
+    var dw = f.contentWindow, dd = f.contentDocument;
+    var out = [];
+    out.push('RESULT_BEGIN');
+    out.push('title=' + dw.document.title);
+    out.push('viewport=' + dw.innerWidth + 'x' + dw.innerHeight);
+    out.push('domLen=' + (dd.documentElement.outerHTML||'').length);
+    out.push('errCount=' + errs.length);
+    errs.forEach(function(e){ out.push('  ' + e); });
+    out.push('buttons=' + [].slice.call(dd.querySelectorAll('button')).map(function(b){ return b.textContent.trim(); }).join(' / '));
+    out.push('text=' + ((dd.body && dd.body.innerText) || '').replace(/\s+/g,' ').slice(0,300));
+    out.push('readyState=' + dw.document.readyState + ' elapsedMs=' + (Date.now()-started));
+    out.push('RESULT_END');
+    logEl.textContent = out.join('\n');
+  }, 6000);
+}).catch(function(e){ logEl.textContent = 'FETCH_FAIL ' + e; });
+</script>
+</body>
+</html>
