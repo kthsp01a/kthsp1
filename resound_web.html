@@ -949,6 +949,7 @@ button:active{transform:scale(.985)}
     lockScroll: false, lastEngine: null, simulated: false
   };
   var geminiCache = new Map();
+  var audioByBook = {};  // 실행 중 오디오(오브젝트 URL)는 실행 세션 동안 책 id로 보관
 
   function setStatus(msg) {
     var el = $('rStatus');
@@ -1430,8 +1431,9 @@ button:active{transform:scale(.985)}
     $('btnContinue').disabled = false;
     $('ccTitle').textContent = last.title;
     var total = last.speakable || 1;
-    var pct = Math.round(Math.min(last.index || 0, total) / total * 100);
-    $('ccMeta').textContent = '문단 ' + num(Math.min((last.index || 0) + 1, total)) + ' / ' + num(total) + ' · ' + pct + '%';
+    var sp = typeof last.sp === 'number' ? last.sp : Math.min(last.index || 0, total);
+    var pct = Math.round(Math.min(sp + 1, total) / total * 100);
+    $('ccMeta').textContent = '문단 ' + num(Math.min(sp + 1, total)) + ' / ' + num(total) + ' · ' + pct + '%';
     $('ccBar').style.width = pct + '%';
   }
 
@@ -1462,6 +1464,7 @@ button:active{transform:scale(.985)}
 
   function openBook(book, opts) {
     opts = opts || {};
+    if (!book.audio && audioByBook[book.id]) book.audio = audioByBook[book.id];
     applyCodeNames(book);
     P.book = book;
     hardStop();
@@ -1496,7 +1499,7 @@ button:active{transform:scale(.985)}
   function saveProgress() {
     if (!P.book) return;
     var rec = recordOf(P.book);
-    if (rec) { rec.index = P.i; rec.lastAt = Date.now(); }
+    if (rec) { rec.index = P.i; rec.sp = speakIndex(P.book, P.i); rec.lastAt = Date.now(); }
     state.screen = currentView;
     clearTimeout(saveProgress._t);
     saveProgress._t = setTimeout(function () { persist(); }, 220);
@@ -1549,6 +1552,7 @@ button:active{transform:scale(.985)}
     if (!tocHtml) tocHtml = '<div class="empty">장 제목을 찾지 못했습니다.</div>';
 
     var html =
+      '<div class="rowBtns" style="margin:0 0 9px"><button class="btn ghost wide" data-opensettings="1" style="grid-column:1/-1">⚙ 설정 · 성우 오디오 · Gemini TTS</button></div>' +
       '<div class="rowBtns" style="margin:0 0 10px"><button class="btn ' + (tab === 'toc' ? 'emerald' : 'ghost') + '" data-navtab="toc">목차 ' + num(P.book.chapters.length) + '</button>' +
       '<button class="btn ' + (tab === 'bm' ? 'emerald' : 'ghost') + '" data-navtab="bm">북마크 ' + num(bm.length) + '</button></div>' +
       '<div id="navToc" ' + (tab === 'bm' ? 'hidden' : '') + '>' + tocHtml + '</div>' +
@@ -1622,6 +1626,7 @@ button:active{transform:scale(.985)}
     $('sheetBody').addEventListener('click', function (e) {
       var t = e.target.closest('button');
       if (!t) return;
+      if (t.dataset.opensettings) { openSettings(); return; }
       if (t.dataset.navtab) { openNavSheet(t.dataset.navtab); return; }
       if (t.dataset.toc !== undefined) {
         var i = parseInt(t.dataset.toc, 10);
@@ -1711,6 +1716,7 @@ button:active{transform:scale(.985)}
       book.audio = { perBlock: map, label: '성우 오디오' };
       toast('오디오 ' + urls.length + '개를 앞 ' + Math.min(urls.length, speak.length) + '문단에 연결했습니다');
     }
+    audioByBook[book.id] = book.audio;
     var rec = recordOf(book);
     if (rec) rec.audioCount = urls.length;
     persist();
