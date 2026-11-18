@@ -1141,6 +1141,16 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     }
     return out;
   }
+  function batchim(word) {
+    var t = String(word == null ? '' : word).replace(/[“”"'’‘()\[\]]/g, '').trim();
+    if (!t) return false;
+    var c = t.charCodeAt(t.length - 1);
+    if (c < 0xAC00 || c > 0xD7A3) return false;
+    return (c - 0xAC00) % 28 !== 0;
+  }
+  function iga(w) { return w + (batchim(w) ? '이' : '가'); }
+  function eun(w) { return w + (batchim(w) ? '은' : '는'); }
+  function gwa(w) { return w + (batchim(w) ? '과' : '와'); }
   function hashStr(s) {
     var h = 5381;
     for (var i = 0; i < s.length; i++) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0;
@@ -1299,11 +1309,15 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
         return { i: bi, quote: q(b.text, 110), speaker: b.speaker || null, chapter: b.chapter === undefined ? '' : titleOfChapter(b.chapter) };
       });
       var lead = ev[0] ? ev[0].quote : '';
+      var term = '‘' + k.term + '’';
       return {
         term: k.term, count: k.count, chapters: uniq(ev.map(function (e) { return e.chapter; })).filter(Boolean),
-        title: '‘' + k.term + '’ — ' + k.count + '회 되풀이되는 대목',
-        claim: '원고에서 ‘' + k.term + '’이(가) ' + k.count + '회 나오며 ' + ev.length + '개 장면에서 반복됩니다. ' +
-          (lead ? '그 중심 문장은 “' + q(lead, 80) + '”입니다.' : ''),
+        title: k.count >= 2 ? term + ' — ' + k.count + '회 되풀이되는 대목' : term + ' — 처음 나오는 대목',
+        claim: k.count >= 2
+          ? '원고에서 ' + term + iga(k.term) + ' ' + k.count + '회 나오며 ' + ev.length + '개 장면에서 반복됩니다. ' +
+            (lead ? '그 중심 문장은 “' + q(lead, 80) + '”입니다.' : '')
+          : '원고에서 ' + term + eun(k.term) + ' 이 대목에서 처음 나옵니다. ' +
+            (lead ? '문장은 “' + q(lead, 80) + '”입니다.' : ''),
         evidence: ev
       };
     });
@@ -1409,10 +1423,10 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
         '배치됩니다. ' + (a.chapters[0] ? '첫 장 「' + a.chapters[0].title + '」은 ' + a.chapters[0].brief + '입니다.' : ''),
         a.chapters[0] && a.chapters[0].quote ? { i: a.chapters[0].quote.i, quote: a.chapters[0].quote.text } : null));
       var kws = a.keywords.slice(0, 3);
-      turns.push(turn('B', kws.length ? '‘' + kws[0].term + '’가 반복된다고 하셨는데, 그게 어느 대목에서 가장 선명한가요?' : '가장 자주 나오는 표현은 무엇인가요?'));
+      turns.push(turn('B', kws.length ? '‘' + kws[0].term + '’' + iga(kws[0].term) + ' 반복된다고 하셨는데, 그게 어느 대목에서 가장 선명한가요?' : '가장 자주 나오는 표현은 무엇인가요?'));
       if (kws[0] && kws[0].blocks.length) {
         var eb = a.blocks[kws[0].blocks[0]];
-        turns.push(turn('A', '가장 먼저 나오는 대목입니다. “' + q(eb.text, 90) + '” — ‘' + kws[0].term + '’이(가) ' + kws[0].count + '회 되풀이됩니다.',
+        turns.push(turn('A', '가장 먼저 나오는 대목입니다. “' + q(eb.text, 90) + '” — ‘' + kws[0].term + '’' + iga(kws[0].term) + ' ' + kws[0].count + '회 되풀이됩니다.',
           { i: eb.i, quote: q(eb.text, 120) }));
       }
       if (a.issues.length > 1) {
@@ -1441,11 +1455,11 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
 
     if (format === 'debate') {
       var s1 = spk[0], s2 = spk[1];
-      turns.push(turn('A', (s1 ? '이 작품은 ' + s1.name + '의 시점이 끌고 갑니다. 대사의 ' + s1.share + '%가 ' + s1.name + ' 것입니다.' : '이 작품은 한 인물의 시선이 중심입니다.'),
+      turns.push(turn('A', (s1 ? '이 작품은 ' + s1.name + '의 시점이 끌고 갑니다. 대사의 ' + Math.round(s1.peopleShare || s1.share) + '%가 ' + s1.name + ' 몫입니다.' : '이 작품은 한 인물의 시선이 중심입니다.'),
         s1 && s1.quote ? { i: s1.quote.i, quote: s1.quote.text } : null));
       turns.push(turn('B', (s2 ? '저는 반대로 봅니다. ' + s2.name + '의 ' + s2.lines + '문단이 사건을 뒤집는 역할을 합니다.' : '저는 다른 해석을 제안합니다. 사건은 주변 인물이 만듭니다.'),
         s2 && s2.quote ? { i: s2.quote.i, quote: s2.quote.text } : null));
-      turns.push(turn('A', '그 장면만 보면 그렇습니다. 하지만 ' + (a.keywords[0] ? '‘' + a.keywords[0].term + '’이(가) ' + a.keywords[0].count + '회 반복되는 걸 보면' : '반복 구조를 보면') + ' 중심축은 하나로 수렴합니다.'));
+      turns.push(turn('A', '그 장면만 보면 그렇습니다. 하지만 ' + (a.keywords[0] ? '‘' + a.keywords[0].term + '’' + iga(a.keywords[0].term) + ' ' + a.keywords[0].count + '회 반복되는 걸 보면' : '반복 구조를 보면') + ' 중심축은 하나로 수렴합니다.'));
       turns.push(turn('B', '그 수렴이 작가의 의도인지, 낭독에서 드러나는 효과인지는 다릅니다. ' + (a.issues[1] ? a.issues[1].title + ' 대목은 해석이 갈립니다.' : '근거 문단을 더 봐야 합니다.')));
       turns.push(turn('A', '좋습니다. 결론을 하나로 정하지 않고, 두 해석의 근거 문단을 나란히 두겠습니다.'));
       return finish(turns, 'debate', a);
@@ -1460,7 +1474,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
       turns.push(turn('A', '「' + ch.title + '」 — ' + ch.brief + (quote ? '. “' + q(quote.text, 80) + '”' : ''),
         quote ? { i: quote.i, quote: quote.text } : null));
       if (ch.keywords.length && rnd() > 0.25) {
-        turns.push(turn('B', '‘' + ch.keywords[0] + '’가 이 장의 열쇠인가요? ' + pick(reactions, rnd)));
+        turns.push(turn('B', '‘' + ch.keywords[0] + '’' + iga(ch.keywords[0]) + ' 이 장의 열쇠인가요? ' + pick(reactions, rnd)));
       } else {
         turns.push(turn('B', pick(['여기서 누가 앞장서나요?', '이 장은 누구의 시선인가요?', '호흡이 짧아지는데 이유가 있나요?'], rnd)));
       }
@@ -1472,7 +1486,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     });
 
     if (format === 'deep' && a.issues.length) {
-      turns.push(turn('B', '키워드 쪽도 짚어 주세요. ' + a.issues[0].title + '라고 하셨죠?'));
+      turns.push(turn('B', '키워드 쪽도 짚어 주세요. ' + a.issues[0].title + (batchim(a.issues[0].title) ? '이라고' : '라고') + ' 하셨죠?'));
       turns.push(turn('A', a.issues[0].claim, a.issues[0].evidence[0] || null));
       if (a.issues.length > 1) turns.push(turn('A', '또 하나, ' + a.issues[1].claim, a.issues[1].evidence[0] || null));
     }
@@ -1604,7 +1618,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     /* 6) 핵심 쟁점 문제 */
     a.issues.slice(0, 3).forEach(function (is) {
       if (!is.evidence.length) return;
-      var item = mc('다음 중 ‘' + is.term + '’이(가) 반복되는 대목의 근거 문장은?',
+      var item = mc('다음 중 ‘' + is.term + '’' + iga(is.term) + ' 나오는 근거 문장은?',
         q(is.evidence[0].quote, 70),
         a.issues.filter(function (x) { return x !== is && x.evidence.length; }).map(function (x) { return q(x.evidence[0].quote, 70); })
           .concat(a.chapters.filter(function (c) { return c.quote; }).slice(0, 3).map(function (c) { return q(c.quote.text, 70); })),
@@ -1675,21 +1689,21 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
       joseon: { world: '조선 후기, 같은 사건이 관청과 문중 사이에서 벌어지는 세계', rule: '모든 대사가 신분과 체면의 언어로 번역되고, 사적인 말은 곤장이 된다' },
       cyber: { world: '신체와 기억을 임대하는 도시', rule: '기억을 팔면 그 장면의 대사는 다른 사람의 목소리로 재생된다' },
       horror: { world: '같은 집, 같은 시간, 설명되지 않는 소리', rule: '문장이 끝나기 전에 누군가 대답하고, 그 대답은 원고에 없다' },
-      swap: { world: '두 사람의 자리가 처음부터 바뀐 세계', rule: A + '의 대사를 ' + B + '가, ' + B + '의 대사를 ' + A + '가 말한다' }
+      swap: { world: '두 사람의 자리가 처음부터 바뀐 세계', rule: A + '의 대사를 ' + iga(B) + ', ' + B + '의 대사를 ' + iga(A) + ' 말한다' }
     }[preset.id];
 
     var acts = [];
     acts.push({
       name: '1막 · 분기점',
       text: (pivot ? '원작에서 갈림길이 되는 대목은 “' + q(pivot.text, 100) + '”입니다. ' : '원작의 첫 장면에서 갈라집니다. ') +
-        '여기서 ' + (preset.id === 'swap' ? A + '와 ' + B + '의 자리를 바꿉니다' : '“' + preset.label + '” 규칙을 적용합니다') +
+        '여기서 ' + (preset.id === 'swap' ? gwa(A) + ' ' + B + '의 자리를 바꿉니다' : '“' + preset.label + '” 규칙을 적용합니다') +
         '. ' + genre.rule + '.',
       evidence: pivot ? { i: pivot.i, quote: pivot.text } : null
     });
     acts.push({
       name: '2막 · 전개',
-      text: genre.world + '에서 ' + A + '는 ' + (a.keywords[0] ? '‘' + a.keywords[0].term + '’' : '원작의 핵심 낱말') +
-        '를 붙잡고, ' + B + '는 ' + (a.keywords[1] ? '‘' + a.keywords[1].term + '’' : '다른 낱말') + ' 쪽에서 같은 사건을 다시 엽니다. ' +
+      text: genre.world + '에서 ' + eun(A) + ' ' + (a.keywords[0] ? '‘' + a.keywords[0].term + '’' : '원작의 핵심 낱말') +
+        '을 붙잡고, ' + eun(B) + ' ' + (a.keywords[1] ? '‘' + a.keywords[1].term + '’' : '다른 낱말') + ' 쪽에서 같은 사건을 다시 엽니다. ' +
         (C !== '조연' ? C + '가 두 사람 사이를 오가며 ' : '') +
         '원작의 ' + (pivotCh ? '「' + pivotCh.title + '」' : '중반부') + ' 사건은 그대로 두되, 원인과 결과의 순서만 바뀝니다. ' +
         (a.issues[0] ? '원작의 쟁점 ' + a.issues[0].title + '은(는) 이 세계에서 더 첨예해집니다.' : ''),
@@ -1697,9 +1711,9 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     });
     acts.push({
       name: '3막 · 결말',
-      text: '결말은 원작과 정확히 한 곳에서만 달라집니다. ' + A + '는 ' + (preset.id === 'flip' ? '이미 성공한 일을 스스로 되돌리고' :
+      text: '결말은 원작과 정확히 한 곳에서만 달라집니다. ' + eun(A) + ' ' + (preset.id === 'flip' ? '이미 성공한 일을 스스로 되돌리고' :
         preset.id === 'joseon' ? '신분을 감춘 채 상소를 올리고' : preset.id === 'cyber' ? '팔았던 기억을 되사고' :
-          preset.id === 'horror' ? '대답하지 않는 쪽을 택하고' : '자기 대사를 상대에게 넘기고') + ', ' + B + '는 그 선택의 대가를 받아들입니다. ' +
+          preset.id === 'horror' ? '대답하지 않는 쪽을 택하고' : '자기 대사를 상대에게 넘기고') + ', ' + eun(B) + ' 그 선택의 대가를 받아들입니다. ' +
         '원작 마지막 장 「' + (a.chapters.length ? a.chapters[a.chapters.length - 1].title : '끝') + '」의 사실은 바뀌지 않습니다.',
       evidence: a.chapters.length && a.chapters[a.chapters.length - 1].quote ? { i: a.chapters[a.chapters.length - 1].quote.i, quote: a.chapters[a.chapters.length - 1].quote.text } : null
     });
@@ -1750,17 +1764,17 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     var chapterTitle = topBlock.chapter !== undefined ? a.titleOfChapter(topBlock.chapter) : '';
     var lead =
       '가장 가까운 대목은 ' + (chapterTitle ? '「' + chapterTitle + '」 ' : '') + '문단 ' + (topBlock.i + 1) + '입니다. ' +
-      (topBlock.speaker ? topBlock.speaker + '의 말로 ' : '') + '“' + q(topBlock.text, 110) + '”';
+      (topBlock.speaker ? topBlock.speaker + '의 말로 ' : '') + '“' + q(topBlock.text, 110) + '”' + (/[.!?…”]$/.test(q(topBlock.text, 110)) ? '' : '.') + ' ';
     var extra = [];
     if (top.length > 1) {
       var speakers = uniq(top.map(function (x) { return x.b.speaker; }).filter(Boolean));
-      extra.push('같은 주제가 ' + top.length + '개 대목에서 확인됩니다' + (speakers.length ? ' (' + speakers.join('·') + ')' : '') + '.');
+      extra.unshift('같은 주제가 ' + top.length + '개 대목에서 확인됩니다' + (speakers.length ? ' (' + speakers.join('·') + ')' : '') + '.');
     }
     var kwHit = a.keywords.filter(function (k) { return qRaw.indexOf(k.term) >= 0; })[0];
-    if (kwHit) extra.push('‘' + kwHit.term + '’은(는) 원고 전체에서 ' + kwHit.count + '회 나옵니다.');
+    if (kwHit) extra.push('‘' + kwHit.term + '’' + eun(kwHit.term) + ' 원고 전체에서 ' + kwHit.count + '회 나옵니다.');
     return {
       kind: 'qa', question: qRaw, engine: 'local', engineLabel: '규칙 생성(모델 미사용)',
-      answer: lead + (extra.length ? ' ' + extra.join(' ') : ''),
+      answer: (lead + (extra.length ? ' ' + extra.join(' ') : '')).replace(/\s+/g, ' ').trim(),
       points: top.map(function (x) {
         return {
           i: x.b.i, quote: q(x.b.text, 130), speaker: x.b.speaker || null,
@@ -2714,6 +2728,13 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
   var LENGTHS = [{ id: 'short', label: '짧게' }, { id: 'normal', label: '기본' }, { id: 'long', label: '길게' }];
 
   function esc(s) { return H ? H.esc(s) : String(s == null ? '' : s); }
+  /* 근거 문단으로 이동할 때는 스튜디오를 닫고 감상 화면으로 넘어간다 */
+  function jumpTo(i, autoplay) {
+    if (!isFinite(i)) return;
+    H.closeSheet();
+    H.setView('reader');
+    H.seek(i, autoplay !== false);
+  }
   function $(id) { return document.getElementById(id); }
   function ai() { return root.ReSoundAI; }
   function book() { return H.book(); }
@@ -2739,6 +2760,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     if (!view) return;
     body = $('studioBody');
     if (!book()) { H.toast('책을 먼저 열어 주세요'); return; }
+    if (H.sheetOpenName()) H.closeSheet();
     if (nextTab) tab = nextTab;
     H.setView('studio');
     if (body && !analysis()) {
@@ -2768,6 +2790,12 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     var b = book();
     if (!b) { body.innerHTML = '<div class="empty">책을 먼저 열어 주세요.</div>'; return; }
     var head = $('studioTitle'); if (head) head.textContent = b.title;
+    var pill = $('studioEngine');
+    if (pill) {
+      var on = geminiOn();
+      pill.textContent = on ? 'Gemini' : '규칙 엔진';
+      pill.className = 'pill ' + (on ? 'on' : '');
+    }
     var sub = $('studioSub');
     if (sub) {
       var a = analysis();
@@ -2818,7 +2846,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
       '<button class="btn ghost sm" data-aiact="briefs">' + (geminiOn() ? '✨ AI로 다시 요약' : '요약 새로 만들기') + '</button>' +
       '<button class="btn ghost sm" data-aigoto="quiz">퀴즈 풀기</button>' +
       '</div>' +
-      (geminiOn() ? '' : '<p class="hintLine">Gemini 키가 없어 원고만으로 정리했습니다. 설정에서 키를 넣으면 같은 버튼이 모델 생성을 씁니다.</p>') +
+      (geminiOn() ? '' : '<p class="hintLine">' + (H.gemini().key ? 'Gemini 키는 있지만 모델 생성이 꺼져 있어 규칙 엔진으로 정리했습니다. 설정에서 ‘AI 스튜디오: 모델 생성’을 켜면 같은 버튼이 Gemini를 씁니다.' : 'Gemini 키가 없어 원고만으로 정리했습니다. 설정에서 키를 넣으면 같은 버튼이 모델 생성을 씁니다.') + '</p>') +
       '</div>';
 
     html += '<div class="aiSection"><div class="aiRow"><b>핵심 쟁점</b><span class="meta">' + issues.length + '개 · 근거 문단 포함</span></div>';
@@ -3399,7 +3427,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     var t = e.target.closest ? e.target.closest('button') : null;
     if (!t) return;
     var jump = t.getAttribute('data-jump');
-    if (jump !== null && jump !== undefined && jump !== '') { H.seek(parseInt(jump, 10), true); return; }
+    if (jump !== null && jump !== undefined && jump !== '') { jumpTo(parseInt(jump, 10), true); return; }
     if (t.dataset.aigoto) { setTab(t.dataset.aigoto); return; }
     if (t.dataset.answer) {
       var id = parseInt(t.dataset.answer, 10), ci = parseInt(t.dataset.ci, 10);
@@ -3419,14 +3447,17 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
       var cap = (b0.chapter !== undefined && book().chapters) ? ((book().chapters[b0.chapter] || {}).title || '') : '';
       var file = document.createElement('input');
       file.type = 'file'; file.accept = 'image/*';
-      file.onchange = function () {
+      var takeScene = function () {
         if (file.files && file.files[0]) attachImage(file.files[0], bi, cap);
+        else if (file.files && file.files.length === 0 && file.value) { }
       };
+      file.onchange = takeScene;
+      file.oninput = takeScene;
       file.click();
       return;
     }
     if (t.getAttribute('data-aiact') === 'imgadd') { var ii = $('imgInput'); if (ii) ii.click(); return; }
-    if (t.dataset.imgjump !== undefined) { H.seek(parseInt(t.dataset.imgjump, 10), false); return; }
+    if (t.dataset.imgjump !== undefined) { jumpTo(parseInt(t.dataset.imgjump, 10), false); return; }
     if (t.dataset.imgdel) {
       H.store.delImage(t.dataset.imgdel).then(function () {
         try { URL.revokeObjectURL(imageCache[t.dataset.imgdel]); } catch (x) { }
