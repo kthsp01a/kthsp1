@@ -1100,7 +1100,8 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
   var STOP = ('그 그녀 저 나 너 우리 자신 이것 그것 저것 여기 거기 무엇 어떤 모두 다시 아직 이미 정말 매우 아주 조금 잠시 이제 ' +
     '그리고 하지만 그러나 그래서 그러면 그런데 때문에 위한 대한 통해 이렇게 그렇게 저렇게 하나 둘 셋 사람 것 수 등 때 곳 ' +
     '그게 그건 이건 저건 있다 없다 했다 한다 됐다 이다 아니다 같다 싶다 모른다 안다 말했다 물었다 대답했다 시작했다 ' +
-    '이런 저런 그런 무슨 어느 누구 아무 여러 각각 서로 함께 계속 마치 마저 벌써 또 잘 더 덜 가장 좀 왜 어떻게 언제 어디').split(/\s+/);
+    '이런 저런 그런 무슨 어느 누구 아무 여러 각각 서로 함께 계속 마치 마저 벌써 또 잘 더 덜 가장 좀 왜 어떻게 언제 어디 ' +
+    '그는 그가 그를 그의 그녀는 그녀가 나는 내가 너는 우리는 저는 이것은 그것은 여기는 이건 그건 저건 하지 왔다 갔다 봤다 줬다 했다 됐다 이다 아니다 있다 없다 같다').split(/\s+/);
   var STOP_SET = {};
   STOP.forEach(function (w) { if (w) STOP_SET[w] = 1; });
 
@@ -1136,7 +1137,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
       var base = stripParticle(w);
       if (base.length < 2 || STOP_SET[base]) continue;
       /* 서술어·어미로 끝나는 토큰은 낱말 후보에서 뺀다(조용했다·기다렸다·남는다) */
-      if (base.length >= 3 && /(다|요|죠|까|네)$/.test(base)) continue;
+      if (base.length >= 3 && /(다|요|죠|까|네|자)$/.test(base)) continue;
       out.push(base);
     }
     return out;
@@ -1148,7 +1149,8 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     if (c < 0xAC00 || c > 0xD7A3) return false;
     return (c - 0xAC00) % 28 !== 0;
   }
-  function iga(w) { return w + (batchim(w) ? '이' : '가'); }
+  function josa(w, a, b) { return batchim(w) ? a : b; }
+  function iga(w) { return w + josa(w, '이', '가'); }
   function eun(w) { return w + (batchim(w) ? '은' : '는'); }
   function gwa(w) { return w + (batchim(w) ? '과' : '와'); }
   function hashStr(s) {
@@ -1314,9 +1316,9 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
         term: k.term, count: k.count, chapters: uniq(ev.map(function (e) { return e.chapter; })).filter(Boolean),
         title: k.count >= 2 ? term + ' — ' + k.count + '회 되풀이되는 대목' : term + ' — 처음 나오는 대목',
         claim: k.count >= 2
-          ? '원고에서 ' + term + iga(k.term) + ' ' + k.count + '회 나오며 ' + ev.length + '개 장면에서 반복됩니다. ' +
+          ? '원고에서 ' + term + josa(k.term, '이', '가') + ' ' + k.count + '회 나오며 ' + ev.length + '개 장면에서 반복됩니다. ' +
             (lead ? '그 중심 문장은 “' + q(lead, 80) + '”입니다.' : '')
-          : '원고에서 ' + term + eun(k.term) + ' 이 대목에서 처음 나옵니다. ' +
+          : '원고에서 ' + term + josa(k.term, '은', '는') + ' 이 대목에서 처음 나옵니다. ' +
             (lead ? '문장은 “' + q(lead, 80) + '”입니다.' : ''),
         evidence: ev
       };
@@ -1423,10 +1425,10 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
         '배치됩니다. ' + (a.chapters[0] ? '첫 장 「' + a.chapters[0].title + '」은 ' + a.chapters[0].brief + '입니다.' : ''),
         a.chapters[0] && a.chapters[0].quote ? { i: a.chapters[0].quote.i, quote: a.chapters[0].quote.text } : null));
       var kws = a.keywords.slice(0, 3);
-      turns.push(turn('B', kws.length ? '‘' + kws[0].term + '’' + iga(kws[0].term) + ' 반복된다고 하셨는데, 그게 어느 대목에서 가장 선명한가요?' : '가장 자주 나오는 표현은 무엇인가요?'));
+      turns.push(turn('B', kws.length ? '‘' + kws[0].term + '’' + josa(kws[0].term, '이', '가') + ' 반복된다고 하셨는데, 그게 어느 대목에서 가장 선명한가요?' : '가장 자주 나오는 표현은 무엇인가요?'));
       if (kws[0] && kws[0].blocks.length) {
         var eb = a.blocks[kws[0].blocks[0]];
-        turns.push(turn('A', '가장 먼저 나오는 대목입니다. “' + q(eb.text, 90) + '” — ‘' + kws[0].term + '’' + iga(kws[0].term) + ' ' + kws[0].count + '회 되풀이됩니다.',
+        turns.push(turn('A', '가장 먼저 나오는 대목입니다. “' + q(eb.text, 90) + '” — ‘' + kws[0].term + '’' + josa(kws[0].term, '이', '가') + ' ' + kws[0].count + '회 되풀이됩니다.',
           { i: eb.i, quote: q(eb.text, 120) }));
       }
       if (a.issues.length > 1) {
@@ -1459,7 +1461,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
         s1 && s1.quote ? { i: s1.quote.i, quote: s1.quote.text } : null));
       turns.push(turn('B', (s2 ? '저는 반대로 봅니다. ' + s2.name + '의 ' + s2.lines + '문단이 사건을 뒤집는 역할을 합니다.' : '저는 다른 해석을 제안합니다. 사건은 주변 인물이 만듭니다.'),
         s2 && s2.quote ? { i: s2.quote.i, quote: s2.quote.text } : null));
-      turns.push(turn('A', '그 장면만 보면 그렇습니다. 하지만 ' + (a.keywords[0] ? '‘' + a.keywords[0].term + '’' + iga(a.keywords[0].term) + ' ' + a.keywords[0].count + '회 반복되는 걸 보면' : '반복 구조를 보면') + ' 중심축은 하나로 수렴합니다.'));
+      turns.push(turn('A', '그 장면만 보면 그렇습니다. 하지만 ' + (a.keywords[0] ? '‘' + a.keywords[0].term + '’' + josa(a.keywords[0].term, '이', '가') + ' ' + a.keywords[0].count + '회 반복되는 걸 보면' : '반복 구조를 보면') + ' 중심축은 하나로 수렴합니다.'));
       turns.push(turn('B', '그 수렴이 작가의 의도인지, 낭독에서 드러나는 효과인지는 다릅니다. ' + (a.issues[1] ? a.issues[1].title + ' 대목은 해석이 갈립니다.' : '근거 문단을 더 봐야 합니다.')));
       turns.push(turn('A', '좋습니다. 결론을 하나로 정하지 않고, 두 해석의 근거 문단을 나란히 두겠습니다.'));
       return finish(turns, 'debate', a);
@@ -1474,7 +1476,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
       turns.push(turn('A', '「' + ch.title + '」 — ' + ch.brief + (quote ? '. “' + q(quote.text, 80) + '”' : ''),
         quote ? { i: quote.i, quote: quote.text } : null));
       if (ch.keywords.length && rnd() > 0.25) {
-        turns.push(turn('B', '‘' + ch.keywords[0] + '’' + iga(ch.keywords[0]) + ' 이 장의 열쇠인가요? ' + pick(reactions, rnd)));
+        turns.push(turn('B', '‘' + ch.keywords[0] + '’' + josa(ch.keywords[0], '이', '가') + ' 이 장의 열쇠인가요? ' + pick(reactions, rnd)));
       } else {
         turns.push(turn('B', pick(['여기서 누가 앞장서나요?', '이 장은 누구의 시선인가요?', '호흡이 짧아지는데 이유가 있나요?'], rnd)));
       }
@@ -1618,7 +1620,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     /* 6) 핵심 쟁점 문제 */
     a.issues.slice(0, 3).forEach(function (is) {
       if (!is.evidence.length) return;
-      var item = mc('다음 중 ‘' + is.term + '’' + iga(is.term) + ' 나오는 근거 문장은?',
+      var item = mc('다음 중 ‘' + is.term + '’' + josa(is.term, '이', '가') + ' 나오는 근거 문장은?',
         q(is.evidence[0].quote, 70),
         a.issues.filter(function (x) { return x !== is && x.evidence.length; }).map(function (x) { return q(x.evidence[0].quote, 70); })
           .concat(a.chapters.filter(function (c) { return c.quote; }).slice(0, 3).map(function (c) { return q(c.quote.text, 70); })),
@@ -1771,7 +1773,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
       extra.unshift('같은 주제가 ' + top.length + '개 대목에서 확인됩니다' + (speakers.length ? ' (' + speakers.join('·') + ')' : '') + '.');
     }
     var kwHit = a.keywords.filter(function (k) { return qRaw.indexOf(k.term) >= 0; })[0];
-    if (kwHit) extra.push('‘' + kwHit.term + '’' + eun(kwHit.term) + ' 원고 전체에서 ' + kwHit.count + '회 나옵니다.');
+    if (kwHit) extra.push('‘' + kwHit.term + '’' + josa(kwHit.term, '은', '는') + ' 원고 전체에서 ' + kwHit.count + '회 나옵니다.');
     return {
       kind: 'qa', question: qRaw, engine: 'local', engineLabel: '규칙 생성(모델 미사용)',
       answer: (lead + (extra.length ? ' ' + extra.join(' ') : '')).replace(/\s+/g, ' ').trim(),
