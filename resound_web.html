@@ -3349,6 +3349,17 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     return pool[idx % pool.length];
   }
 
+  function bindPodMedia() {
+    if (!root.navigator || !('mediaSession' in root.navigator)) return;
+    try {
+      root.navigator.mediaSession.setActionHandler('play', function () { if (!pod.playing) playPodcast(); });
+      root.navigator.mediaSession.setActionHandler('pause', function () { if (pod.playing) { stopPodcast(); render(); } });
+      root.navigator.mediaSession.setActionHandler('stop', function () { stopPodcast(); render(); });
+      root.navigator.mediaSession.setActionHandler('nexttrack', function () { if (pod.playing) { stopPodcast(); pod.i = Math.min(pod.turns.length - 1, pod.i + 1); playPodcast(); } });
+      root.navigator.mediaSession.setActionHandler('previoustrack', function () { if (pod.playing) { stopPodcast(); pod.i = Math.max(0, pod.i - 1); playPodcast(); } });
+    } catch (e) { }
+  }
+
   function stopPodcast() {
     pod.token++;
     pod.playing = false;
@@ -3356,6 +3367,8 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     if (pod.audioEl) { try { pod.audioEl.pause(); } catch (e) { } try { pod.audioEl.src = ''; } catch (e) { } pod.audioEl = null; }
     try { if (root.speechSynthesis) root.speechSynthesis.cancel(); } catch (e) { }
     markPodLine(-1);
+    H.setMediaState('paused');
+    H.bindMediaSession();
   }
 
   function markPodLine(n) {
@@ -3382,6 +3395,8 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     var t = turns[n];
     var total = turns.length;
     setPodStatus((n + 1) + ' / ' + total + ' · ' + t.name + ' 재생 중');
+    H.setMediaMeta(t.text.slice(0, 70), t.name + ' · 오디오 대담', (gen.overview && gen.overview.title) || (book() && book().title) || 'Re:Sound');
+    H.setMediaState('playing');
     var finish = function () { if (token !== pod.token) return; pod.timer = setTimeout(function () { playLine(n + 1, token); }, 220); };
     var text = String(t.text || '').replace(/[“”"]/g, '');
     if (!text) { finish(); return; }
@@ -3444,6 +3459,7 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     if (pod.playing) { stopPodcast(); render(); return; }
     H.ensureReaderPaused();
     pod.playing = true;
+    bindPodMedia();
     var token = ++pod.token;
     if (!root.speechSynthesis && !(H.gemini() && H.gemini().on)) { H.toast('음성 엔진이 없어 대본만 표시합니다'); pod.playing = false; return; }
     setPodStatus('재생 준비');
@@ -4898,23 +4914,27 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
       jumpTo(i, true);
     });
 
-    if ('mediaSession' in navigator) {
-      try {
-        navigator.mediaSession.setActionHandler('play', function () { play(); });
-        navigator.mediaSession.setActionHandler('pause', pause);
-        navigator.mediaSession.setActionHandler('previoustrack', function () { advance(-1); });
-        navigator.mediaSession.setActionHandler('nexttrack', function () { advance(1); });
-        navigator.mediaSession.setActionHandler('stop', stop);
-        navigator.mediaSession.setActionHandler('seekbackward', function () { advance(-1); });
-        navigator.mediaSession.setActionHandler('seekforward', function () { advance(1); });
-      } catch (e) { diag.warns.push('mediaSession-handler'); }
-    }
+    bindMediaSession();
     try { if (window.speechSynthesis) window.speechSynthesis.onvoiceschanged = function () { }; } catch (e) { }
 
     window.addEventListener('beforeunload', function () { if (P.book) saveProgress(); });
     document.addEventListener('visibilitychange', function () {
       if (document.hidden && P.book) saveProgress();
     });
+  }
+
+  /* MediaSession — 감상 화면용 핸들러. 대담 재생이 끝나면 이 함수로 되돌린다. */
+  function bindMediaSession() {
+    if (!('mediaSession' in navigator)) return;
+    try {
+      navigator.mediaSession.setActionHandler('play', function () { play(); });
+      navigator.mediaSession.setActionHandler('pause', pause);
+      navigator.mediaSession.setActionHandler('previoustrack', function () { advance(-1); });
+      navigator.mediaSession.setActionHandler('nexttrack', function () { advance(1); });
+      navigator.mediaSession.setActionHandler('stop', stop);
+      navigator.mediaSession.setActionHandler('seekbackward', function () { advance(-1); });
+      navigator.mediaSession.setActionHandler('seekforward', function () { advance(1); });
+    } catch (e) { diag.warns.push('mediaSession-handler'); }
   }
 
   function renameSpeaker(i) {
@@ -4991,7 +5011,18 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
     setStatus: setStatus,
     toggleBookmark: toggleBookmark,
     backToLibrary: function () { hardStop(); P.playing = false; saveProgress(); showView('library'); renderShelf(); },
-    ensureReaderPaused: function () { if (P.playing) pause(); }
+    ensureReaderPaused: function () { if (P.playing) pause(); },
+    bindMediaSession: bindMediaSession,
+    setMediaMeta: function (title, artist, album) {
+      if (!('mediaSession' in navigator)) return;
+      try {
+        navigator.mediaSession.metadata = new window.MediaMetadata({ title: title || '', artist: artist || '', album: album || '' });
+      } catch (e) { }
+    },
+    setMediaState: function (state) {
+      if (!('mediaSession' in navigator)) return;
+      try { navigator.mediaSession.playbackState = state; } catch (e) { }
+    }
   };
   window.ReSoundHost = host;
 
