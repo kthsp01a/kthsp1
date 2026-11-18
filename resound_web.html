@@ -763,6 +763,10 @@ input[type=range]{accent-color:var(--amber);height:26px}
       out.demo = { index: typeof s.demo.index === 'number' ? s.demo.index : 2, bookmarks: Array.isArray(s.demo.bookmarks) ? s.demo.bookmarks : [] };
     }
     out.scrollLock = !!s.scrollLock;
+    // 마지막 책이 사라졌으면 이어 듣기 대상 정리
+    if (out.lastBookId && !out.books.some(function (b) { return b.id === out.lastBookId; })) {
+      out.lastBookId = out.books.length ? out.books[0].id : null;
+    }
     return out;
   }
   var state = loadState();
