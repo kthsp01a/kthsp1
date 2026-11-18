@@ -69,7 +69,7 @@ button:active{transform:scale(.985)}
 .btn.sm{min-height:38px;font-size:13px;padding:0 12px;border-radius:11px}
 .btn:disabled{opacity:.42;transform:none}
 .meta{color:var(--muted);font-size:12px}
-.pill{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;max-width:126px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   padding:3px 8px;border-radius:99px;background:#18223A;color:var(--muted);border:1px solid var(--line)}
 .pill.on{color:#bff3dc;background:rgba(70,185,138,.14);border-color:rgba(70,185,138,.42)}
 .pill.warn{color:#ffdca8;background:rgba(217,165,82,.14);border-color:rgba(217,165,82,.42)}
@@ -188,6 +188,7 @@ button:active{transform:scale(.985)}
 .note{font-size:11.5px;line-height:1.6;color:var(--muted);word-break:keep-all}
 .field{display:grid;gap:5px;margin:9px 0}
 .field label{font-size:11.5px;color:var(--muted);font-weight:700}
+input[type=range]{accent-color:var(--amber);height:26px}
 .select,.input{width:100%;min-height:44px;border-radius:11px;border:1px solid var(--line);
   background:#0A111C;color:var(--text);padding:9px 10px;font-size:14px}
 .rowBtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
@@ -351,7 +352,8 @@ button:active{transform:scale(.985)}
   function isLikelyName(n) {
     var s = (n || '').trim();
     if (!s || s.length > 14) return false;
-    if (/\d/.test(s)) return false;
+    if (/^\d/.test(s)) return false;
+    if (/^\d{1,2}[.:]\d{2}$/.test(s)) return false;
     if (/(다|요|까|죠|네|지|며|고|서|면|러|려|자|함|음)$/.test(s)) return false;
     if (/^(그|그녀|그들|우리|너|나|이것|그것|저것)$/.test(s)) return false;
     return true;
@@ -449,7 +451,10 @@ button:active{transform:scale(.985)}
     var m = INLINE_CUE.exec(line);
     if (!m) return null;
     var at = m.index;
-    if (at > 0 && !/\s/.test(line.charAt(at - 1))) return null;
+    if (at > 0) {
+      var prevCh = line.charAt(at - 1);
+      if (!/\s/.test(prevCh) && prevCh !== '(' && prevCh !== '[') return null;
+    }
     var rest = line.slice(at);
     var end = rest.length;
     var stop = /[.!?…][\s"”』」]|\{/g;
@@ -524,10 +529,15 @@ button:active{transform:scale(.985)}
       if (RE_META_LINE.test(t)) { stats.droppedMetaLine++; continue; }
       if (isLegendLine(t)) { stats.droppedMetaLine++; continue; }
 
+      if (/^[(\[]\s*(SFX|BGM|SE|효과음|음향|음악|효과|조명)\s*[:：]?/i.test(t) && t.length <= 400) {
+        var cbp = push('cue', t.replace(/^[(\[]|[)\]]$/g, '').trim(), '', {}); cbp.chapter = currentChapter; stats.cueBlocks++; continue;
+      }
       var mScene = t.match(/^[\[【]\s*(?:S|N|E)?\d{1,3}\s*[\]】]\s*(.+)$/);
       if (mScene && mScene[1].length >= 2 && mScene[1].length <= 60 && !CUE_LABELS[(mScene[1] || '').toLowerCase()]) {
         chapter(stripMarks(mScene[1]), 2, 'SCENE'); continue;
       }
+      var mSceneN = t.match(/^SCENE\s*(\d{1,3})\s*[.:·]?\s*(.*)$/i);
+      if (mSceneN) { chapter(stripMarks('SCENE ' + mSceneN[1] + (mSceneN[2] ? '. ' + mSceneN[2] : '')), 2, 'SCENE'); continue; }
       var mCuePrefix = t.match(RE_CUE_PREFIX);
       if (mCuePrefix) {
         var cueText = stripMarks(t.slice(mCuePrefix[0].length));
@@ -623,9 +633,27 @@ button:active{transform:scale(.985)}
     stats.bodyStartLine = start + 1;
 
     var title = '';
-    for (var tl = 0; tl < Math.min(start || lines.length, 12); tl++) {
-      var tm = lines[tl].match(/《([^》]{1,80})》/);
+    var headLimit = start > 0 ? start : Math.min(lines.length, 24);
+    for (var tl = 0; tl < headLimit; tl++) {
+      var tm = lines[tl].match(/《([^》]{1,90})》/);
       if (tm) { title = tm[1].trim(); break; }
+    }
+    if (!title) {
+      for (var t2 = 0; t2 < headLimit; t2++) {
+        var line2 = lines[t2] || '';
+        if (!line2.trim() || isDecoration(line2)) continue;
+        if (RE_META_LINE.test(line2) || RE_SECTION_HEAD.test(line2)) continue;
+        if (/^\s*[\[【#>]/.test(line2)) continue;
+        var cand = stripMarks(line2);
+        if (cand.length < 4) continue;
+        if (/(발화|컷|러닝타임|자수|장면)\s*[0-9,]+/.test(cand)) continue;
+        title = cand;
+        break;
+      }
+    }
+    if (title) {
+      title = title.replace(/\s*\([^)]*v[0-9][^)]*\)\s*$/i, '').replace(/\s+[—\-]\s+v[0-9.]+.*$/i, '').trim();
+      if (title.length > 64) title = title.slice(0, 64).trim();
     }
     return { blocks: blocks, chapters: chapters, stats: stats, codeMap: codeMap, title: title };
   }
@@ -832,7 +860,7 @@ button:active{transform:scale(.985)}
     for (var i = 0; i < lines.length; i++) {
       var ln = lines[i];
       if (!ln) { if (buf) { paras.push(buf); buf = ''; } continue; }
-      if (/^(\[|[#>]|제\s*\d+\s*[장화절]|프롤로그|에필로그|\d{1,4}[.)]\s)/.test(ln)) {
+      if (/^(\[|[#>]|제\s*\d+\s*[장화절]|프롤로그|에필로그|SCENE\s*\d|\d{1,4}[.)]\s)/i.test(ln)) {
         if (buf) { paras.push(buf); buf = ''; }
         paras.push(ln); continue;
       }
@@ -869,8 +897,9 @@ button:active{transform:scale(.985)}
    * 책 객체
    * ------------------------------------------------------------------ */
   function makeBook(fileName, text, parsed) {
-    var title = parsed.title || String(fileName || '책').replace(/\.[a-z0-9]+$/i, '');
-    if (!title || title.length > 70) title = String(fileName || '책').replace(/\.[a-z0-9]+$/i, '').slice(0, 70);
+    var cleanName = String(fileName || '책').replace(/\.[a-z0-9]+$/i, '').replace(/-[0-9a-f]{16,}$/i, '').trim();
+    var title = parsed.title || cleanName;
+    if (!title || title.length > 70) title = cleanName.slice(0, 70);
     return {
       id: 'b' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
       title: title, text: text, blocks: parsed.blocks, chapters: parsed.chapters,
@@ -1059,7 +1088,7 @@ button:active{transform:scale(.985)}
         if (speak[k].i === i) { win = { a0: book.audio.single.dur * acc / total, a1: book.audio.single.dur * (acc + len) / total }; break; }
         acc += len;
       }
-      if (win) return { url: book.audio.single.url, a0: win.a0, a1: win.a1, label: '성우 오디오(통짜·위치 추정)' };
+      if (win) return { url: book.audio.single.url, a0: win.a0, a1: win.a1, label: '성우 오디오(통짜)' };
     }
     return null;
   }
@@ -1187,7 +1216,7 @@ button:active{transform:scale(.985)}
     el.ontimeupdate = function () {
       if (token !== P.token) return;
       if (src.a1 && el.currentTime >= src.a1 - 0.05) { try { el.pause(); } catch (e) { } done(); return; }
-      setStatus('문단 ' + (speakIndex(P.book, P.i) + 1) + ' 재생 중 · ' + fmtTime(el.currentTime) + ' / ' + fmtTime(src.a1 || el.duration || 0));
+      setStatus('문단 ' + (speakIndex(P.book, P.i) + 1) + ' 재생 중 · ' + fmtTime(el.currentTime) + ' / ' + fmtTime(el.duration || 0));
     };
     el.onerror = function () {
       if (token !== P.token) return;
@@ -1599,8 +1628,7 @@ button:active{transform:scale(.985)}
       '<h4>배속</h4>' +
       '<div class="field"><label><span id="setSpeedV">' + P.speed.toFixed(1) + '×</span></label>' +
       '<input type="range" id="setSpeed" min="0.8" max="2" step="0.1" value="' + P.speed + '" style="width:100%"></div>' +
-      '<div class="field"><label>자동 스크롤</label><div class="rowBtns" style="margin:0"><button class="btn ghost" id="setScroll">' + (P.lockScroll ? '잠김 · 따라가지 않음' : '켜짐 · 현재 문단 따라감') + '</button>' +
-      '<button class="btn ghost" id="setScrollToggle">' + (P.lockScroll ? '자동 스크롤 켜기' : '자동 스크롤 잠금') + '</button></div></div>' +
+      '<div class="field"><label>자동 스크롤</label><button class="btn ghost wide" id="setScroll">' + (P.lockScroll ? '잠김 · 현재 문단을 따라가지 않음 (누르면 켜기)' : '켜짐 · 현재 문단을 따라갑니다 (누르면 잠금)') + '</button></div>' +
       '<h4>성우 오디오 (이 책)</h4>' + audioInfo +
       (P.book ? '<div class="rowBtns"><button class="btn ghost" id="setAudioAdd">오디오 파일 연결</button><button class="btn ghost" id="setAudioClear">연결 해제</button></div>' : '') +
       '<h4>파싱 진단</h4>' +
@@ -1660,7 +1688,6 @@ button:active{transform:scale(.985)}
           if (P.book) { P.book.audio = null; var brec = recordOf(P.book); if (brec) brec.audioCount = 0; persist(); openSettings(); toast('성우 오디오 연결을 해제했습니다'); }
           break;
         case 'setScroll':
-        case 'setScrollToggle':
           P.lockScroll = !P.lockScroll; state.scrollLock = P.lockScroll; persist(); openSettings(); break;
         case 'setReset':
           if (window.confirm('저장된 책·진행 위치·북마크를 모두 지웁니다. 계속할까요?')) {
