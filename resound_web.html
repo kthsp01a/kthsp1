@@ -3818,8 +3818,8 @@ html[data-theme="light"] .qText mark{background:rgba(162,101,28,.22)}
    * ------------------------------------------------------------------ */
   function makeBook(fileName, text, parsed) {
     var cleanName = String(fileName || '책').replace(/\.[a-z0-9]+$/i, '').replace(/-[0-9a-f]{16,}$/i, '').trim();
-    var title = parsed.title || cleanName;
-    if (!title || title.length > 70) title = cleanName.slice(0, 70);
+    var title = String(parsed.title || cleanName).replace(/-[0-9a-f]{16,}$/i, '').trim() || cleanName;
+    if (!title || title.length > 70) title = (cleanName || '책').slice(0, 70);
     return {
       id: 'b' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
       title: title, text: text, blocks: parsed.blocks, chapters: parsed.chapters,
