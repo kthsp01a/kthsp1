@@ -26,6 +26,7 @@
   --safe-b:env(safe-area-inset-bottom,0px);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
 html,body{margin:0;padding:0;height:100%;background:var(--bg);color:var(--text);
   font-family:system-ui,-apple-system,"Noto Sans KR","Apple SD Gothic Neo",sans-serif;
   -webkit-font-smoothing:antialiased;overscroll-behavior:none}
@@ -416,6 +417,7 @@ button:active{transform:scale(.985)}
     return out;
   }
   var state = loadState();
+  window.__resound = { diag: diag, state: state, api: {}, version: BUILD };
 
   function persist() {
     try {
@@ -453,6 +455,7 @@ button:active{transform:scale(.985)}
     var s = (line || '').trim();
     if (s.length < 3) return false;
     if (!RE_DECOR.test(s)) return false;
+    if (/([-*=_~·•—─━═#…])(\s*\1){2,}\s*$/.test(s)) return true;
     return /([-*=_~·•—─━═#…])\1{2,}/.test(s);
   }
   var RE_SECTION_HEAD = /^\s*[\[【]\s*(목차|부별\s*회계|전체\s*실측|전체\s*배역표|배역표|규격|등장인물[^\]】]*|캐릭터[^\]】]*|인물\s*소개|연기\s*가이드)\s*[\]】]/;
@@ -460,8 +463,8 @@ button:active{transform:scale(.985)}
   var RE_PART = /^\s*[\[【]\s*제\s*(\d{1,3}|[일이삼사오육칠팔구십]+)\s*부\s*[\]】]\s*(.*)$/;
   var RE_HEAD = /^\s*#{1,6}\s+(.+)$/;
   var RE_QUOTE_HEAD = /^\s*>\s*#{1,6}\s*(.+)$/;
-  var RE_CHAP_NUM = /^\s*(?:제\s*)?(\d{1,4})\s*[장화절]\b\s*(.*)$/;
-  var RE_CHAP_WORD = /^\s*(프롤로그|에필로그|막간|번외|인터루드|서장|종장|외전)\b\s*(.*)$/;
+  var RE_CHAP_NUM = /^\s*(?:제\s*)?(\d{1,4})\s*[장화절](?=\s|$|[—\-:·.])\s*(.*)$/;
+  var RE_CHAP_WORD = /^\s*(프롤로그|에필로그|막간|번외|인터루드|서장|종장|외전)(?=\s|$|[—\-:·.])\s*(.*)$/;
   var RE_VOL = /^\s*Vol\.\s*(\d{1,3})\s*(.*)$/i;
   var RE_SCENE = /^\s*SCENE\s*\d+/i;
   var RE_CODE = /^\s*\{([A-Za-z]{1,4})\}\s*(.*)$/;
@@ -477,13 +480,21 @@ button:active{transform:scale(.985)}
     /^\s*제\s*\d{1,3}\s*막\b/,             // 제1막
     /^\s*[\[【]\s*(?:S|N|E)?\d{2,3}\s*[\]】]/,  // [S01] [00] [N02]
     /^\s*\{[A-Za-z]{1,4}\}/,               // {N}도시는…
-    /^\s*프롤로그\b/, /^\s*SCENE\s*\d+/i, /^\s*전체\s*대본\s*$/
+    /^(?:\s*프롤로그(?:\s|$|[—\-:·.])|\s*에필로그)/, /^\s*SCENE\s*\d+/i, /^\s*전체\s*대본\s*$/
   ];
   function isBodyStart(line) {
     for (var i = 0; i < BODY_START.length; i++) if (BODY_START[i].test(line)) return true;
     return false;
   }
 
+  function looksLikeChapterTitle(rest) {
+    var r = (rest || '').trim();
+    if (!r) return true;
+    if (r.length > 32) return false;
+    if (/[.!?…]$/.test(r)) return false;
+    if (/(니다|했다|한다|였다|이다|있다|없다|같다|보였다|들렸다)$/.test(r)) return false;
+    return true;
+  }
   function stripMarks(s) {
     return String(s || '')
       .replace(/^\s*>\s*/, '')
@@ -625,9 +636,9 @@ button:active{transform:scale(.985)}
         continue;
       }
       var mChapW = t.match(RE_CHAP_WORD);
-      if (mChapW) { chapter(stripMarks(mChapW[0]), 2, 'CHAPTER'); continue; }
+      if (mChapW && looksLikeChapterTitle(mChapW[2])) { chapter(stripMarks(mChapW[0]), 2, 'CHAPTER'); continue; }
       var mChapN = t.match(RE_CHAP_NUM);
-      if (mChapN && (mChapN[2] || '').length <= 40 && !/[.!?…]/.test(mChapN[2] || '')) {
+      if (mChapN && looksLikeChapterTitle(mChapN[2])) {
         chapter(stripMarks(mChapN[0]), 2, 'CHAPTER'); continue;
       }
       var mVol = t.match(RE_VOL);
@@ -909,7 +920,7 @@ button:active{transform:scale(.985)}
     if (!P.book) return;
     var total = speakableBlocks(P.book).length || 1;
     var cur = speakIndex(P.book, P.i);
-    var pct = Math.round((cur / total) * 100);
+    var pct = Math.round(((cur + 1) / total) * 100);
     var el = $('rPercent');
     if (el) el.textContent = pct + '%';
     var b = P.book.blocks[P.i];
@@ -1291,6 +1302,7 @@ button:active{transform:scale(.985)}
     state.speed = P.speed;
     persist();
     if (P.audioEl) { try { P.audioEl.playbackRate = P.speed; } catch (e) { } }
+    if (P.playing && !P.audioEl && P.book) { speakCurrent(); }
     updateDock();
     var sv = $('setSpeedV'); if (sv) sv.textContent = P.speed.toFixed(1) + '×';
     var rs = $('setSpeed'); if (rs) rs.value = String(P.speed);
@@ -1492,7 +1504,6 @@ button:active{transform:scale(.985)}
   }
 
   function openSettings() {
-    if (!P.book) return;
     sheetOpenName = 'settings';
     var voices = koreanVoices();
     var voiceOpts = voices.map(function (v) {
@@ -1507,8 +1518,11 @@ button:active{transform:scale(.985)}
     var modelOpts = models.map(function (m) {
       return '<option value="' + m + '"' + (m === state.gemini.model ? ' selected' : '') + '>' + m + '</option>';
     }).join('');
-    var st = P.book.stats || {};
-    var audioInfo = P.book.demo
+    var EMPTY_STATS = { blocks: 0, chapters: 0, dialogue: 0, narration: 0, cueBlocks: 0, chars: 0, speakers: 0, droppedMeta: 0, droppedDecor: 0, droppedSection: 0, droppedMetaLine: 0, inlineCues: 0, unknownSpeakers: 0 };
+    var st = (P.book && P.book.stats) || EMPTY_STATS;
+    var audioInfo = !P.book
+      ? '<div class="note">책을 열면 그 책에 성우 오디오를 연결할 수 있습니다.</div>'
+      : P.book.demo
       ? '<div class="okBox">내장 성우 샘플이 연결되어 있습니다 (약 30초).</div>'
       : (P.book.audio
         ? '<div class="okBox">' + esc(P.book.audio.label || '성우 오디오') + ' 연결됨 · ' + (P.book.audio.perBlock ? num(P.book.audio.perBlock.size) + '문단' : '책 전체(통짜)') + ' · 이번 실행에서만 유지됩니다.</div>'
@@ -1531,7 +1545,7 @@ button:active{transform:scale(.985)}
       '<div class="field"><label>자동 스크롤</label><div class="rowBtns" style="margin:0"><button class="btn ghost" id="setScroll">' + (P.lockScroll ? '잠김 · 따라가지 않음' : '켜짐 · 현재 문단 따라감') + '</button>' +
       '<button class="btn ghost" id="setScrollToggle">' + (P.lockScroll ? '자동 스크롤 켜기' : '자동 스크롤 잠금') + '</button></div></div>' +
       '<h4>성우 오디오 (이 책)</h4>' + audioInfo +
-      '<div class="rowBtns"><button class="btn ghost" id="setAudioAdd">오디오 파일 연결</button><button class="btn ghost" id="setAudioClear">연결 해제</button></div>' +
+      (P.book ? '<div class="rowBtns"><button class="btn ghost" id="setAudioAdd">오디오 파일 연결</button><button class="btn ghost" id="setAudioClear">연결 해제</button></div>' : '') +
       '<h4>파싱 진단</h4>' +
       '<div class="statGrid">' +
       '<div><span>문단</span><b>' + num(st.blocks) + '</b></div>' +
@@ -1725,10 +1739,7 @@ button:active{transform:scale(.985)}
    * 이벤트 연결
    * ------------------------------------------------------------------ */
   function initEvents() {
-    $('btnSettings').addEventListener('click', function () {
-      if (!P.book) { toast('책을 먼저 열어야 설정을 바꿀 수 있습니다'); return; }
-      openSettings();
-    });
+    $('btnSettings').addEventListener('click', function () { openSettings(); });
     $('btnOpen').addEventListener('click', function () { $('fileInput').click(); });
     $('btnDemo').addEventListener('click', function () {
       var b = getDemoBook();
@@ -1759,11 +1770,11 @@ button:active{transform:scale(.985)}
         persist(); renderShelf(); toast('지웠습니다');
         return;
       }
-      var demo = e.target.closest('[data-demo]');
+      var demo = e.target.closest('[data-demo]') || e.target.closest('.bookCard[data-demo]');
       if (demo) { $('btnDemo').click(); return; }
-      var open = e.target.closest('[data-open]');
+      var open = e.target.closest('[data-open]') || e.target.closest('.bookCard[data-id]');
       if (open) {
-        var bid = open.getAttribute('data-open');
+        var bid = open.getAttribute('data-open') || open.getAttribute('data-id');
         var b = restoreBook(bid);
         if (b) {
           var rec = null;
