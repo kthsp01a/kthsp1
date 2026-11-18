@@ -716,6 +716,8 @@ function step() {
   if (n.bg) setBg(n.bg, n.tag);
   if (n.do) { try { n.do(); } catch (e) { console.error(e); } }
   if (n.choices) { renderChoices(n); return; }
+  /* 배경/장소 태그만 바꾸는 비트: 탭을 받지 않고 다음 문장으로 넘어간다 */
+  if (n.text == null) { VN.i++; step(); return; }
   renderSay(n);
 }
 function renderSay(n) {
@@ -731,8 +733,10 @@ function renderSay(n) {
     '<div class="vn-foot"><span class="tap-hint">화면을 눌러 계속 ▸</span><button class="mini-btn" id="btnLog">기록</button></div></div>';
   setBust(n.who);
   var t = $('#vnText'); t.className = 'vn-text ' + (isNar ? 'nar' : '');
-  VN.full = n.text; VN.typing = true; if (VN.timer) clearInterval(VN.timer);
+  VN.full = String(n.text == null ? '' : n.text);
+  VN.typing = true; if (VN.timer) clearInterval(VN.timer);
   var i = 0; t.textContent = '';
+  if (!VN.full) { VN.typing = false; t.textContent = ' '; return; }
   VN.timer = setInterval(function () {
     i += 2;
     t.textContent = VN.full.slice(0, i);
