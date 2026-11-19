@@ -11,5 +11,9 @@
 </head>
 <body>
 <iframe id="qa" src="resound_web.html" title="Re:Sound 390x844"></iframe>
+<script>
+  // QA 프레임: 상위 URL의 쿼리를 iframe에 그대로 넘겨 캐시를 피한다.
+  (function(){var q=location.search;if(q)document.getElementById('qa').src='resound_web.html'+q;})();
+</script>
 </body>
 </html>
