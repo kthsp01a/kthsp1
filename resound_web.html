@@ -1412,11 +1412,12 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
     var kw = a.keywords.slice(0, 8).map(function (k) { return k.term; });
     var narrator = a.speakers.filter(function (s) { return s.isNarrator; })[0];
     var gist = [
-      '《' + a.title + '》은 ' + (c.parts ? c.parts + '부 · ' : '') + c.chapters + '장 · 문단 ' + c.speakable.toLocaleString('ko-KR') + '개(대사 ' + c.dialogue.toLocaleString('ko-KR') + ' · 해설 ' + c.narration.toLocaleString('ko-KR') + ')로 구성됩니다.',
+      '《' + a.title + '》' + josa(a.title, '은', '는') + ' ' + (c.parts ? c.parts + '부 · ' : '') + c.chapters + '장 · 문단 ' + c.speakable.toLocaleString('ko-KR') + '개(대사 ' + c.dialogue.toLocaleString('ko-KR') + ' · 해설 ' + c.narration.toLocaleString('ko-KR') + ')로 구성됩니다.',
       sp.length ? '등장 인물은 ' + sp.join(', ') + ' 순으로 대사가 많습니다' +
         (a.people.length ? ' (인물 대사 기준 상위 ' + Math.min(3, a.people.length) + '명이 ' + Math.round(a.people.slice(0, 3).reduce(function (s, x) { return s + (x.peopleShare || 0); }, 0)) + '%)' : '') +
         (narrator ? '. 나레이션은 ' + narrator.lines.toLocaleString('ko-KR') + '문단입니다' : '') + '.' : '등록된 화자 표기를 찾지 못했습니다.',
-      kw.length ? '되풀이되는 낱말은 ' + kw.join(', ') + '이고, 가장 긴 장은 ' + (a.longest ? '「' + a.longest.ch.title + '」(' + a.longest.n + '문단)' : '—') + '입니다.' : '반복 낱말이 뚜렷하지 않습니다.'
+      kw.length ? '되풀이되는 낱말은 ' + kw.join(', ') + ' 등입니다. ' +
+        (a.longest ? '가장 긴 장은 「' + a.longest.ch.title + '」(' + a.longest.n + '문단)입니다.' : '') : '반복 낱말이 뚜렷하지 않습니다.'
     ];
     return {
       oneLine: '《' + a.title + '》 · ' + c.chapters + '장 · 화자 ' + c.speakers + '명' + (kw.length ? ' · 키워드 ' + kw.slice(0, 3).join(' / ') : ''),
@@ -1448,7 +1449,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
     var scope = focus ? ('‘' + focus + '’ 중심으로 ') : '';
 
     var openers = [
-      '오늘은 《' + a.title + '》을 ' + scope + '짚어보겠습니다. 장 ' + c.chapters + '개, 들을 수 있는 문단 ' + c.speakable.toLocaleString('ko-KR') + '개입니다.',
+      '오늘은 《' + a.title + '》' + josa(a.title, '을', '를') + ' ' + scope + '짚어보겠습니다. 장 ' + c.chapters + '개, 들을 수 있는 문단 ' + c.speakable.toLocaleString('ko-KR') + '개입니다.',
       '《' + a.title + '》 한 권을 ' + scope + '정리해 보려고 합니다. 대사 ' + c.dialogue.toLocaleString('ko-KR') + '문단, 해설 ' + c.narration.toLocaleString('ko-KR') + '문단 분량이에요.',
       '《' + a.title + '》입니다. 화자 ' + c.speakers + '명, 장 ' + c.chapters + '개짜리 원고를 ' + scope + '훑어봅니다.'
     ];
