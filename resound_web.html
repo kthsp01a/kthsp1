@@ -2675,7 +2675,6 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
         .sort(function (a, b) { return (b.blockIndex || 0) - (a.blockIndex || 0); });
       if (!cands.length) {
         /* 연결된 장면 이미지가 없으면 서재 아트를 기본 스테이지로 보여 준다 */
-        if (stage.dataset.key === 'default') { stage.hidden = false; return; }
         stage.dataset.key = 'default';
         var bk = H.book();
         var bi = H.player().i;
