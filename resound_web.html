@@ -2681,7 +2681,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
         var b = bk && bk.blocks[bi];
         var cap = b && b.chapter !== undefined && bk.chapters && bk.chapters[b.chapter] ? bk.chapters[b.chapter].title : '';
         stage.innerHTML = '<div class="stageArt"></div>' +
-          '<div class="stageCap"><b>문단 ' + (bi + 1) + '</b>' + (cap ? '<span>' + H.esc(cap) + '</span>' : '') + '</div>';
+          '<div class="stageCap"><b>' + (cap ? H.esc(cap) : '지금 읽는 장면') + '</b></div>';
         stage.hidden = false;
         return;
       }
