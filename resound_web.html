@@ -3,8 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0B0F17">
+<meta name="theme-color" content="#FAF5E8">
 <meta name="description" content="Re:Sound 웹 오디오북 — 책을 넣으면 바로 들리는 감상 화면">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap">
 <title>Re:Sound — 웹 오디오북</title>
 <style>
 /* ===================================================================
@@ -35,8 +38,8 @@
   --danger:#B4543F;
   --shadow:0 6px 18px rgba(120,92,56,.10);
   --shadow-sm:0 3px 10px rgba(120,92,56,.08);
-  --serif:"Noto Serif KR","Nanum Myeongjo","Apple SD Gothic Neo",serif;
-  --sans:"Pretendard","Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo",sans-serif;
+  --serif:"Gowun Batang","Noto Serif KR","Nanum Myeongjo",serif;
+  --sans:"Gowun Dodum","Pretendard","Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo",sans-serif;
   --r:18px;
   --safe-t:env(safe-area-inset-top,0px);
   --safe-b:env(safe-area-inset-bottom,0px);
@@ -203,7 +206,8 @@ html[data-theme="night"] .heroArt::after{background:linear-gradient(rgba(43,51,5
 .rlist{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:12px 14px 18px;
   -webkit-overflow-scrolling:touch;scroll-behavior:auto}
 .block{position:relative;border:1px solid transparent;border-radius:12px;background:var(--paper);
-  padding:11px 13px 12px;margin:8px 0;line-height:1.78;font-size:15px;color:var(--ink2);
+  padding:11px 13px 12px;margin:8px 0;line-height:1.86;font-size:16px;color:var(--ink2);
+  -webkit-text-stroke:.18px currentColor;
   font-family:var(--serif);word-break:keep-all;overflow-wrap:anywhere;content-visibility:auto;
   contain-intrinsic-size:auto 92px;transition:background .18s ease,border-color .18s ease;
   box-shadow:0 1px 0 rgba(120,92,56,.04)}
@@ -345,7 +349,7 @@ html[data-lh="wide"] .block{line-height:2.06}
 .aiSection{margin-bottom:18px}
 .aiRow{display:flex;align-items:center;gap:8px;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap}
 .aiRow b{font-family:var(--serif);font-size:15.5px;font-weight:600}
-.aiLead{font-family:var(--serif);font-size:14.5px;line-height:1.72;color:var(--ink);margin:0 0 9px;word-break:keep-all}
+.aiLead{font-family:var(--serif);font-size:15px;line-height:1.8;-webkit-text-stroke:.15px currentColor;color:var(--ink);margin:0 0 9px;word-break:keep-all}
 .aiList{margin:0 0 11px;padding-left:17px;font-size:12.5px;line-height:1.65;color:var(--ink2);word-break:keep-all}
 .aiList.tight{margin:6px 0 0;font-size:12px}
 .aiCard{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:12px 13px;margin:8px 0;
