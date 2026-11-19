@@ -143,6 +143,10 @@ html[data-theme="night"] .topbar{background:linear-gradient(var(--bg),rgba(35,42
 .heroArt::after{content:"";position:absolute;left:0;right:0;bottom:0;height:38px;
   background:linear-gradient(rgba(255,252,244,0),var(--paper) 92%)}
 html[data-theme="night"] .heroArt::after{background:linear-gradient(rgba(43,51,54,0),var(--paper) 92%)}
+html[data-theme="night"] .heroArt{filter:brightness(.66) saturate(.82) sepia(.2)}
+html[data-theme="night"] .heroArt::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(66% 58% at 28% 26%,rgba(232,184,106,.26),transparent 72%),
+             linear-gradient(rgba(18,22,24,.18),rgba(18,22,24,.5))}
 .heroBody{padding:2px 18px 18px}
 .hero h1{margin:0 0 8px;font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.42;
   letter-spacing:-.2px;color:var(--ink);word-break:keep-all}
