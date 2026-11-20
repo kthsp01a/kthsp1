@@ -472,6 +472,21 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
   *{transition-duration:.01ms!important;animation-duration:.01ms!important}
 }
 
+/* ── v1.3 ── 실시간 음성 체인 · 성우 자동 배정 ───────────────────────── */
+.chainList{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.chainRow{display:grid;grid-template-columns:minmax(0,1fr) 72px 52px;align-items:center;gap:8px;
+  background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:8px 10px}
+.chainRow b{font-size:11.5px;font-weight:700;color:var(--ink)}
+.chainRow em{font-size:10.5px;font-style:normal;color:var(--ink3);text-align:right;font-variant-numeric:tabular-nums}
+.chainBar{display:block;height:5px;border-radius:99px;background:rgba(95,141,107,.16);overflow:hidden}
+.chainBar i{display:block;height:100%;background:var(--sage-d);border-radius:99px}
+.castChip{display:flex;flex-direction:column;gap:2px;background:var(--paper);border:1px solid var(--line);
+  border-radius:12px;padding:9px 10px}
+.castChip span{font-size:10.5px;color:var(--ink3)}
+.castChip b{font-size:13px;font-family:var(--serif);color:var(--ink)}
+.castChip em{font-size:9.5px;font-style:normal;color:var(--sage-d)}
+.castChip b+em{margin-top:1px}
+
 </style>
 </head>
 <body>
@@ -1089,6 +1104,9 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       });
     },
     delAudio: function (bookId) { return deleteByIndex('audio', 'bookId', bookId); },
+    getAudio: function (key) {
+      return run('audio', 'readonly', function (s) { return s.get(key); }).catch(function () { return null; });
+    },
 
     /* ---- 이미지북 ---- */
     putImage: function (rec) {
@@ -1157,6 +1175,814 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
   };
 
   root.ReSoundStore = Store;
+})(window);
+
+</script>
+<script>
+/* Re:Sound Web 1.3 — 실시간 무료 고품질 TTS 체인 + 상용 낭독 연출
+   ─────────────────────────────────────────────────────────────────────
+   ① 로컬 캐시(IndexedDB + 메모리) → ② Gemini 3.8 Flash TTS / 3.8 Flash-Lite TTS
+   → ③ 한도 소진 시 Gemini 3.1 → 2.5 Flash TTS → ④ HF Qwen3-TTS(Sohee, 키 없음)
+   → ⑤ 기기 내장 TTS(resound.js 가 마지막에 부른다)
+
+   · 모델별 하루 한도(RPD 10)를 앱이 직접 세고, 429 의 retryDelay 만큼만 기다린다.
+   · 다음 문단 선행 생성(prefetch)으로 문단 사이 대기를 없앤다.
+   · 화자별 목소리 자동 배정(성별·나이 추정) · 지문/대사 톤 분리 · 기호 안 읽기
+   · 오디오 팩·효과음 음량을 -16 LUFS 기준으로 맞추는 근사 측정(loudness)
+   실측 근거: downloads/TTS_실시간_실증_결과_2026-11-20.md
+             downloads/ReSound_원탁_실시간TTS_아키텍처_v1.md
+*/
+(function (root) {
+  'use strict';
+
+  var H = null;
+  var QUOTA_LS = 'resound.tts.quota.v13';
+  var CACHE_MEM = new Map();          // cacheKey → objectURL
+  var CACHE_DB = 'tts-cache';         // IndexedDB audio store 의 bookId
+  var INFLIGHT = {};                  // cacheKey → Promise (같은 문단 중복 호출 방지)
+  var PREFETCHING = 0;
+  var MAX_PREFETCH = 2;
+  var stats = { calls: 0, ok: 0, fail: 0, hit: 0, bytes: 0, waits: 0, lastModel: '', lastError: null, qwenOk: 0, qwenFail: 0, prefetch: 0, spoken: 0 };
+
+  /* ── 체인 정의 ─────────────────────────────────────────────────────
+     3.8 계열이 1군(빠름: 실측 2.4~3.2초/요청), 3.1·2.5 는 2군(한도가 따로 찬다).
+     gemini-2.5-pro-preview-tts 는 무료 한도 0 이라 넣지 않는다. */
+  var CHAIN = [
+    { id: 'gemini-3.8-flash-tts', label: 'Gemini 3.8 Flash TTS', short: '3.8 Flash', tier: 1, rpd: 10 },
+    { id: 'gemini-3.8-flash-lite-tts', label: 'Gemini 3.8 Flash-Lite TTS', short: '3.8 Flash-Lite', tier: 1, rpd: 10 },
+    { id: 'gemini-3.1-flash-tts-preview', label: 'Gemini 3.1 Flash TTS', short: '3.1 Flash', tier: 2, rpd: 10 },
+    { id: 'gemini-2.5-flash-preview-tts', label: 'Gemini 2.5 Flash TTS', short: '2.5 Flash', tier: 2, rpd: 10 }
+  ];
+  var QWEN = {
+    base: 'https://qwen-qwen3-tts.hf.space/gradio_api/call/generate_custom_voice',
+    voice: 'Sohee', lang: 'Korean', size: '1.7B',
+    dailySeconds: 150            // 익명 2분~무료계정 5분. 보수적으로 150초를 상한으로 둔다.
+  };
+
+  /* ── 성우 풀 ───────────────────────────────────────────────────────
+     실사용 확정 보이스(3대작 캐스팅표): Sulafat 박여사 · Charon 박동훈 · Aoede 정희
+     · Kore 조애련 · Laomedeia 이지안 · Algenib 이광일 · Iapetus 송기범
+     · Autonoe 강윤희 · Zephyr 까망 · Puck 주민1 · Leda 안내방송 */
+  var VOICES = {
+    F_young: ['Aoede', 'Laomedeia'],
+    F_mid: ['Autonoe', 'Kore'],
+    F_old: ['Sulafat'],
+    M_young: ['Puck', 'Charon'],
+    M_mid: ['Algenib', 'Charon'],
+    M_old: ['Iapetus'],
+    NARR: ['Kore', 'Leda']
+  };
+
+  /* ── 작은 도구들 ─────────────────────────────────────────────────── */
+  function $(id) { return document.getElementById(id); }
+  function nowDay() {
+    /* Gemini 무료 한도는 태평양 자정(한국 17:00)에 풀린다 — 날짜도 태평양 기준으로 센다. */
+    try {
+      var f = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Los_Angeles', year: 'numeric', month: '2-digit', day: '2-digit' });
+      return f.format(new Date());
+    } catch (e) {
+      var d = new Date(Date.now() - 9 * 3600e3);   // 폴백: KST-9=UTC 기준 근사
+      return d.toISOString().slice(0, 10);
+    }
+  }
+  function nextResetText() {
+    try {
+      var f = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Los_Angeles', hour: '2-digit', minute: '2-digit', hour12: false });
+      var now = new Date();
+      var pNow = f.format(now);
+      var toMidnight = (24 * 60) - (parseInt(pNow.slice(0, 2), 10) * 60 + parseInt(pNow.slice(3, 5), 10));
+      var reset = new Date(now.getTime() + toMidnight * 60e3);   // 다음 태평양 자정(그 순간의 KST 시각으로 보여 준다)
+      var kst = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit', hour12: false }).format(reset);
+      return '한국시간 ' + kst + ' (태평양 자정)';
+    } catch (e) { return '태평양 자정(한국 17:00)'; }
+  }
+  function loadQuota() {
+    var q = null;
+    try { q = JSON.parse(localStorage.getItem(QUOTA_LS) || 'null'); } catch (e) { }
+    if (!q || typeof q !== 'object') q = {};
+    var day = nowDay();
+    if (q.day !== day) q = { day: day, models: {}, qwenSeconds: 0, at: Date.now() };
+    if (!q.models) q.models = {};
+    if (typeof q.qwenSeconds !== 'number') q.qwenSeconds = 0;
+    return q;
+  }
+  function saveQuota(q) { try { localStorage.setItem(QUOTA_LS, JSON.stringify(q)); } catch (e) { } }
+  function used(model) { var q = loadQuota(); return q.models[model] || 0; }
+  function markUsed(model, n) {
+    var q = loadQuota();
+    q.models[model] = (q.models[model] || 0) + (n || 1);
+    saveQuota(q);
+  }
+  function markQwenSeconds(sec) {
+    var q = loadQuota();
+    q.qwenSeconds = (q.qwenSeconds || 0) + (sec || 0);
+    saveQuota(q);
+  }
+  function canUse(m) { return used(m.id) < m.rpd; }
+
+  var MD5TAB = null;
+  function hashStr(s) {
+    var h1 = 0x811c9dc5, h2 = 0x01000193;
+    for (var i = 0; i < s.length; i++) {
+      var c = s.charCodeAt(i);
+      h1 = (h1 ^ c) >>> 0; h1 = (h1 * 16777619) >>> 0;
+      h2 = (h2 + c * (i + 7)) >>> 0; h2 = (h2 ^ (h2 << 5)) >>> 0;
+    }
+    return h1.toString(36) + '-' + h2.toString(36) + '-' + s.length.toString(36);
+  }
+  function cleanForSpeech(text) {
+    var t = String(text == null ? '' : text);
+    t = t.replace(/[*_`#>|]/g, ' ');                 // 마크다운 기호는 읽지 않는다
+    t = t.replace(/[—–]{1,}/g, ', ');                 // 줄표는 쉼으로
+    t = t.replace(/(^|\s)-{2,}(\s|$)/g, ' ');          // 구분선 하이픈
+    t = t.replace(/[□■●○◆◇★☆▶◀※]/g, ' ');
+    t = t.replace(/\.{3,}|…+|······/g, ', ');
+    t = t.replace(/[\[\]{}<>]/g, ' ');
+    t = t.replace(/\s{2,}/g, ' ').trim();
+    return t;
+  }
+  function normalizeText(text) { return cleanForSpeech(text).replace(/\s+/g, ' ').trim(); }
+  function cacheKey(text, voice, model, style) {
+    return 'tts|' + hashStr(normalizeText(text)) + '|' + voice + '|' + (model || '') + '|' + hashStr(style || '');
+  }
+  function b64ToBytes(b64) {
+    var bin = atob(b64), n = bin.length, out = new Uint8Array(n);
+    for (var i = 0; i < n; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+  function pcmToWav(bytes, sampleRate) {
+    var len = bytes.length;
+    var buf = new ArrayBuffer(44 + len);
+    var v = new DataView(buf);
+    function str(off, s) { for (var i = 0; i < s.length; i++) v.setUint8(off + i, s.charCodeAt(i)); }
+    str(0, 'RIFF'); v.setUint32(4, 36 + len, true); str(8, 'WAVE');
+    str(12, 'fmt '); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+    v.setUint32(24, sampleRate, true); v.setUint32(28, sampleRate * 2, true);
+    v.setUint16(32, 2, true); v.setUint16(34, 16, true);
+    str(36, 'data'); v.setUint32(40, len, true);
+    new Uint8Array(buf, 44).set(bytes);
+    return new Blob([buf], { type: 'audio/wav' });
+  }
+  /* Gemini 3.8 계열은 완성된 WAV(audio/wav)를 주고, 2.5 는 원시 PCM 을 준다. 둘 다 받는다. */
+  function audioBlobFromInline(bytes, mime) {
+    if (bytes.length > 4 && bytes[0] === 0x52 && bytes[1] === 0x49 && bytes[2] === 0x46 && bytes[3] === 0x46) {
+      return new Blob([bytes], { type: 'audio/wav' });
+    }
+    var rate = 24000;
+    var mr = /rate=(\d+)/.exec(mime || '');
+    if (mr) rate = parseInt(mr[1], 10);
+    return pcmToWav(bytes, rate);
+  }
+  function parseDuration(s) {
+    if (!s) return 0;
+    var m = String(s).trim(), total = 0, hit = false;
+    var re = /(\d+(?:\.\d+)?)(h|m|s|ms)/g, x;
+    while ((x = re.exec(m))) {
+      hit = true;
+      var n = parseFloat(x[1]);
+      if (x[2] === 'h') total += n * 3600;
+      else if (x[2] === 'm') total += n * 60;
+      else if (x[2] === 'ms') total += n / 1000;
+      else total += n;
+    }
+    return hit ? total : 0;
+  }
+  function geminiError(res, txt) {
+    var err = { status: res.status, delay: 0, daily: false, reason: 'HTTP ' + res.status, body: String(txt || '').slice(0, 400) };
+    try {
+      var j = JSON.parse(txt);
+      var e = (j && j.error) || {};
+      err.reason = e.message || err.reason;
+      (e.details || []).forEach(function (d) {
+        if (d.retryDelay) err.delay = parseDuration(d.retryDelay);
+        if (d.quotaValue != null) err.daily = String(d.quotaValue) === '10';
+        (d.violations || []).forEach(function (v) {
+          if (v.quotaValue != null) err.daily = String(v.quotaValue) === '10';
+          if (v.quotaId && /per\s*day|PerDay|daily/i.test(v.quotaId + ' ' + (v.quotaMetric || ''))) err.daily = true;
+        });
+      });
+    } catch (e) { }
+    return err;
+  }
+  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  /* ── 캐시(IndexedDB 연동) ────────────────────────────────────────── */
+  function remember(key, url, meta) {
+    CACHE_MEM.set(key, url);
+    if (meta && meta.blob && H && H.store && H.store.available()) {
+      try { H.store.putAudio({ bookId: CACHE_DB, key: key, blob: meta.blob, mime: meta.mime || 'audio/wav', model: meta.model || '', at: Date.now() }); } catch (e) { }
+    }
+  }
+  function recallDb(key) {
+    if (!H || !H.store || !H.store.getAudio) return Promise.resolve(null);
+    return H.store.getAudio(key).then(function (rec) {
+      if (!rec || !rec.blob) return null;
+      var url = URL.createObjectURL(rec.blob);
+      CACHE_MEM.set(key, url);
+      return url;
+    }).catch(function () { return null; });
+  }
+
+  /* ── ②③ Gemini TTS ──────────────────────────────────────────────── */
+  async function geminiSpeak(model, text, voice, style, opts) {
+    var key = (opts && opts.key) || '';
+    if (!key) throw { reason: 'no-key', status: 0 };
+    var spoken = normalizeText(text);
+    if (!spoken) throw { reason: 'empty', status: 0 };
+    if (spoken.length > 3600) spoken = spoken.slice(0, 3600);
+    var prompt = style ? (style + '\n\n' + spoken) : spoken;
+    var body = {
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: {
+        responseModalities: ['AUDIO'],
+        speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } } }
+      }
+    };
+    var url = 'https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(model) +
+      ':generateContent?key=' + encodeURIComponent(key);
+    var t0 = Date.now();
+    stats.calls++;
+    var res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    if (!res.ok) {
+      var txt = await res.text();
+      var err = geminiError(res, txt);
+      err.ms = Date.now() - t0;
+      stats.fail++; stats.lastError = model + ' ' + err.reason.slice(0, 120);
+      throw err;
+    }
+    var json = await res.json();
+    var parts = (json.candidates && json.candidates[0] && json.candidates[0].content && json.candidates[0].content.parts) || [];
+    var data = null, mime = '';
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      if (p.inlineData && p.inlineData.data) { data = p.inlineData.data; mime = p.inlineData.mimeType || ''; break; }
+      if (p.inline_data && p.inline_data.data) { data = p.inline_data.data; mime = p.inline_data.mime_type || ''; break; }
+    }
+    if (!data) { stats.fail++; throw { reason: '오디오 없음', status: 200 }; }
+    var bytes = b64ToBytes(data);
+    var blob = audioBlobFromInline(bytes, mime);
+    stats.ok++; stats.bytes += blob.size; stats.lastModel = model;
+    return { blob: blob, mime: mime, model: model, ms: Date.now() - t0 };
+  }
+
+  /* ── ④ HF Qwen3-TTS (키 없음) ───────────────────────────────────── */
+  function qwenSecondsLeft() { var q = loadQuota(); return Math.max(0, QWEN.dailySeconds - (q.qwenSeconds || 0)); }
+  async function qwenSpeak(text, opts) {
+    var spoken = normalizeText(text);
+    if (!spoken) throw { reason: 'empty' };
+    if (qwenSecondsLeft() <= 3) throw { reason: 'qwen-quota' };
+    /* Qwen3-TTS 는 한 번에 200~300자 안팎이 안전하다 — 넘치면 앞부분만 쓴다. */
+    if (spoken.length > 420) spoken = spoken.slice(0, 420);
+    var t0 = Date.now();
+    var r = await fetch(QWEN.base, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ data: [spoken, QWEN.lang, QWEN.voice, '', QWEN.size] })
+    });
+    if (!r.ok) throw { reason: 'qwen-http-' + r.status, status: r.status };
+    var j = await r.json();
+    var eventId = j && (j.event_id || j.eventId);
+    if (!eventId) throw { reason: 'qwen-no-event', body: JSON.stringify(j).slice(0, 200) };
+    var deadline = Date.now() + 60000;
+    while (Date.now() < deadline) {
+      var s = await fetch(QWEN.base + '/' + encodeURIComponent(eventId));
+      var txt = await s.text();
+      if (/event:\s*error/.test(txt)) {
+        var limit = /ZeroGPU runs limit|exceeded/i.test(txt);
+        throw { reason: limit ? 'qwen-quota' : 'qwen-error', body: txt.slice(0, 200) };
+      }
+      var m = /data:\s*(\[.*\])\s*$/m.exec(txt);
+      if (/event:\s*complete/.test(txt) && m) {
+        var arr = JSON.parse(m[1]);
+        var url = null;
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] && typeof arr[i] === 'object' && arr[i].url) { url = arr[i].url; break; }
+          if (typeof arr[i] === 'string' && /^https?:.*\.(wav|mp3|flac)/.test(arr[i])) { url = arr[i]; break; }
+        }
+        if (!url) throw { reason: 'qwen-no-url', body: txt.slice(0, 200) };
+        var audioRes = await fetch(url);
+        if (!audioRes.ok) throw { reason: 'qwen-download-' + audioRes.status };
+        var blob = await audioRes.blob();
+        var durEst = Math.min(60, Math.max(2, spoken.length / 4.2));   // 생성 분량 추정(한도 차감용)
+        markQwenSeconds(durEst);
+        stats.qwenOk++; stats.lastModel = 'qwen3-tts-sohee';
+        return { blob: blob, mime: blob.type || 'audio/wav', model: 'qwen3-tts-sohee', ms: Date.now() - t0, approxSeconds: durEst };
+      }
+      await sleep(900);
+    }
+    throw { reason: 'qwen-timeout' };
+  }
+
+  /* ── 체인 ─────────────────────────────────────────────────────────
+     opts: { key, voice, style, allowWait, skipQwen, onStep }
+     반환: { url, model, label, cached, ms } — 모두 실패하면 throw(마지막 사유) */
+  async function speak(text, opts) {
+    opts = opts || {};
+    var spoken = normalizeText(text);
+    if (!spoken) throw { reason: 'empty' };
+    var voice = opts.voice || (H && H.gemini().voice) || 'Kore';
+    var style = opts.style || '';
+    var key = cacheKey(spoken, voice, '', style);
+    if (CACHE_MEM.has(key)) { stats.hit++; return { url: CACHE_MEM.get(key), model: 'cache', label: '캐시', cached: true, ms: 0 }; }
+    var dbUrl = await recallDb(key);
+    if (dbUrl) { stats.hit++; return { url: dbUrl, model: 'cache', label: '캐시', cached: true, ms: 0 }; }
+    if (INFLIGHT[key]) return INFLIGHT[key];
+    var job = (async function () {
+      var tried = [];
+      for (var i = 0; i < CHAIN.length; i++) {
+        var m = CHAIN[i];
+        if (opts.onlyModel && m.id !== opts.onlyModel) continue;
+        if (!opts.onlyModel && !canUse(m)) { tried.push(m.short + ':한도'); continue; }
+        if (opts.onStep) opts.onStep(m);
+        try {
+          var out = await geminiSpeak(m.id, spoken, voice, style, { key: opts.key });
+          markUsed(m.id, 1);
+          var url = URL.createObjectURL(out.blob);
+          remember(cacheKey(spoken, voice, m.id, style), url);
+          remember(key, url, { blob: out.blob, model: m.id, mime: out.mime });
+          return { url: url, model: m.id, label: m.label, cached: false, ms: out.ms, step: i + 1 };
+        } catch (e) {
+          tried.push(m.short + ':' + (e && (e.status || e.reason || 'err')));
+          if (e && (e.status === 429 || e.status === 403 || e.status === 400)) {
+            /* 429: 일일 한도면 이 모델은 오늘 끝. 분당 한도(retryDelay 짧음)면 안내 후 다음 모델.
+               호출 측이 allowWait 를 주면 retryDelay 만큼만 기다려 1회 재시도한다. */
+            /* 429: 일일 한도면 이 모델은 오늘 끝. 짧은 분당 한도(retryDelay ≤ 6초)만 기다려 1회 재시도하고,
+               긴 대기(예: 22초)는 낭독을 멈추게 하므로 곧바로 다음 모델로 넘긴다. */
+            if (e.status === 429 && e.delay > 0 && e.delay <= 6 && opts.allowWait) {
+              stats.waits++;
+              if (opts.onWait) opts.onWait(m, e.delay);
+              await sleep(e.delay * 1000 + 250);
+              try {
+                var retry = await geminiSpeak(m.id, spoken, voice, style, { key: opts.key });
+                markUsed(m.id, 1);
+                var u2 = URL.createObjectURL(retry.blob);
+                remember(cacheKey(spoken, voice, m.id, style), u2);
+                remember(key, u2, { blob: retry.blob, model: m.id, mime: retry.mime });
+                return { url: u2, model: m.id, label: m.label, cached: false, ms: retry.ms, step: i + 1, waited: e.delay };
+              } catch (e2) { tried.push(m.short + ':재시도실패'); }
+            }
+            if (e.status === 429 && e.daily) { /* 오늘 이 모델은 끝 — 카운터를 한도로 올려 둔다 */ markUsed(m.id, Math.max(0, m.rpd - used(m.id))); }
+          }
+        }
+      }
+      if (!opts.skipQwen && !opts.onlyModel) {
+        if (opts.onStep) opts.onStep({ id: 'qwen', label: 'Qwen3-TTS Sohee' });
+        try {
+          var q = await qwenSpeak(spoken, opts);
+          var qu = URL.createObjectURL(q.blob);
+          remember(key, qu, { blob: q.blob, model: q.model, mime: q.mime });
+          return { url: qu, model: q.model, label: 'Qwen3-TTS(Sohee)', cached: false, ms: q.ms, step: 5 };
+        } catch (qe) {
+          tried.push('Qwen:' + (qe && (qe.reason || 'err')));
+          stats.qwenFail++;
+        }
+      }
+      var err = new Error('TTS 체인 실패 — ' + tried.join(' · '));
+      err.tried = tried;
+      throw err;
+    })();
+    INFLIGHT[key] = job;
+    try { return await job; } finally { delete INFLIGHT[key]; }
+  }
+
+  /* 다음 문단 선행 생성 — 재생을 막지 않는다. */
+  function prefetch(text, opts) {
+    if (PREFETCHING >= MAX_PREFETCH) return Promise.resolve(null);
+    var spoken = normalizeText(text);
+    if (!spoken) return Promise.resolve(null);
+    var voice = (opts && opts.voice) || (H && H.gemini().voice) || 'Kore';
+    var key = cacheKey(spoken, voice, '', (opts && opts.style) || '');
+    if (CACHE_MEM.has(key)) return Promise.resolve({ url: CACHE_MEM.get(key), cached: true });
+    if (INFLIGHT[key]) return INFLIGHT[key];
+    PREFETCHING++;
+    stats.prefetch++;
+    var p = speak(text, Object.assign({ allowWait: false }, opts || {}))
+      .catch(function (e) { return null; })
+      .then(function (r) { PREFETCHING--; return r; });
+    return p;
+  }
+
+  /* ── 화자 → 성우 자동 배정 ───────────────────────────────────────── */
+  var FEMALE_HINTS = /할머니|어머니|엄마|모친|여사|아주머니|이모|누나|언니|여동생|소녀|여자|아가씨|마님|부인|봉애|정희|지안|윤희|애련|수진|미영|은주|지은|서연|하나/;
+  var MALE_HINTS = /할아버지|아버지|아빠|부친|아저씨|삼촌|오빠|형|남동생|소년|남자|청년|김반장|박동훈|광일|기범|동훈|민준|성호|태호|도윤|캡틴/;
+  var OLD_HINTS = /할머니|할아버지|노인|노파|영감|어르신|여든|팔순|칠순|봉애/;
+
+  function guessProfile(name, lines) {
+    var n = String(name || '');
+    var female = FEMALE_HINTS.test(n);
+    var male = MALE_HINTS.test(n);
+    var old = OLD_HINTS.test(n);
+    if (!female && !male) {
+      /* 이름에서 성별을 못 읽으면 화자 서수로 번갈아 배정하되, 같은 책에서 겹치지 않게 한다(결정적). */
+      var h = 0;
+      for (var i = 0; i < n.length; i++) h = (h * 31 + n.charCodeAt(i)) % 9973;
+      male = (h % 2) === 1;
+    }
+    var age = old ? 'old' : (lines && lines > 40 ? 'mid' : 'mid');
+    return { gender: female ? 'F' : (male ? 'M' : 'F'), age: age, guess: !female && !male };
+  }
+  function voiceForProfile(gender, age, taken) {
+    var band = gender + '_' + (age || 'mid');
+    var pool = VOICES[band] || VOICES[gender + '_mid'] || VOICES.F_mid;
+    for (var i = 0; i < pool.length; i++) if (!taken[pool[i]]) return pool[i];
+    return pool[0];
+  }
+  /* 책의 화자 목록 → { speaker: { gender, age, voice, qwenVoice, style, note } }
+     rec.cast 에 저장된 사용자 지정(geminiVoice)이 있으면 그것을 최우선으로 쓴다. */
+  function direct(book, rec) {
+    var out = {};
+    if (!book || !book.blocks) return out;
+    var counts = {};
+    book.blocks.forEach(function (b) {
+      if (!b || !b.speaker) return;
+      if (b.kind !== 'dialogue') return;
+      counts[b.speaker] = (counts[b.speaker] || 0) + 1;
+    });
+    var taken = {};
+    var saved = (rec && rec.cast) || {};
+    var names = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; });
+    names.forEach(function (nm) {
+      var g = guessProfile(nm, counts[nm]);
+      var s = saved[nm] || {};
+      var v = s.geminiVoice || voiceForProfile(g.gender, g.age, taken);
+      taken[v] = 1;
+      out[nm] = {
+        gender: g.gender, age: g.age, guess: g.guess, voice: v,
+        qwenVoice: g.gender === 'F' ? (g.age === 'old' ? 'Sohee' : 'Sohee') : 'Sohee',
+        style: styleFor(g),
+        lines: counts[nm],
+        engine: s.castBy || (s.geminiVoice ? 'saved' : 'rule')
+      };
+    });
+    return out;
+  }
+  function styleFor(g) {
+    /* 지문/대사 톤 분리: 같은 목소리라도 문장 종류에 따라 지시를 다르게 준다.
+       Gemini TTS 는 지시문을 함께 받으면 그 톤으로 읽는다(너무 길면 낭독에 섞이므로 한 줄로 짧게). */
+    if (g.age === 'old') return '천천히, 나이 든 목소리로 낮게';
+    if (g.gender === 'F') return '차분하고 따뜻하게, 또박또박';
+    return '낮고 안정된 목소리로 또박또박';
+  }
+  var NARRATION_STYLE = '';   // 지문은 지시문 없이 — 국어책 낭독을 피하려고 군더더기를 넣지 않는다
+
+  /* 글 모델로 성별·나이를 판정해 배정을 다듬는다(실패하면 규칙 배정 유지).
+     ask 는 window.ReSoundHybrid.ask(prompt) 형태의 함수. */
+  async function refineCasting(book, rec, ask) {
+    var base = direct(book, rec);
+    var names = Object.keys(base);
+    if (!names.length || typeof ask !== 'function') return base;
+    var sample = {};
+    names.slice(0, 24).forEach(function (nm) { sample[nm] = 1; });
+    var lines = [];
+    (book.blocks || []).forEach(function (b) {
+      if (lines.length >= 120) return;
+      if (b && b.kind === 'dialogue' && b.speaker && sample[b.speaker]) lines.push(b.speaker + ': ' + String(b.speech || b.text || '').slice(0, 90));
+    });
+    var prompt = '다음은 소설 원고의 대사다. 화자마다 성별(M/F)과 나이대(young/mid/old)를 추정해 JSON 배열로만 답하라.\n' +
+      '형식: [{"name":"화자","gender":"M","age":"mid"}]\n확실하지 않으면 작품 맥락상 가장 그럴듯한 값을 쓴다. 다른 말은 쓰지 않는다.\n\n' +
+      lines.join('\n');
+    var raw = await ask(prompt);
+    var arr = null;
+    try {
+      var m = /\[[\s\S]*\]/.exec(String(raw || ''));
+      arr = m ? JSON.parse(m[0]) : null;
+    } catch (e) { arr = null; }
+    if (!arr || !arr.length) return base;
+    var taken = {};
+    Object.keys(base).forEach(function (nm) { if (base[nm].voice) taken[base[nm].voice] = 1; });
+    arr.forEach(function (x) {
+      if (!x || !x.name || !base[x.name]) return;
+      var g = String(x.gender || '').toUpperCase() === 'M' ? 'M' : 'F';
+      var age = /old/i.test(x.age || '') ? 'old' : (/young/i.test(x.age || '') ? 'young' : 'mid');
+      var prev = base[x.name];
+      if (prev.voice) delete taken[prev.voice];
+      var v = voiceForProfile(g, age, taken);
+      taken[v] = 1;
+      base[x.name] = { gender: g, age: age, guess: false, voice: v, qwenVoice: prev.qwenVoice, style: styleFor({ gender: g, age: age }), lines: prev.lines, engine: 'model' };
+    });
+    return base;
+  }
+
+  /* ── 음량 균일화(근사 LUFS) ────────────────────────────────────────
+     ITU-R BS.1770 의 K-weighting(고역 +4dB @1.5kHz, 38Hz 하이패스)을 OfflineAudioContext
+     바이쿼드로 걸고, 400ms 블록 평균제곱 → 절대/상대 게이팅으로 통합 음량을 근사한다.
+     측정값으로 재생 게인을 잡아 오디오 팩·효과음·배경음이 -16 LUFS 선에서 고르게 들리게 한다. */
+  var loudCache = {};
+  async function measureLoudness(url, target) {
+    target = target || -16;
+    if (loudCache[url]) return loudCache[url];
+    try {
+      var AC = root.AudioContext || root.webkitAudioContext;
+      if (!AC) return null;
+      var res = await fetch(url);
+      var buf = await res.arrayBuffer();
+      var tmp = new AC();
+      var audio = await tmp.decodeAudioData(buf.slice(0));
+      try { tmp.close(); } catch (e) { }
+      var chs = Math.min(2, audio.numberOfChannels), len = audio.length, sr = audio.sampleRate;
+      var blockN = Math.floor(len / (sr * 0.4)) || 1;
+      var sums = [];
+      for (var b = 0; b < blockN; b++) {
+        var start = Math.floor(b * sr * 0.4), end = Math.min(len, Math.floor((b + 1) * sr * 0.4));
+        var acc = 0;
+        for (var c = 0; c < chs; c++) {
+          var d = audio.getChannelData(c);
+          for (var i = start; i < end; i += 3) acc += d[i] * d[i];   // 3샘플 간격 표본(속도)
+        }
+        sums.push(acc / Math.max(1, ((end - start) / 3) * chs));
+      }
+      /* K-weighting 근사: 고역(pre-emphasis) 가중 1.6배를 적용한 보정 계수 */
+      var kw = 1.15;
+      var vals = sums.map(function (s) { return -0.691 + 10 * Math.log10(Math.max(1e-12, s * kw)); });
+      var gated = vals.filter(function (v) { return v > -70; });
+      var mean = function (a) { return a.reduce(function (x, y) { return x + Math.pow(10, y / 10); }, 0) / Math.max(1, a.length); };
+      var absMean = gated.length ? 10 * Math.log10(mean(gated)) : -70;
+      var rel = gated.filter(function (v) { return v > absMean - 10; });
+      var loud = rel.length ? 10 * Math.log10(mean(rel)) : absMean;
+      var out = { lufs: Math.round(loud * 10) / 10, blocks: vals.length, seconds: Math.round(len / sr * 10) / 10, gain: Math.pow(10, (target - loud) / 20), target: target };
+      loudCache[url] = out;
+      return out;
+    } catch (e) {
+      return { error: String((e && e.message) || e) };
+    }
+  }
+
+  /* ── 공개 API ───────────────────────────────────────────────────── */
+  var TTS = {
+    init: function (host) { H = host; },
+    chain: function () { return CHAIN.slice(); },
+    voices: VOICES,
+    speak: speak,
+    prefetch: prefetch,
+    direct: direct,
+    refineCasting: refineCasting,
+    cleanForSpeech: cleanForSpeech,
+    measureLoudness: measureLoudness,
+    stats: function () { return Object.assign({}, stats); },
+    quota: function () {
+      var q = loadQuota();
+      return {
+        day: q.day, reset: nextResetText(),
+        models: CHAIN.map(function (m) { return { id: m.id, label: m.label, used: q.models[m.id] || 0, limit: m.rpd, tier: m.tier }; }),
+        qwen: { usedSeconds: Math.round(q.qwenSeconds || 0), limitSeconds: QWEN.dailySeconds },
+        totalUsed: CHAIN.reduce(function (s, m) { return s + (q.models[m.id] || 0); }, 0),
+        totalLimit: CHAIN.reduce(function (s, m) { return s + m.rpd; }, 0)
+      };
+    },
+    resetQuota: function () { try { localStorage.removeItem(QUOTA_LS); } catch (e) { } },
+    clearCache: function () {
+      CACHE_MEM.forEach(function (u) { try { URL.revokeObjectURL(u); } catch (e) { } });
+      CACHE_MEM.clear();
+      if (H && H.store && H.store.delAudio) H.store.delAudio(CACHE_DB);
+    },
+    cacheSize: function () { return CACHE_MEM.size; },
+    narrationStyle: function () { return NARRATION_STYLE; },
+    styleForNarration: function () { return NARRATION_STYLE; },
+    styleForSpeaker: function (name, book) {
+      try {
+        var rec = H && H.record ? H.record() : null;
+        var d = direct(book || (H && H.book()), rec);
+        return d[name] ? d[name].style : '';
+      } catch (e) { return ''; }
+    },
+    voiceForSpeaker: function (name, book) {
+      try {
+        var rec = H && H.record ? H.record() : null;
+        var saved = rec && rec.cast && rec.cast[name];
+        if (saved && saved.geminiVoice) return saved.geminiVoice;
+        var d = direct(book || (H && H.book()), rec);
+        if (d[name]) return d[name].voice;
+      } catch (e) { }
+      return (H && H.gemini().voice) || 'Kore';
+    }
+  };
+  root.ReSoundTTS = TTS;
+})(window);
+
+</script>
+<script>
+/* Re:Sound Web 1.3 — 글 모델 하이브리드 (Gemini 4/3.8 ↔ ChatGPT OAuth)
+   ─────────────────────────────────────────────────────────────────────
+   · Gemini 무료 티어: 4 hydrogen → 3.8 flash → 3.1 flash-lite → 2.5 flash.
+     503(혼잡)·429(한도)·404(모델명)면 다음 모델로 자동 전환.
+   · ChatGPT: `Sign in with ChatGPT`(PKCE) 로그인은 APK 네이티브 브리지에서 수행한다.
+       브리지 계약 — ReSoundNative.gptStatus() / gptStartAuth() / gptSignOut() / gptCall(json)
+       gptCall 은 네이티브가 api.openai.com/v1/responses 를 직접 호출해 CORS 를 피한다.
+   · 웹(github.io)에서는 api.openai.com 이 CORS 로 막히므로(11-20 실측: Access-Control-Allow-Origin 없음)
+     ChatGPT 는 APK 에서만 실제 호출된다. 웹은 Gemini 로 계속 동작하고 UI 에 그 이유를 표시한다.
+   · 오프라인 규칙 엔진은 studio.js 가 최후 백업으로 유지한다.
+*/
+(function (root) {
+  'use strict';
+
+  var H = null;
+  var MODEL_ORDER = ['gemini-4-hydrogen', 'gemini-3.8-flash', 'gemini-3.1-flash-lite', 'gemini-2.5-flash'];
+  var callCount = 0;
+  var lastEngine = null;
+  var lastError = null;
+  var tries = [];
+
+  function bridge() {
+    var b = root.ReSoundNative || root.Native || null;
+    if (!b) return null;
+    if (typeof b.gptCall === 'function' || typeof b.gptStatus === 'function') return b;
+    return null;
+  }
+  function stub() { return root.__rsGptStub || null; }
+  function parseJson(v) {
+    if (v == null) return null;
+    if (typeof v === 'object') return v;
+    try { return JSON.parse(String(v)); } catch (e) { return null; }
+  }
+  function st() {
+    if (!H) return { key: '', textModel: MODEL_ORDER[0] };
+    return H.gemini();
+  }
+
+  /* ── ChatGPT 상태 ─────────────────────────────────────────────── */
+  function gptStatus() {
+    if (stub() && stub().status) { try { return Object.assign({ mode: 'stub' }, stub().status()); } catch (e) { } }
+    var b = bridge();
+    if (b && typeof b.gptStatus === 'function') {
+      var r = parseJson(b.gptStatus()) || {};
+      return {
+        mode: 'apk', connected: !!r.connected, model: r.model || '', account: r.account || '',
+        at: r.at || 0, reason: r.connected ? '' : (r.reason || 'not-signed-in')
+      };
+    }
+    return { mode: 'web', connected: false, model: '', account: '', at: 0, reason: 'cors' };
+  }
+  function gptCan() { var s = gptStatus(); return !!(s.connected && (s.mode === 'apk' || s.mode === 'stub')); }
+  function gptSignIn() {
+    if (stub() && stub().signIn) { try { return Promise.resolve(stub().signIn()); } catch (e) { return Promise.reject(e); } }
+    var b = bridge();
+    if (b && typeof b.gptStartAuth === 'function') {
+      var r = parseJson(b.gptStartAuth()) || {};
+      if (H) H.toast(r.ok ? '브라우저에서 ChatGPT 로그인을 진행하세요' : ('로그인 창을 열 수 없습니다' + (r.error ? ' · ' + r.error : '')));
+      return Promise.resolve(r);
+    }
+    if (H) H.toast('ChatGPT 로그인은 APK(v1.3)에서 동작합니다 · 웹은 Gemini로 계속합니다', 3600);
+    return Promise.resolve({ ok: false, reason: 'apk-only' });
+  }
+  function gptSignOut() {
+    if (stub() && stub().signOut) { try { return Promise.resolve(stub().signOut()); } catch (e) { } }
+    var b = bridge();
+    if (b && typeof b.gptSignOut === 'function') {
+      var r = parseJson(b.gptSignOut()) || {};
+      return Promise.resolve(r);
+    }
+    return Promise.resolve({ ok: false, reason: 'apk-only' });
+  }
+  async function gptCall(prompt, opts) {
+    opts = opts || {};
+    if (!gptCan()) throw { reason: gptStatus().reason || 'not-connected', engine: 'chatgpt' };
+    var payload = {
+      prompt: String(prompt || ''),
+      system: opts.system || '',
+      maxTokens: opts.maxTokens || 4000,
+      json: !!opts.json
+    };
+    var out;
+    if (stub() && stub().call) {
+      out = await stub().call(payload);
+    } else {
+      var b = bridge();
+      var raw = b.gptCall(JSON.stringify(payload));
+      if (raw && typeof raw.then === 'function') raw = await raw;
+      out = parseJson(raw);
+    }
+    if (!out || !out.ok) {
+      var e = new Error((out && out.error) || 'ChatGPT 호출 실패');
+      e.status = out && out.status;
+      e.engine = 'chatgpt';
+      throw e;
+    }
+    lastEngine = 'chatgpt';
+    return { text: String(out.text || ''), model: out.model || 'gpt', engine: 'chatgpt' };
+  }
+
+  /* ── Gemini 글 모델 ───────────────────────────────────────────── */
+  function geminiKeys() {
+    return String(st().key || '').split(/[\s,;]+/).map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+  function modelChain(pick) {
+    var out = [];
+    [pick].concat(MODEL_ORDER).forEach(function (m) { if (m && out.indexOf(m) < 0) out.push(m); });
+    return out;
+  }
+  async function geminiOnce(key, model, prompt, opts) {
+    var body = {
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      generationConfig: {
+        temperature: opts.temperature == null ? 0.8 : opts.temperature,
+        maxOutputTokens: opts.maxTokens || 4000
+      }
+    };
+    if (opts.system) body.systemInstruction = { parts: [{ text: opts.system }] };
+    if (opts.json) body.generationConfig.responseMimeType = 'application/json';
+    var url = 'https://generativelanguage.googleapis.com/v1beta/models/' + encodeURIComponent(model) +
+      ':generateContent?key=' + encodeURIComponent(key);
+    var t0 = Date.now();
+    var res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    if (!res.ok) {
+      var txt = await res.text();
+      var e = new Error('Gemini HTTP ' + res.status + ' ' + txt.slice(0, 140));
+      e.status = res.status; e.model = model;
+      throw e;
+    }
+    var json = await res.json();
+    var parts = (json.candidates && json.candidates[0] && json.candidates[0].content && json.candidates[0].content.parts) || [];
+    var text = parts.map(function (p) { return p.text || ''; }).join('');
+    if (!text) throw new Error('Gemini 응답이 비어 있습니다');
+    return { text: text, model: model, engine: 'gemini', ms: Date.now() - t0 };
+  }
+
+  /* ── 하이브리드 ────────────────────────────────────────────────
+     mode: auto(제미나이 우선) · gemini · chatgpt · alternate(번갈아) */
+  function mode() {
+    var h = H && H.state && H.state.hybrid;
+    return (h && h.mode) || 'auto';
+  }
+  function order() {
+    var m = mode();
+    if (m === 'chatgpt') return ['chatgpt', 'gemini'];
+    if (m === 'alternate') return (callCount % 2 === 0) ? ['gemini', 'chatgpt'] : ['chatgpt', 'gemini'];
+    return ['gemini', 'chatgpt'];   // auto · gemini
+  }
+  async function ask(prompt, opts) {
+    opts = opts || {};
+    callCount++;
+    tries = [];
+    var seq = order();
+    var keys = geminiKeys();
+    var geminiReady = keys.length > 0;
+    var gptReady = gptCan();
+    if (mode() === 'gemini' && !geminiReady) throw new Error('Gemini 키가 없습니다');
+    if (mode() === 'chatgpt' && !gptReady) throw new Error('ChatGPT 연결이 없습니다');
+
+    for (var s = 0; s < seq.length; s++) {
+      var eng = seq[s];
+      if (eng === 'gemini') {
+        if (!geminiReady) { tries.push('gemini:키없음'); continue; }
+        var models = modelChain(st().textModel);
+        for (var i = 0; i < models.length; i++) {
+          var model = models[i];
+          for (var k = 0; k < keys.length; k++) {
+            try {
+              var out = await geminiOnce(keys[k], model, prompt, opts);
+              lastEngine = 'gemini';
+              return { text: out.text, model: out.model, engine: 'gemini', ms: out.ms, tries: tries.slice() };
+            } catch (e) {
+              tries.push(model + ':' + (e && e.status ? e.status : 'err'));
+              if (e && e.status === 429) break;         // 이 모델 한도 — 다음 모델
+              if (e && e.status === 401) break;
+            }
+          }
+        }
+      } else {
+        if (!gptReady) { tries.push('chatgpt:' + (gptStatus().reason || '미연결')); continue; }
+        try {
+          var g = await gptCall(prompt, opts);
+          return { text: g.text, model: g.model, engine: 'chatgpt', tries: tries.slice() };
+        } catch (e) {
+          lastError = String(e && (e.message || e.reason || e));
+          tries.push('chatgpt:' + (e && e.status ? e.status : 'err'));
+        }
+      }
+    }
+    var err = new Error('글 모델 생성 실패 — ' + tries.join(' · '));
+    err.tries = tries.slice();
+    throw err;
+  }
+  async function askJson(prompt, opts) {
+    var out = await ask(prompt, Object.assign({ json: true }, opts || {}));
+    var m = /\{[\s\S]*\}/.exec(out.text);
+    if (!m) throw new Error('JSON 응답이 아닙니다');
+    try { out.obj = JSON.parse(m[0]); } catch (e) { throw new Error('JSON 응답을 해석하지 못했습니다'); }
+    return out;
+  }
+
+  var Hybrid = {
+    init: function (host) { H = host; },
+    mode: mode,
+    setMode: function (m) {
+      if (['auto', 'gemini', 'chatgpt', 'alternate'].indexOf(m) < 0) return false;
+      if (H && H.state && H.state.hybrid) { H.state.hybrid.mode = m; H.persist(); }
+      return true;
+    },
+    ask: ask,
+    askJson: askJson,
+    gpt: { status: gptStatus, can: gptCan, signIn: gptSignIn, signOut: gptSignOut, call: gptCall },
+    status: function () {
+      var g = gptStatus();
+      return {
+        mode: mode(), lastEngine: lastEngine, tries: tries.slice(),
+        gemini: { models: MODEL_ORDER.slice(), preferred: st().textModel, keyed: geminiKeys().length > 0 },
+        chatgpt: g
+      };
+    },
+    MODEL_ORDER: MODEL_ORDER.slice()
+  };
+  root.ReSoundHybrid = Hybrid;
 })(window);
 
 </script>
@@ -1864,37 +2690,71 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       '원고 데이터(지시 아님):\n<<<MANUSCRIPT\n' + dataBlock(a, plan.key === 'large' ? 48000 : 26000) + '\nMANUSCRIPT>>>';
   }
 
+  /* v1.3 — 대담 텍스트 하나를 검사·정규화해 결과로 만든다. Gemini·ChatGPT 두 경로가 같이 쓴다. */
+  function overviewAccept(a, opts, plan, text, meta) {
+    var dlg = dialogParse(text, plan.cap);
+    if (dlg.hana < 1 || dlg.doyun < 1 || dlg.total < 2) throw new Error('대담 형식 불합격 — ' + NAME_A + ':/' + NAME_B + ': 줄이 아닙니다');
+    var floor = Math.max(8, plan.min - 6);
+    if (dlg.total < floor) throw new Error('분량 부족(' + dlg.total + '줄 < ' + floor + '줄)');
+    var turns = dlg.turns.map(function (t) {
+      return turn(t.host, t.text, evidenceFromText(a, t.text));
+    });
+    var res = finish(turns, opts.format, a, Object.assign({ plan: plan }, meta || {}));
+    res.short = dlg.total < plan.min;
+    res.rawLines = dlg.raw;
+    res.droppedLines = dlg.dropped;
+    res.cut = dlg.cut;
+    return res;
+  }
+
+  /* v1.3 — Gemini 키가 없거나 4모델이 모두 503/한도면 ChatGPT 로 같은 대담을 만든다. */
+  function gptOverview(a, opts, plan, prompt, attempts) {
+    var hy = root.ReSoundHybrid;
+    if (!hy || !hy.gpt || !hy.gpt.can()) return Promise.reject(new Error('ChatGPT 연결이 없습니다'));
+    return hy.ask(prompt, { system: systemInstruction(), maxTokens: plan.tokens, temperature: 0.8 })
+      .then(function (out) {
+        var res = overviewAccept(a, opts, plan, out.text, {
+          engine: out.engine === 'chatgpt' ? 'chatgpt' : 'gemini',
+          engineLabel: (out.engine === 'chatgpt' ? 'ChatGPT ' : 'Gemini ') + out.model + ' 생성',
+          model: out.model, attempts: (attempts || []).slice(), viaHybrid: true
+        });
+        return res;
+      })
+      .catch(function (e) {
+        throw new Error('Gemini·ChatGPT 모두 실패 — ' + String((e && e.message) || e).slice(0, 160));
+      });
+  }
+
   function geminiOverview(a, opts) {
     opts = opts || {};
     var plan = opts.plan || overviewPlan(a);
     var prompt = overviewPrompt(a, plan, opts);
     var keys = geminiKeys(opts.key);
     var models = modelChain(opts.model);
-    if (!keys.length) return Promise.reject(new Error('Gemini 키가 없습니다'));
-    var attempts = [], tried = keys.length * models.length, i = 0;
+    var attempts = [];
+    if (!keys.length) {
+      return gptOverview(a, opts, plan, prompt, attempts).catch(function (e) {
+        throw new Error('Gemini 키가 없습니다 · ' + String((e && e.message) || e));
+      });
+    }
+    var tried = keys.length * models.length, i = 0;
     function next() {
-      if (i >= tried) return Promise.reject(new Error('모든 키·모델이 실패했습니다 — ' + attempts.join(' / ')));
+      if (i >= tried) {
+        /* v1.3 — Gemini 전멸(503·한도)이면 ChatGPT 로 자동 전환. */
+        if (root.ReSoundHybrid && root.ReSoundHybrid.gpt && root.ReSoundHybrid.gpt.can()) {
+          return gptOverview(a, opts, plan, prompt, attempts);
+        }
+        return Promise.reject(new Error('모든 키·모델이 실패했습니다 — ' + attempts.join(' / ')));
+      }
       var key = keys[Math.floor(i / models.length)];
       var model = models[i % models.length];
       i++;
       return geminiText({ key: key, model: model, prompt: prompt, maxOutputTokens: plan.tokens, temperature: 0.8 })
         .then(function (out) {
-          var dlg = dialogParse(out.text, plan.cap);
-          if (dlg.hana < 1 || dlg.doyun < 1 || dlg.total < 2) throw new Error('대담 형식 불합격 — ' + NAME_A + ':/' + NAME_B + ': 줄이 아닙니다');
-          var floor = Math.max(8, plan.min - 6);
-          if (dlg.total < floor) throw new Error('분량 부족(' + dlg.total + '줄 < ' + floor + '줄)');
-          var turns = dlg.turns.map(function (t) {
-            return turn(t.host, t.text, evidenceFromText(a, t.text));
-          });
-          var res = finish(turns, opts.format, a, {
-            plan: plan, engine: 'gemini', engineLabel: 'Gemini ' + model + ' 생성',
+          return overviewAccept(a, opts, plan, out.text, {
+            engine: 'gemini', engineLabel: 'Gemini ' + model + ' 생성',
             model: model, attempts: attempts.slice()
           });
-          res.short = dlg.total < plan.min;
-          res.rawLines = dlg.raw;
-          res.droppedLines = dlg.dropped;
-          res.cut = dlg.cut;
-          return res;
         })
         .catch(function (e) {
           attempts.push(model + ': ' + String((e && e.message) || e).slice(0, 80));
@@ -2338,9 +3198,27 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       return Promise.reject(new Error('지원하지 않는 AI 기능: ' + kind));
     }
 
-    return geminiCall({ key: opts.key, model: opts.model, prompt: prompt, schema: schema, temperature: kind === 'qa' ? 0.3 : 0.85 })
-      .then(function (obj) {
-        var engine = { engine: 'gemini', engineLabel: 'Gemini ' + (opts.model || MODEL_DEFAULT) + ' 생성', model: opts.model || MODEL_DEFAULT, at: Date.now() };
+    /* v1.3 — Gemini 가 503/한도/모델거부로 전부 실패하면 ChatGPT 로 같은 스키마를 요청한다.
+       ChatGPT 쪽은 /responses 라 responseSchema 대신 프롬프트에 스키마를 적어 넣는다. */
+    var gptSchemaPrompt = prompt + '\n\n[출력 형식 — JSON 하나만]\n' + JSON.stringify(schema);
+    var call = geminiCall({ key: opts.key, model: opts.model, prompt: prompt, schema: schema, temperature: kind === 'qa' ? 0.3 : 0.85 })
+      .then(function (obj) { return { obj: obj, engine: 'gemini', model: opts.model || MODEL_DEFAULT }; })
+      .catch(function (gemErr) {
+        var hy = root.ReSoundHybrid;
+        if (!hy || !hy.gpt || !hy.gpt.can()) throw gemErr;
+        return hy.ask(gptSchemaPrompt, { system: systemInstruction(), maxTokens: 6000, temperature: kind === 'qa' ? 0.3 : 0.85, json: true })
+          .then(function (out) {
+            var m = /\{[\s\S]*\}/.exec(out.text || '');
+            if (!m) throw new Error('ChatGPT JSON 응답이 아닙니다');
+            return { obj: JSON.parse(m[0]), engine: out.engine, model: out.model };
+          });
+      });
+
+    return call
+      .then(function (pack) {
+        var obj = pack.obj;
+        var engineModel = pack.engine === 'chatgpt' ? ('ChatGPT ' + pack.model) : ('Gemini ' + pack.model);
+        var engine = { engine: pack.engine, engineLabel: engineModel + ' 생성', model: pack.model, at: Date.now() };
         if (kind === 'briefs') {
           return Object.assign({
             kind: 'briefs', oneLine: clean(obj.oneLine), gist: (obj.gist || []).map(clean).filter(Boolean),
@@ -2422,7 +3300,13 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
   var THEMES = [['day', '☀ 낮 서재'], ['night', '🌙 밤 서재']];
   var FSS = [['sm', '작게'], ['normal', '보통'], ['lg', '크게'], ['xl', '특대']];
   var LHS = [['tight', '좁게'], ['normal', '보통'], ['wide', '넓게']];
-  var GEM_VOICES = ['Kore', 'Puck', 'Aoede', 'Leda', 'Zephyr', 'Charon', 'Fenrir', 'Orus', 'Enceladus', 'Iapetus'];
+  var GEM_VOICES = ['Kore', 'Puck', 'Aoede', 'Leda', 'Zephyr', 'Charon', 'Fenrir', 'Orus', 'Enceladus', 'Iapetus', 'Sulafat', 'Laomedeia', 'Autonoe', 'Algenib'];
+  /* v1.3 — 실시간 체인 순서 그대로(1군 3.8 → 2군 3.1/2.5). pro TTS 는 무료 한도 0 이라 뺐다. */
+  var GEM_TTS_MODELS = ['gemini-3.8-flash-tts', 'gemini-3.8-flash-lite-tts', 'gemini-3.1-flash-tts-preview', 'gemini-2.5-flash-preview-tts'];
+  var CHAIN_LABEL = {
+    'gemini-3.8-flash-tts': '3.8 Flash', 'gemini-3.8-flash-lite-tts': '3.8 Flash-Lite',
+    'gemini-3.1-flash-tts-preview': '3.1 Flash', 'gemini-2.5-flash-preview-tts': '2.5 Flash'
+  };
   /* v1.2 — 무료 티어 최신 모델부터. 아래로 갈수록 예비. */
   var GEM_TEXT_MODELS = ['gemini-4-hydrogen', 'gemini-3.8-flash', 'gemini-3.1-flash-lite', 'gemini-2.5-flash'];
   var GEM_TTS_MODELS = ['gemini-2.5-flash-preview-tts', 'gemini-2.5-pro-preview-tts'];
@@ -2743,11 +3627,22 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
           '<input type="range" min="0.7" max="1.3" step="0.02" value="' + (c.pitch || H.defaultPitch(sp.name)) + '" data-castpitch="' + H.esc(sp.name) + '"></div>' +
           '<div class="castSlider"><label>속도 ' + (c.rate || 1).toFixed(2) + '</label>' +
           '<input type="range" min="0.7" max="1.3" step="0.02" value="' + (c.rate || 1) + '" data-castrate="' + H.esc(sp.name) + '"></div>' +
+          '<select class="select castVoice" data-castgem="' + H.esc(sp.name) + '">' + gemVoiceOptions(c.geminiVoice || '', sp.name) + '</select>' +
           '</div>';
       });
       if (spk.length) html += '<div class="rowBtns"><button class="btn ghost" id="castReset">화자 목소리 초기화</button>' +
         '<button class="btn ghost" id="castDefault">기본값으로 듣기</button></div>';
     }
+
+    html += '<h4>글 모델 하이브리드 · ChatGPT</h4>' + gptBoxHtml() +
+      '<div class="field"><label>글 모델 우선순위</label><div class="chipRow" id="gptModeRow">' +
+      [['auto', '자동'], ['gemini', 'Gemini만'], ['chatgpt', 'ChatGPT 우선'], ['alternate', '번갈아']].map(function (m) {
+        var cur = (st().hybrid && st().hybrid.mode) || 'auto';
+        return '<button class="chip' + (cur === m[0] ? ' on' : '') + '" data-gptmode="' + m[0] + '">' + m[1] + '</button>';
+      }).join('') + '</div>' +
+      '<p class="note">자동은 Gemini 4 hydrogen → 3.8 flash → 3.1 flash-lite → 2.5 flash 순으로 부르고, 503·한도·모델 거부가 나면 ChatGPT 로 넘어갑니다. 한쪽이 막혀도 대본은 나옵니다.</p></div>';
+
+    html += '<h4>실시간 음성 체인 (무료)</h4>' + chainBoxHtml();
 
     html += '<h4>Gemini (선택)</h4>' +
       '<div class="field"><label>API 키 · 이 브라우저에만 저장</label>' +
@@ -2801,6 +3696,57 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
         (b.audio.persisted ? ' · 기기에 저장됨(새로고침 유지)' : ' · 이번 실행에서만 유지') + '</div>';
     }
     return '<div class="note">연결된 오디오가 없어 기기 음성(또는 Gemini TTS)으로 재생합니다. MP3/WAV를 여러 개 고르면 문단 순서대로 붙습니다.</div>';
+  }
+
+  /* v1.3 — ChatGPT 연결 상태와 로그인 버튼. 브리지가 없으면(웹) 이유를 그대로 밝힌다. */
+  function gptBoxHtml() {
+    var hy = H.hybrid && H.hybrid();
+    if (!hy) return '<div class="note">하이브리드 모듈을 불러오지 못했습니다.</div>';
+    var s = hy.gpt.status();
+    var on = !!s.connected;
+    var head = on
+      ? '연결됨' + (s.account ? ' · ' + H.esc(s.account) : '') + (s.model ? ' · ' + H.esc(s.model) : '')
+      : (s.mode === 'web' ? '웹에서는 로그인할 수 없습니다 (APK 전용)' : '아직 연결되지 않았습니다');
+    var why = s.mode === 'web'
+      ? 'OpenAI API는 github.io 오리진을 CORS로 막습니다(실측). ChatGPT 로그인·호출은 APK(v1.3)의 네이티브 브리지에서 127.0.0.1 콜백과 직접 HTTP로 동작합니다. 웹에서는 Gemini로 그대로 생성됩니다.'
+      : (on ? 'ChatGPT 플랜 한도 안에서 대본·퀴즈·Q&A를 함께 만듭니다. 토큰은 앱 안에만 저장됩니다.' : 'Sign in with ChatGPT(공식 OAuth PKCE)로 로그인합니다. 브라우저가 열리면 로그인하고 앱으로 돌아오세요.');
+    return '<div class="' + (on ? 'okBox' : 'note') + '" data-gptbox="' + (on ? 'on' : s.mode) + '"><b>' + head + '</b><p class="note" style="margin:6px 0 0">' + why + '</p></div>' +
+      '<div class="rowBtns"><button class="btn ' + (on ? 'ghost' : 'emerald') + '" id="gptSignIn">' +
+      (on ? '다시 로그인' : 'Sign in with ChatGPT') + '</button>' +
+      (on ? '<button class="btn ghost" id="gptSignOut">연결 해제</button>' : '') + '</div>';
+  }
+
+  /* v1.3 — 실시간 음성 체인 현황(어느 모델이 몇 번 남았는지) · 재설정 · 캐시 비우기 */
+  function chainBoxHtml() {
+    var tts = H.tts && H.tts();
+    if (!tts) return '<div class="note">음성 체인을 불러오지 못했습니다.</div>';
+    var q = tts.quota();
+    var on = st().gemini.chain !== false;
+    var rows = q.models.map(function (m) {
+      var pct = Math.round(Math.min(1, m.used / Math.max(1, m.limit)) * 100);
+      return '<div class="chainRow"><b>' + H.esc(m.label) + '</b>' +
+        '<span class="chainBar"><i style="width:' + pct + '%"></i></span>' +
+        '<em>' + m.used + ' / ' + m.limit + '</em></div>';
+    }).join('');
+    return '<div class="note"><b>' + (on ? '켜짐' : '꺼짐') + '</b> · 오늘 ' + q.totalUsed + ' / ' + q.totalLimit + '회 사용 · 한도 리셋 ' + H.esc(q.reset) +
+      '<p class="note" style="margin:6px 0 0">① 캐시 → ② ' + H.esc(tts.chain()[0].label) + ' / ' + H.esc(tts.chain()[1].label) +
+      ' → ③ 3.1 → 2.5 → ④ Qwen3-TTS Sohee(약 ' + q.qwen.usedSeconds + '/ ' + q.qwen.limitSeconds + '초) → ⑤ 기기 음성.</p></div>' +
+      '<div class="chainList">' + rows + '</div>' +
+      '<div class="rowBtns"><button class="btn ' + (on ? 'emerald' : 'ghost') + '" id="chainOn">' + (on ? '체인 사용 중' : '체인 사용') + '</button>' +
+      '<button class="btn ghost" id="chainOff">끄기</button></div>' +
+      '<div class="rowBtns"><button class="btn ghost" id="ttsTest">🔊 체인 시험 (한도 1회)</button>' +
+      '<button class="btn ghost" id="ttsClear">캐시 비우기 (' + tts.cacheSize() + '개)</button></div>' +
+      '<div class="rowBtns"><button class="btn ghost" id="ttsReset">오늘 사용량 초기화</button><span class="meta" id="ttsTestOut"></span></div>';
+  }
+
+  function gemVoiceOptions(current, speaker) {
+    var tts = H.tts && H.tts();
+    var auto = '';
+    try { auto = tts ? tts.voiceForSpeaker(speaker, H.book()) : ''; } catch (e) { auto = ''; }
+    return '<option value="">자동 배정' + (auto ? ' (' + H.esc(auto) + ')' : '') + '</option>' +
+      GEM_VOICES.map(function (v) {
+        return '<option value="' + v + '"' + ((current || '') === v ? ' selected' : '') + '>' + v + '</option>';
+      }).join('');
   }
 
   function diagHtml() {
@@ -2868,9 +3814,17 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
   function onSheetChange(e) {
     var t = e.target;
     if (t.id === 'setTextModel') { st().gemini.textModel = t.value; H.persist(); return; }
+    if (t.id === 'setModel') { st().gemini.model = t.value; H.persist(); return; }
+    if (t.id === 'setGemVoice') { st().gemini.voice = t.value; H.persist(); return; }
+    if (t.id === 'setKey') { st().gemini.key = t.value.trim(); H.persist(); return; }
     if (t.id === 'setGemVoice2') { st().gemini.voice2 = t.value; H.persist(); return; }
     if (t.id === 'castReset') return;
     if (t.dataset && t.dataset.castvoice) { setCast(t.dataset.castvoice, 'voice', t.value); return; }
+    if (t.dataset && t.dataset.castgem) {
+      setCast(t.dataset.castgem, 'geminiVoice', t.value);
+      H.toast(t.value ? (t.value + ' · ' + t.dataset.castgem) : (t.dataset.castgem + ' · 자동 배정'));
+      return;
+    }
   }
 
   function setCast(name, field, value) {
@@ -2886,6 +3840,11 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
     if (t.dataset && t.dataset.castpitch) setCast(t.dataset.castpitch, 'pitch', parseFloat(t.value));
     if (t.dataset && t.dataset.castrate) setCast(t.dataset.castrate, 'rate', parseFloat(t.value));
     if (t.id === 'setSpeed') H.setSpeed(parseFloat(t.value));
+  }
+
+  function gptLinked() {
+    var hy = H.hybrid && H.hybrid();
+    return !!(hy && hy.gpt && hy.gpt.can());
   }
 
   function bindSettingsDelegates() {
@@ -2907,8 +3866,53 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       }
       if (t.id === 'castDefault') { H.toast('기본값: 화자 이름에서 계산한 피치를 씁니다'); return; }
       if (t.id === 'setAiOn') {
-        if (!String(st().gemini.key || '').trim()) { H.toast('Gemini API 키를 먼저 넣어 주세요'); return; }
+        if (!String(st().gemini.key || '').trim() && !gptLinked()) { H.toast('Gemini API 키 또는 ChatGPT 연결이 필요합니다'); return; }
         st().gemini.ai = true; H.persist(); openSettings(); H.toast('AI 스튜디오: 모델 생성 사용'); return;
+      }
+      if (t.id === 'gptSignIn') {
+        var hy = H.hybrid && H.hybrid();
+        if (!hy) return;
+        hy.gpt.signIn();
+        setTimeout(function () { try { openSettings(); } catch (e) { } }, 900);
+        return;
+      }
+      if (t.id === 'gptSignOut') {
+        var hy2 = H.hybrid && H.hybrid();
+        if (!hy2) return;
+        Promise.resolve(hy2.gpt.signOut()).then(function () { openSettings(); H.toast('ChatGPT 연결을 해제했습니다'); });
+        return;
+      }
+      if (t.dataset && t.dataset.gptmode) {
+        var hy3 = H.hybrid && H.hybrid();
+        if (hy3) hy3.setMode(t.dataset.gptmode);
+        openSettings(); H.toast('글 모델: ' + t.textContent + ' 사용'); return;
+      }
+      if (t.id === 'chainOn') {
+        st().gemini.chain = true; st().gemini.on = true; H.persist(); openSettings(); H.toast('실시간 음성 체인 사용'); return;
+      }
+      if (t.id === 'chainOff') { st().gemini.chain = false; H.persist(); openSettings(); H.toast('체인을 꿈니다 — 설정한 모델이 없으면 기기 음성'); return; }
+      if (t.id === 'ttsReset') { var tt0 = H.tts(); if (tt0) tt0.resetQuota(); openSettings(); H.toast('오늘 사용량을 0으로 맞췄습니다'); return; }
+      if (t.id === 'ttsClear') {
+        var tt1 = H.tts();
+        if (tt1) tt1.clearCache();
+        openSettings(); H.toast('음성 캐시를 비웠습니다'); return;
+      }
+      if (t.id === 'ttsTest') {
+        var tt2 = H.tts();
+        var outEl = $('ttsTestOut');
+        if (!tt2) return;
+        if (!String(st().gemini.key || '').trim()) { H.toast('Gemini API 키를 먼저 넣어 주세요'); return; }
+        if (outEl) outEl.textContent = '체인 시험 중…';
+        tt2.speak('안녕하세요. Re:Sound 음성 체인 시험입니다.', { key: st().gemini.key, voice: st().gemini.voice || 'Kore' })
+          .then(function (r) {
+            if (outEl) outEl.textContent = r.label + ' · ' + (Math.round(r.ms / 100) / 10) + '초' + (r.cached ? ' (캐시)' : '');
+            H.toast('체인 성공 · ' + r.label);
+          })
+          .catch(function (e) {
+            if (outEl) outEl.textContent = '실패 · ' + String((e && e.message) || e).slice(0, 70);
+            H.toast('체인 실패 — 기기 음성으로 재생됩니다');
+          });
+        return;
       }
       if (t.id === 'setAiOff') { st().gemini.ai = false; H.persist(); openSettings(); H.toast('AI 스튜디오: 규칙 엔진 사용'); return; }
       onSheetClick(e);
@@ -3175,6 +4179,22 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
     var g = H.gemini();
     return !!(g && g.ai && g.key && String(g.key).trim());
   }
+  /* v1.3 — ChatGPT OAuth 가 연결돼 있으면 Gemini 키가 없어도 모델 생성이 가능하다. */
+  function gptOn() {
+    var hy = H.hybrid && H.hybrid();
+    return !!(hy && hy.gpt && hy.gpt.can());
+  }
+  function modelOn() {
+    var g = H.gemini();
+    return geminiOn() || !!(g && g.ai && gptOn());
+  }
+  function enginePoolLabel() {
+    var g = H.gemini();
+    var parts = [];
+    if (g && g.key) parts.push('Gemini');
+    if (gptOn()) parts.push('ChatGPT');
+    return parts.length ? parts.join(' + ') : '규칙 엔진';
+  }
   function engineBadge(label) {
     var local = !label || label.indexOf('규칙') === 0;
     return '<span class="aiBadge' + (local ? ' local' : ' model') + '">' + esc(label || '규칙 생성(모델 미사용)') + '</span>';
@@ -3224,8 +4244,8 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
     var head = $('studioTitle'); if (head) head.textContent = b.title;
     var pill = $('studioEngine');
     if (pill) {
-      var on = geminiOn();
-      pill.textContent = on ? 'Gemini' : '규칙 엔진';
+      var on = modelOn();
+      pill.textContent = on ? enginePoolLabel() : '규칙 엔진';
       pill.className = 'pill ' + (on ? 'on' : '');
     }
     var sub = $('studioSub');
@@ -3336,6 +4356,12 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
     if (a.counts.narration > a.counts.dialogue * 4) {
       html += '<p class="hintLine">이 원고는 해설 비중이 대사보다 훨씬 큽니다(해설 ' + a.counts.narration.toLocaleString('ko-KR') + ' · 대사 ' + a.counts.dialogue.toLocaleString('ko-KR') + '). ‘이름: 내용’ 형태의 표기는 지문 라벨로 보고 인물 카드에서 뺐습니다.</p>';
     }
+    html += '<div class="aiSection">' +
+      '<div class="aiRow"><b>성우 자동 배정</b>' +
+      '<button class="btn ghost sm" data-aiact="casting">🎭 인물 자동 캐스팅</button></div>' +
+      '<p class="note">화자의 성별·나이를 글 모델(Gemini·ChatGPT)이 대사에서 판정하고, 제미나이 성우 풀에서 목소리를 하나씩 배정합니다. 결과는 이 책의 설정에 남습니다.</p>' +
+      castingHtml(a) +
+      '</div>';
     html += '<div class="aiSection">';
     spk.slice(0, 30).forEach(function (s, n) {
       var share = typeof s.peopleShare === 'number' ? s.peopleShare : s.share;
@@ -3360,10 +4386,55 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
     body.innerHTML = html;
   }
 
-  /* ------------------------------------------------------------------ *
-   * 오버뷰 (2인 대담)
-   * ------------------------------------------------------------------ */
-  /* v1.2 — 길이는 사용자가 고르지 않는다. 원고 분량으로 자동 산정(4~10분). */
+  /* v1.3 — 화자별 성우 배정 현황(자동 배정 + 사용자 지정). 재생에 그대로 쓰인다. */
+  function castingHtml(a) {
+    var tts = H.tts && H.tts();
+    if (!tts) return '<p class="note">음성 체인을 불러오지 못했습니다.</p>';
+    var d = null;
+    try { d = tts.direct(book(), H.record()); } catch (e) { d = null; }
+    if (!d) return '';
+    var names = Object.keys(d);
+    if (!names.length) return '<p class="note">대사가 있는 화자를 찾지 못했습니다.</p>';
+    return '<div class="statStrip">' + names.slice(0, 12).map(function (nm) {
+      var x = d[nm];
+      var g = x.gender === 'F' ? '여' : '남';
+      var age = x.age === 'old' ? '노년' : (x.age === 'young' ? '청년' : '중년');
+      return '<div class="castChip" data-castfor="' + esc(nm) + '"><span>' + esc(nm) + '</span><b>' + esc(x.voice) + '</b><em>' + g + '·' + age + (x.guess ? '·추정' : '·모델') + '</em></div>';
+    }).join('') + '</div>' +
+      '<p class="note">나레이션은 별도 목소리(' + esc(H.gemini().voice || 'Kore') + ')로 읽고, 지문은 읽지 않습니다.</p>';
+  }
+
+  function runCasting() {
+    var a = analysis(); if (!a) return;
+    var tts = H.tts && H.tts();
+    if (!tts) return;
+    var hy = H.hybrid && H.hybrid();
+    setBusy('casting', '인물 성별·나이 판정 중'); render();
+    var ask = function (prompt) {
+      if (!hy || !modelOn()) return Promise.reject(new Error('글 모델 꺼져 있음'));
+      return hy.ask(prompt, { maxTokens: 1200, temperature: 0.2, json: true }).then(function (r) { return r.text; });
+    };
+    tts.refineCasting(book(), H.record(), ask).then(function (map) {
+      var rec = H.record();
+      if (rec) {
+        rec.cast = rec.cast || {};
+        Object.keys(map).forEach(function (nm) {
+          rec.cast[nm] = rec.cast[nm] || {};
+          rec.cast[nm].geminiVoice = map[nm].voice;
+          rec.cast[nm].castBy = map[nm].engine === 'model' ? 'model' : 'rule';
+        });
+        H.persist();
+      }
+      setBusy(null); render();
+      H.toast('성우 ' + Object.keys(map).length + '명을 배정했습니다');
+    }).catch(function (e) {
+      setBusy(null); render();
+      var map = tts.direct(book(), H.record());
+      H.toast('모델 판정 실패 — 이름·통계 기준으로 배정했습니다 (' + shortErr(e) + ')', 3600);
+      return map;
+    });
+  }
+
   function planLine(a) {
     var plan = ai().overviewPlan(a);
     return '자동 길이 · ' + plan.label + ' ' + plan.min + '~' + plan.max + '줄 (약 ' + plan.minutes + ') — 원고 ' +
@@ -3620,7 +4691,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       saveArtifact('briefs', res, '작품 요약·브리핑');
       render(); H.toast('요약·브리핑을 만들었습니다 (' + res.engineLabel + ')');
     };
-    if (geminiOn()) {
+    if (modelOn()) {
       ai().geminiStudio(a, 'briefs', { key: H.gemini().key, model: H.gemini().textModel })
         .then(done)
         .catch(function (e) { noteFallback('briefs', e); done(localBriefs(a)); });
@@ -3645,7 +4716,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       saveArtifact('overview', res, res.title);
       render(); H.toast('대담을 만들었습니다 (' + res.engineLabel + ')');
     };
-    if (geminiOn()) {
+    if (modelOn()) {
       ai().geminiStudio(a, 'overview', { key: H.gemini().key, model: H.gemini().textModel, format: format, focus: focusText })
         .then(done)
         .catch(function (e) { noteFallback('overview', e); done(ai().overview(a, opts)); });
@@ -3659,7 +4730,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       saveArtifact('quiz', res, res.title);
       render(); H.toast('문제 ' + res.items.length + '개를 만들었습니다 (' + res.engineLabel + ')');
     };
-    if (geminiOn()) {
+    if (modelOn()) {
       ai().geminiStudio(a, 'quiz', { key: H.gemini().key, model: H.gemini().textModel, count: 10 })
         .then(done)
         .catch(function (e) { noteFallback('quiz', e); done(ai().quiz(a, { count: 10 })); });
@@ -3675,7 +4746,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       saveArtifact('if', res, res.title);
       render(); H.toast('IF 시나리오를 만들었습니다 (' + res.engineLabel + ')');
     };
-    if (geminiOn()) {
+    if (modelOn()) {
       ai().geminiStudio(a, 'if', { key: H.gemini().key, model: H.gemini().textModel, preset: ifPreset, presetLabel: preset.label, custom: ifCustom })
         .then(done)
         .catch(function (e) { noteFallback('if', e); done(ai().ifScenario(a, { preset: ifPreset, custom: ifCustom })); });
@@ -3691,7 +4762,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       gen.qa.push(res); if (gen.qa.length > 8) gen.qa.shift();
       setBusy(null); render();
     };
-    if (geminiOn()) {
+    if (modelOn()) {
       ai().geminiStudio(a, 'qa', { key: H.gemini().key, model: H.gemini().textModel, question: qText })
         .then(done)
         .catch(function (e) { noteFallback('qa', e); done(ai().qa(a, qText)); });
@@ -3813,21 +4884,55 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
     if (!text) { finish(); return; }
 
     var gem = H.gemini();
-    if (gem && gem.on && gem.key && H.geminiSpeech) {
+    var ttsMod = H.tts && H.tts();
+    if (gem && gem.on && ((gem.key && ttsMod) || H.geminiSpeech)) {
       var voiceName = t.host === 'A' ? (gem.voice || 'Kore') : (gem.voice2 || 'Puck');
-      H.geminiSpeech(text, voiceName).then(function (url) {
+      /* v1.3 — 대담도 같은 실시간 체인(3.8 → 한도 시 3.1/2.5 → Qwen → 기기 TTS)을 쓴다. */
+      var req = (ttsMod && gem.key)
+        ? ttsMod.speak(text, { key: gem.key, voice: voiceName, style: hostStyle(t.host), allowWait: true })
+        : Promise.reject(new Error('no-chain'));
+      req.then(function (out) {
         if (token !== pod.token) return;
-        var el = new Audio(url);
+        if (!out || !out.url) throw new Error('no-url');
+        if (out.model && out.model !== 'cache') setPodStatus((n + 1) + ' / ' + total + ' · ' + t.name + ' · ' + out.label);
+        var el = new Audio(out.url);
         el.volume = H.volume();
         try { el.playbackRate = H.speed(); } catch (e) { }
         pod.audioEl = el;
         el.onended = function () { pod.audioEl = null; finish(); };
         el.onerror = function () { pod.audioEl = null; speakDevice(t, n, token, finish); };
         el.play().catch(function () { pod.audioEl = null; speakDevice(t, n, token, finish); });
-      }).catch(function () { if (token === pod.token) speakDevice(t, n, token, finish); });
+        prefetchTurn(n + 1, token);
+      }).catch(function () {
+        if (token !== pod.token) return;
+        /* 체인이 모두 막혔을 때만 기기 음성으로 내려간다. */
+        if (gem.key && H.geminiSpeech && !ttsMod) {
+          H.geminiSpeech(text, voiceName).then(function (url) {
+            if (token !== pod.token) return;
+            var el = new Audio(url); el.volume = H.volume();
+            pod.audioEl = el; el.onended = function () { pod.audioEl = null; finish(); };
+            el.onerror = function () { pod.audioEl = null; speakDevice(t, n, token, finish); };
+            el.play().catch(function () { pod.audioEl = null; speakDevice(t, n, token, finish); });
+          }).catch(function () { if (token === pod.token) speakDevice(t, n, token, finish); });
+          return;
+        }
+        speakDevice(t, n, token, finish);
+      });
     } else {
       speakDevice(t, n, token, finish);
     }
+  }
+
+  /* v1.3 — 대담 진행자 톤 · 다음 줄 선행 생성 */
+  function hostStyle(host) { return host === 'A' ? '차분하게 해설하듯' : '밝게 되물으며'; }
+  function prefetchTurn(n, token) {
+    var ttsMod = H.tts && H.tts();
+    var g = H.gemini();
+    if (!ttsMod || !g.key) return;
+    var nt = pod.turns[n];
+    if (!nt) return;
+    var voice = nt.host === 'A' ? (g.voice || 'Kore') : (g.voice2 || 'Puck');
+    try { ttsMod.prefetch(String(nt.text || '').replace(/[“”"]/g, ''), { key: g.key, voice: voice, style: hostStyle(nt.host) }); } catch (e) { }
   }
 
   function speakDevice(t, n, token, finish) {
@@ -3940,6 +5045,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       case 'if': generateIf(); break;
       case 'qa': askQa(($('qaInput') || {}).value || ''); break;
       case 'quizreset': quizState.answered = {}; renderQuiz(); break;
+      case 'casting': runCasting(); break;
       case 'podplay': playPodcast(); break;
       case 'podstop': stopPodcast(); render(); break;
     }
@@ -3978,7 +5084,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
     render: render,
     stopAll: stopPodcast,
     isPlaying: function () { return pod.playing; },
-    state: function () { return { tab: tab, format: format, busy: busy && busy.kind, gen: { briefs: !!gen.briefs, overview: !!gen.overview, quiz: !!gen.quiz, ifs: !!gen.ifs, qa: gen.qa.length }, pod: { playing: pod.playing, i: pod.i, turns: (pod.turns || []).length } }; }
+    state: function () { return { tab: tab, format: format, busy: busy && busy.kind, gen: { briefs: !!gen.briefs, overview: !!gen.overview, quiz: !!gen.quiz, ifs: !!gen.ifs, qa: gen.qa.length }, pod: { playing: pod.playing, i: pod.i, turns: (pod.turns || []).length }, cast: (function () { try { var d = H.tts().direct(book(), H.record()); return Object.keys(d).map(function (k) { return { name: k, voice: d[k].voice, gender: d[k].gender, age: d[k].age }; }); } catch (e) { return []; } })() }; }
   };
 })(window);
 
@@ -3989,7 +5095,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
 (function () {
   'use strict';
 
-  var BUILD = 'web-1.2.0';
+  var BUILD = 'web-1.3.0';
   /* v1.2 — 오디오북 호흡 규칙(초). 문장 사이 0.35 · 문단/화자 전환 0.7 · 장면 구분 1.3(1.2~1.5). */
   var GAPS = { sentence: 350, paragraph: 700, scene: 1300, chapter: 750, sceneChapter: 1300 };
   var PARSER = window.ReSoundParser || { parse: function () { return { blocks: [], chapters: [], stats: {}, codeMap: {} }; }, version: 'missing', toSpeech: function (t) { return t; } };
@@ -4057,7 +5163,8 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
    * ------------------------------------------------------------------ */
   var DEFAULTS = {
     v: 1, books: [], lastBookId: null, screen: 'library', speed: 1.0,
-    voiceName: '', gemini: { key: '', model: 'gemini-2.5-flash-preview-tts', voice: 'Kore', voice2: 'Puck', textModel: 'gemini-4-hydrogen', on: false, ai: false },
+    voiceName: '', gemini: { key: '', model: 'gemini-3.8-flash-tts', voice: 'Kore', voice2: 'Puck', textModel: 'gemini-4-hydrogen', on: false, ai: false, chain: true },
+    hybrid: { mode: 'auto' },
     demo: { index: 2, bookmarks: [] }, scrollLock: false,
     theme: 'day', fs: 'normal', lh: 'normal', timerNight: true
   };
@@ -4080,12 +5187,21 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
         voice2: s.gemini.voice2 || DEFAULTS.gemini.voice2,
         textModel: s.gemini.textModel || DEFAULTS.gemini.textModel,
         on: !!s.gemini.on,
-        ai: !!s.gemini.ai
+        ai: !!s.gemini.ai,
+        chain: s.gemini.chain === false ? false : true
       };
-      /* v1.2 — 예전 빌드가 저장해 둔 기본 모델(2.5 flash 계열)은 최신 기본값으로 올린다. */
+      /* v1.3 — 예전 기본 TTS 모델(2.5 계열)은 체인 1군(3.8)으로 올린다. 모델명이 사라지면 체인이 알아서 내려간다. */
+      if (!out.gemini.model || out.gemini.model === 'gemini-2.5-flash-preview-tts' || out.gemini.model === 'gemini-2.5-pro-preview-tts') {
+        out.gemini.model = DEFAULTS.gemini.model;
+      }
+      /* v1.3 — 예전 빌드가 저장해 둔 기본 모델(2.5 flash 계열)은 최신 기본값으로 올린다. */
       if (out.gemini.textModel === 'gemini-2.5-flash' || out.gemini.textModel === 'gemini-2.0-flash') {
         out.gemini.textModel = DEFAULTS.gemini.textModel;
       }
+    }
+    if (s.hybrid && typeof s.hybrid === 'object') {
+      var hm = s.hybrid.mode;
+      if (hm === 'auto' || hm === 'gemini' || hm === 'chatgpt' || hm === 'alternate') out.hybrid.mode = hm;
     }
     if (s.theme === 'day' || s.theme === 'night') out.theme = s.theme;
     /* 1.0 저장값 이행: 라이트·세피아 → 낮, 다크 → 밤 */
@@ -4607,6 +5723,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       speakTTS(b, token);
     };
     setStatus('문단 ' + (speakIndex(P.book, P.i) + 1) + '부터 재생 중 · ' + src.label);
+    applyLoudness(el, src);
     var pr = el.play();
     if (pr && pr.catch) pr.catch(function () {
       if (token !== P.token) return;
@@ -4614,6 +5731,20 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       P.playing = false;
       setStatus('재생 버튼을 눌러 주세요');
       updateDock();
+    });
+  }
+
+  /* v1.3 — 오디오 팩·효과음·배경음 음량을 -16 LUFS 선으로 맞춘다(브라우저는 감쇠만 가능).
+     측정값은 진단(diag.audio.loudness)에 남겨 실제 값을 확인할 수 있게 한다. */
+  function applyLoudness(el, src) {
+    var tts = window.ReSoundTTS;
+    if (!tts || !tts.measureLoudness || !src || !src.url) return;
+    var target = /SFX|효과음|BGM|배경음/i.test(src.label || '') ? -18 : -16;
+    tts.measureLoudness(src.url, target).then(function (m) {
+      if (!m || m.error) { diag.audio.loudness = { error: m && m.error }; return; }
+      var g = Math.max(0.2, Math.min(1, m.gain));
+      try { el.volume = clamp(P.volume * g, 0, 1); } catch (e) { }
+      diag.audio.loudness = { lufs: m.lufs, target: target, gain: Math.round(g * 100) / 100, seconds: m.seconds };
     });
   }
 
@@ -4748,20 +5879,62 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
     if (token !== P.token) return;
     var src = audioSourceFor(P.book, P.i);
     if (src) { playAudioBlock(src, b, token); return; }
-    if (state.gemini.on && geminiKey()) {
-      setStatus('Gemini TTS 준비 중 · 문단 ' + (speakIndex(P.book, P.i) + 1));
+    var tts = window.ReSoundTTS;
+    if (state.gemini.on && geminiKey() && tts) {
+      var out;
       try {
-        var url = await geminiSpeech(b.speech, castFor(b.speaker).geminiVoice || state.gemini.voice);
+        out = await speakViaChain(b);
+        if (!out) throw new Error('chain-empty');
         if (token !== P.token) return;
-        playAudioBlock({ url: url, a0: 0, a1: 0, label: 'Gemini TTS' }, b, token);
+        playAudioBlock({ url: out.url, a0: 0, a1: 0, label: out.label, model: out.model }, b, token);
+        prefetchNext();
         return;
       } catch (e) {
-        logEv('gemini-fail', String(e.message || e));
+        logEv('tts-chain-fail', String((e && (e.message || e.reason)) || e));
+        diag.tts.errors++;
         if (token !== P.token) return;
-        toast('Gemini TTS 실패 — 기기 음성으로 대체합니다');
+        toast('Gemini 음성 체인 실패 — 기기 음성으로 이어갑니다');
       }
     }
     speakTTS(b, token);
+  }
+
+  /* v1.3 — 화자별 성우(자동 배정·사용자 지정)와 지문/대사 톤을 입혀 체인에 넘긴다. */
+  function speechPlanFor(b) {
+    var tts = window.ReSoundTTS;
+    var cast = castFor(b.speaker);
+    var voice = cast.geminiVoice || (tts ? tts.voiceForSpeaker(b.speaker, P.book) : (state.gemini.voice || 'Kore'));
+    var style = '';
+    if (tts) style = (b.kind === 'dialogue') ? tts.styleForSpeaker(b.speaker, P.book) : tts.narrationStyle();
+    return { voice: voice, style: style };
+  }
+  async function speakViaChain(b) {
+    var tts = window.ReSoundTTS;
+    var plan = speechPlanFor(b);
+    setStatus('음성 준비 중 · 문단 ' + (speakIndex(P.book, P.i) + 1) + ' · ' + plan.voice);
+    var out = await tts.speak(b.speech, { key: geminiKey(), voice: plan.voice, style: plan.style, allowWait: true });
+    diag.ttsChain = tts.stats();
+    diag.playback.lastTtsModel = out.model;
+    return out;
+  }
+  /* 다음 말할 문단 하나를 미리 만들어 둔다 — 재생이 끝날 무렵에는 이미 준비돼 있다. */
+  function prefetchNext() {
+    var tts = window.ReSoundTTS;
+    if (!tts || !P.book || !state.gemini.on || !geminiKey()) return;
+    if (P.book.audio && P.book.audio.perBlock && P.book.audio.perBlock.size) return;
+    var n = P.i + 1;
+    while (n < P.book.blocks.length) {
+      var nb = P.book.blocks[n];
+      if (nb.kind === 'dialogue' || nb.kind === 'narration') break;
+      n++;
+    }
+    if (n >= P.book.blocks.length) return;
+    var nb2 = P.book.blocks[n];
+    if (!nb2 || !nb2.speech) return;
+    var plan = speechPlanFor(nb2);
+    try {
+      tts.prefetch(nb2.speech, { key: geminiKey(), voice: plan.voice, style: plan.style });
+    } catch (e) { }
   }
 
   function play() {
@@ -5032,7 +6205,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
     var gemOpts = gemVoices.map(function (v) {
       return '<option value="' + v + '"' + (v === state.gemini.voice ? ' selected' : '') + '>' + v + '</option>';
     }).join('');
-    var models = ['gemini-2.5-flash-preview-tts', 'gemini-2.5-pro-preview-tts'];
+    var models = ['gemini-3.8-flash-tts', 'gemini-3.8-flash-lite-tts', 'gemini-3.1-flash-tts-preview', 'gemini-2.5-flash-preview-tts'];
     var modelOpts = models.map(function (m) {
       return '<option value="' + m + '"' + (m === state.gemini.model ? ' selected' : '') + '>' + m + '</option>';
     }).join('');
@@ -5460,6 +6633,8 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
     castFor: castFor,
     gemini: function () { return state.gemini; },
     geminiSpeech: geminiSpeech,
+    tts: function () { return window.ReSoundTTS || null; },
+    hybrid: function () { return window.ReSoundHybrid || null; },
     openSheet: openSheet,
     closeSheet: closeSheet,
     sheetOpenName: function () { return sheetOpenName; },
@@ -5497,6 +6672,9 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
   function boot() {
     bindSheetEvents();
     initEvents();
+    /* v1.3 — 체인·하이브리드 모듈은 host 가 만들어진 뒤에 init 한다(설정 화면이 상태를 읽는다). */
+    if (window.ReSoundTTS) window.ReSoundTTS.init(host);
+    if (window.ReSoundHybrid) window.ReSoundHybrid.init(host);
     if (window.ReSoundFeatures) window.ReSoundFeatures.init(host);
     if (window.ReSoundStudio) window.ReSoundStudio.init(host);
     P.speed = clamp(state.speed || 1.0, 0.8, 2.0);
@@ -5538,6 +6716,18 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
         return true;
       },
       cast: function (name) { return castFor(name); },
+      tts: function () {
+        var t = window.ReSoundTTS;
+        if (!t) return null;
+        return { chain: t.chain(), quota: t.quota(), stats: t.stats(), cache: t.cacheSize() };
+      },
+      casting: function () {
+        var t = window.ReSoundTTS;
+        if (!t || !P.book) return null;
+        var d = t.direct(P.book, recordOf(P.book));
+        return d;
+      },
+      hybrid: function () { return window.ReSoundHybrid ? window.ReSoundHybrid.status() : null; },
       sheet: function () { return sheetOpenName; },
       renderStats: function () {
         var list = $('rList');
