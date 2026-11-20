@@ -55,7 +55,6 @@
       <select id="gmodel">
         <option value="gemini-3.1-flash-tts-preview">3.1 flash tts</option>
         <option value="gemini-2.5-flash-preview-tts">2.5 flash tts</option>
-        <option value="gemini-2.5-pro-preview-tts">2.5 pro tts</option>
       </select></div>
     <div><label>음성</label>
       <select id="gvoice">
@@ -64,6 +63,7 @@
       </select></div>
   </div>
   <button onclick="runGemini(this)">Gemini로 재생</button>
+  <div class="chk">무료 티어는 3.1·2.5 flash만 사용 가능(각 하루 10회, 분당 3회). 2.5 pro tts는 무료 한도 0회다.</div>
   <audio id="gaudio" controls></audio>
   <div class="log" id="glog">대기 중…</div>
 </div>
