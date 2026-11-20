@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#07080a">
+<title>새벽의 냄새길 — 콘크리트 정글 외전</title>
+<style>
+  :root{
+    --ink:#efe7d8; --dim:#9a9488; --line:#2c3239; --amber:#e0a34e; --amber2:#8a5f2a;
+    --mint:#7ed6bd; --mint2:#2a6b5a; --panel:#0c0e11; --panel2:#12151a; --red:#b4573a;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;height:100%;background:#06070a;overscroll-behavior:none}
+  body{
+    font-family:"Noto Sans Mono CJK KR","D2Coding","NanumGothicCoding",ui-monospace,Menlo,monospace;
+    color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  #stage{position:fixed;inset:0;height:100dvh;width:100%;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none}
+  #world{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+
+  /* 하단 패널: 접힘 주름(46% ~ 54%) 아래에서 시작한다. 주름 안에는 누를 것을 두지 않는다. */
+  #panel{
+    position:absolute;left:0;right:0;top:54.2%;bottom:0;
+    display:flex;flex-direction:column;gap:7px;
+    padding:9px 12px calc(9px + env(safe-area-inset-bottom));
+    background:linear-gradient(180deg,#0d1014 0%,#08090b 62%,#07080a 100%);
+    border-top:2px solid #23282f;
+    box-shadow:0 -1px 0 #000,0 -18px 26px rgba(0,0,0,.62);
+  }
+  #panel::before{
+    content:"";position:absolute;left:0;right:0;top:-2px;height:2px;pointer-events:none;
+    background:linear-gradient(90deg,transparent 0%,#7a5423 18%,var(--amber) 50%,#7a5423 82%,transparent 100%);
+    opacity:.55;
+  }
+  #narr{
+    flex:0 0 auto;min-height:2.9em;display:flex;gap:7px;align-items:flex-start;
+    font-size:12.5px;line-height:1.5;color:#cfc6b4;
+    border-left:2px solid var(--amber2);padding:1px 0 1px 8px;
+  }
+  #narr .mk{color:var(--amber);flex:0 0 auto;animation:blink 2.6s steps(2,end) infinite}
+  @keyframes blink{0%,70%{opacity:1}71%,100%{opacity:.25}}
+  #narrText{white-space:pre-wrap}
+
+  #view{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+
+  #bar{flex:0 0 auto;display:flex;flex-direction:column;gap:5px}
+  #btns{display:flex;gap:8px}
+  #dots{display:flex;justify-content:center;align-items:center;gap:11px;height:8px}
+  #dots i{width:6px;height:6px;background:#262b32;transform:rotate(45deg);display:block;transition:background .3s}
+  #dots i.on{background:var(--amber);box-shadow:0 0 6px rgba(224,163,78,.55)}
+
+  .btn{
+    flex:1 1 0;min-width:0;min-height:57px;padding:7px 8px 6px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    border:1px solid #39404a;border-radius:0;background:#151920;color:var(--ink);
+    font-family:inherit;font-size:14px;font-weight:700;letter-spacing:.01em;line-height:1.15;
+    position:relative;overflow:hidden;transition:background .08s,border-color .08s;
+  }
+  .btn:active,.btn.down{background:#232a34;border-color:var(--amber)}
+  .btn .bs{font-size:10px;font-weight:400;color:#8f95a0;letter-spacing:0}
+  .btn.primary{border-color:#b9843a;background:linear-gradient(180deg,#2a2118,#191510);color:#f3d9a8}
+  .btn.primary:active,.btn.primary.down{background:linear-gradient(180deg,#3b2e1f,#241d14);border-color:var(--amber)}
+  .btn.primary .bs{color:#a98a5c}
+  .btn.skill{border-color:#3f7d6c;background:linear-gradient(180deg,#12211e,#0c1613);color:#a9e6d4}
+  .btn.skill .bs{color:#5f9c8a}
+  .btn.skill::after{
+    content:"특기";position:absolute;top:0;right:0;background:var(--mint2);color:#cdf3e7;
+    font-size:9px;font-weight:700;padding:1px 4px;letter-spacing:.06em;
+  }
+  .btn:disabled,.btn[aria-disabled="true"]{opacity:.42;color:#7d7a72;border-color:#2b2f36;background:#101318}
+  .btn:disabled .bs{color:#5f5d57}
+
+  /* ── 탐색 ── */
+  .ex{display:flex;flex-direction:column;gap:7px;height:100%}
+  .exhead{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--dim);flex:0 0 auto}
+  .exhead .tag{border:1px solid #3a3f47;padding:1px 5px;color:#c9c2b2}
+  .exhead .st{margin-left:auto;color:#6f6a61;font-size:10.5px}
+  .pips{letter-spacing:3px;color:#6f6a61;font-size:12px}
+  .pips b{color:var(--amber);font-weight:400}
+  .map{position:relative;height:58px;flex:0 0 auto;border:1px solid #222930;background:linear-gradient(180deg,#0a0d11,#0f1318);overflow:hidden}
+  .map .mline{position:absolute;left:12px;right:12px;top:36px;height:1px;background:repeating-linear-gradient(90deg,#3a4048 0 3px,transparent 3px 8px)}
+  .map .mtag{position:absolute;top:7px;font-size:9px;color:#7d776c;transform:translateX(-50%);white-space:nowrap}
+  .map .mmark{position:absolute;top:30px;width:12px;height:12px;transform:translateX(-50%);border:1px solid #454c55;background:#0b0e12}
+  .map .mmark.on{border-color:var(--amber);background:#3a2a14;box-shadow:0 0 7px rgba(224,163,78,.45)}
+  .map .mmark.soap{border-radius:50%}
+  .map .mdoor{position:absolute;top:24px;width:2px;height:20px;background:#6b5434}
+  .map .mdot{position:absolute;top:31px;width:8px;height:8px;background:#f0e6d2;transform:translateX(-50%) rotate(45deg);transition:left .08s linear;box-shadow:0 0 6px rgba(240,230,210,.5)}
+  .obs{flex:1 1 auto;min-height:0;overflow:hidden;border:1px solid #222930;background:linear-gradient(180deg,#0c1014,#090b0e);padding:8px 10px;display:flex;flex-direction:column;gap:6px}
+  .obsrow{display:flex;flex-direction:column;gap:2px}
+  .obk{font-size:11px;color:var(--amber);letter-spacing:.06em}
+  .obk.key{color:var(--mint)}
+  .obd{font-size:11.5px;line-height:1.45;color:#d3cbbb}
+  .obh{margin-top:auto;font-size:10px;color:#7c766c;border-top:1px dashed #262c33;padding-top:5px}
+  .obsempty{font-size:11.5px;line-height:1.6;color:#5f5b54}
+  .clist{display:flex;flex-direction:column;gap:5px;font-size:11.5px;color:#a9a294;flex:0 0 auto;min-height:0;overflow:hidden}
+  .clist .row{display:flex;gap:7px;align-items:baseline;border-left:1px solid #2a3038;padding-left:7px}
+  .clist .row i{color:var(--amber);font-style:normal;font-size:9px}
+  .clist .row .nm{color:#e2dac9;flex:0 0 auto}
+  .clist .row .ds{color:#7c766c;font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .clist .empty{color:#5f5b54;font-size:10.5px;border-left:1px solid #22282e;padding-left:7px}
+
+  /* ── 추리판 ── */
+  .board{display:flex;flex-direction:column;gap:5px;height:100%}
+  .bhead{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:10.5px;color:var(--dim)}
+  .bhead .l{letter-spacing:.14em;color:#b9b0a0}
+  .stamp{border:1px solid #4a4232;padding:0 6px;font-size:10px;color:#d9b06a;white-space:nowrap}
+  .stamp.confirmed{border-color:#3f7d6c;color:var(--mint)}
+  .stamp.expired{border-color:#5a4038;color:#d08a72}
+  .strip{display:flex;gap:6px;flex-wrap:nowrap}
+  .clue{
+    flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:1px;padding:5px 6px;
+    background:#11151a;border:1px solid #2c333b;color:#d6d0c2;font-family:inherit;text-align:left;
+  }
+  .clue .nm{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .clue .tg{font-size:9px;color:#7f8894;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .clue.sel{border-color:var(--amber);background:#1c1710;box-shadow:inset 0 0 0 1px #6b4a1d}
+  .clue.used{border-style:dashed;color:#8d887e}
+  .slots{display:flex;flex-direction:column;gap:5px;flex:1 1 auto;min-height:0}
+  .slot{
+    flex:1 1 0;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:2px;
+    width:100%;text-align:left;padding:5px 9px;background:#0f1317;border:1px solid #2c333b;
+    color:#e6dfd0;font-family:inherit;position:relative;
+  }
+  .slot::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:#242a31}
+  .slot.pick{border-color:var(--mint);background:#0c1613}
+  .slot.pick::before{background:var(--mint2)}
+  .slot .h{font-size:12.5px;font-weight:700;display:flex;gap:6px;align-items:baseline}
+  .slot .h em{font-style:normal;font-size:9px;color:#8a8478;letter-spacing:.1em}
+  .slot .ev{font-size:10.5px;color:var(--mint);min-height:1.2em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cdesc{font-size:10.5px;color:#8a8478;min-height:1.3em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  /* ── 대치 ── */
+  .cf{display:flex;flex-direction:column;gap:7px;height:100%;justify-content:flex-start}
+  .cfrec{display:flex;gap:8px;align-items:center;flex:0 0 auto;font-size:10.5px;color:#8a8478;min-height:16px}
+  .cfrec .cfh{color:#d6cebe;font-size:11px}
+  .cfrec .cfe{margin-left:auto;color:#7c766c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .talk{
+    display:flex;gap:8px;align-items:center;padding:10px 11px;flex:0 1 auto;min-height:96px;
+    border:1px solid #2c333b;background:linear-gradient(180deg,#11151a,#0b0e12);
+  }
+  .talk .who{flex:0 0 auto;font-size:10.5px;color:var(--amber);border:1px solid #6b4a1d;padding:1px 5px;margin-top:1px}
+  .talk .who.k{color:var(--mint);border-color:#2a6b5a}
+  .talk .who.n{color:#cfc6b4;border-color:#3a3f47}
+  .talk .line{font-size:13px;line-height:1.6;color:#e4dccc;flex:1 1 auto;min-width:0}
+  .talk .who{align-self:center;margin-top:0}
+  .cfrow{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:10.5px;color:#8a8478;margin-top:auto;border-top:1px dashed #262c33;padding-top:7px}
+  .cfrow .turn{letter-spacing:.14em;color:#b9b0a0}
+
+  /* ── 결말 ── */
+  .end{display:flex;flex-direction:column;gap:0;height:100%;overflow:hidden}
+  .end .et{font-size:15.5px;font-weight:800;color:#f3d9a8;letter-spacing:.02em}
+  .end .et span{color:#8a8478;font-size:10px;font-weight:400;letter-spacing:.14em;margin-left:7px}
+  .end .el{font-size:12px;line-height:1.55;color:#ddd5c5;margin-top:5px;white-space:pre-wrap}
+  .rec{margin-top:auto;border-top:1px dashed #2f353d;padding-top:5px;font-size:10.5px;color:#a8a294;display:grid;grid-template-columns:auto 1fr;gap:1px 9px}
+  .rec .k{color:#7c766c}
+  .rec .v{color:#d3cabb}
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="world" aria-hidden="true"></canvas>
+  <div id="panel">
+    <div id="narr"><span class="mk">▌</span><span id="narrText">새벽 4시 47분. 콘크리트는 밤의 열을 아직 다 토하지 못했다.</span></div>
+    <div id="view"></div>
+    <div id="bar">
+      <div id="btns"></div>
+      <div id="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    </div>
+  </div>
+</div>
+<noscript>이 게임은 자바스크립트가 필요합니다.</noscript>
+<script>
+'use strict';
+/* ============================================================================
+   SPEC v0.1 — 튜닝 숫자는 전부 이 블록에만 둔다. (문서: 콘크리트 정글 1장 시제품 SPEC v0.1)
+   ========================================================================== */
+const SPEC = Object.freeze({
+  VERSION: 'ch1-proto-0.1',
+
+  // 시간 (ms, 게임 시계 = 화면이 보이는 동안만 흐름)
+  TOTAL_MS: 180000,        // 전체 마감
+  EXPLORE_CAP_MS: 60000,   // 탐색 진입 후 상한
+  DEDUCE_CAP_MS: 45000,    // 추리 진입 후 상한
+  CONFRONT_MIN_MS: 60000,  // 추리 절대 상한 = TOTAL_MS - CONFRONT_MIN_MS
+  NUDGE_BEFORE_MS: 10000,  // 상한 이만큼 전에 유도 연출
+  CAP_BEAT_MS: 1000,       // 상한 전이 연출 길이 (이 동안 입력 잠금)
+  END_FADE_MS: 20000,      // 마감 전 이 시간 동안 냄새선이 옅어짐
+
+  // 탐색 계측
+  STOP_MS: 300,            // 멈춤 = 이동 입력 없음 + 속도 < STOP_SPEED, 이 시간 지속
+  STOP_SPEED: 4,           // CSS px/s
+  ARM_DISTANCE: 40,        // 한 갈래로 이만큼 들어가면 첫 방향 확정 + 멈춤 감지 시작
+  REVEAL_RADIUS: 90,       // 멈춘 자리 기준 이 반경 안의 냄새 고리를 드러냄
+  WALK_SPEED: 110,         // CSS px/s
+
+  // 입력
+  TAP_MAX_MS: 180,         // 고리 위에서 이보다 짧게 떼면 선택, 길면 걷기
+  TAP_SLOP: 10,            // 탭으로 인정하는 손가락 이동 한도
+  HIT_RADIUS: 28,          // 누를 대상 반경 (지름 56)
+
+  // 레이아웃 (Z 플립6 펼친 세로)
+  CREASE_Y: 0.5,           // 접힘 주름 위치 (화면 높이 비율)
+  CREASE_GUARD: 0.04,      // 주름 위아래 이 비율 안에는 누를 대상 금지
+
+  // 출력
+  AUDIO: false,            // 첫 판 무음. true여도 첫 입력 뒤에만 시작
+  CLOCK_STYLE: 'sky',      // 'sky' = 하늘이 밝아짐, 'number' = 숫자 카운트다운
+});
+
+/* ── 테스트 배속·디버그 (선택적 query override) ───────────────────────────── */
+const QS = new URLSearchParams(location.search);
+const SPEED = (() => { const v = parseFloat(QS.get('speed')); return Number.isFinite(v) && v > 0 ? Math.min(600, v) : 1; })();
+const FAKE = (window.__dawnClock && typeof window.__dawnClock.now === 'function') ? window.__dawnClock : null;
+const AUDIO_ON = SPEC.AUDIO || QS.get('audio') === '1';
+const clockNow = () => (FAKE ? FAKE.now() : performance.now());
+
+/* ── DOM ─────────────────────────────────────────────────────────────────── */
+const stage = document.getElementById('stage');
+const cv = document.getElementById('world');
+const ctx = cv.getContext('2d', { alpha: false });
+const view = document.getElementById('view');
+const btns = document.getElementById('btns');
+const dots = [...document.querySelectorAll('#dots i')];
+const narrText = document.getElementById('narrText');
+
+/* ── 게임 상태 ───────────────────────────────────────────────────────────── */
+const SLOTS = [
+  { id: 'A', head: '주인은 돌아온다', sub: '①' },
+  { id: 'B', head: '주인은 오지 않는다', sub: '②' },
+];
+const SOURCES = [
+  { id: 'grease', name: '기름때', wx: 330, wy: -26, d: '고가 아래 쓰레기봉투. 튀김 기름과 식은 국물.' },
+  { id: 'cord',   name: '끈 자국', wx: 470, wy: -4,  d: '쓰레기통 옆. 누군가 오래 서 있던 자리.' },
+  { id: 'soap',   name: '비누',    wx: 820, wy: -14, d: '담장으로 이어지는 점선. 아직 집이 남아 있는 냄새.' },
+];
+const STAMP = { confirmed: '확정', held: '보류', expired: '시간 만료' };
+const WORLD_W = 1400, X_START = 110, X_END = 1210;
+
+let S = null;
+let t0 = null, pausedTotal = 0, pausedAt = null, ended = false, inputLocked = false;
+let lastT = 0;
+
+/* ── 시계 (SPEC: gameNow / gameAt / visibilitychange / checkTimeout / onPointer / endGame) ── */
+const gameNow = () => (t0 === null ? 0 : Math.max(0, (clockNow() - t0 - pausedTotal) * SPEED));
+function gameAt(ts) {
+  const base = FAKE ? clockNow() : ts;          // 실제 브라우저에서는 event.timeStamp(서브프레임 정밀도)
+  return Math.max(0, (base - t0 - pausedTotal) * SPEED);
+}
+document.addEventListener('visibilitychange', () => {
+  if (t0 === null || ended) return;
+  if (document.hidden) {
+    if (pausedAt === null) { pausedAt = clockNow(); S.log.pauses.push({ at: gameNow(), ms: 0 }); }
+  } else if (pausedAt !== null) {
+    const gap = clockNow() - pausedAt;
+    pausedTotal += gap;
+    if (S.log.pauses.length) S.log.pauses[S.log.pauses.length - 1].ms = gap;
+    pausedAt = null;
+    lastT = gameNow();                            // 복귀 첫 프레임 dt = 0
+    render();
+  }
+});
+
+/* ── 상태 초기화 ─────────────────────────────────────────────────────────── */
+function resetGame() {
+  S = {
+    phase: 'EXPLORE', phaseEnter: 0,
+    nuri: { x: X_START, walking: false, speed: 0, stopAt: 0, sniff: 1, moving: false },
+    armed: false, maxX: X_START,
+    clues: [], reveal: [], sel: null,
+    match: { A: [], B: [] },
+    status: null, hyp: null,
+    turn: 1, turn1: null, turn2: null, skill: null,
+    talk: null, ending: null, cause: null,
+    cap: null, nudge: {}, faded: false,
+    log: { version: SPEC.VERSION, speed: SPEED, start: null, firstStop: null, firstReveal: null, collected: [], firstChoice: null, deduceAt: null, confrontAt: null, turn1At: null, turn2At: null, endAt: null, pauses: [], ended: null },
+  };
+  t0 = null; pausedTotal = 0; pausedAt = null; ended = false; inputLocked = false;
+  lastT = 0;
+  domKey = '';
+  narr('새벽 4시 47분. 콘크리트는 밤의 열을 아직 다 토하지 못했다.');
+}
+
+/* ── 단일 전이 함수: phase를 바꾸는 곳은 여기 하나뿐 ─────────────────────── */
+function transition(to, why) {
+  if (to !== 'END' && ended) return false;
+  if (S.phase === to) return false;
+  const from = S.phase;
+  S.phase = to;
+  S.phaseEnter = gameNow();
+  S.cap = null; inputLocked = false;
+  S.nuri.walking = false;
+  S.reveal = [];
+  if (to === 'DEDUCE') {
+    S.log.deduceAt = Math.round(S.phaseEnter);
+    narr(S.clues.length >= 2 ? '두 냄새가 손안에 남았다. 이제 무엇이 남은 냄새인지 정할 차례다.' : '맡은 것을 하나씩 늘어놓는다.');
+    if (AUDIO_ON) sfx('open');
+  } else if (to === 'CONFRONT') {
+    S.log.confrontAt = Math.round(S.phaseEnter);
+    S.turn = 1;
+    S.talk = captainTalk();
+    narr('골목 어귀에 그림자가 섰다. 발소리가 냄새를 데리고 온다.');
+    if (AUDIO_ON) sfx('open');
+  } else if (to === 'END') {
+    if (AUDIO_ON) sfx('end');
+  }
+  domKey = '';
+  render();
+  return true;
+}
+
+/* ── 상한 전이 연출 (CAP_BEAT_MS 동안 입력 잠금) ─────────────────────────── */
+function capBeat(to, line, before) {
+  if (S.cap) return;
+  S.nuri.walking = false;
+  inputLocked = true;
+  if (before) before();
+  narr(line);
+  S.cap = { to, at: gameNow() + SPEC.CAP_BEAT_MS };
+  render();
+}
+
+/* ── 시간·상한 확인 ──────────────────────────────────────────────────────── */
+function checkTimeout(t) {
+  if (t < SPEC.TOTAL_MS) return false;
+  endGame('timeout');
+  return true;
+}
+
+function checkCaps(t) {
+  if (S.cap) {
+    if (t >= S.cap.at) { const to = S.cap.to; S.cap = null; inputLocked = false; transition(to, 'cap'); }
+    return true;                                  // 연출 중에는 입력을 잠근다
+  }
+  if (S.phase === 'EXPLORE') {
+    const left = SPEC.EXPLORE_CAP_MS - (t - S.phaseEnter);
+    if (left <= SPEC.NUDGE_BEFORE_MS && !S.nudge.explore) {
+      S.nudge.explore = true;
+      narr('해가 담장을 넘어오기 시작했다. 냄새가 얇아진다.');
+    }
+    if (left <= 0) {
+      capBeat(S.clues.length > 0 ? 'DEDUCE' : 'CONFRONT',
+        '햇빛이 골목 바닥에 닿았다. 냄새가 흩어진다.');
+      return true;
+    }
+  } else if (S.phase === 'DEDUCE') {
+    const cap = Math.min(S.phaseEnter + SPEC.DEDUCE_CAP_MS, SPEC.TOTAL_MS - SPEC.CONFRONT_MIN_MS);
+    const left = cap - t;
+    if (left <= SPEC.NUDGE_BEFORE_MS && !S.nudge.deduce) {
+      S.nudge.deduce = true;
+      narr('골목이 밝아진다. 지금 정해야 한다.');
+    }
+    if (left <= 0) {
+      capBeat('CONFRONT', '골목이 밝아졌다. 더 맡을 냄새가 없다.', () => { S.status = 'expired'; });
+      return true;
+    }
+  } else if (S.phase === 'CONFRONT') {
+    const left = SPEC.TOTAL_MS - t;
+    if (left <= SPEC.END_FADE_MS && !S.faded) {
+      S.faded = true;
+      narr('냄새선이 옅어진다. 바람이 찢는다.');
+    }
+    if (left <= 10000 && !S.nudge.dawn) {
+      S.nudge.dawn = true;
+      narr('차 소리. 사람들. 아침이 골목으로 들어온다.');
+    }
+  }
+  return false;
+}
+
+/* ── 종료: 첫 줄 멱등성 ──────────────────────────────────────────────────── */
+function endGame(cause, choice = null) {
+  if (ended) return;                              // 두 번째 호출은 아무것도 바꾸지 않음
+  ended = true;
+  S.cause = cause;
+  S.turn2 = choice;
+  S.ending = resolveEnding(cause, choice);
+  S.log.endAt = Math.round(gameNow());
+  S.log.ended = cause + ':' + S.ending;
+  S.log.hyp = S.hyp; S.log.status = S.status;
+  S.endVariant = (S.status === null) ? 'noClue' : (S.status === 'expired' ? 'expired' : null);
+  const END_NARR = {
+    door: '아침이 골목 어귀까지 들어왔다.',
+    trail: '해가 담장 그림자를 걷어 냈다.',
+    tail: '문이 열리는 소리는 낮고 길었다.',
+    corner: '모퉁이 너머는 이미 아침이었다.',
+    dawn: '해가 담장 위까지 올라왔다.',
+  };
+  narr(END_NARR[S.ending] || '');
+  transition('END');
+  try { console.log('[DAWN] ' + JSON.stringify(S.log)); } catch (e) { /* noop */ }
+}
+
+function slotOf(id) {
+  for (const k of ['A', 'B']) if (S.match[k].includes(id)) return k;
+  return null;
+}
+function resolveEnding(cause, choice) {
+  if (cause === 'timeout') return 'dawn';
+  if (S.status === 'expired') return 'dawn';
+  if (S.status === 'confirmed') {
+    if (choice === 'skill') return (S.hyp === 'B') ? 'trail' : 'door';
+    return 'tail';
+  }
+  return 'corner';
+}
+
+/* ── 탐색: 걷기·멈춤·냄새 ────────────────────────────────────────────────── */
+function walk(on, why) {
+  if (S.phase !== 'EXPLORE' || ended || inputLocked) { on = false; }
+  if (S.nuri.walking === on) return;
+  S.nuri.walking = on;
+  if (on) {
+    S.nuri.stopAt = 0;
+    if (!S.log.firstMove) { S.log.firstMove = Math.round(gameNow()); narr('발소리가 골목에 남는다. 냄새는 멈춰야 보인다.'); }
+    if (AUDIO_ON) sfx('step');
+  }
+  const b = btns.querySelector('[data-act="hold"]');
+  if (b) b.classList.toggle('down', on);
+  render();
+}
+
+function step(t, dt) {
+  const n = S.nuri;
+  const sec = dt / 1000;
+  if (n.walking) {
+    const before = n.x;
+    n.x = Math.min(X_END, n.x + SPEC.WALK_SPEED * sec);
+    n.speed = sec > 0 ? (n.x - before) / sec : 0;
+    n.moving = true;
+    n.x === X_END && (n.walking = false);
+    if (n.x > S.maxX) S.maxX = n.x;
+  } else {
+    n.speed = 0;
+  }
+  // 첫 갈래로 ARM_DISTANCE 들어간 뒤부터 멈춤 감지
+  if (!S.armed && (S.maxX - X_START) >= SPEC.ARM_DISTANCE) {
+    S.armed = true;
+    if (!S.log.armedAt) S.log.armedAt = Math.round(t);
+  }
+  // 멈춤 판정
+  const stopped = !n.walking && S.armed && n.speed < SPEC.STOP_SPEED;
+  if (stopped) {
+    if (!n.stopAt) n.stopAt = t;
+    if (t - n.stopAt >= SPEC.STOP_MS) {
+      if (!S.log.firstStop) { S.log.firstStop = Math.round(t); narr('멈추자, 공기가 층으로 갈라졌다.'); if (AUDIO_ON) sfx('sniff'); }
+      n.sniff = Math.min(1, n.sniff + dt / 380);
+      // 멈춘 자리 기준 REVEAL_RADIUS 안의 고리를 드러낸다
+      const rev = SOURCES.filter(o => !S.clues.some(c => c.id === o.id) && Math.abs(o.wx - n.x) <= SPEC.REVEAL_RADIUS);
+      S.reveal = rev.map(o => o.id);
+      if (rev.length && !S.log.firstReveal) {
+        S.log.firstReveal = Math.round(t);
+        S.log.revealed = rev.map(o => o.id);
+      }
+    }
+  } else {
+    n.stopAt = 0;
+    n.sniff = Math.max(0, n.sniff - dt / 620);
+    S.reveal = [];
+  }
+}
+
+function pickRing(p) {
+  if (S.phase !== 'EXPLORE') return null;
+  let best = null, bd = 1e9;
+  for (const id of S.reveal) {
+    const s = SOURCES.find(o => o.id === id);
+    const d = Math.hypot(p.x - (s.wx - camX), p.y - (FLOOR + s.wy));
+    if (d <= SPEC.HIT_RADIUS && d < bd) { best = s; bd = d; }
+  }
+  return best;
+}
+
+function collect(id) {
+  const s = SOURCES.find(o => o.id === id);
+  if (!s || S.clues.some(c => c.id === id)) return;
+  S.clues.push({ id: s.id, name: s.name, d: s.d, key: s.id === 'soap' });
+  S.log.collected.push({ id: s.id, t: Math.round(gameNow()) });
+  if (!S.log.firstChoice) S.log.firstChoice = Math.round(gameNow());
+  if (AUDIO_ON) sfx('clue');
+  const lines = {
+    soap: '얇고 깨끗한 향. 아직 집이 남아 있는 냄새.',
+    grease: '튀김 기름, 식은 국물. 골목이 늘 먹는 냄새.',
+    cord: '누군가 여기서 오래 서 있었다. 끈이 떨어진 자국.',
+  };
+  narr(lines[s.id] || '냄새 하나를 붙잡았다.');
+  if (S.clues.length >= 2) {
+    transition('DEDUCE');                          // 단서 2개 확보 → 추리
+  } else {
+    render();
+  }
+}
+
+/* ── 추리판 ──────────────────────────────────────────────────────────────── */
+function selectClue(id) {
+  S.sel = (S.sel === id) ? null : id;
+  render();
+}
+function matchTo(slot) {
+  if (!S.sel) return;
+  const id = S.sel;
+  const other = slot === 'A' ? 'B' : 'A';
+  S.match[other] = S.match[other].filter(x => x !== id);
+  const i = S.match[slot].indexOf(id);
+  if (i >= 0) S.match[slot].splice(i, 1); else S.match[slot].push(id);
+  if (!S.log.firstMatch) S.log.firstMatch = Math.round(gameNow());
+  if (AUDIO_ON) sfx('click');
+  render();
+}
+function allMatched() {
+  return S.clues.length > 0 && S.clues.every(c => S.match.A.includes(c.id) || S.match.B.includes(c.id));
+}
+function soapMatched() {
+  return !!slotOf('soap');
+}
+function commit() {
+  if (!allMatched()) return;
+  S.hyp = slotOf('soap') || (S.match.A.length ? 'A' : 'B');
+  if (soapMatched()) {
+    S.status = 'confirmed';
+    S.skill = (S.hyp === 'B') ? 'trace' : 'kkm';
+  } else {
+    S.status = 'held';
+    S.skill = null;
+  }
+  S.log.status = S.status; S.log.hyp = S.hyp;
+  if (AUDIO_ON) sfx('confirm');
+  narr(S.status === 'confirmed'
+    ? '코끝이 확신으로 곧아졌다. 이제 발이 정할 수 있다.'
+    : '확신이 아니다. 골목 냄새만으로는 반쪽이다.');
+  transition('CONFRONT');
+}
+
+/* ── 대치 ────────────────────────────────────────────────────────────────── */
+function captainTalk() {
+  const t = { who: '캡틴', tone: '', line: '' };
+  if (S.status === 'confirmed') {
+    t.line = (S.hyp === 'B')
+      ? '살아 있는 건 네 코뿐이군. 그 향은 길 위에서 끊긴다.'
+      : '그 향, 아직 살아 있군. 담장 끝에서 문 쪽으로 꺾인다.';
+  } else if (S.status === 'held') {
+    t.line = '반만 아는군. 반쪽짜리 확신은 발목을 잡는다. 어느 쪽으로 갈 거냐.';
+  } else if (S.status === 'expired') {
+    t.line = '묻기엔 늦었어. 해가 뜬다. 그래도 발은 아직 네 거다.';
+  } else {
+    t.line = '아무것도 맡지 못했군. 그럼 눈으로 보든가.';
+  }
+  return t;
+}
+function chooseTurn1(id) {
+  S.turn1 = id;
+  S.log.turn1At = Math.round(gameNow());
+  S.turn = 2;
+  if (AUDIO_ON) sfx('click');
+  const resp = {
+    wait: '누리는 숨을 죽였다. 그림자가 반 걸음 가까워졌다.',
+    signal: '누리는 한 걸음 물러나 꼬리를 낮게 흔들었다. 소리 없이 남기는 신호.',
+  };
+  narr(resp[id]);
+  S.talk = {
+    who: S.clues.some(c => c.id === 'soap') ? '까망' : '캡틴',
+    tone: S.clues.some(c => c.id === 'soap') ? 'k' : '',
+    line: S.clues.some(c => c.id === 'soap')
+      ? '그 냄새, 어디서 났는지 알아. 한 번만 더 맡아 봐.'
+      : '확신이 없다면, 남은 건 발과 눈뿐이야.',
+  };
+  render();
+}
+function chooseTurn2(id) {
+  S.log.turn2At = Math.round(gameNow());
+  if (id === 'skill') {
+    S.talk = {
+      who: S.skill === 'trace' ? '누리' : '까망',
+      tone: S.skill === 'trace' ? 'n' : 'k',
+      line: S.skill === 'trace'
+        ? '점선을 따라 걸었다. 냄새는 문이 아니라 길 위에서 끝난다.'
+        : '골목 어귀의 사람. 그 손등에서 네 비누 냄새가 난다.',
+    };
+    if (AUDIO_ON) sfx('skill');
+    endGame('choice', 'skill');
+  } else if (id === 'corner') {
+    S.talk = { who: '누리', tone: 'n', line: '모퉁이 너머, 사람 하나가 서 있었다. 냄새는 없었다.' };
+    endGame('choice', 'corner');
+  } else {
+    S.talk = { who: '누리', tone: 'n', line: '누리는 제자리에서 앉았다. 꼬리를 한 번, 천천히.' };
+    endGame('choice', 'wait');
+  }
+}
+
+/* ── 입력 ────────────────────────────────────────────────────────────────── */
+let press = null;      // {x,y,ts,realTs,ring,walking}
+
+function ensureStart(e) {
+  if (t0 !== null) return;
+  t0 = FAKE ? clockNow() : e.timeStamp;
+  S.phaseEnter = 0;
+  S.log.start = 0;
+  S.log.pre_start_ms = Math.round((FAKE ? 0 : e.timeStamp));
+  lastT = 0;
+  initAudio(e);
+}
+
+function localPoint(e) {
+  const r = stage.getBoundingClientRect();
+  return { x: e.clientX - r.left, y: e.clientY - r.top };
+}
+function inCrease(y) {
+  const h = stage.clientHeight;
+  return y > h * (SPEC.CREASE_Y - SPEC.CREASE_GUARD) && y < h * (SPEC.CREASE_Y + SPEC.CREASE_GUARD);
+}
+
+function onPointerDown(e) {
+  if (e.button !== undefined && e.pointerType === 'mouse' && e.button !== 0) return;
+  ensureStart(e);
+  if (ended || pausedAt !== null || inputLocked) return;
+  const t = gameAt(e.timeStamp);
+  if (checkTimeout(t)) return;
+  if (checkCaps(t)) return;
+  if (S.phase !== 'EXPLORE') return;
+
+  const p = localPoint(e);
+  if (inCrease(p.y)) return;                        // 주름 안 입력은 받지 않는다
+  const ring = pickRing(p);
+  press = { x: p.x, y: p.y, ts: e.timeStamp, realTs: performance.now(), ring, walking: false };
+  if (ring) {
+    if (AUDIO_ON) sfx('tick');
+    render();
+  } else {
+    press.walking = true;
+    walk(true);
+  }
+}
+
+function onPointerUp(e) {
+  if (!press) { walk(false); return; }
+  const p = localPoint(e);
+  const dur = performance.now() - press.realTs;      // 탭 길이는 실제 제스처 시간
+  const dist = Math.hypot(p.x - press.x, p.y - press.y);
+  const wasRing = press.ring;
+  press = null;
+  if (wasRing && dur <= SPEC.TAP_MAX_MS && dist <= SPEC.TAP_SLOP) {
+    if (!ended && !inputLocked && !pausedAt && S.phase === 'EXPLORE') collect(wasRing.id);
+  }
+  walk(false);
+}
+
+function onPointerCancel() {
+  press = null;
+  walk(false);
+}
+
+stage.addEventListener('pointerdown', (e) => {
+  ensureStart(e);
+  if (e.target.closest('button')) return;           // 버튼은 자기 핸들러가 처리
+  onPointerDown(e);
+}, { passive: true });
+window.addEventListener('pointerup', (e) => {
+  if (press) { e.preventDefault(); onPointerUp(e); return; }
+  if (e.target && e.target.closest && e.target.closest('button')) { walk(false); }
+}, { passive: false });
+window.addEventListener('pointercancel', onPointerCancel);
+stage.addEventListener('contextmenu', (e) => e.preventDefault());
+
+// 키보드: 스페이스 = 걷기(데스크톱 확인용)
+window.addEventListener('keydown', (e) => {
+  if (e.code === 'Space' && !e.repeat) {
+    ensureStart({ timeStamp: performance.now() });
+    if (S.phase === 'EXPLORE' && !ended && !inputLocked) walk(true);
+    e.preventDefault();
+  }
+});
+window.addEventListener('keyup', (e) => { if (e.code === 'Space') walk(false); });
+
+// 버튼: pointerdown 단일 처리 (click/touchstart 중복 없음)
+btns.addEventListener('pointerdown', (e) => {
+  const b = e.target.closest('button[data-act]');
+  if (!b) return;
+  e.preventDefault();
+  ensureStart(e);
+  if (ended && b.dataset.act !== 'again') return;
+  if (pausedAt !== null || inputLocked) return;
+  const act = b.dataset.act;
+  if (act === 'hold') { walk(true); return; }
+  if (act === 'commit') { commit(); return; }
+  if (act === 't1wait') { chooseTurn1('wait'); return; }
+  if (act === 't1signal') { chooseTurn1('signal'); return; }
+  if (act === 't2skill') { chooseTurn2('skill'); return; }
+  if (act === 't2corner') { chooseTurn2('corner'); return; }
+  if (act === 't2wait') { chooseTurn2('wait'); return; }
+  if (act === 'again') { e.stopPropagation(); resetGame(); render(); return; }   // 같은 터치로 새 판이 시작되지 않게
+}, { passive: false });
+
+btns.addEventListener('pointerup', (e) => {
+  const b = e.target.closest('button[data-act]');
+  if (b && b.dataset.act === 'hold') walk(false);
+});
+
+// 추리판: 단서 탭 → 가설 슬롯 탭 (드래그·선 긋기 없음)
+view.addEventListener('pointerdown', (e) => {
+  const c = e.target.closest('[data-clue]');
+  if (c) { e.preventDefault(); ensureStart(e); if (!ended && !inputLocked && pausedAt === null) selectClue(c.dataset.clue); return; }
+  const s = e.target.closest('[data-slot]');
+  if (s) { e.preventDefault(); ensureStart(e); if (!ended && !inputLocked && pausedAt === null) matchTo(s.dataset.slot); return; }
+}, { passive: false });
+
+/* ── 캔버스 레이아웃 ─────────────────────────────────────────────────────── */
+let W = 0, H = 0, ALLEY = 0, FLOOR = 0, DPR = 1, camX = 0;
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const X = (wx) => wx - camX;
+
+function layout(snap) {
+  const r = stage.getBoundingClientRect();
+  W = r.width; H = r.height;
+  DPR = Math.min(3, window.devicePixelRatio || 1);
+  cv.width = Math.max(1, Math.round(W * DPR));
+  cv.height = Math.max(1, Math.round(H * DPR));
+  cv.style.width = W + 'px'; cv.style.height = H + 'px';
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  ALLEY = Math.max(120, Math.min(H * 0.455, H * (SPEC.CREASE_Y - SPEC.CREASE_GUARD) - 3));
+  FLOOR = Math.round(ALLEY * 0.80);
+  TRAIL = null;
+  const target = clamp((S ? S.nuri.x : X_START) - W * 0.34, 0, Math.max(0, WORLD_W - W));
+  if (snap) camX = target;
+  drawWorld(true);
+}
+window.addEventListener('resize', () => layout(true));
+window.addEventListener('orientationchange', () => setTimeout(() => layout(true), 120));
+
+/* ── 사운드 (SPEC.AUDIO=false 기본 무음, 첫 입력 뒤에만) ──────────────────── */
+let AC = null;
+function initAudio() {
+  if (!AUDIO_ON || AC) return;
+  try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { AC = null; }
+}
+const TONES = {
+  step: [150, .045, 'square', .05], tick: [420, .03, 'sine', .04], sniff: [330, .16, 'sine', .045],
+  clue: [660, .12, 'triangle', .06], click: [520, .045, 'sine', .05], confirm: [180, .3, 'sine', .07],
+  open: [300, .22, 'sine', .05], skill: [740, .3, 'triangle', .07], end: [110, 1.1, 'sine', .06],
+};
+function sfx(k) {
+  if (!AUDIO_ON || !AC) return;
+  const [f, d, type, vol] = TONES[k] || TONES.tick;
+  try {
+    const o = AC.createOscillator(), g = AC.createGain();
+    o.type = type; o.frequency.value = f;
+    g.gain.setValueAtTime(0.0001, AC.currentTime);
+    g.gain.exponentialRampToValueAtTime(vol, AC.currentTime + 0.012);
+    g.gain.exponentialRampToValueAtTime(0.0001, AC.currentTime + d);
+    o.connect(g).connect(AC.destination);
+    o.start(); o.stop(AC.currentTime + d + 0.02);
+  } catch (e) { /* noop */ }
+}
+
+/* ── 서사 ────────────────────────────────────────────────────────────────── */
+let narrLine = '';
+function narr(s) { narrLine = s; if (narrText.textContent !== s) narrText.textContent = s; }
+
+/* ── 그리기 ──────────────────────────────────────────────────────────────── */
+const rnd = (i) => { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+const STARS = Array.from({ length: 42 }, (_, i) => ({ x: rnd(i) * 1400, y: rnd(i + 99) * 150, r: rnd(i + 7) > .82 ? 1.6 : 1 }));
+const CRACKS = Array.from({ length: 26 }, (_, i) => ({ x: rnd(i + 3) * WORLD_W, y: .15 + rnd(i + 11) * .8, w: 14 + rnd(i + 21) * 46 }));
+
+function lerpC(a, b, t) {
+  const pa = a.match(/\w\w/g).map(h => parseInt(h, 16)), pb = b.match(/\w\w/g).map(h => parseInt(h, 16));
+  return '#' + pa.map((v, i) => Math.round(v + (pb[i] - v) * t).toString(16).padStart(2, '0')).join('');
+}
+function dawnP() {
+  const t = (S && S.animT) || 0;
+  return clamp(t / SPEC.TOTAL_MS, 0, 1);
+}
+function ambT() { return (S && S.amb) || 0; }
+
+function drawWorld(snap) {
+  if (!W) return;
+  const t = ambT();
+  const d = dawnP();
+  const n = S ? S.nuri : { x: X_START, sniff: 1, walking: false };
+  const target = clamp(n.x - W * 0.34, 0, Math.max(0, WORLD_W - W));
+  camX = snap ? target : camX + (target - camX) * 0.12;
+
+  // 하늘
+  const sky = ctx.createLinearGradient(0, 0, 0, FLOOR);
+  sky.addColorStop(0, lerpC('0a0f16', '1b2b3d', d));
+  sky.addColorStop(0.55, lerpC('141c26', '3c4a55', d));
+  sky.addColorStop(1, lerpC('20232b', '8a6a55', d * d));
+  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, FLOOR);
+
+  // 별
+  ctx.save(); ctx.globalAlpha = Math.max(0, 0.75 - d * 1.5);
+  for (const s of STARS) {
+    const x = X(s.x);
+    if (x < -4 || x > W + 4) continue;
+    ctx.fillStyle = '#dfe6ef'; ctx.fillRect(x, s.y, s.r, s.r);
+  }
+  ctx.restore();
+
+  // 먼 스카이라인
+  ctx.fillStyle = lerpC('101720', '26303a', d);
+  for (let i = 0; i < 26; i++) {
+    const x = X(i * 62 - 20); if (x < -80 || x > W + 80) continue;
+    const h = 46 + rnd(i + 5) * 78;
+    ctx.fillRect(x, FLOOR - h - 34, 54, h + 34);
+    ctx.fillStyle = 'rgba(255,214,150,' + (0.06 + rnd(i) * 0.1) * (1 - d) + ')';
+    for (let k = 0; k < 3; k++) if (rnd(i * 7 + k) > .5) ctx.fillRect(x + 8 + k * 15, FLOOR - h - 26 + (k % 2) * 16, 6, 7);
+    ctx.fillStyle = lerpC('101720', '26303a', d);
+  }
+
+  // 담장(뒤) + 벽돌
+  const wallTop = FLOOR - 86;
+  ctx.fillStyle = lerpC('1a1f26', '3a3a38', d * .8);
+  ctx.fillRect(0, wallTop, W, FLOOR - wallTop);
+  ctx.strokeStyle = 'rgba(0,0,0,.25)'; ctx.lineWidth = 1;
+  for (let y = wallTop + 12; y < FLOOR; y += 12) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    for (let x = ((y / 12) % 2 ? 12 : 0); x < W; x += 24) {
+      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + 12); ctx.stroke();
+    }
+  }
+  // 담장 상단 캡
+  ctx.fillStyle = lerpC('252b33', '4a463f', d * .8);
+  ctx.fillRect(0, wallTop - 5, W, 6);
+
+  // 담장 위 캡틴 (대치부터)
+  if (S && (S.phase === 'CONFRONT' || S.phase === 'END')) drawCaptain(X(clamp(S.nuri.x + 58, 0, WORLD_W)) , wallTop - 5, t);
+
+  // 바닥 — 주름 띠(46%~54%)까지 이어 그려 검은 구멍이 생기지 않게 한다.
+  // (주름 안에 두지 않는 것은 '누를 대상'과 '비누 자취'뿐이다. 배경은 이어진다.)
+  const groundBottom = H * (SPEC.CREASE_Y + SPEC.CREASE_GUARD);
+  const g = ctx.createLinearGradient(0, FLOOR, 0, groundBottom);
+  g.addColorStop(0, lerpC('1b1f24', '4a4038', d * .7));
+  g.addColorStop(0.45, lerpC('14171b', '322d29', d * .7));
+  g.addColorStop(1, lerpC('0e1013', '1d1c1a', d * .6));
+  ctx.fillStyle = g; ctx.fillRect(0, FLOOR, W, groundBottom - FLOOR);
+
+  // 금 간 콘크리트
+  ctx.strokeStyle = 'rgba(0,0,0,.42)'; ctx.lineWidth = 1;
+  for (const c of CRACKS) {
+    const x = X(c.x); if (x < -60 || x > W + 60) continue;
+    ctx.beginPath(); ctx.moveTo(x, FLOOR + 6);
+    for (let i = 1; i <= 3; i++) ctx.lineTo(x + (i % 2 ? c.w * .35 : -c.w * .2), FLOOR + 6 + i * 9);
+    ctx.stroke();
+  }
+  // 물웅덩이
+  const pd = X(620);
+  if (pd > -120 && pd < W + 120) {
+    ctx.fillStyle = 'rgba(120,150,170,.10)';
+    ctx.beginPath(); ctx.ellipse(pd, FLOOR + 40, 62, 9, 0, 0, 7); ctx.fill();
+    ctx.fillStyle = 'rgba(255,206,150,' + (0.05 + d * 0.22) + ')';
+    ctx.beginPath(); ctx.ellipse(pd + 6, FLOOR + 39, 40, 3.2, 0, 0, 7); ctx.fill();
+  }
+
+  // 기둥·램프·쓰레기·문
+  drawProps(t, d);
+
+  // 안개는 배경 위, 냄새선 아래 (냄새가 안개에 먹히지 않게)
+  const fog = ctx.createLinearGradient(0, FLOOR - 120, 0, ALLEY);
+  fog.addColorStop(0, 'rgba(10,13,18,0)');
+  fog.addColorStop(1, 'rgba(8,10,13,.72)');
+  ctx.fillStyle = fog; ctx.fillRect(0, FLOOR - 120, W, groundBottom - FLOOR + 120);
+
+  // 비누 냄새 점선 (연속) — 늘 보인다. 멈추면 선명해지고, 마감 20초 전부터 옅어진다.
+  if (S) drawTrail(t, d);
+
+  // 드러난 냄새 고리
+  if (S && S.phase === 'EXPLORE') {
+    for (const src of SOURCES) {
+      if (!S.reveal.includes(src.id)) continue;
+      drawSource(src, t);
+    }
+  }
+
+  // 누리
+  if (S) drawNuri(t);
+
+  // 까망 (대치부터 담장 위)
+  if (S && (S.phase === 'CONFRONT' || S.phase === 'END')) {
+    drawKkamang(X(clamp(S.nuri.x - 76, 40, WORLD_W)), FLOOR - 86, t);
+  }
+
+  // 사람 그림자 (대치 중, 골목 어귀)
+  if (S && S.phase === 'CONFRONT') drawFigure(W - 54, FLOOR, t, false);
+
+  // 주름선 (Z 플립6 힌지) — 아주 옅게 표시
+  const cy = H * SPEC.CREASE_Y;
+  ctx.fillStyle = 'rgba(255,255,255,.045)'; ctx.fillRect(0, cy, W, 1);
+  const cg = ctx.createLinearGradient(0, cy - 12, 0, cy + 12);
+  cg.addColorStop(0, 'rgba(255,255,255,0)'); cg.addColorStop(.5, 'rgba(255,255,255,.030)'); cg.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = cg; ctx.fillRect(0, cy - 12, W, 24);
+
+  // 아침 빛 띠
+  const band = 10 + d * (ALLEY - FLOOR) * 1.1;
+  const lg = ctx.createLinearGradient(0, FLOOR - 6, 0, FLOOR + band);
+  lg.addColorStop(0, 'rgba(255,206,148,' + (0.04 + d * 0.30) + ')');
+  lg.addColorStop(1, 'rgba(255,206,148,0)');
+  ctx.fillStyle = lg; ctx.fillRect(0, FLOOR - 6, W, band + 8);
+
+  // 주름 띠는 어둠으로 잦아들며 패널로 넘긴다
+  const cr = ctx.createLinearGradient(0, ALLEY - 30, 0, H * (SPEC.CREASE_Y + SPEC.CREASE_GUARD));
+  cr.addColorStop(0, 'rgba(6,7,9,0)');
+  cr.addColorStop(0.65, 'rgba(6,7,9,.35)');
+  cr.addColorStop(1, 'rgba(6,7,9,.92)');
+  ctx.fillStyle = cr; ctx.fillRect(0, ALLEY - 30, W, H * (SPEC.CREASE_Y + SPEC.CREASE_GUARD) - ALLEY + 30);
+
+  // 타이틀 (시작 전에만)
+  if (t0 === null && S && S.phase === 'EXPLORE') drawTitle(t);
+
+  // 결말 화면 연출
+  if (S && S.phase === 'END') drawEndingScene(t, d);
+}
+
+function drawProps(t, d) {
+  // 연석
+  ctx.fillStyle = 'rgba(200,196,184,.05)'; ctx.fillRect(0, FLOOR - 1, W, 2);
+  // 아스팔트 자갈 (주름 띠까지 이어짐)
+  ctx.fillStyle = 'rgba(220,216,204,.07)';
+  for (let i = 0; i < 90; i++) {
+    const wx = rnd(i + 71) * WORLD_W;
+    const yy = FLOOR + 4 + rnd(i + 191) * (H * (SPEC.CREASE_Y + SPEC.CREASE_GUARD) - FLOOR - 8);
+    const x = X(wx); if (x < -2 || x > W + 2) continue;
+    ctx.fillRect(x, yy, rnd(i + 13) > .6 ? 2 : 1, 1);
+  }
+  // 벽 파이프
+  const pipeY = FLOOR - 56;
+  ctx.fillStyle = '#2b323a'; ctx.fillRect(0, pipeY, W, 5);
+  ctx.fillStyle = 'rgba(255,255,255,.07)'; ctx.fillRect(0, pipeY, W, 1);
+  ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fillRect(0, pipeY + 4, W, 1);
+  ctx.fillStyle = '#3a424c';
+  for (let x = -(camX % 170); x < W; x += 170) ctx.fillRect(x, pipeY - 2, 4, 9);
+  // 벽 얼룩
+  ctx.fillStyle = 'rgba(0,0,0,.20)';
+  for (let i = 0; i < 14; i++) {
+    const x = X(i * 104 + 36); if (x < -12 || x > W + 12) continue;
+    const h = 18 + rnd(i + 5) * 34;
+    ctx.fillRect(x, FLOOR - 78, 1 + rnd(i) * 2, h);
+  }
+  ctx.fillStyle = 'rgba(255,255,255,.025)';
+  for (let i = 0; i < 14; i++) {
+    const x = X(i * 104 + 38); if (x < -12 || x > W + 12) continue;
+    ctx.fillRect(x, FLOOR - 78, 1, 18 + rnd(i + 5) * 34);
+  }
+  // 골판지 상자 더미
+  const bx2 = X(228);
+  if (bx2 > -80 && bx2 < W + 80) {
+    ctx.fillStyle = '#282e36'; ctx.fillRect(bx2 - 22, FLOOR - 30, 44, 30);
+    ctx.fillStyle = '#31383f'; ctx.fillRect(bx2 - 18, FLOOR - 48, 30, 18);
+    ctx.fillStyle = 'rgba(255,255,255,.05)'; ctx.fillRect(bx2 - 22, FLOOR - 30, 44, 1);
+    ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fillRect(bx2 - 22, FLOOR - 16, 44, 2);
+    ctx.strokeStyle = 'rgba(120,112,96,.25)'; ctx.lineWidth = 1;
+    ctx.strokeRect(bx2 - 18.5, FLOOR - 47.5, 29, 17);
+  }
+  // 고가도로 기둥
+  for (const wx of [700, 1120]) {
+    const x = X(wx); if (x < -90 || x > W + 90) continue;
+    ctx.fillStyle = lerpC('181d23', '33343a', d * .7);
+    ctx.fillRect(x - 22, FLOOR - 210, 44, 210);
+    ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fillRect(x + 8, FLOOR - 210, 6, 210);
+    ctx.fillStyle = 'rgba(255,220,170,' + (0.02 + d * 0.06) + ')'; ctx.fillRect(x - 22, FLOOR - 210, 3, 210);
+  }
+  // 가로등
+  const lx = X(180);
+  if (lx > -60 && lx < W + 60) {
+    ctx.fillStyle = '#20252b'; ctx.fillRect(lx, FLOOR - 150, 4, 150);
+    ctx.fillRect(lx, FLOOR - 152, 26, 4);
+    const glow = ctx.createRadialGradient(lx + 26, FLOOR - 148, 2, lx + 26, FLOOR - 148, 54);
+    glow.addColorStop(0, 'rgba(255,214,150,' + (0.34 - d * 0.24) + ')');
+    glow.addColorStop(1, 'rgba(255,214,150,0)');
+    ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(lx + 26, FLOOR - 148, 54, 0, 7); ctx.fill();
+    ctx.fillStyle = '#ffe2ae'; ctx.fillRect(lx + 23, FLOOR - 149, 6, 4);
+  }
+  // 쓰레기봉투 (기름때 자리)
+  const bx = X(330);
+  if (bx > -120 && bx < W + 120) {
+    ctx.fillStyle = '#1b2227';
+    for (let i = 0; i < 4; i++) {
+      const ox = bx - 34 + i * 18, oy = FLOOR - 10 - (i % 2) * 6;
+      ctx.beginPath(); ctx.ellipse(ox, oy, 15, 11 + (i % 2) * 3, 0, 0, 7); ctx.fill();
+    }
+    ctx.fillStyle = 'rgba(210,170,110,.16)';
+    ctx.beginPath(); ctx.ellipse(bx, FLOOR - 6, 26, 5, 0, 0, 7); ctx.fill();
+  }
+  // 쓰레기통 + 끈 자국
+  const cx = X(470);
+  if (cx > -100 && cx < W + 100) {
+    ctx.fillStyle = '#232a30'; ctx.fillRect(cx - 16, FLOOR - 42, 32, 42);
+    ctx.fillStyle = '#2c343b'; ctx.fillRect(cx - 19, FLOOR - 46, 38, 6);
+    ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fillRect(cx - 2, FLOOR - 42, 3, 42);
+    // 끈
+    ctx.strokeStyle = 'rgba(190,175,145,.5)'; ctx.lineWidth = 1.4;
+    ctx.beginPath(); ctx.moveTo(cx + 8, FLOOR - 2);
+    ctx.quadraticCurveTo(cx + 26, FLOOR - 8, cx + 34, FLOOR + 1); ctx.stroke();
+  }
+  // 문간 (비누 냄새의 끝)
+  const dx = X(980);
+  if (dx > -160 && dx < W + 160) {
+    ctx.fillStyle = '#0a0c0f'; ctx.fillRect(dx - 34, FLOOR - 118, 68, 118);
+    ctx.strokeStyle = '#3a3f47'; ctx.lineWidth = 2; ctx.strokeRect(dx - 34, FLOOR - 118, 68, 118);
+    ctx.fillStyle = 'rgba(255,206,140,' + (0.05 + d * 0.30) + ')';
+    ctx.fillRect(dx - 30, FLOOR - 6, 60, 3);
+    ctx.fillStyle = 'rgba(255,206,140,' + (0.02 + d * 0.10) + ')';
+    ctx.fillRect(dx - 30, FLOOR - 114, 60, 108);
+    // 계단
+    ctx.fillStyle = '#242a30'; ctx.fillRect(dx - 44, FLOOR - 4, 88, 4);
+  }
+  // 골목 어귀 (대로) — 멀리 밝은 틈
+  const ex = X(1320);
+  if (ex > -140 && ex < W + 140) {
+    const eg = ctx.createLinearGradient(ex, FLOOR - 200, ex, FLOOR);
+    eg.addColorStop(0, 'rgba(255,214,160,' + (0.03 + d * 0.22) + ')');
+    eg.addColorStop(1, 'rgba(255,214,160,' + (0.01 + d * 0.10) + ')');
+    ctx.fillStyle = eg; ctx.fillRect(ex - 30, FLOOR - 200, 60, 200);
+  }
+}
+
+function trailPoints() {
+  const pts = [];
+  for (let x = 40; x <= 940; x += 10) pts.push({ x, y: FLOOR - 9 + Math.sin(x * 0.011) * 5 });
+  // 담장 끝에서 문 쪽으로 꺾여 올라간다
+  for (let i = 0; i <= 12; i++) {
+    const k = i / 12;
+    pts.push({ x: 940 + k * 46, y: FLOOR - 9 - k * 64 });
+  }
+  return pts;
+}
+let TRAIL = null;
+
+function drawTrail(t, d) {
+  if (!TRAIL) TRAIL = trailPoints();
+  const sniff = S ? S.nuri.sniff : 1;
+  const fadeStart = SPEC.TOTAL_MS - SPEC.END_FADE_MS;
+  const fade = S && S.animT > fadeStart ? clamp(1 - (S.animT - fadeStart) / SPEC.END_FADE_MS, 0.12, 1) : 1;
+  const a = (0.12 + 0.88 * sniff) * fade * (0.62 + 0.38 * Math.sin(t * 0.0016));
+  ctx.save();
+  ctx.fillStyle = 'rgba(236,224,196,' + Math.max(0.06, a * 0.85) + ')';
+  for (let i = 0; i < TRAIL.length; i += 2) {
+    const p = TRAIL[i], x = X(p.x);
+    if (x < -6 || x > W + 6) continue;
+    ctx.fillRect(x, p.y, 3, 3);
+  }
+  // 아주 희미한 빛 번짐
+  if (S && sniff > 0.55) {
+    ctx.fillStyle = 'rgba(236,224,196,' + (0.05 * sniff * fade) + ')';
+    for (let i = 0; i < TRAIL.length; i += 2) {
+      const p = TRAIL[i], x = X(p.x);
+      if (x < -6 || x > W + 6) continue;
+      ctx.fillRect(x - 1, p.y - 1, 5, 5);
+    }
+  }
+  ctx.restore();
+}
+
+function drawSource(src, t) {
+  const x = X(src.wx), y = FLOOR + src.wy;
+  if (x < -60 || x > W + 60) return;
+  const cyc = (t % 2000) / 2000;
+  ctx.save();
+  // 표적 고리 (누를 수 있음)
+  ctx.setLineDash([3, 4]);
+  ctx.strokeStyle = 'rgba(240,232,214,' + (0.42 + 0.24 * Math.sin(t * 0.004)) + ')';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.arc(x, y, SPEC.HIT_RADIUS - 2, 0, 7); ctx.stroke();
+  ctx.setLineDash([]);
+
+  if (src.id === 'grease') {
+    // 2초 주기 고리
+    for (let k = 0; k < 3; k++) {
+      const c = (cyc + k / 3) % 1;
+      ctx.strokeStyle = 'rgba(224,163,78,' + (0.7 * (1 - c)) + ')';
+      ctx.beginPath(); ctx.arc(x, y, 8 + c * 20, 0, 7); ctx.stroke();
+    }
+  } else if (src.id === 'soap') {
+    const pulse = 0.5 + 0.5 * Math.sin(t * 0.002);
+    const gr = ctx.createRadialGradient(x, y, 1, x, y, 22);
+    gr.addColorStop(0, 'rgba(255,244,220,' + (0.09 + pulse * 0.07) + ')');
+    gr.addColorStop(0.5, 'rgba(236,216,180,' + (0.04 + pulse * 0.03) + ')');
+    gr.addColorStop(1, 'rgba(236,216,180,0)');
+    ctx.fillStyle = gr; ctx.beginPath(); ctx.arc(x, y, 22, 0, 7); ctx.fill();
+    // 연속 점선 강조
+    ctx.fillStyle = 'rgba(255,250,238,.95)';
+    for (let i = 0; i < 9; i++) ctx.fillRect(x - 26 + i * 6, y + 12 + Math.sin(i) * 1.5, 3, 3);
+  } else {
+    // 끈 자국: 발자국 + 실
+    ctx.fillStyle = 'rgba(210,196,170,.55)';
+    ctx.beginPath(); ctx.ellipse(x - 6, y + 4, 4.5, 6, -0.2, 0, 7); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(x + 6, y + 7, 4, 5, 0.25, 0, 7); ctx.fill();
+    ctx.strokeStyle = 'rgba(200,186,158,.5)'; ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(x - 14, y - 8);
+    ctx.bezierCurveTo(x - 2, y - 14, x + 8, y - 2, x + 16, y - 6); ctx.stroke();
+  }
+  // 이름판
+  ctx.font = '600 10px "Noto Sans Mono CJK KR", monospace';
+  ctx.textBaseline = 'middle';
+  const w = src.name.length * 11 + 10;
+  const right = x < W * 0.62;
+  const bx = right ? x + 34 : x - 34 - w;
+  const by = y - 20;
+  ctx.fillStyle = 'rgba(6,8,11,.86)';
+  ctx.fillRect(bx, by - 7.5, w, 15);
+  ctx.strokeStyle = 'rgba(224,163,78,.55)'; ctx.lineWidth = 1;
+  ctx.strokeRect(bx + .5, by - 7 + .5, w - 1, 14);
+  // 지시선
+  ctx.strokeStyle = 'rgba(224,163,78,.35)';
+  ctx.beginPath(); ctx.moveTo(right ? x + 26 : x - 26, y); ctx.lineTo(right ? bx : bx + w, by); ctx.stroke();
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#f0e4cc';
+  ctx.fillText(src.name, bx + w / 2, by + .5);
+  ctx.restore();
+}
+
+function drawNuri(t) {
+  const n = S.nuri;
+  const x = X(n.x), y = FLOOR;
+  if (x < -80 || x > W + 80) return;
+  const walking = n.walking;
+  const bob = walking ? Math.sin(t * 0.018) * 1.4 : Math.sin(t * 0.0028) * 0.5;
+  const sit = !walking && n.sniff > 0.5;
+  const base = '#cfc3ad', shade = '#a2947b', dark = '#3f3930', fur2 = '#e4dac8';
+  const ph1 = walking ? Math.sin(t * 0.018) : 0;
+  const ph2 = walking ? Math.sin(t * 0.018 + 3.14) : 0;
+
+  ctx.save();
+  ctx.translate(x, y + bob);
+  // 그림자
+  ctx.fillStyle = 'rgba(0,0,0,.45)';
+  ctx.beginPath(); ctx.ellipse(0, 0, sit ? 22 : 28, 4.5, 0, 0, 7); ctx.fill();
+
+  // 꼬리
+  const wag = Math.sin(t * (n.sniff > .6 ? 0.011 : 0.0045)) * 8;
+  ctx.strokeStyle = shade; ctx.lineWidth = 7.5; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(-18, sit ? -16 : -24);
+  ctx.quadraticCurveTo(-31, (sit ? -20 : -30) + wag * .5, -28 + wag * .5, (sit ? -34 : -42) + wag); ctx.stroke();
+  ctx.strokeStyle = base; ctx.lineWidth = 4.4;
+  ctx.beginPath(); ctx.moveTo(-19, sit ? -17 : -25);
+  ctx.quadraticCurveTo(-30, (sit ? -20 : -30) + wag * .5, -28 + wag * .5, (sit ? -33 : -41) + wag); ctx.stroke();
+
+  if (sit) {
+    // 앉은 자세
+    ctx.fillStyle = shade; ctx.beginPath(); ctx.ellipse(-6, -13, 12, 13, 0, 0, 7); ctx.fill();
+    ctx.fillStyle = base; ctx.fillRect(-14, -30, 24, 20);
+    ctx.fillStyle = base; ctx.fillRect(2, -38, 15, 26);
+    ctx.fillStyle = fur2; ctx.fillRect(4, -36, 12, 20);
+    ctx.fillStyle = shade; ctx.fillRect(4, -10, 5.5, 10); ctx.fillRect(12.5, -10, 5.5, 10);
+    // 머리
+    ctx.fillStyle = base; ctx.fillRect(8, -54, 21, 17);
+    ctx.fillStyle = fur2; ctx.fillRect(10, -52, 17, 7);
+    ctx.fillStyle = shade; ctx.fillRect(9, -60, 5, 8);         // 귀
+    ctx.fillStyle = '#b9aa90'; ctx.fillRect(22, -58, 4.5, 5);  // 접힌 귀
+    ctx.fillStyle = fur2; ctx.fillRect(24, -46, 12, 8);        // 주둥이
+    ctx.fillStyle = dark; ctx.fillRect(34, -45, 3, 3);
+    ctx.fillStyle = '#12100d'; ctx.fillRect(17, -50, 5, 5);
+    ctx.fillStyle = '#fff'; ctx.fillRect(17.6, -50, 1.7, 1.7);
+    ctx.fillStyle = '#6a5a44'; ctx.fillRect(10, -38, 15, 2.4);
+    // 등 rim
+    ctx.fillStyle = 'rgba(240,230,210,.20)'; ctx.fillRect(-14, -30, 16, 1.6);
+  } else {
+    // 걸음
+    ctx.fillStyle = shade; ctx.fillRect(-20, -14, 34, 5);
+    ctx.fillStyle = base; ctx.fillRect(-22, -31, 38, 19);
+    ctx.fillStyle = fur2; ctx.fillRect(-18, -31, 30, 7);
+    // 다리
+    ctx.fillStyle = shade;
+    ctx.fillRect(-19, -12, 6, 12 + ph1 * 2.2);
+    ctx.fillRect(-8, -12, 6, 12 + ph2 * 2.2);
+    ctx.fillRect(5, -12, 6, 12 + ph2 * 2.6);
+    ctx.fillRect(14, -12, 6, 12 + ph1 * 2.4);
+    // 가슴·목
+    ctx.fillStyle = base; ctx.fillRect(8, -40, 14, 22);
+    ctx.fillStyle = fur2; ctx.fillRect(10, -40, 11, 12);
+    // 머리
+    ctx.fillStyle = base; ctx.fillRect(10, -56, 22, 18);
+    ctx.fillStyle = fur2; ctx.fillRect(12, -54, 18, 7);
+    ctx.fillStyle = shade; ctx.fillRect(11, -63, 5, 8);         // 귀
+    ctx.fillStyle = '#b9aa90'; ctx.fillRect(24, -61, 4.5, 5);   // 접힌 귀
+    ctx.fillStyle = fur2; ctx.fillRect(27, -48, 13, 8);         // 주둥이
+    ctx.fillStyle = dark; ctx.fillRect(38, -47, 3, 3);
+    ctx.fillStyle = '#12100d'; ctx.fillRect(19, -52, 5, 5);
+    ctx.fillStyle = '#fff'; ctx.fillRect(19.6, -52, 1.7, 1.7);
+    ctx.fillStyle = '#6a5a44'; ctx.fillRect(12, -40, 16, 2.4);  // 목줄 자국
+    // 등 rim
+    ctx.fillStyle = 'rgba(240,230,210,.22)'; ctx.fillRect(-22, -31, 34, 1.6);
+  }
+  // 코끝 냄새 파동
+  if (n.sniff > 0.4 && !walking) {
+    const px0 = sit ? 38 : 42, py0 = -44;
+    for (let k = 0; k < 3; k++) {
+      const c = ((t * 0.0009) + k / 3) % 1;
+      ctx.strokeStyle = 'rgba(226,214,186,' + (0.22 * (1 - c) * n.sniff) + ')';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(px0, py0, 6 + c * 24, -0.9, 0.9); ctx.stroke();
+    }
+  }
+  ctx.restore();
+}
+
+function drawCaptain(x, wallTop, t) {
+  if (x < -80 || x > W + 80) return;
+  ctx.save(); ctx.translate(x, wallTop);
+  ctx.fillStyle = '#0d1216';
+  // 꼬리
+  ctx.strokeStyle = '#0d1216'; ctx.lineWidth = 5; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(-15, -6);
+  ctx.quadraticCurveTo(-27, -6 + Math.sin(t * .002) * 2.5, -23, -20); ctx.stroke();
+  // 몸통
+  ctx.beginPath(); ctx.ellipse(-2, -13, 16, 12, 0, 0, 7); ctx.fill();
+  // 가슴
+  ctx.fillRect(3, -25, 12, 21);
+  // 목·머리
+  ctx.beginPath(); ctx.ellipse(12, -27, 8.5, 7.5, 0, 0, 7); ctx.fill();
+  // 주둥이
+  ctx.beginPath(); ctx.moveTo(18, -29); ctx.lineTo(28, -26); ctx.lineTo(26, -21.5); ctx.lineTo(17, -22.5); ctx.closePath(); ctx.fill();
+  // 귀
+  ctx.beginPath(); ctx.moveTo(7, -33); ctx.lineTo(10.5, -42); ctx.lineTo(15.5, -32); ctx.closePath(); ctx.fill();
+  // 앞다리
+  ctx.fillRect(3, -8, 5, 8); ctx.fillRect(11, -8, 5, 8);
+  // 한쪽 눈 불빛
+  ctx.fillStyle = 'rgba(255,190,110,.95)'; ctx.fillRect(13.5, -29, 2.6, 2.6);
+  ctx.restore();
+}
+function drawKkamang(x, wallTop, t) {
+  if (x < -60 || x > W + 60) return;
+  ctx.save(); ctx.translate(x, wallTop);
+  ctx.fillStyle = '#080b0e';
+  ctx.beginPath(); ctx.ellipse(0, -7, 11, 8, 0, 0, 7); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(6, -15, 5.5, 5, 0, 0, 7); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(3, -19); ctx.lineTo(4, -25); ctx.lineTo(7.5, -19); ctx.closePath(); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(8, -19); ctx.lineTo(11, -25); ctx.lineTo(12.5, -18.5); ctx.closePath(); ctx.fill();
+  ctx.strokeStyle = '#080b0e'; ctx.lineWidth = 3; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(-9, -7);
+  ctx.quadraticCurveTo(-18, -12 + Math.sin(t * .003) * 3, -13, -22); ctx.stroke();
+  ctx.fillStyle = 'rgba(126,214,189,.95)';
+  ctx.fillRect(6, -16, 1.8, 1.8); ctx.fillRect(9.4, -16, 1.8, 1.8);
+  ctx.restore();
+}
+function drawFigure(x, y, t, warm) {
+  if (x < -60 || x > W + 60) return;
+  ctx.save(); ctx.translate(x, y);
+  const a = warm ? 0.94 : 0.86;
+  ctx.fillStyle = 'rgba(8,10,13,' + a + ')';
+  ctx.beginPath(); ctx.arc(0, -87, 6.6, 0, 7); ctx.fill();
+  ctx.beginPath();                                    // 외투
+  ctx.moveTo(-9, -80); ctx.lineTo(9, -80); ctx.lineTo(12, -44); ctx.lineTo(-12, -44);
+  ctx.closePath(); ctx.fill();
+  ctx.fillRect(-8.5, -44, 6, 44); ctx.fillRect(2.5, -44, 6, 44);
+  ctx.fillRect(-14, -79, 5, 32); ctx.fillRect(9, -79, 5, 32);
+  // 아침 역광 테두리
+  ctx.strokeStyle = 'rgba(255,204,148,' + (0.10 + 0.16 * Math.sin(t * .0012) + (warm ? .12 : 0)) + ')';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(-9, -80); ctx.lineTo(-12, -44); ctx.lineTo(-8.5, -44); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-6, -92); ctx.quadraticCurveTo(-8.5, -87, -6.4, -82); ctx.stroke();
+  ctx.restore();
+}
+function drawTitle(t) {
+  const a = 0.55 + 0.45 * Math.sin(t * 0.0022);
+  ctx.save();
+  ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  ctx.font = '800 26px "Noto Sans Mono CJK KR", monospace';
+  ctx.fillStyle = 'rgba(244,232,210,.92)';
+  ctx.fillText('새벽의 냄새길', 24, FLOOR * 0.52);
+  ctx.font = '600 11px "Noto Sans Mono CJK KR", monospace';
+  ctx.fillStyle = 'rgba(224,163,78,.8)';
+  ctx.fillText('콘크리트 정글 · 외전 1장', 26, FLOOR * 0.52 + 20);
+  ctx.fillStyle = 'rgba(240,232,214,' + a + ')';
+  ctx.font = '600 11px "Noto Sans Mono CJK KR", monospace';
+  ctx.fillText('— 화면을 눌러 새벽을 연다 —', 26, FLOOR * 0.52 + 52);
+  ctx.restore();
+}
+
+function drawEndingScene(t, d) {
+  const e = S.ending;
+  const x = X(980);
+  if (e === 'door' && x > -160 && x < W + 160) {
+    // 문 앞의 사람
+    const g = ctx.createLinearGradient(x, FLOOR - 130, x, FLOOR + 20);
+    g.addColorStop(0, 'rgba(255,208,150,.26)');
+    g.addColorStop(1, 'rgba(255,208,150,0)');
+    ctx.fillStyle = g; ctx.fillRect(x - 52, FLOOR - 130, 104, 150);
+    drawFigure(x + 4, FLOOR, t, true);
+  }
+  if (e === 'corner') drawFigure(W - 54, FLOOR, t, false);
+  if (e === 'tail') {
+    const g = ctx.createLinearGradient(0, FLOOR - 120, 0, FLOOR + 10);
+    g.addColorStop(0, 'rgba(255,206,150,.16)'); g.addColorStop(1, 'rgba(255,206,150,0)');
+    ctx.fillStyle = g; ctx.fillRect(0, FLOOR - 120, W, 130);
+  }
+  if (e === 'dawn') {
+    const g = ctx.createLinearGradient(0, 0, 0, ALLEY);
+    g.addColorStop(0, 'rgba(255,186,120,.16)');
+    g.addColorStop(.55, 'rgba(255,206,150,.10)');
+    g.addColorStop(1, 'rgba(255,226,180,.06)');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, ALLEY);
+  }
+  // 결말 타이틀 자막(화면 위쪽에 한 줄)
+  ctx.save();
+  ctx.font = '700 11px "Noto Sans Mono CJK KR", monospace';
+  ctx.textAlign = 'center';
+  ctx.fillStyle = 'rgba(10,12,15,.7)';
+  ctx.fillRect(W / 2 - 74, 14, 148, 20);
+  ctx.fillStyle = 'rgba(232,220,196,.85)';
+  ctx.fillText('— 새벽의 냄새길 · 1장 끝 —', W / 2, 28);
+  ctx.restore();
+}
+
+/* ── DOM 렌더 ────────────────────────────────────────────────────────────── */
+let domKey = '';
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function renderDom() {
+  const key = [S.phase, S.turn, S.clues.length, S.sel, S.match.A.join(','), S.match.B.join(','), S.status, S.turn1, S.skill, S.ending, S.reveal.join(','), !!S.cap].join('|');
+  if (key === domKey) return;
+  domKey = key;
+
+  const idx = S.phase === 'EXPLORE' ? 0 : S.phase === 'DEDUCE' ? 1 : 2;
+  dots.forEach((el, i) => el.classList.toggle('on', S.phase === 'END' ? true : i <= idx));
+
+  let vh = '', bh = '';
+
+  if (S.phase === 'EXPLORE') {
+    const pips = S.clues.map(() => '<b>◆</b>').join('') + Array.from({ length: Math.max(0, 2 - S.clues.length) }, () => '◇').join('');
+    const pct = (wx) => (wx / WORLD_W * 100).toFixed(1) + '%';
+    const rev = S.reveal.map(id => SOURCES.find(o => o.id === id)).filter(Boolean);
+    let obs;
+    if (rev.length) {
+      obs = rev.map(src => {
+        const isKey = src.id === 'soap';
+        return '<div class="obsrow"><span class="obk' + (isKey ? ' key' : '') + '">냄새 · ' + esc(src.name) + '</span>'
+          + '<span class="obd">' + esc(src.d) + '</span></div>';
+      }).join('') + '<div class="obh">고리를 한 번 눌러 붙잡는다</div>';
+    } else if (S.clues.length) {
+      obs = S.clues.map(c => '<div class="obsrow"><span class="obk">붙잡은 냄새 · ' + esc(c.name) + '</span>'
+        + '<span class="obd">' + esc(c.d) + '</span></div>').join('')
+        + '<div class="obh">' + (S.clues.length >= 2 ? '두 냄새를 쥐었다' : '한 냄새를 쥐었다. 하나 더 필요하다') + '</div>';
+    } else {
+      obs = '<div class="obsempty">아직 맡은 냄새가 없다.<br>멈춰 서면 고리가 드러난다.</div>';
+    }
+    vh = '<div class="ex"><div class="exhead"><span class="tag">골목</span><span class="pips">' + pips + '</span>'
+      + '<span class="st" id="mst">아직 서 있다</span></div>'
+      + '<div class="map"><div class="mline"></div>'
+      + SOURCES.map(src => '<span class="mtag" style="left:' + pct(src.wx) + '">' + esc(src.name) + '</span>'
+        + '<i class="mmark' + (src.id === 'soap' ? ' soap' : '') + '" data-mk="' + src.id + '" style="left:' + pct(src.wx) + '"></i>').join('')
+      + '<span class="mtag" style="left:' + pct(980) + '">문</span><i class="mdoor" style="left:' + pct(980) + '"></i>'
+      + '<i class="mdot" id="mdot" style="left:' + pct(S.nuri.x) + '"></i></div>'
+      + '<div class="obs">' + obs + '</div></div>';
+    bh = '<button class="btn primary" data-act="hold"><span>걷기</span><span class="bs">누르고 있는 동안</span></button>';
+  } else if (S.phase === 'DEDUCE') {
+    const can = allMatched();
+    const stampCls = S.status === 'confirmed' ? 'confirmed' : S.status === 'expired' ? 'expired' : '';
+    vh = '<div class="board"><div class="bhead"><span class="l">추리 · 무엇이 남은 냄새인가</span>'
+      + '<span class="stamp ' + stampCls + '">' + (S.status ? STAMP[S.status] : '미결') + '</span></div>'
+      + '<div class="strip">' + S.clues.map(c => {
+          const used = slotOf(c.id);
+          return '<button class="clue' + (S.sel === c.id ? ' sel' : '') + (used ? ' used' : '') + '" data-clue="' + c.id + '">'
+            + '<span class="nm">' + esc(c.name) + (c.key ? ' <span style="color:#7ed6bd">●</span>' : '') + '</span>'
+            + '<span class="tg">' + (used ? '가설 ' + used : '탭해서 고른다') + '</span></button>';
+        }).join('') + '</div>'
+      + '<div class="slots">' + SLOTS.map(s => {
+          const ev = S.match[s.id].map(id => (SOURCES.find(o => o.id === id) || {}).name).filter(Boolean).join(' · ');
+          return '<button class="slot' + (S.match[s.id].length ? ' pick' : '') + '" data-slot="' + s.id + '">'
+            + '<span class="h"><em>가설 ' + s.sub + '</em>' + esc(s.head) + '</span>'
+            + '<span class="ev">' + (ev ? '근거 · ' + esc(ev) : '근거 없음') + '</span></button>';
+        }).join('') + '</div>'
+      + '<div class="cdesc">' + (S.sel
+        ? (SOURCES.find(o => o.id === S.sel) || {}).d
+        : (can ? '모든 단서가 붙었다. 이제 정한다.' : '단서를 골라 가설에 붙인다.')) + '</div></div>';
+    bh = '<button class="btn primary" data-act="commit"' + (can ? '' : ' disabled') + '>'
+      + '<span>이걸로 간다</span>'
+      + '<span class="bs">' + (can ? (soapMatched() ? '확신 · 확정된다' : '비누 없음 · 보류로 기록') : '단서를 모두 붙여야 한다') + '</span></button>';
+  } else if (S.phase === 'CONFRONT') {
+    const talk = S.talk || { who: '캡틴', tone: '', line: '' };
+    const stTxt = S.status ? STAMP[S.status] : '없음';
+    const hypTxt = S.hyp ? (S.hyp === 'A' ? '주인은 돌아온다' : '주인은 오지 않는다') : '가설 없음';
+    const ev = S.clues.map(c => c.name).join(' · ') || '단서 없음';
+    vh = '<div class="cf">'
+      + '<div class="cfrec"><span class="stamp ' + (S.status === 'confirmed' ? 'confirmed' : S.status === 'expired' ? 'expired' : '') + '">' + esc(stTxt) + '</span>'
+      + '<span class="cfh">' + esc(hypTxt) + '</span><span class="cfe">근거 · ' + esc(ev) + '</span></div>'
+      + '<div class="talk"><span class="who ' + (talk.tone || '') + '">' + esc(talk.who) + '</span>'
+      + '<span class="line">' + esc(talk.line) + '</span></div>'
+      + '<div class="cfrow"><span class="turn">' + (S.turn === 1 ? '첫째 턴' : '둘째 턴') + ' · 골목 어귀</span>'
+      + '<span>' + (S.turn1 ? (S.turn1 === 'wait' ? '숨을 죽였다' : '신호를 남겼다') : '무엇을 할 것인가') + '</span></div></div>';
+    if (S.turn === 1) {
+      bh = '<button class="btn" data-act="t1wait"><span>숨을 죽인다</span><span class="bs">제자리에서 기다린다</span></button>'
+        + '<button class="btn" data-act="t1signal"><span>신호를 보낸다</span><span class="bs">거리를 두고 꼬리를 낮게</span></button>';
+    } else {
+      const hasSoap = S.clues.some(c => c.id === 'soap');
+      if (hasSoap) {
+        const nm = S.skill === 'trace' ? '누리의 궤적 짚기' : '까망의 냄새 증언';
+        bh = '<button class="btn skill" data-act="t2skill"><span>' + nm + '</span><span class="bs">단서로 연다</span></button>'
+          + '<button class="btn" data-act="t2wait"><span>기다린다</span><span class="bs">제자리에서</span></button>';
+      } else {
+        bh = '<button class="btn" data-act="t2corner"><span>모퉁이를 확인한다</span><span class="bs">눈으로 본다</span></button>'
+          + '<button class="btn" data-act="t2wait"><span>기다린다</span><span class="bs">제자리에서</span></button>';
+      }
+    }
+  } else if (S.phase === 'END') {
+    const E = ENDINGS[S.ending];
+    const body = (S.endVariant && E[S.endVariant]) ? E[S.endVariant] : E.body;
+    vh = '<div class="end"><div class="et">' + esc(E.title) + '<span>' + esc(E.tag) + '</span></div>'
+      + '<div class="el">' + esc(body).replace(/\n/g, '<br>') + '</div>'
+      + '<div class="rec">' + recRows() + '</div></div>';
+    bh = '<button class="btn primary" data-act="again"><span>다시 걷기</span><span class="bs">새벽을 되감는다</span></button>';
+  }
+
+  view.innerHTML = vh;
+  btns.innerHTML = bh;
+  hud = null;
+  syncHud();
+}
+
+let hud = null;
+function syncHud() {
+  if (S.phase !== 'EXPLORE') return;
+  if (!hud) {
+    const dot = document.getElementById('mdot');
+    if (!dot) return;
+    hud = { dot, st: document.getElementById('mst'), marks: [...document.querySelectorAll('[data-mk]')] };
+  }
+  hud.dot.style.left = (S.nuri.x / WORLD_W * 100).toFixed(1) + '%';
+  const s = S.nuri.walking ? '걷는 중' : (S.armed ? (S.reveal.length ? '냄새가 드러났다' : '숨 고르는 중') : '아직 서 있다');
+  if (hud.st.textContent !== s) hud.st.textContent = s;
+  for (const m of hud.marks) {
+    const on = S.clues.some(c => c.id === m.dataset.mk) || S.reveal.includes(m.dataset.mk);
+    m.classList.toggle('on', on);
+  }
+}
+
+function recRows() {
+  const names = S.clues.map(c => c.name).join(' · ') || '없음';
+  const hyp = S.hyp ? (S.hyp === 'A' ? '주인은 돌아온다' : '주인은 오지 않는다') : '없음';
+  const st = S.status ? STAMP[S.status] : '없음';
+  const t1 = S.turn1 ? (S.turn1 === 'wait' ? '숨을 죽였다' : '신호를 보냈다') : '—';
+  const t2 = S.turn2 === 'skill' ? (S.skill === 'trace' ? '누리의 궤적 짚기' : '까망의 냄새 증언')
+    : S.turn2 === 'corner' ? '모퉁이를 확인했다' : S.turn2 === 'wait' ? '기다렸다' : '—';
+  return '<span class="k">단서</span><span class="v">' + esc(names) + '</span>'
+    + '<span class="k">가설</span><span class="v">' + esc(hyp) + ' · ' + esc(st) + '</span>'
+    + '<span class="k">첫째 턴</span><span class="v">' + esc(t1) + '</span>'
+    + '<span class="k">둘째 턴</span><span class="v">' + esc(t2) + '</span>';
+}
+
+/* ── 결말 문장 ───────────────────────────────────────────────────────────── */
+const ENDINGS = {
+  door: {
+    title: '문 앞의 비누 냄새', tag: '결말 · 확정',
+    body: '골목 어귀에 사람이 섰다. 손등에서 비누 냄새가 났다. 오늘 아침의 핸드크림까지 그대로였다.\n누리는 앉아 있던 자리에서 일어나 천천히 걸었다. 이번엔 기다리는 걸음이 아니었다.\n담장 위에서 캡틴이 짧게 말했다. — "야."\n문이 닫히는 소리는, 이번엔 가볍지 않았다.',
+  },
+  trail: {
+    title: '길 위에서 끝난 점선', tag: '결말 · 확정',
+    body: '점선은 문이 아니라 길 위에서 끊겼다. 집은 이미 그 자리에 없었다.\n누리는 담장 아래로 돌아와 앉았다. 꼬리는 아주 천천히, 한 번만 움직였다.\n멀리서 캡틴의 목소리가 났다. — "야."\n골목은 아무 일도 없었다는 듯 조용했다.',
+  },
+  tail: {
+    title: '꼬리의 리듬', tag: '결말 · 확정',
+    body: '해가 담장을 넘었다. 냄새는 아직 남아 있었고, 문이 열렸다.\n누리는 제자리에서 꼬리를 흔들었다. 주인을 믿는 리듬 그대로.\n캡틴은 담장 위에서 한참을 내려다보다가 몸을 돌렸다. — "야."\n그 새벽, 골목은 하나를 잃지 않았다.',
+  },
+  corner: {
+    title: '모퉁이 너머', tag: '결말 · 보류',
+    body: '모퉁이를 돌면 대로다. 아침 차들이 냄새를 지우며 지나갔다.\n누리는 확신 없이 한 걸음 나아갔다. 냄새는 반쪽이었고, 발은 반쪽만 움직였다.\n사람 하나가 서 있었다. 냄새는 없었다.\n캡틴이 담장 위에서 짧게 말했다. — "야."',
+    noClue: '모퉁이를 돌면 대로다. 아침 차들이 냄새를 지우며 지나갔다.\n누리는 아무것도 맡지 못한 채 골목 끝까지 걸었다. 발만 먼저 도착했다.\n사람 하나가 서 있었다. 냄새는 없었다.\n캡틴이 담장 위에서 짧게 말했다. — "야."',
+  },
+  dawn: {
+    title: '해가 뜨면', tag: '결말 · 시간 만료',
+    body: '해가 골목 바닥을 다 덮었다. 냄새는 이미 흩어졌다.\n누리는 여전히 앉아 있었다. 기다리기를 고른 게 아니라, 시간이 다한 것이다.\n골목은 아무 일도 없었다는 듯 사람들로 채워졌다.\n담장 위는 비어 있었다.',
+  },
+};
+
+/* ── 프레임 ──────────────────────────────────────────────────────────────── */
+function frame() {
+  const t = t0 === null ? 0 : gameNow();
+  S.amb = (pausedAt !== null) ? S.amb : performance.now();
+  if (t0 !== null && !ended && pausedAt === null) {
+    if (!checkTimeout(t)) {
+      const dtMax = FAKE ? 1e9 : 250;
+      const dt = clamp(t - lastT, 0, dtMax);
+      S.dbg = { frames: (S.dbg ? S.dbg.frames + 1 : 1), dt: Math.round(dt), t: Math.round(t), lastT: Math.round(lastT) };
+      S.animT = t;
+      step(t, dt);
+      checkCaps(t);
+      // 고리 위 길게 누르면 걷기 (TAP_MAX_MS는 실제 제스처 시간)
+      if (press && press.ring && !press.walking && (performance.now() - press.realTs) >= SPEC.TAP_MAX_MS) {
+        press.walking = true;
+        walk(true);
+      }
+    }
+    lastT = t;
+  }
+  render();
+  requestAnimationFrame(frame);
+}
+
+function render() {
+  drawWorld(false);
+  renderDom();
+  syncHud();
+  if (narrLine && narrText.textContent !== narrLine) narrText.textContent = narrLine;
+}
+
+/* ── 시작 ────────────────────────────────────────────────────────────────── */
+resetGame();
+layout(true);
+S.animT = 0;
+S.amb = performance.now();
+render();
+requestAnimationFrame(frame);
+
+/* ── 계측·검수용 훅 (화면에는 드러나지 않는다) ───────────────────────────── */
+window.__dawn = {
+  spec: SPEC,
+  snap() {
+    return {
+      phase: S.phase, ended, paused: pausedAt !== null, inputLocked,
+      t: Math.round(t0 === null ? 0 : gameNow()), t0,
+      phaseEnter: Math.round(S.phaseEnter),
+      nuri: { x: Math.round(S.nuri.x), walking: S.nuri.walking, sniff: +S.nuri.sniff.toFixed(2) },
+      armed: S.armed, maxX: Math.round(S.maxX),
+      clues: S.clues.map(c => c.id), reveal: S.reveal.slice(),
+      match: { A: S.match.A.slice(), B: S.match.B.slice() },
+      sel: S.sel, status: S.status, hyp: S.hyp, turn: S.turn, turn1: S.turn1, turn2: S.turn2,
+      skill: S.skill, ending: S.ending, cause: S.cause,
+      cap: S.cap ? { to: S.cap.to, at: Math.round(S.cap.at) } : null,
+      dbg: S.dbg || null,
+      camX: Math.round(camX), floor: FLOOR, alley: Math.round(ALLEY), w: W, h: H,
+      log: JSON.parse(JSON.stringify(S.log)),
+    };
+  },
+  ring(id) {
+    const s = SOURCES.find(o => o.id === id);
+    return s ? { x: s.wx - camX, y: FLOOR + s.wy, r: SPEC.HIT_RADIUS, wx: s.wx } : null;
+  },
+  nuri() { return { x: S.nuri.x - camX, y: FLOOR }; },
+  btn(act) { return !!btns.querySelector('[data-act="' + act + '"]'); },
+  clue(id) { return !!view.querySelector('[data-clue="' + id + '"]'); },
+  slot(id) { return !!view.querySelector('[data-slot="' + id + '"]'); },
+};
+</script>
+</body>
+</html>
