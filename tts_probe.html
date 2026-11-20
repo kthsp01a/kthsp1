@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TTS 실증 프로브 · Re:Sound / 원탁</title>
+<style>
+  :root { --bg:#f7f4ec; --ink:#2b2a26; --line:#d9d2c2; --accent:#3f6b52; --warn:#a2492f; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { margin:0; padding:16px 14px 60px; background:var(--bg); color:var(--ink);
+         font-family:"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif; line-height:1.55; }
+  h1 { font-size:19px; margin:0 0 4px; }
+  .sub { font-size:12.5px; color:#6d6a60; margin-bottom:14px; }
+  .card { background:#fffdf8; border:1px solid var(--line); border-radius:14px; padding:14px; margin-bottom:12px; }
+  .card h2 { font-size:15px; margin:0 0 8px; display:flex; align-items:center; gap:8px; }
+  .tag { font-size:11px; font-weight:600; padding:2px 7px; border-radius:20px; background:#e8efe9; color:var(--accent); }
+  .tag.g { background:#eee7f5; color:#5b3f7a; }
+  .tag.e { background:#e9eef6; color:#3d5580; }
+  textarea, input, select { width:100%; font:inherit; font-size:14px; padding:9px 10px; border:1px solid var(--line);
+        border-radius:9px; background:#fff; color:var(--ink); }
+  textarea { min-height:96px; resize:vertical; }
+  label { font-size:12px; color:#6d6a60; display:block; margin:9px 0 3px; }
+  .row { display:flex; gap:8px; }
+  .row > * { flex:1; }
+  button { font:inherit; font-size:15px; font-weight:600; padding:12px; width:100%; border:none; border-radius:11px;
+        background:var(--accent); color:#fff; margin-top:11px; }
+  button.ghost { background:#fff; color:var(--accent); border:1px solid var(--accent); }
+  button:disabled { opacity:.5; }
+  audio { width:100%; margin-top:10px; }
+  .log { font-family:ui-monospace,Menlo,monospace; font-size:11.5px; white-space:pre-wrap; background:#1f211f;
+         color:#d7e2d9; padding:10px; border-radius:9px; max-height:260px; overflow:auto; margin-top:8px; }
+  .ok { color:#6fc08a; } .bad { color:#e08a72; } .warn { color:#e5c76b; }
+  .chk { font-size:12px; margin-top:6px; }
+</style>
+</head>
+<body>
+<h1>🎙️ TTS 실증 프로브</h1>
+<div class="sub">Re:Sound · AI ROUND TABLE 실시간 무료 한국어 TTS 3경로 실측 — 폰에서 직접 눌러 확인하는 테스트 페이지</div>
+
+<div class="card">
+  <h2>시험 문장</h2>
+  <div class="row" style="margin-bottom:8px">
+    <button class="ghost" style="margin:0" onclick="setText('short')">1문단</button>
+    <button class="ghost" style="margin:0" onclick="setText('overview')">오버뷰 9줄</button>
+  </div>
+  <textarea id="text">지금부터 숨의 도시를 소개합니다. 이 도시에는 이름 대신 잔향으로 불리는 사람들이 삽니다. 박동훈은 매일 아침 같은 골목을 지나며, 어제의 소리를 세어 둡니다.</textarea>
+</div>
+
+<div class="card">
+  <h2>① Gemini TTS <span class="tag g">API 키 필요</span></h2>
+  <label>Gemini API 키 (이 폰에만 저장됩니다 · 외부 전송 없음)</label>
+  <input id="gkey" type="password" placeholder="AIza...">
+  <div class="row">
+    <div><label>모델</label>
+      <select id="gmodel">
+        <option value="gemini-3.1-flash-tts-preview">3.1 flash tts</option>
+        <option value="gemini-2.5-flash-preview-tts">2.5 flash tts</option>
+        <option value="gemini-3.8-flash-lite-tts">3.8 flash lite tts</option>
+      </select></div>
+    <div><label>음성</label>
+      <select id="gvoice">
+        <option>Sulafat</option><option>Kore</option><option>Aoede</option>
+        <option>Charon</option><option>Puck</option><option>Laomedeia</option>
+      </select></div>
+  </div>
+  <button onclick="runGemini(this)">Gemini로 재생</button>
+  <audio id="gaudio" controls></audio>
+  <div class="log" id="glog">대기 중…</div>
+</div>
+
+<div class="card">
+  <h2>② HF Space · Qwen3-TTS <span class="tag">Sohee · 키 불필요</span></h2>
+  <div class="row">
+    <div><label>화자</label>
+      <select id="qvoice"><option>Sohee</option><option>Serena</option><option>Vivian</option><option>Ryan</option><option>Aiden</option><option>Eric</option><option>Dylan</option></select></div>
+    <div><label>크기</label>
+      <select id="qsize"><option>1.7B</option><option>0.6B</option></select></div>
+  </div>
+  <button onclick="runQwen(this)">Qwen3-TTS로 재생</button>
+  <audio id="qaudio" controls></audio>
+  <div class="log" id="qlog">대기 중…</div>
+</div>
+
+<div class="card">
+  <h2>③ Edge 신경망 TTS <span class="tag e">브라우저 직접</span></h2>
+  <div class="row">
+    <div><label>음성</label>
+      <select id="evoice">
+        <option>ko-KR-SunHiNeural</option>
+        <option>ko-KR-InJoonNeural</option>
+        <option>ko-KR-HyunsuMultilingualNeural</option>
+        <option>en-US-AvaMultilingualNeural</option>
+      </select></div>
+    <div><label>속도</label>
+      <select id="erate"><option value="+0%">1.0x</option><option value="+10%">1.1x</option></select></div>
+  </div>
+  <button onclick="runEdge(this)">Edge로 재생 (WebSocket 직접)</button>
+  <audio id="eaudio" controls></audio>
+  <div class="log" id="elog">대기 중…</div>
+</div>
+
+<script>
+const TEXTS = {
+  short: "지금부터 숨의 도시를 소개합니다. 이 도시에는 이름 대신 잔향으로 불리는 사람들이 삽니다.",
+  overview: `지금부터 숨의 도시를 소개합니다.
+이 도시에는 이름 대신 잔향으로 불리는 사람들이 삽니다.
+박동훈은 매일 아침 같은 골목을 지나며, 어제의 소리를 세어 둡니다.
+그는 소리가 사라지는 순간을 가장 두려워합니다.
+정희는 그런 그에게 말합니다. 잊혀도 괜찮다고.
+도시의 밤은 길고, 사람들의 목소리는 낮게 가라앉습니다.
+이 이야기는 잃어버린 목소리를 찾아가는 여정입니다.
+세 사람이 서로의 소리를 빌려주며 하루를 건넙니다.
+당신이 이 책을 덮는 순간에도, 누군가는 당신의 목소리를 기억합니다.`
+};
+function setText(k){ document.getElementById('text').value = TEXTS[k]; }
+function log(id, msg, cls){ const el=document.getElementById(id); el.innerHTML += `\n<span class="${cls||''}">${new Date().toLocaleTimeString('ko-KR')} ${msg}</span>`; el.scrollTop=el.scrollHeight; }
+function reset(id, first){ const el=document.getElementById(id); el.innerHTML = first; }
+const t0 = () => performance.now();
+const sec = ms => (ms/1000).toFixed(2)+'s';
+
+// ---------- ① Gemini ----------
+async function runGemini(btn){
+  const key = (document.getElementById('gkey').value || localStorage.getItem('gkey') || '').trim();
+  if(!key){ alert('Gemini API 키를 넣어주세요.'); return; }
+  localStorage.setItem('gkey', key);
+  const model = document.getElementById('gmodel').value;
+  const voice = document.getElementById('gvoice').value;
+  const text = document.getElementById('text').value.trim();
+  reset('glog',''); btn.disabled = true;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`;
+  const body = { contents:[{parts:[{text}]}], generationConfig:{ responseModalities:['AUDIO'],
+                 speechConfig:{ voiceConfig:{ prebuiltVoiceConfig:{ voiceName: voice } } } } };
+  const st = t0();
+  log('glog', `요청 ${model} / ${voice} / ${text.length}자`);
+  try {
+    const r = await fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    if(!r.ok){ const t = await r.text(); log('glog', `HTTP ${r.status} ${t.slice(0,300)}`, 'bad'); throw new Error('gemini http '+r.status); }
+    const d = await r.json();
+    const rcv = t0();
+    log('glog', `응답 수신 ${sec(rcv-st)}`, 'ok');
+    const part = d.candidates[0].content.parts.find(p=>p.inlineData)?.inlineData;
+    if(!part) throw new Error('오디오 파트 없음: '+JSON.stringify(d).slice(0,200));
+    const rate = /rate=(\d+)/.test(part.mimeType) ? +RegExp.$1 : 24000;
+    const bin = atob(part.data);
+    const pcm = new Uint8Array(bin.length);
+    for(let i=0;i<bin.length;i++) pcm[i]=bin.charCodeAt(i);
+    const wav = pcmToWav(pcm, rate);
+    const a = document.getElementById('gaudio');
+    a.src = URL.createObjectURL(wav);
+    const dec = t0();
+    await a.play().catch(()=>{});
+    log('glog', `재생 시작까지 ${sec(performance.now()-st)} · PCM ${rate}Hz ${(pcm.length/2/rate).toFixed(1)}초 분량`, 'ok');
+  } catch(e){ log('glog', '실패: '+e.message, 'bad'); }
+  btn.disabled = false;
+}
+function pcmToWav(pcm, rate){
+  const n = pcm.length, buf = new ArrayBuffer(44+n), v = new DataView(buf);
+  const ws = (o,s)=>{ for(let i=0;i<s.length;i++) v.setUint8(o+i, s.charCodeAt(i)); };
+  ws(0,'RIFF'); v.setUint32(4, 36+n, true); ws(8,'WAVE'); ws(12,'fmt ');
+  v.setUint32(16,16,true); v.setUint16(20,1,true); v.setUint16(22,1,true);
+  v.setUint32(24,rate,true); v.setUint32(28,rate*2,true); v.setUint16(32,2,true); v.setUint16(34,16,true);
+  ws(36,'data'); v.setUint32(40,n,true);
+  new Uint8Array(buf,44).set(pcm);
+  return new Blob([buf], {type:'audio/wav'});
+}
+
+// ---------- ② HF Space Qwen3-TTS ----------
+const SPACE = 'https://qwen-qwen3-tts.hf.space/gradio_api';
+async function runQwen(btn){
+  const text = document.getElementById('text').value.trim();
+  const voice = document.getElementById('qvoice').value;
+  const size = document.getElementById('qsize').value;
+  reset('qlog',''); btn.disabled = true;
+  const st = t0();
+  log('qlog', `요청 ${voice} ${size} / ${text.length}자`);
+  try {
+    const jr = await fetch(`${SPACE}/call/generate_custom_voice`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ data:[text,'Korean',voice,'',size] }) });
+    if(!jr.ok){ log('qlog', `join HTTP ${jr.status} ${(await jr.text()).slice(0,200)}`, 'bad'); throw new Error('join fail'); }
+    const { event_id } = await jr.json();
+    log('qlog', `큐 등록 ${sec(t0()-st)} · event ${event_id.slice(0,8)}`);
+    const sr = await fetch(`${SPACE}/call/generate_custom_voice/${event_id}`);
+    const reader = sr.body.getReader(); const dec = new TextDecoder();
+    let buf='', audioUrl=null, err=null;
+    while(true){
+      const {value, done} = await reader.read(); if(done) break;
+      buf += dec.decode(value, {stream:true});
+      let i;
+      while((i = buf.indexOf('\n\n')) >= 0){
+        const block = buf.slice(0,i); buf = buf.slice(i+2);
+        const ev = (block.match(/^event: (.*)$/m)||[])[1];
+        const dt = (block.match(/^data: (.*)$/m)||[])[1];
+        if(ev === 'complete' && dt){ try{ const j = JSON.parse(dt); if(Array.isArray(j) && j[0]?.url) audioUrl = j[0].url; if(Array.isArray(j) && j[1]) log('qlog','상태: '+j[1]); }catch(e){} }
+        if(ev === 'error'){ err = dt; }
+      }
+      if(audioUrl || err) break;
+    }
+    if(err) { log('qlog','오류: '+err, 'bad'); throw new Error(err); }
+    if(!audioUrl) throw new Error('오디오 URL 없음');
+    const got = t0();
+    log('qlog', `생성 완료 ${sec(got-st)}`, 'ok');
+    const a = document.getElementById('qaudio');
+    a.src = audioUrl;
+    await a.play().catch(()=>{});
+    log('qlog', `재생 시작 ${sec(t0()-st)} · 길이 ${a.duration?a.duration.toFixed(1):'?'}초`, 'ok');
+  } catch(e){ log('qlog','실패: '+e.message, 'bad'); }
+  btn.disabled = false;
+}
+
+// ---------- ③ Edge WSS ----------
+const EDGE_TOKEN = '6A5AA1D4EAFF4E9FB37E23D68491D6F4';
+const EDGE_WSS = 'wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1';
+async function edgeSecMsGec(){
+  const ticks = Math.floor((Date.now()/1000 + 11644473600) / 300) * 300 * 10000000;
+  const s = ticks.toString() + EDGE_TOKEN;
+  const h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return [...new Uint8Array(h)].map(b=>b.toString(16).padStart(2,'0')).join('').toUpperCase();
+}
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+async function runEdge(btn){
+  const text = document.getElementById('text').value.trim();
+  const voice = document.getElementById('evoice').value;
+  const rate = document.getElementById('erate').value;
+  reset('elog',''); btn.disabled = true;
+  const st = t0();
+  let url;
+  try { url = `${EDGE_WSS}?TrustedClientToken=${EDGE_TOKEN}&Sec-MS-GEC=${await edgeSecMsGec()}&Sec-MS-GEC-Version=1-130.0.2849.68&ConnectionId=${crypto.randomUUID().replace(/-/g,'')}`; }
+  catch(e){ log('elog','토큰 생성 실패(보안 컨텍스트 아님?): '+e.message,'bad'); btn.disabled=false; return; }
+  log('elog', `WSS 연결 시도 ${voice}`);
+  let ws;
+  try { ws = new WebSocket(url); }
+  catch(e){ log('elog','WebSocket 생성 실패: '+e.message,'bad'); btn.disabled=false; return; }
+  ws.binaryType = 'arraybuffer';
+  const chunks = []; let ttfb = null;
+  const fail = (m)=>{ log('elog', m, 'bad'); btn.disabled=false; try{ws.close();}catch(_){} };
+  const timer = setTimeout(()=>fail('15초 안에 연결/응답 없음 (서비스가 브라우저를 막았을 가능성)'), 15000);
+  ws.onopen = ()=>{
+    clearTimeout(timer);
+    log('elog', `연결됨 ${sec(t0()-st)}`, 'ok');
+    ws.send(`X-Timestamp:${new Date().toString()}\r\nContent-Type:application/json; charset=utf-8\r\nPath:speech.config\r\n\r\n` +
+      JSON.stringify({context:{synthesis:{audio:{metadataoptions:{sentenceBoundaryEnabled:false,wordBoundaryEnabled:false},outputFormat:'audio-24khz-48kbitrate-mono-mp3'}}}}));
+    const ssml = `<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='ko-KR'><voice name='${voice}'><prosody rate='${rate}' pitch='+0Hz'>${esc(text)}</prosody></voice></speak>`;
+    ws.send(`X-RequestId:${crypto.randomUUID().replace(/-/g,'')}\r\nContent-Type:application/ssml+xml\r\nX-Timestamp:${new Date().toISOString()}Z\r\nPath:ssml\r\n\r\n${ssml}`);
+  };
+  ws.onmessage = (ev)=>{
+    if(typeof ev.data === 'string'){
+      if(ev.data.includes('Path:turn.end')){ finish(); }
+      if(ev.data.includes('Path:audio.metadata')) return;
+      return;
+    }
+    const buf = new Uint8Array(ev.data);
+    // binary frame: header length (2 bytes BE) + header + audio
+    const hl = (buf[0]<<8) | buf[1];
+    const head = new TextDecoder().decode(buf.slice(2, 2+hl));
+    const body = buf.slice(2+hl);
+    if(head.includes('Path:audio')){
+      if(ttfb === null){ ttfb = t0(); log('elog', `첫 오디오 도달 ${sec(ttfb-st)} (TTFB)`, 'ok'); }
+      chunks.push(body);
+    }
+  };
+  ws.onerror = ()=>{ clearTimeout(timer); fail('WebSocket 오류 (브라우저 오리진 차단/403 가능)'); };
+  ws.onclose = (e)=>{ clearTimeout(timer); if(!chunks.length) fail(`연결 종료 code=${e.code} reason=${e.reason||'-'}`); };
+  let done=false;
+  function finish(){
+    if(done) return; done=true;
+    try{ws.close();}catch(_){}
+    const blob = new Blob(chunks, {type:'audio/mpeg'});
+    const a = document.getElementById('eaudio');
+    a.src = URL.createObjectURL(blob);
+    a.play().catch(()=>{});
+    log('elog', `완료 ${sec(t0()-st)} · ${(blob.size/1024).toFixed(0)}KB`, 'ok');
+    btn.disabled=false;
+  }
+}
+// 키 저장
+document.getElementById('gkey').value = localStorage.getItem('gkey') || '';
+</script>
+</body>
+</html>
