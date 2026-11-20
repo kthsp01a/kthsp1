@@ -1192,7 +1192,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
       var changed = false;
       for (var i = 0; i < SUFFIX.length; i++) {
         var suf = SUFFIX[i];
-        if (tok.length > suf.length + 1 && tok.slice(-suf.length) === suf) { tok = tok.slice(0, tok.length - suf.length); changed = true; break; }
+        if (tok.length > suf.length && tok.slice(-suf.length) === suf) { tok = tok.slice(0, tok.length - suf.length); changed = true; break; }
       }
       if (!changed) break;
     }
@@ -1721,7 +1721,7 @@ html[data-theme="night"] .themeSwitch button.on{background:#3A4A42;color:#D8E7DA
         say('A', (point0 ? '“' + point0 + '” — 이 문장이 장면의 온도를 잡아 줍니다. ' : '') +
           (who.length ? who.slice(0, 2).join('·') + '의 대사가 장면을 끌고 갑니다.' : '해설 위주로 이어지는 장이라 낭독의 호흡이 중요합니다.'),
           !point0 && q80 ? { i: ch.quote.i, quote: ch.quote.text } : null);
-        if (ch.dialogue > ch.narration && ch.dialogue > 0) {
+        if (ch.dialogue > ch.narration && ch.dialogue > 0 && ch.blocks >= 6) {
           say('B', '대사가 ' + ch.dialogue + '문단, 해설이 ' + ch.narration + '문단이네요. 말이 많은 장은 목소리를 확실히 벌려야 하죠. ' + nextBack());
         }
       } else if (round === 'scene') {
