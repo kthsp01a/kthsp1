@@ -314,7 +314,7 @@ const Bt = CJ.Bt = {
       if (!CJ.alive(tk)) return;
       CJ.log({ sp: this.beat.pov, text: this.b.win || '', file: null, late: true });
       if (S.stats.turns === 0) S.stats.turns = this.turns;
-      CJ.next();
+      CJ.next(tk);
     } else {
       this.failed = true;
       AU.play('sfx', 'assets/sfx/heart.opus', .8);
@@ -333,7 +333,7 @@ const Bt = CJ.Bt = {
       if (this.failed) {
         this.retries = (this.retries || 0) + 1;
         this.failed = false;
-        if (this.retries > 3) { CJ.clearRings(); CJ.next(); return true; }
+        if (this.retries > 3) { CJ.clearRings(); CJ.next(this.tk); return true; }
         this.enter(this.beat, {}, this.tk);
         return true;
       }

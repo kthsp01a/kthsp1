@@ -30,6 +30,7 @@ CJ.go = async function (id, opt) {
   $('#ending').classList.remove('on');
   $('#board').classList.remove('on');
   $('#mapSheet').classList.remove('on');
+  $('#interCard').classList.remove('on');
   document.body.classList.remove('boardMode', 'hideChrome', 'mapMode');
   CJ.clearRings();
   if (CJ.Ex && CJ.Ex.abort) CJ.Ex.abort();
@@ -256,6 +257,8 @@ CJ.showEnding = function () {
   $('#endRec').innerHTML = rows.map(r => '<div><span>' + esc(r[0]) + '</span><b>' + esc(r[1]) + '</b></div>').join('');
   $('#endNext').innerHTML = '새벽은 늘, 오는 쪽이었다.<br><span class="dim">손수건은 다음에도 가져갈 것이다. 틈은 남아 있으니까.</span>';
   $('#ending').classList.add('on');
+  CJ.clearRings();
+  setTimeout(() => CJ.clearRings(), 60);
   CJ.clearSave();
 };
 
@@ -395,7 +398,7 @@ CJ.debug = {
   go: id => CJ.go(id),
   auto: () => {
     if (CJ.mode === 'explore') {
-      if (CJ.Ex.done) { CJ.clearRings(); CJ.next(); return true; }
+      if (CJ.Ex.done) { const t = CJ.Ex.tk; CJ.clearRings(); CJ.next(t); return true; }
       return CJ.Ex.auto();
     }
     if (CJ.mode === 'intermission') return false;

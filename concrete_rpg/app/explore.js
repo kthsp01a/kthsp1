@@ -148,7 +148,7 @@ const Ex = CJ.Ex = {
   skip() { if (this._skip) this._skip(); },
 
   finish() {
-    if (this.done || !this.beat || !CJ.alive(this.tk)) return;
+    if (this.done || !this.beat || !CJ.alive(this.tk) || CJ.mode === 'ending' || CJ.mode === 'cut') return;
     this.done = true;
     CJ.layoutStack();
     CJ.hideSubtitle();

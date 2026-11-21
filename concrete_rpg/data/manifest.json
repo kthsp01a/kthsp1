@@ -1,9 +1,9 @@
 {
  "version": "1.0",
- "generated": "2026-11-21 11:58",
+ "generated": "2026-11-21 12:16",
  "root": "concrete_rpg/",
  "files": 1141,
- "total_bytes": 158513117,
+ "total_bytes": 158513293,
  "total_mb": 158.51,
  "groups_mb": {
   "README_UNITY.md": 0.01,
@@ -33,7 +33,7 @@
   },
   {
    "path": "app/battle.js",
-   "bytes": 16762,
+   "bytes": 16771,
    "sha256": ""
   },
   {
@@ -58,7 +58,7 @@
   },
   {
    "path": "app/flow.js",
-   "bytes": 15424,
+   "bytes": 15487,
    "sha256": ""
   },
   {
@@ -5708,7 +5708,7 @@
   },
   {
    "path": "data/manifest.json",
-   "bytes": 114415,
+   "bytes": 114519,
    "sha256": ""
   },
   {
