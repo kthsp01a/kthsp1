@@ -1,0 +1,811 @@
+{
+ "cuesheet_id": "cj_ch07_v37",
+ "chapter_no": 7,
+ "label": "7장",
+ "title": "최후의 회의",
+ "act": "1막",
+ "pov": "캡틴",
+ "star_stage": "eyes_shut",
+ "amb": "assets/amb/amb_urban.opus",
+ "weather": "night",
+ "scenes": [
+  "N12",
+  "06"
+ ],
+ "beats": [
+  {
+   "beat_id": "B07-01",
+   "chapter": 7,
+   "scene": "N12",
+   "kind": "explore",
+   "title": "최후의 회의",
+   "pov": "captain",
+   "lens": "oneeye",
+   "weather": "night",
+   "amb": "assets/amb/amb_urban.opus",
+   "clues": [
+    {
+     "id": "CL_SEWER_WATER",
+     "label": "배수로 물",
+     "kind": "smell",
+     "tone": "#5f7488",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "물도 있고 나무도 많은 숲터입니다.",
+     "kw": "하수구"
+    },
+    {
+     "id": "CL_ROAD_OIL",
+     "label": "대로의 기름",
+     "kind": "smell",
+     "tone": "#8a6a3c",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "물도 있고 나무도 많은 숲터입니다.",
+     "kw": "대로"
+    },
+    {
+     "id": "CL_ASH_FEATHER",
+     "label": "잿빛의 깃",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "잿빛.",
+     "kw": "잿빛"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 53.083,
+     "still": "assets/still/N12/cN12_0.webp",
+     "motion": "pan_lr",
+     "action": "무너진 담벼락 아래 — 처음으로 같은 자리에",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "무너진 담벼락 아래, 동물과 사람이 처음으로 같은 자리에 모였다.",
+       "file": "assets/vo/N12/N12_000.opus",
+       "t": 2156.483,
+       "dur": 5.277,
+       "wid": "N12_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "나는 가장 약한 것의 숨소리부터 확인했다. 작은 점의 숨은 아직 가볍다.",
+       "file": "assets/vo/N12/N12_001.opus",
+       "t": 2162.282,
+       "dur": 6.321,
+       "wid": "N12_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "조용. 당황은 죽음을 부를 뿐이다. 우리는 수많은 겨울을 넘겼다. 이번에도 길을 찾을 것이다.",
+       "file": "assets/vo/N12/N12_002.opus",
+       "t": 2169.203,
+       "dur": 8.792,
+       "wid": "N12_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "시간이 없어. 벌써 앞동까지 헐렸어. 내일이면 굴삭기가 급식소까지 밀고 들어온다.",
+       "file": "assets/vo/N12/N12_003.opus",
+       "t": 2179.248,
+       "dur": 6.604,
+       "wid": "N12_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "김반장이 한숨을 쉬었다.",
+       "file": "assets/vo/N12/N12_004.opus",
+       "t": 2186.4,
+       "dur": 1.6,
+       "wid": "N12_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "박여사님네랑 소미네는 낮에 임시 빌라로 짐을 다 뺐어요. 나도 내일이면 구청 숙소로 갑니다. 하지만 이 녀석들은 갈 곳이 없어요.",
+       "file": "assets/vo/N12/N12_005.opus",
+       "t": 2188.601,
+       "dur": 11.219,
+       "wid": "N12_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "잿빛. 정찰 결과는.",
+       "file": "assets/vo/N12/N12_006.opus",
+       "t": 2200.342,
+       "dur": 1.85,
+       "wid": "N12_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "잿빛이 박여사의 무릎 앞으로 날아들었다. 부리에 비에 젖은 종이 한 장이 물려 있었다.",
+       "file": "assets/vo/N12/N12_007.opus",
+       "t": 2202.74,
+       "dur": 7.621,
+       "wid": "N12_007",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_SEWER_WATER"
+     ]
+    },
+    {
+     "t0": 53.083,
+     "t1": 66.875,
+     "still": "assets/still/N12/cN12_1.webp",
+     "motion": "pull_out",
+     "action": "잿빛의 정찰 보고 — 북쪽 하수구, 강변 도로, 잊혀진 공원",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "박여사가 전단지를 집어 들었다. 반쯤 찢긴 종이 위에 희미한 약도가 남아 있었다.",
+       "file": "assets/vo/N12/N12_008.opus",
+       "t": 2210.883,
+       "dur": 6.726,
+       "wid": "N12_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "park",
+       "text": "어머, 이거 옛날 잊혀진 공원 폐쇄 안내문 아니야? 그린벨트로 묶여서 개발이 안 된 곳인데.",
+       "file": "assets/vo/N12/N12_009.opus",
+       "t": 2218.209,
+       "dur": 7.759,
+       "wid": "N12_009",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 66.875,
+     "t1": 99.167,
+     "still": "assets/still/N12/cN12_2.webp",
+     "motion": "push_fast",
+     "action": "하늘에서 본 길 — 그린벨트에 묶인 잊혀진 공원",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "김반장이 약도를 짚었다.",
+       "file": "assets/vo/N12/N12_010.opus",
+       "t": 2226.516,
+       "dur": 1.64,
+       "wid": "N12_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "물도 있고 나무도 많은 숲터입니다. 다만 북쪽 하수구까지 나가려면 왕복 팔 차선 대로를 건너야 해요.",
+       "file": "assets/vo/N12/N12_011.opus",
+       "t": 2228.756,
+       "dur": 8.608,
+       "wid": "N12_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "낮에는 안 됩니다. 오늘 밤, 막차 불빛이 끊기고 사방이 조용해지면 움직입시다.",
+       "file": "assets/vo/N12/N12_012.opus",
+       "t": 2237.886,
+       "dur": 6.732,
+       "wid": "N12_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "김반장이 손전등으로 바닥을 세 번 깜빡이고, 짧은 휘파람을 불고, 북쪽 큰길을 가리켰다.",
+       "file": "assets/vo/N12/N12_013.opus",
+       "t": 2245.166,
+       "dur": 8.105,
+       "wid": "N12_013",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_ROAD_OIL"
+     ]
+    },
+    {
+     "t0": 99.167,
+     "t1": 156.542,
+     "still": "assets/still/N12/cN12_3.webp",
+     "motion": "push_in",
+     "action": "\\\"우리는 인간 방패가 됩시다\\\"",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "제가 불을 세 번 깜빡이고 휘파람을 불면 애들을 몰아서 나오세요. 박여사님 차로 뒤를 받쳐 주세요.",
+       "file": "assets/vo/N12/N12_014.opus",
+       "t": 2253.872,
+       "dur": 8.479,
+       "wid": "N12_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "사람의 귀에는 우리 말이 닿지 않는다. 우리 말은 우리끼리만 통하고, 사람에게는 표정과 몸짓으로만 전해진다.",
+       "file": "assets/vo/N12/N12_015.opus",
+       "t": 2262.899,
+       "dur": 9.762,
+       "wid": "N12_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "세 번 끊어지는 노란 불빛과 짧은 휘파람이 무엇을 뜻하는지는, 몸이 먼저 알았다.",
+       "file": "assets/vo/N12/N12_016.opus",
+       "t": 2273.183,
+       "dur": 7.205,
+       "wid": "N12_016",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "저건 우리를 부르는 신호야!",
+       "file": "assets/vo/N12/N12_017.opus",
+       "t": 2280.988,
+       "dur": 2.165,
+       "wid": "N12_017",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "내가 낮게 숨을 내쉬었다.",
+       "file": "assets/vo/N12/N12_018.opus",
+       "t": 2283.273,
+       "dur": 1.511,
+       "wid": "N12_018",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "캡틴이 눈을 가늘게 떴다.",
+       "file": "assets/vo/N12/N12_019.opus",
+       "t": 2285.306,
+       "dur": 1.328,
+       "wid": "N12_019",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "불빛이 세 번 흔들리면, 망설이지 말고 전부 튀어나간다.",
+       "file": "assets/vo/N12/N12_020.opus",
+       "t": 2287.234,
+       "dur": 4.615,
+       "wid": "N12_020",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "소미가 박여사의 옷자락을 잡았다.",
+       "file": "assets/vo/N12/N12_021.opus",
+       "t": 2292.398,
+       "dur": 2.389,
+       "wid": "N12_021",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "엄마한텐 할머니 집에서 잔다고 했어요. 나도 차 타고 끝까지 갈래요. 아기 고양이 꼭 안고 있을게요!",
+       "file": "assets/vo/N12/N12_022.opus",
+       "t": 2295.387,
+       "dur": 6.835,
+       "wid": "N12_022",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "박여사가 고개를 끄덕였다.",
+       "file": "assets/vo/N12/N12_023.opus",
+       "t": 2302.342,
+       "dur": 1.578,
+       "wid": "N12_023",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "park",
+       "text": "어차피 내 차로 바래다줄 거니까, 담벼락 앞에 내려 주는 것까지만 보고 들어가자.",
+       "file": "assets/vo/N12/N12_024.opus",
+       "t": 2304.52,
+       "dur": 6.609,
+       "wid": "N12_024",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_ASH_FEATHER"
+     ]
+    }
+   ],
+   "gesture": "hold",
+   "next": "B07-02"
+  },
+  {
+   "beat_id": "B07-02",
+   "chapter": 7,
+   "scene": "N12",
+   "kind": "deduce",
+   "title": "추리판 · 어디로 가나",
+   "pov": "captain",
+   "lens": "board",
+   "weather": "night",
+   "amb": "assets/amb/amb_urban.opus",
+   "question": {
+    "id": "Q12_ROUTE",
+    "text": "어디로 가나"
+   },
+   "hyps": [
+    {
+     "id": "H12_ROUTE",
+     "line": "하수구 → 8차선 → 잊혀진 공원.",
+     "canon": true,
+     "needs": [
+      "CL_SEWER_WATER",
+      "CL_ROAD_OIL"
+     ],
+     "effect": {
+      "tension": -1,
+      "reveal": true
+     }
+    },
+    {
+     "id": "H12_RIVER",
+     "line": "강변 도로로 간다.",
+     "canon": false,
+     "needs": [
+      "CL_ASH_FEATHER",
+      "CL_ROAD_OIL"
+     ],
+     "effect": {
+      "warmth": 1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_SEWER_WATER",
+     "label": "배수로 물",
+     "kind": "smell",
+     "tone": "#5f7488",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "물도 있고 나무도 많은 숲터입니다.",
+     "kw": "하수구"
+    },
+    {
+     "id": "CL_ROAD_OIL",
+     "label": "대로의 기름",
+     "kind": "smell",
+     "tone": "#8a6a3c",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "물도 있고 나무도 많은 숲터입니다.",
+     "kw": "대로"
+    },
+    {
+     "id": "CL_ASH_FEATHER",
+     "label": "잿빛의 깃",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "잿빛.",
+     "kw": "잿빛"
+    }
+   ],
+   "still": "assets/still/N12/cN12_3.webp",
+   "next": "B07-03"
+  },
+  {
+   "beat_id": "B07-03",
+   "chapter": 7,
+   "scene": "N12",
+   "kind": "battle",
+   "title": "대치 · 파티 편성과 신호",
+   "pov": "captain",
+   "lens": "battle",
+   "weather": "night",
+   "amb": "assets/amb/amb_urban.opus",
+   "still": "assets/still/N12/cN12_3.webp",
+   "battle": {
+    "id": "BT_N12",
+    "title": "파티 편성과 신호",
+    "mode": "talk",
+    "goal": {
+     "type": "jeong",
+     "value": 4,
+     "turns": 5
+    },
+    "warmth": 8,
+    "warmthLoss": 0,
+    "star": false,
+    "allies": [
+     "nuri",
+     "kkamang",
+     "captain",
+     "otbit"
+    ],
+    "humans": [
+     "kim",
+     "somi",
+     "park"
+    ],
+    "enemy": {
+     "name": "이동 준비",
+     "kind": "env",
+     "tension": 2,
+     "intents": [
+      {
+       "name": "소음",
+       "text": "멀리 차 소리, 철 긁히는 소리",
+       "breath": -1
+      },
+      {
+       "name": "조급함",
+       "text": "새벽이 가까웠다",
+       "warmth": -1
+      }
+     ]
+    },
+    "skills": [
+     "captain_order",
+     "otbit_scout",
+     "kkamang_tail_signal",
+     "somi_towel"
+    ],
+    "intro": "사람은 명령을 듣지 못한다. 신호는 본다 — 불빛 세 번, 휘파람, 노란 손수건.",
+    "win": "낙오자는 없다. 신호가 손에서 손으로 옮겨 붙었다.",
+    "lose": "신호가 엇갈렸다. 한 번 더, 순서를 정한다.",
+    "starStage": "eyes_shut",
+    "scene": "N12",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "otbit_scout",
+     "somi_towel"
+    ]
+   },
+   "next": "B07-04"
+  },
+  {
+   "beat_id": "B07-04",
+   "chapter": 7,
+   "scene": "N12",
+   "kind": "cut",
+   "title": "결과 컷 · 최후의 회의",
+   "pov": "captain",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/N12.mp4",
+    "poster": "assets/cut/N12_poster.webp",
+    "tc_in": 2310.625,
+    "tc_out": 2343.833,
+    "action": "\\\"낙오자는 없다\\\" — 어셈블",
+    "motion": "pan_rl",
+    "subs": [
+     {
+      "speaker": "captain",
+      "text": "오늘 밤 불빛이 세 번 반짝이면 우리는 이 정글을 탈출한다. 목적지는 잊혀진 공원. 낙오자는 없다.",
+      "file": "assets/vo/N12/N12_025.opus",
+      "t": 2311.651,
+      "dur": 9.168,
+      "wid": "N12_025",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "누리, 넌 선두에서 길을 터. 캡틴은 노약자를 챙겨라. 나는 후방을 맡는다.",
+      "file": "assets/vo/N12/N12_026.opus",
+      "t": 2321.341,
+      "dur": 6.168,
+      "wid": "N12_026",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "걱정 마. 내 등 뒤엔 아무도 못 오게 할 거야. 우리는 이제, 한 무리니까.",
+      "file": "assets/vo/N12/N12_027.opus",
+      "t": 2328.031,
+      "dur": 5.521,
+      "wid": "N12_027",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "captain",
+      "text": "그날 밤, 사람과 짐승 사이의 벽이 한 뼘쯤 얇아졌다.",
+      "file": "assets/vo/N12/N12_028.opus",
+      "t": 2334.805,
+      "dur": 4.53,
+      "wid": "N12_028",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B07-05"
+  },
+  {
+   "beat_id": "B07-05",
+   "chapter": 7,
+   "scene": "06",
+   "kind": "explore",
+   "title": "꼬리의 언어와 이동 준비",
+   "pov": "nuri",
+   "lens": "strand",
+   "weather": "night",
+   "amb": "assets/amb/amb_urban.opus",
+   "clues": [
+    {
+     "id": "CL_WHISTLE",
+     "label": "휘파람",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "",
+     "kw": "휘파람"
+    },
+    {
+     "id": "CL_LIGHT3",
+     "label": "불빛 세 번",
+     "kind": "smell",
+     "tone": "#e3c25a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "불빛"
+    },
+    {
+     "id": "CL_TUK",
+     "label": "코끝 툭",
+     "kind": "smell",
+     "tone": "#d9a05b",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "나는 숨을 들이쉬었다.",
+     "kw": "코끝"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 45.208,
+     "still": "assets/still/06/c06_0.webp",
+     "motion": "push_in",
+     "action": "꼬리가 탁탁 — 붉은 천 앞의 사람들",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "까망의 꼬리가 빨라졌다. 고양이의 꼬리는 말이다. 나는 그 꼬리의 언어를 조금씩 배웠다.",
+       "file": "assets/vo/06/06_000.opus",
+       "t": 2346.233,
+       "dur": 7.438,
+       "wid": "06_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "꼬리가 빠르면 위험, 꼬리가 낮으면 경계, 꼬리가 탁탁 치면 화.",
+       "file": "assets/vo/06/06_001.opus",
+       "t": 2355.421,
+       "dur": 5.043,
+       "wid": "06_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "까망은 화가 나 있었다. 그 화는 나 때문에가 아니라, 저 붉은 천 때문이었다.",
+       "file": "assets/vo/06/06_002.opus",
+       "t": 2362.215,
+       "dur": 6.226,
+       "wid": "06_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "사람들은 현수막 앞에서 서서 이야기를 했다. 좋아지겠다, 깨끗해지겠다. 그 말들이 왜 이렇게 차갑게 느껴지는지, 나는 몰랐다.",
+       "file": "assets/vo/06/06_003.opus",
+       "t": 2370.191,
+       "dur": 11.254,
+       "wid": "06_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "하지만 나는 알았다. 그 말들이 나오면, 나 같은 존재는 사라진다.",
+       "file": "assets/vo/06/06_004.opus",
+       "t": 2383.195,
+       "dur": 5.763,
+       "wid": "06_004",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_WHISTLE"
+     ]
+    },
+    {
+     "t0": 45.208,
+     "t1": 67.583,
+     "still": "assets/still/06/c06_1.webp",
+     "motion": "pan_lr",
+     "action": "잠은 얕게 — 차 소리, 철 긁히는 소리, 담장 너머 발소리",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "그날 밤, 나는 잠을 얕게 잤다. 막차 소리가 끊기고, 골목의 불이 하나둘 꺼졌다. 그 모든 소리가 곧, 이별을 말하는 것 같았다.",
+       "file": "assets/vo/06/06_005.opus",
+       "t": 2391.958,
+       "dur": 11.068,
+       "wid": "06_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "자정이 조금 지났을 때, 까망이 내 옆에 와서 낮게 말했다.",
+       "file": "assets/vo/06/06_006.opus",
+       "t": 2404.777,
+       "dur": 4.397,
+       "wid": "06_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "이동 준비.",
+       "file": "assets/vo/06/06_007.opus",
+       "t": 2411.173,
+       "dur": 0.771,
+       "wid": "06_007",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_LIGHT3"
+     ]
+    },
+    {
+     "t0": 67.583,
+     "t1": 84.5,
+     "still": "assets/still/06/c06_1m.webp",
+     "motion": "pan_lr",
+     "action": "골목 평상에 모인 이동 준비 — 비밀 작전 회의",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "이동이라는 말은 내 몸을 딱딱하게 만들었다. 움직이면, 주인님이 돌아왔을 때 나를 못 찾지 않을까. 그 생각이 찌르듯 올라왔지만, 그 뒤에 다른 생각이 바로 덮었다.",
+       "file": "assets/vo/06/06_008.opus",
+       "t": 2413.777,
+       "dur": 13.205,
+       "wid": "06_008",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_TUK"
+     ]
+    }
+   ],
+   "gesture": "drag",
+   "next": "B07-06"
+  },
+  {
+   "beat_id": "B07-06",
+   "chapter": 7,
+   "scene": "06",
+   "kind": "cut",
+   "title": "결과 컷 · 꼬리의 언어와 이동 준비",
+   "pov": "nuri",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/06.mp4",
+    "poster": "assets/cut/06_poster.webp",
+    "tc_in": 2428.333,
+    "tc_out": 2455.583,
+    "action": "코끝을 툭 — \"살아야 해\" — 기다리는 대신 준비했다",
+    "motion": "push_in",
+    "subs": [
+     {
+      "speaker": "nuri",
+      "text": "지금 여기서 죽으면, 찾아와도 소용없다.",
+      "file": "assets/vo/06/06_009.opus",
+      "t": 2428.733,
+      "dur": 3.539,
+      "wid": "06_009",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "나는 숨을 들이쉬었다. 까망이 내 코끝을 툭 쳤다. 마치 말하듯.",
+      "file": "assets/vo/06/06_010.opus",
+      "t": 2434.603,
+      "dur": 5.944,
+      "wid": "06_010",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "살아야 해.",
+      "file": "assets/vo/06/06_011.opus",
+      "t": 2442.547,
+      "dur": 0.704,
+      "wid": "06_011",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "나는 고개를 끄덕였다. 그리고 처음으로, 기다리는 대신 준비했다.",
+      "file": "assets/vo/06/06_012.opus",
+      "t": 2445.084,
+      "dur": 5.999,
+      "wid": "06_012",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B08-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

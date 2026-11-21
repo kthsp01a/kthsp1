@@ -1,0 +1,969 @@
+{
+ "cuesheet_id": "cj_ch16_v37",
+ "chapter_no": 16,
+ "label": "16장",
+ "title": "의도를 끊다",
+ "act": "2막",
+ "pov": "캡틴",
+ "star_stage": "eyes_open",
+ "amb": "assets/amb/amb_forest_night.opus",
+ "weather": "night",
+ "scenes": [
+  "A32",
+  "A33"
+ ],
+ "beats": [
+  {
+   "beat_id": "B16-01",
+   "chapter": 16,
+   "scene": "A32",
+   "kind": "explore",
+   "title": "마지막으로 끊어야 할 건, 의도다",
+   "pov": "captain",
+   "lens": "oneeye",
+   "weather": "night",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "clues": [
+    {
+     "id": "CL_MUD_PIT",
+     "label": "진흙 함정",
+     "kind": "smell",
+     "tone": "#7d6b5a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "경사, 진흙, 물웅덩이.",
+     "kw": "진흙"
+    },
+    {
+     "id": "CL_INTENT",
+     "label": "의도",
+     "kind": "smell",
+     "tone": "#b0444a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "불법은 물건만으로 잡히지 않는다.",
+     "kw": "의도"
+    },
+    {
+     "id": "CL_LIGHT2",
+     "label": "불빛",
+     "kind": "smell",
+     "tone": "#e8e2c8",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "그는 뒤로 물러났다.",
+     "kw": "불빛"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 26.5,
+     "still": "assets/still/A32/cA32_0.webp",
+     "motion": "pan_lr",
+     "action": "포획꾼은 포기하지 않는다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "멀리서 플래시가 다시 흔들렸다. 포획꾼은 돌아오고 있었다. 그는 손해를 보기 싫어한다. 손해 보기 싫어하는 사람은 끝까지 온다.",
+       "file": "assets/vo/A32/A32_000.opus",
+       "t": 5357.942,
+       "dur": 11.131,
+       "wid": "A32_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "이 싸움은 한 번 쫓아내는 것으로 끝나지 않는다. 다시는 못 오게 만들어야 끝난다.",
+       "file": "assets/vo/A32/A32_001.opus",
+       "t": 5372.073,
+       "dur": 7.012,
+       "wid": "A32_001",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_MUD_PIT"
+     ]
+    },
+    {
+     "t0": 26.5,
+     "t1": 42.25,
+     "still": "assets/still/A32/cA32_1.webp",
+     "motion": "push_in",
+     "action": "숲의 함정을 우리 편으로",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "나는 까망을 봤다. 까망은 이미 이해한 눈이었다. 우리가 덫을 놓는 게 아니다. 숲이 이미 가진 함정을, 우리 편으로 쓰는 것이다.",
+       "file": "assets/vo/A32/A32_002.opus",
+       "t": 5382.085,
+       "dur": 11.479,
+       "wid": "A32_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "경사, 진흙, 물웅덩이. 사람은 그걸 싫어한다. 사람은 빠르게 움직이려 하고, 빠름은 미끄러짐을 부른다.",
+       "file": "assets/vo/A32/A32_003.opus",
+       "t": 5396.564,
+       "dur": 9.321,
+       "wid": "A32_003",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 42.25,
+     "t1": 55.375,
+     "still": "assets/still/A32/cA32_2.webp",
+     "motion": "pan_rl",
+     "action": "경사, 진흙, 물웅덩이",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "나는 잿빛에게 신호했다. 잿빛은 다시 소리를 만들었다. 이번엔 더 멀리, 더 크게. 포획꾼이 그쪽으로 뛰게 만들었다.",
+       "file": "assets/vo/A32/A32_004.opus",
+       "t": 5408.885,
+       "dur": 10.442,
+       "wid": "A32_004",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 55.375,
+     "t1": 87.042,
+     "still": "assets/still/A32/cA32_3.webp",
+     "motion": "pan_fast",
+     "action": "유인 — 더 멀리, 더 크게",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "그리고 나는 김반장을 봤다.",
+       "file": "assets/vo/A32/A32_005.opus",
+       "t": 5422.327,
+       "dur": 1.65,
+       "wid": "A32_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "기록.",
+       "file": "assets/vo/A32/A32_006.opus",
+       "t": 5426.977,
+       "dur": 0.423,
+       "wid": "A32_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "짧은 말. 김반장은 고개를 끄덕였다. 그리고 일부러 한 발 앞으로 나섰다. 그 행동은 위험하지만, 필요했다.",
+       "file": "assets/vo/A32/A32_007.opus",
+       "t": 5430.4,
+       "dur": 9.511,
+       "wid": "A32_007",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_INTENT"
+     ]
+    },
+    {
+     "t0": 87.042,
+     "t1": 93.417,
+     "still": "assets/still/A32/cA32_4.webp",
+     "motion": "push_fast",
+     "action": "\"여기요. 불법 포획하고 있어요\"",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "여기요.",
+       "file": "assets/vo/A32/A32_008.opus",
+       "t": 5442.911,
+       "dur": 0.516,
+       "wid": "A32_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "김반장이 크게 말했다.",
+       "file": "assets/vo/A32/A32_009.opus",
+       "t": 5443.727,
+       "dur": 1.419,
+       "wid": "A32_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "여기서 불법 포획하고 있어요.",
+       "file": "assets/vo/A32/A32_010.opus",
+       "t": 5445.446,
+       "dur": 1.72,
+       "wid": "A32_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "포획꾼의 고개가 확 돌아갔다. 그 순간, 그의 발이 진흙에 빠졌다. 철퍽— 그의 몸이 휘청했다. 휘청이는 순간, 그는 인간이 된다. 숲에서 인간은 약하다.",
+       "file": "assets/vo/A32/A32_011.opus",
+       "t": 5447.466,
+       "dur": 13.707,
+       "wid": "A32_011",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 93.417,
+     "t1": 122.75,
+     "still": "assets/still/A32/cA32_5.webp",
+     "motion": "push_fast",
+     "action": "철퍽— 휘청이는 순간, 그는 인간이 된다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "김반장은 그 장면을 놓치지 않았다. 폰이 흔들렸지만, 화면엔 분명히 담겼다.",
+       "file": "assets/vo/A32/A32_012.opus",
+       "t": 5464.173,
+       "dur": 6.355,
+       "wid": "A32_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "장갑 낀 손. 철망 케이지. 미끼 통. 그리고 잡아야 돈이 된다는 중얼거림. 아이 앞에서 욕을 뱉는 얼굴.",
+       "file": "assets/vo/A32/A32_013.opus",
+       "t": 5473.528,
+       "dur": 9.754,
+       "wid": "A32_013",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 122.75,
+     "t1": 164.667,
+     "still": "assets/still/A32/cA32_6.webp",
+     "motion": "tilt_down",
+     "action": "불법은 의도로 잡힌다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "불법은 물건만으로 잡히지 않는다. 불법은 의도로 잡힌다. 의도는 말과 표정으로 드러난다.",
+       "file": "assets/vo/A32/A32_014.opus",
+       "t": 5486.282,
+       "dur": 7.556,
+       "wid": "A32_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "김반장이 신고 버튼을 눌렀다. 통화 연결음이 울렸다. 삐— 삐— 그 연결음은 숲에서 이상하게 크게 들렸다. 마치 숲이 함께 신고하는 것처럼.",
+       "file": "assets/vo/A32/A32_015.opus",
+       "t": 5496.838,
+       "dur": 13.736,
+       "wid": "A32_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "포획꾼은 욕을 내뱉었다. 이번엔 다급하고 거친 욕이었다. 다급함은 패배의 냄새다.",
+       "file": "assets/vo/A32/A32_016.opus",
+       "t": 5513.574,
+       "dur": 6.836,
+       "wid": "A32_016",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_LIGHT2"
+     ]
+    }
+   ],
+   "gesture": "hold",
+   "next": "B16-02"
+  },
+  {
+   "beat_id": "B16-02",
+   "chapter": 16,
+   "scene": "A32",
+   "kind": "deduce",
+   "title": "추리판 · 무엇이 그를 끝내나",
+   "pov": "captain",
+   "lens": "board",
+   "weather": "night",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "question": {
+    "id": "QA32_END",
+    "text": "무엇이 그를 끝내나"
+   },
+   "hyps": [
+    {
+     "id": "HA32_RECORD",
+     "line": "의도의 기록이다.",
+     "canon": true,
+     "needs": [
+      "CL_INTENT",
+      "CL_LIGHT2"
+     ],
+     "effect": {
+      "evidence": 1,
+      "tension": -1
+     }
+    },
+    {
+     "id": "HA32_MUD",
+     "line": "진흙이다.",
+     "canon": false,
+     "needs": [
+      "CL_MUD_PIT",
+      "CL_INTENT"
+     ],
+     "effect": {
+      "warmth": 1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_MUD_PIT",
+     "label": "진흙 함정",
+     "kind": "smell",
+     "tone": "#7d6b5a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "경사, 진흙, 물웅덩이.",
+     "kw": "진흙"
+    },
+    {
+     "id": "CL_INTENT",
+     "label": "의도",
+     "kind": "smell",
+     "tone": "#b0444a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "불법은 물건만으로 잡히지 않는다.",
+     "kw": "의도"
+    },
+    {
+     "id": "CL_LIGHT2",
+     "label": "불빛",
+     "kind": "smell",
+     "tone": "#e8e2c8",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "그는 뒤로 물러났다.",
+     "kw": "불빛"
+    }
+   ],
+   "still": "assets/still/A32/cA32_6.webp",
+   "next": "B16-03"
+  },
+  {
+   "beat_id": "B16-03",
+   "chapter": 16,
+   "scene": "A32",
+   "kind": "battle",
+   "title": "대치 · 최종 대치 — 진흙과 기록",
+   "pov": "captain",
+   "lens": "battle",
+   "weather": "night",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "still": "assets/still/A32/cA32_6.webp",
+   "battle": {
+    "id": "BT_A32",
+    "title": "최종 대치 — 진흙과 기록",
+    "mode": "human",
+    "goal": {
+     "type": "evidence",
+     "value": 3,
+     "turns": 7
+    },
+    "warmth": 5,
+    "warmthLoss": 2,
+    "star": true,
+    "allies": [
+     "captain",
+     "kkamang",
+     "nuri"
+    ],
+    "humans": [
+     "kim",
+     "somi"
+    ],
+    "enemy": {
+     "name": "포획꾼",
+     "kind": "human",
+     "tension": 8,
+     "intents": [
+      {
+       "name": "돌진",
+       "text": "그가 진흙을 박차고 달려들었다",
+       "warmth": -1
+      },
+      {
+       "name": "아이 협박",
+       "text": "그가 아이 쪽으로 손을 뻗었다",
+       "breath": -1,
+       "warmth": -1
+      },
+      {
+       "name": "발악",
+       "text": "마지막 발악은 예측 가능했다",
+       "warmth": -2
+      }
+     ]
+    },
+    "skills": [
+     "captain_still",
+     "kim_record",
+     "kim_report",
+     "somi_witness",
+     "nuri_nape_bite"
+    ],
+    "intro": "경사, 진흙, 물웅덩이. 숲의 함정을 우리 편으로.",
+    "win": "철퍽— 휘청이는 순간, 그는 인간이 됐다. 불법은 의도로 잡힌다.",
+    "lose": "불빛이 흔들렸다. 다시, 함정의 자리를 고른다.",
+    "starStage": "eyes_open",
+    "scene": "A32",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_unlock",
+     "kkamang_tail_signal",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "captain_low_tail",
+     "captain_save_breath",
+     "otbit_scout",
+     "otbit_scratch",
+     "otbit_wing",
+     "otbit_herb",
+     "otbit_above",
+     "kim_pry",
+     "kim_baton",
+     "kim_record",
+     "kim_report",
+     "park_hazard",
+     "park_key",
+     "somi_towel",
+     "somi_milk",
+     "somi_witness",
+     "deer_twig",
+     "deer_windbreak",
+     "deer_nape"
+    ]
+   },
+   "next": "B16-04"
+  },
+  {
+   "beat_id": "B16-04",
+   "chapter": 16,
+   "scene": "A32",
+   "kind": "cut",
+   "title": "결과 컷 · 마지막으로 끊어야 할 건, 의도다",
+   "pov": "captain",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A32.mp4",
+    "poster": "assets/cut/A32_poster.webp",
+    "tc_in": 5520.209,
+    "tc_out": 5566.459,
+    "action": "정확하지 않은 불빛 — 그는 끝났다",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "captain",
+      "text": "그는 뒤로 물러났다. 플래시가 흔들렸다. 불빛이 더 이상 정확하지 않았다. 정확하지 않은 불빛은, 그가 이미 끝났다는 뜻이다.",
+      "file": "assets/vo/A32/A32_017.opus",
+      "t": 5523.41,
+      "dur": 10.994,
+      "wid": "A32_017",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "captain",
+      "text": "나는 마지막으로 말했다.",
+      "file": "assets/vo/A32/A32_018.opus",
+      "t": 5537.404,
+      "dur": 1.368,
+      "wid": "A32_018",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "captain",
+      "text": "이제… 끊겼다.",
+      "file": "assets/vo/A32/A32_019.opus",
+      "t": 5541.772,
+      "dur": 1.434,
+      "wid": "A32_019",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "captain",
+      "text": "그 말은 완전한 안전이 아니라, 우리가 지울 수 없는 선을 하나 그었다는 뜻이었다.",
+      "file": "assets/vo/A32/A32_020.opus",
+      "t": 5546.206,
+      "dur": 6.853,
+      "wid": "A32_020",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B16-05"
+  },
+  {
+   "beat_id": "B16-05",
+   "chapter": 16,
+   "scene": "A33",
+   "kind": "explore",
+   "title": "리더의 마지막 임무",
+   "pov": "captain",
+   "lens": "oneeye",
+   "weather": "night",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "clues": [
+    {
+     "id": "CL_VOICE",
+     "label": "녹화 중",
+     "kind": "smell",
+     "tone": "#8ab0a0",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "지금도 녹화 중입니다.",
+     "kw": "녹화"
+    },
+    {
+     "id": "CL_CHILD_WITNESS",
+     "label": "아이",
+     "kind": "smell",
+     "tone": "#e3c25a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "포획꾼의 마지막 발악은 예측 가능했다.",
+     "kw": "아이"
+    },
+    {
+     "id": "CL_EMPTY",
+     "label": "빈 자리",
+     "kind": "smell",
+     "tone": "#dfe9ef",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "리더의 마지막 임무는— 자리를 비우는 것이다.",
+     "kw": "자리"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 20.958,
+     "still": "assets/still/A33/cA33_0.webp",
+     "motion": "pan_lr",
+     "action": "마지막 발악은 예측 가능하다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "포획꾼의 마지막 발악은 예측 가능했다. 그는 물러나는 척하다가, 다시 접근했다. 이번엔 덫도, 미끼도 아니었다. 사람. 아이를 노렸다.",
+       "file": "assets/vo/A33/A33_000.opus",
+       "t": 5568.858,
+       "dur": 11.938,
+       "wid": "A33_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "아이를 흔들면 숲은 흔들린다고 믿는 자의 판단. 나는 그 움직임을 먼저 읽었다. 늙은 몸은 빠르지 않지만, 패턴을 안다.",
+       "file": "assets/vo/A33/A33_001.opus",
+       "t": 5582.967,
+       "dur": 10.652,
+       "wid": "A33_001",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_VOICE"
+     ]
+    },
+    {
+     "t0": 20.958,
+     "t1": 35.042,
+     "still": "assets/still/A33/cA33_1.webp",
+     "motion": "push_in",
+     "action": "늙은 몸은 빠르지 않지만, 패턴을 안다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "소미.",
+       "file": "assets/vo/A33/A33_002.opus",
+       "t": 5596.115,
+       "dur": 0.613,
+       "wid": "A33_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "내가 낮게 불렀다. 소미는 이미 박여사 뒤로 들어가 있었다. 아이의 발이 멈추는 순간, 위기는 반으로 줄어든다.",
+       "file": "assets/vo/A33/A33_003.opus",
+       "t": 5599.008,
+       "dur": 10.176,
+       "wid": "A33_003",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 35.042,
+     "t1": 48.833,
+     "still": "assets/still/A33/cA33_2.webp",
+     "motion": "push_in",
+     "action": "아이의 발이 멈추는 순간, 위기는 반으로",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "포획꾼이 소리를 질렀다.",
+       "file": "assets/vo/A33/A33_004.opus",
+       "t": 5611.355,
+       "dur": 1.502,
+       "wid": "A33_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "villain",
+       "text": "이 동네 다 알아! 나 건드리면 가만 안 둬!",
+       "file": "assets/vo/A33/A33_005.opus",
+       "t": 5613.106,
+       "dur": 4.182,
+       "wid": "A33_005",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 48.833,
+     "t1": 56.5,
+     "still": "assets/still/A33/cA33_3.webp",
+     "motion": "push_fast",
+     "action": "\"이 동네 다 알아!\"",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "협박은 항상 자신을 크게 만든다. 자신이 작아졌다는 증거다. 나는 움직이지 않았다. 움직이지 않는 리더는, 상대를 더 불안하게 만든다.",
+       "file": "assets/vo/A33/A33_006.opus",
+       "t": 5617.516,
+       "dur": 11.945,
+       "wid": "A33_006",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_CHILD_WITNESS"
+     ]
+    },
+    {
+     "t0": 56.5,
+     "t1": 82.792,
+     "still": "assets/still/A33/cA33_4.webp",
+     "motion": "push_fast",
+     "action": "\"여긴 네 동네가 아니다\"",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "나는 그를 똑바로 보며 낮게 말했다.",
+       "file": "assets/vo/A33/A33_007.opus",
+       "t": 5631.632,
+       "dur": 2.286,
+       "wid": "A33_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "여긴 네 동네가 아니다.",
+       "file": "assets/vo/A33/A33_008.opus",
+       "t": 5636.415,
+       "dur": 1.356,
+       "wid": "A33_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "그 말은 그의 귀에 닿지 않았다. 사람의 귀에는 우리 말이 닿지 않으니까. 닿지 않아도, 나는 말해야 했다.",
+       "file": "assets/vo/A33/A33_009.opus",
+       "t": 5640.05,
+       "dur": 8.528,
+       "wid": "A33_009",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 82.792,
+     "t1": 91.542,
+     "still": "assets/still/A33/cA33_5.webp",
+     "motion": "pan_lr",
+     "action": "\"지금도 녹화 중입니다. 아이 협박.\"",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "김반장이 폰을 들고 한 발 더 앞으로 나섰다.",
+       "file": "assets/vo/A33/A33_010.opus",
+       "t": 5650.749,
+       "dur": 3.146,
+       "wid": "A33_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "지금도 녹화 중입니다.",
+       "file": "assets/vo/A33/A33_011.opus",
+       "t": 5656.391,
+       "dur": 1.283,
+       "wid": "A33_011",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 91.542,
+     "t1": 123.167,
+     "still": "assets/still/A33/cA33_6.webp",
+     "motion": "pull_out",
+     "action": "등이 되어 있다",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "아이 협박.",
+       "file": "assets/vo/A33/A33_012.opus",
+       "t": 5659.845,
+       "dur": 0.673,
+       "wid": "A33_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "추가 증거예요.",
+       "file": "assets/vo/A33/A33_013.opus",
+       "t": 5662.689,
+       "dur": 1.006,
+       "wid": "A33_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "그 말이, 포획꾼의 마지막 줄을 끊었다. 그는 더 이상 말을 하지 않았다. 말을 잃는 순간, 싸움은 끝난다.",
+       "file": "assets/vo/A33/A33_014.opus",
+       "t": 5665.974,
+       "dur": 9.309,
+       "wid": "A33_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "나는 무리를 한 번 더 훑었다. 까망— 서 있다. 누리— 작은 점을 지키며 숨을 고르고 있다. 들무리 리더— 경계선을 유지한다. 사람들— 등이 되어 있다.",
+       "file": "assets/vo/A33/A33_015.opus",
+       "t": 5677.454,
+       "dur": 12.816,
+       "wid": "A33_015",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_EMPTY"
+     ]
+    }
+   ],
+   "gesture": "hold",
+   "next": "B16-06"
+  },
+  {
+   "beat_id": "B16-06",
+   "chapter": 16,
+   "scene": "A33",
+   "kind": "battle",
+   "title": "대치 · 등이 되어 있다",
+   "pov": "captain",
+   "lens": "battle",
+   "weather": "night",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "still": "assets/still/A33/cA33_6.webp",
+   "battle": {
+    "id": "BT_A33",
+    "title": "등이 되어 있다",
+    "mode": "human",
+    "goal": {
+     "type": "evidence",
+     "value": 2,
+     "turns": 5
+    },
+    "warmth": 5,
+    "warmthLoss": 1,
+    "star": true,
+    "allies": [
+     "kkamang",
+     "nuri"
+    ],
+    "humans": [
+     "kim",
+     "somi"
+    ],
+    "enemy": {
+     "name": "포획꾼",
+     "kind": "human",
+     "tension": 6,
+     "intents": [
+      {
+       "name": "고함",
+       "text": "\"이 동네 다 알아!\"",
+       "warmth": -1
+      },
+      {
+       "name": "휘두름",
+       "text": "손이 허공을 갈랐다",
+       "breath": -1
+      }
+     ]
+    },
+    "skills": [
+     "captain_empty_seat",
+     "kim_record",
+     "somi_witness",
+     "kkamang_jeong"
+    ],
+    "intro": "리더의 마지막 임무는, 자리를 비우는 것이다.",
+    "win": "등이 되어 있다. 리더 자리가 조용히 바뀌었다.",
+    "lose": "자리가 비지 않았다. 다시, 등을 내준다.",
+    "starStage": "eyes_open",
+    "scene": "A33",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_unlock",
+     "kkamang_tail_signal",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "captain_low_tail",
+     "captain_save_breath",
+     "captain_still",
+     "captain_empty_seat",
+     "otbit_scout",
+     "otbit_scratch",
+     "otbit_wing",
+     "otbit_herb",
+     "otbit_above",
+     "kim_pry",
+     "kim_baton",
+     "kim_record",
+     "kim_report",
+     "park_hazard",
+     "park_key",
+     "somi_towel",
+     "somi_milk",
+     "somi_witness",
+     "deer_twig",
+     "deer_windbreak",
+     "deer_nape"
+    ]
+   },
+   "next": "B16-07"
+  },
+  {
+   "beat_id": "B16-07",
+   "chapter": 16,
+   "scene": "A33",
+   "kind": "cut",
+   "title": "결과 컷 · 리더의 마지막 임무",
+   "pov": "captain",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A33.mp4",
+    "poster": "assets/cut/A33_poster.webp",
+    "tc_in": 5689.625,
+    "tc_out": 5706.791,
+    "action": "리더의 마지막 임무는— 자리를 비우는 것",
+    "motion": "push_in",
+    "subs": [
+     {
+      "speaker": "captain",
+      "text": "그리고 깨달았다. 이제 내가 앞에 있을 필요가 없다.",
+      "file": "assets/vo/A33/A33_016.opus",
+      "t": 5692.441,
+      "dur": 4.072,
+      "wid": "A33_016",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "captain",
+      "text": "리더의 마지막 임무는— 자리를 비우는 것이다.",
+      "file": "assets/vo/A33/A33_017.opus",
+      "t": 5698.684,
+      "dur": 3.607,
+      "wid": "A33_017",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B17-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

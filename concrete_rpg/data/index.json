@@ -1,0 +1,1260 @@
+{
+ "title": "새벽의 냄새길 — 완전판",
+ "version": "1.0",
+ "built": "2026-11-21 11:50",
+ "total_beats": 114,
+ "total_scenes": 41,
+ "chapters": [
+  {
+   "chapter": 0,
+   "label": "서장",
+   "title": "오래된 바다",
+   "act": "1막",
+   "cuesheet": "data/cuesheet/ch00.json",
+   "pov": "캡틴",
+   "scenes": [
+    "00"
+   ],
+   "star_stage": null,
+   "weather": "dawn",
+   "amb": "assets/amb/amb_urban.opus",
+   "beats": [
+    "B00-01",
+    "B00-02",
+    "B00-03"
+   ],
+   "first": "B00-01",
+   "last": "B00-03",
+   "duration": 181.2,
+   "title_card": "캡틴"
+  },
+  {
+   "chapter": 1,
+   "label": "1장",
+   "title": "기다림",
+   "act": "1막",
+   "cuesheet": "data/cuesheet/ch01.json",
+   "pov": "누리",
+   "scenes": [
+    "01",
+    "N02"
+   ],
+   "star_stage": null,
+   "weather": "rain",
+   "amb": "assets/amb/amb_road.opus",
+   "beats": [
+    "B01-01",
+    "B01-02",
+    "B01-03",
+    "B01-04",
+    "B01-05",
+    "B01-06"
+   ],
+   "first": "B01-01",
+   "last": "B01-06",
+   "duration": 309.5,
+   "title_card": "누리"
+  },
+  {
+   "chapter": 2,
+   "label": "2장",
+   "title": "폭풍우와 보일러실",
+   "act": "1막",
+   "cuesheet": "data/cuesheet/ch02.json",
+   "pov": "까망",
+   "scenes": [
+    "N03"
+   ],
+   "star_stage": null,
+   "weather": "storm",
+   "amb": "assets/amb/amb_storm.opus",
+   "beats": [
+    "B02-01",
+    "B02-02",
+    "B02-03",
+    "B02-04"
+   ],
+   "first": "B02-01",
+   "last": "B02-04",
+   "duration": 187.9,
+   "title_card": "까망"
+  },
+  {
+   "chapter": 3,
+   "label": "3장",
+   "title": "콤비의 탄생",
+   "act": "1막",
+   "cuesheet": "data/cuesheet/ch03.json",
+   "pov": "누리",
+   "scenes": [
+    "N04"
+   ],
+   "star_stage": null,
+   "weather": "night",
+   "amb": "assets/amb/amb_market.opus",
+   "beats": [
+    "B03-01",
+    "B03-02",
+    "B03-03",
+    "B03-04"
+   ],
+   "first": "B03-01",
+   "last": "B03-04",
+   "duration": 220.0,
+   "title_card": "누리"
+  },
+  {
+   "chapter": 4,
+   "label": "4장",
+   "title": "노란 손수건",
+   "act": "1막",
+   "cuesheet": "data/cuesheet/ch04.json",
+   "pov": "소미",
+   "scenes": [
+    "03",
+    "N06",
+    "N07"
+   ],
+   "star_stage": null,
+   "weather": "night",
+   "amb": "assets/amb/amb_urban.opus",
+   "beats": [
+    "B04-01",
+    "B04-02",
+    "B04-03",
+    "B04-04",
+    "B04-05",
+    "B04-06",
+    "B04-07",
+    "B04-08"
+   ],
+   "first": "B04-01",
+   "last": "B04-08",
+   "duration": 584.8,
+   "title_card": "소미"
+  },
+  {
+   "chapter": 5,
+   "label": "5장",
+   "title": "나비의 기억",
+   "act": "1막",
+   "cuesheet": "data/cuesheet/ch05.json",
+   "pov": "김반장",
+   "scenes": [
+    "04",
+    "N09"
+   ],
+   "star_stage": null,
+   "weather": "rain",
+   "amb": "assets/amb/amb_urban.opus",
+   "beats": [
+    "B05-01",
+    "B05-02",
+    "B05-03",
+    "B05-04",
+    "B05-05"
+   ],
+   "first": "B05-01",
+   "last": "B05-05",
+   "duration": 354.9,
+   "title_card": "김반장"
+  },
+  {
+   "chapter": 6,
+   "label": "6장",
+   "title": "붉은 현수막",
+   "act": "1막",
+   "cuesheet": "data/cuesheet/ch06.json",
+   "pov": "까망",
+   "scenes": [
+    "N10",
+    "N11"
+   ],
+   "star_stage": "eyes_shut",
+   "weather": "dust",
+   "amb": "assets/amb/amb_demo.opus",
+   "beats": [
+    "B06-01",
+    "B06-02",
+    "B06-03",
+    "B06-04",
+    "B06-05",
+    "B06-06"
+   ],
+   "first": "B06-01",
+   "last": "B06-06",
+   "duration": 300.9,
+   "title_card": "까망"
+  },
+  {
+   "chapter": 7,
+   "label": "7장",
+   "title": "최후의 회의",
+   "act": "1막",
+   "cuesheet": "data/cuesheet/ch07.json",
+   "pov": "캡틴",
+   "scenes": [
+    "N12",
+    "06"
+   ],
+   "star_stage": "eyes_shut",
+   "weather": "night",
+   "amb": "assets/amb/amb_urban.opus",
+   "beats": [
+    "B07-01",
+    "B07-02",
+    "B07-03",
+    "B07-04",
+    "B07-05",
+    "B07-06"
+   ],
+   "first": "B07-01",
+   "last": "B07-06",
+   "duration": 301.5,
+   "title_card": "캡틴"
+  },
+  {
+   "chapter": 8,
+   "label": "8장",
+   "title": "하수구와 빛의 강",
+   "act": "1막",
+   "cuesheet": "data/cuesheet/ch08.json",
+   "pov": "캡틴",
+   "scenes": [
+    "09",
+    "N15",
+    "10"
+   ],
+   "star_stage": "eyes_shut",
+   "weather": "night",
+   "amb": "assets/amb/amb_sewer.opus",
+   "beats": [
+    "B08-01",
+    "B08-02",
+    "B08-03",
+    "B08-04",
+    "B08-05",
+    "B08-06",
+    "B08-07",
+    "B08-08",
+    "B08-09",
+    "B08-10"
+   ],
+   "first": "B08-01",
+   "last": "B08-10",
+   "duration": 509.8,
+   "title_card": "캡틴"
+  },
+  {
+   "chapter": 9,
+   "label": "9장",
+   "title": "포획틀",
+   "act": "1막",
+   "cuesheet": "data/cuesheet/ch09.json",
+   "pov": "까망",
+   "scenes": [
+    "11",
+    "N18",
+    "12"
+   ],
+   "star_stage": "eyes_shut",
+   "weather": "night",
+   "amb": "assets/amb/amb_park.opus",
+   "beats": [
+    "B09-01",
+    "B09-02",
+    "B09-03",
+    "B09-04",
+    "B09-05",
+    "B09-06",
+    "B09-07",
+    "B09-08",
+    "B09-09",
+    "B09-10"
+   ],
+   "first": "B09-01",
+   "last": "B09-10",
+   "duration": 412.1,
+   "title_card": "까망"
+  },
+  {
+   "chapter": 10,
+   "label": "10장",
+   "title": "잊혀진 공원",
+   "act": "1막",
+   "cuesheet": "data/cuesheet/ch10.json",
+   "pov": "누리",
+   "scenes": [
+    "N20"
+   ],
+   "star_stage": "cant_walk",
+   "weather": "dawn",
+   "amb": "assets/amb/amb_park.opus",
+   "beats": [
+    "B10-01",
+    "B10-02"
+   ],
+   "first": "B10-01",
+   "last": "B10-02",
+   "duration": 134.2,
+   "title_card": "누리"
+  },
+  {
+   "chapter": 11,
+   "label": "11장",
+   "title": "숲의 침묵",
+   "act": "2막",
+   "cuesheet": "data/cuesheet/ch11.json",
+   "pov": "",
+   "scenes": [
+    "X",
+    "A21",
+    "A22"
+   ],
+   "star_stage": "cant_walk",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "beats": [
+    "B11-01",
+    "B11-02",
+    "B11-03",
+    "B11-04",
+    "B11-05",
+    "B11-06",
+    "B11-07"
+   ],
+   "first": "B11-01",
+   "last": "B11-07",
+   "duration": 301.9,
+   "title_card": ""
+  },
+  {
+   "chapter": 12,
+   "label": "12장",
+   "title": "협상",
+   "act": "2막",
+   "cuesheet": "data/cuesheet/ch12.json",
+   "pov": "캡틴",
+   "scenes": [
+    "A23",
+    "A24"
+   ],
+   "star_stage": "cant_walk",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "beats": [
+    "B12-01",
+    "B12-02",
+    "B12-03",
+    "B12-04",
+    "B12-05",
+    "B12-06"
+   ],
+   "first": "B12-01",
+   "last": "B12-06",
+   "duration": 271.6,
+   "title_card": "캡틴"
+  },
+  {
+   "chapter": 13,
+   "label": "13장",
+   "title": "폭우",
+   "act": "2막",
+   "cuesheet": "data/cuesheet/ch13.json",
+   "pov": "누리",
+   "scenes": [
+    "A25",
+    "A26",
+    "A27"
+   ],
+   "star_stage": "cant_walk",
+   "weather": "storm",
+   "amb": "assets/amb/amb_storm.opus",
+   "beats": [
+    "B13-01",
+    "B13-02",
+    "B13-03",
+    "B13-04",
+    "B13-05",
+    "B13-06",
+    "B13-07"
+   ],
+   "first": "B13-01",
+   "last": "B13-07",
+   "duration": 554.5,
+   "title_card": "누리"
+  },
+  {
+   "chapter": 14,
+   "label": "14장",
+   "title": "숲으로 들어오는 발",
+   "act": "2막",
+   "cuesheet": "data/cuesheet/ch14.json",
+   "pov": "김반장",
+   "scenes": [
+    "A28",
+    "A29",
+    "A30"
+   ],
+   "star_stage": "leg_move",
+   "weather": "overcast",
+   "amb": "assets/amb/amb_forest_day.opus",
+   "beats": [
+    "B14-01",
+    "B14-02",
+    "B14-03",
+    "B14-04",
+    "B14-05",
+    "B14-06",
+    "B14-07",
+    "B14-08"
+   ],
+   "first": "B14-01",
+   "last": "B14-08",
+   "duration": 559.9,
+   "title_card": "김반장"
+  },
+  {
+   "chapter": 15,
+   "label": "15장",
+   "title": "체온 릴레이",
+   "act": "2막",
+   "cuesheet": "data/cuesheet/ch15.json",
+   "pov": "누리",
+   "scenes": [
+    "A31"
+   ],
+   "star_stage": "leg_move",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "beats": [
+    "B15-01",
+    "B15-02",
+    "B15-03"
+   ],
+   "first": "B15-01",
+   "last": "B15-03",
+   "duration": 156.1,
+   "title_card": "누리"
+  },
+  {
+   "chapter": 16,
+   "label": "16장",
+   "title": "의도를 끊다",
+   "act": "2막",
+   "cuesheet": "data/cuesheet/ch16.json",
+   "pov": "캡틴",
+   "scenes": [
+    "A32",
+    "A33"
+   ],
+   "star_stage": "eyes_open",
+   "weather": "night",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "beats": [
+    "B16-01",
+    "B16-02",
+    "B16-03",
+    "B16-04",
+    "B16-05",
+    "B16-06",
+    "B16-07"
+   ],
+   "first": "B16-01",
+   "last": "B16-07",
+   "duration": 351.2,
+   "title_card": "캡틴"
+  },
+  {
+   "chapter": 17,
+   "label": "17장",
+   "title": "이름",
+   "act": "2막",
+   "cuesheet": "data/cuesheet/ch17.json",
+   "pov": "누리",
+   "scenes": [
+    "A34",
+    "A35",
+    "A36",
+    "A37"
+   ],
+   "star_stage": "eyes_open",
+   "weather": "dawn",
+   "amb": "assets/amb/amb_forest_day.opus",
+   "beats": [
+    "B17-01",
+    "B17-02",
+    "B17-03",
+    "B17-04",
+    "B17-05",
+    "B17-06",
+    "B17-07",
+    "B17-08"
+   ],
+   "first": "B17-01",
+   "last": "B17-08",
+   "duration": 363.8,
+   "title_card": "누리"
+  },
+  {
+   "chapter": 18,
+   "label": "종장",
+   "title": "일 년 뒤",
+   "act": "종장",
+   "cuesheet": "data/cuesheet/ch18.json",
+   "pov": "소미",
+   "scenes": [
+    "A38",
+    "A39"
+   ],
+   "star_stage": "standing",
+   "weather": "dawn",
+   "amb": "assets/amb/amb_park.opus",
+   "beats": [
+    "B18-01",
+    "B18-02",
+    "B18-03",
+    "B18-04"
+   ],
+   "first": "B18-01",
+   "last": "B18-04",
+   "duration": 203.5,
+   "title_card": "소미"
+  }
+ ],
+ "scenes": [
+  {
+   "scene": "00",
+   "title": "오래된 바다",
+   "pov": "captain",
+   "lens": "oneeye",
+   "timeline_title": "오래된 바다",
+   "start": 15.0,
+   "dur": 181.208,
+   "shots": 5,
+   "clues": [
+    "SM_OIL",
+    "SM_SOUR",
+    "SM_WET",
+    "SM_SOAP",
+    "OB_TAIL",
+    "OB_POSTURE"
+   ],
+   "has_deduce": true,
+   "has_battle": false
+  },
+  {
+   "scene": "01",
+   "title": "누리의 기다림",
+   "pov": "nuri",
+   "lens": "strand",
+   "timeline_title": "누리의 기다림",
+   "start": 196.208,
+   "dur": 157.208,
+   "shots": 4,
+   "clues": [
+    "CL_OWNER_STEP",
+    "CL_CAR_DOOR",
+    "CL_HAND_CREAM"
+   ],
+   "has_deduce": true,
+   "has_battle": false
+  },
+  {
+   "scene": "N02",
+   "title": "골목의 여왕",
+   "pov": "kkamang",
+   "lens": "high",
+   "timeline_title": "골목의 여왕",
+   "start": 353.417,
+   "dur": 152.25,
+   "shots": 4,
+   "clues": [
+    "CL_RAIN_WALL",
+    "CL_LOW_TAIL",
+    "CL_JEONG_EYE"
+   ],
+   "has_deduce": false,
+   "has_battle": true
+  },
+  {
+   "scene": "N03",
+   "title": "폭풍우와 보일러실",
+   "pov": "kkamang",
+   "lens": "high",
+   "timeline_title": "폭풍우와 보일러실",
+   "start": 505.667,
+   "dur": 187.875,
+   "shots": 5,
+   "clues": [
+    "CL_BOILER_OIL",
+    "CL_WARM_VENT",
+    "CL_WET_FUR"
+   ],
+   "has_deduce": true,
+   "has_battle": true
+  },
+  {
+   "scene": "N04",
+   "title": "콤비의 탄생",
+   "pov": "nuri",
+   "lens": "strand",
+   "timeline_title": "콤비의 탄생",
+   "start": 693.542,
+   "dur": 219.958,
+   "shots": 7,
+   "clues": [
+    "CL_FISH",
+    "CL_SHOP_HAND",
+    "CL_DOG_TURF"
+   ],
+   "has_deduce": true,
+   "has_battle": true
+  },
+  {
+   "scene": "03",
+   "title": "사료 그릇과 노란 손수건",
+   "pov": "somi",
+   "lens": "text",
+   "timeline_title": "사료 그릇과 노란 손수건",
+   "start": 913.5,
+   "dur": 191.375,
+   "shots": 5,
+   "clues": [
+    "CL_TOWEL",
+    "CL_BOWL",
+    "CL_EAR_MARK"
+   ],
+   "has_deduce": true,
+   "has_battle": false
+  },
+  {
+   "scene": "N06",
+   "title": "집중 포획 공고",
+   "pov": "captain",
+   "lens": "oneeye",
+   "timeline_title": "집중 포획 공고",
+   "start": 1104.875,
+   "dur": 176.0,
+   "shots": 4,
+   "clues": [
+    "CL_INK",
+    "CL_NEW_MONEY",
+    "CL_STEEL"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "N07",
+   "title": "크레파스 포스터",
+   "pov": "somi",
+   "lens": "text",
+   "timeline_title": "크레파스 포스터",
+   "start": 1280.875,
+   "dur": 217.417,
+   "shots": 11,
+   "clues": [
+    "CL_CRAYON",
+    "CL_TAPE",
+    "CL_ELEVEN"
+   ],
+   "has_deduce": true,
+   "has_battle": false
+  },
+  {
+   "scene": "04",
+   "title": "깨진 그릇과 나비의 기억",
+   "pov": "kim",
+   "lens": "text",
+   "timeline_title": "깨진 그릇과 나비의 기억",
+   "start": 1498.292,
+   "dur": 146.625,
+   "shots": 4,
+   "clues": [
+    "CL_BROKEN_BOWL",
+    "CL_BRAKE",
+    "CL_NABI_HAIR"
+   ],
+   "has_deduce": true,
+   "has_battle": false
+  },
+  {
+   "scene": "N09",
+   "title": "그림 한 장, 그리고 급식소",
+   "pov": "kim",
+   "lens": "text",
+   "timeline_title": "그림 한 장, 그리고 급식소",
+   "start": 1644.917,
+   "dur": 208.25,
+   "shots": 5,
+   "clues": [
+    "CL_WOOD",
+    "CL_HAMMER",
+    "CL_OLD_PHOTO"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "N10",
+   "title": "붉은 현수막",
+   "pov": "kkamang",
+   "lens": "high",
+   "timeline_title": "붉은 현수막",
+   "start": 1853.167,
+   "dur": 136.458,
+   "shots": 4,
+   "clues": [
+    "CL_RED",
+    "CL_DUST",
+    "CL_CRANE"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "N11",
+   "title": "부서지는 골목",
+   "pov": "nuri",
+   "lens": "strand",
+   "timeline_title": "부서지는 골목",
+   "start": 1989.625,
+   "dur": 164.458,
+   "shots": 5,
+   "clues": [
+    "CL_KITTEN",
+    "CL_LACQUER",
+    "CL_LULLABY"
+   ],
+   "has_deduce": true,
+   "has_battle": true
+  },
+  {
+   "scene": "N12",
+   "title": "최후의 회의",
+   "pov": "captain",
+   "lens": "oneeye",
+   "timeline_title": "최후의 회의",
+   "start": 2154.083,
+   "dur": 189.75,
+   "shots": 5,
+   "clues": [
+    "CL_SEWER_WATER",
+    "CL_ROAD_OIL",
+    "CL_ASH_FEATHER"
+   ],
+   "has_deduce": true,
+   "has_battle": true
+  },
+  {
+   "scene": "06",
+   "title": "꼬리의 언어와 이동 준비",
+   "pov": "nuri",
+   "lens": "strand",
+   "timeline_title": "꼬리의 언어와 이동 준비",
+   "start": 2343.833,
+   "dur": 111.75,
+   "shots": 4,
+   "clues": [
+    "CL_WHISTLE",
+    "CL_LIGHT3",
+    "CL_TUK"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "09",
+   "title": "하수구 침투 작전",
+   "pov": "captain",
+   "lens": "oneeye",
+   "timeline_title": "하수구 침투 작전",
+   "start": 2455.583,
+   "dur": 173.875,
+   "shots": 4,
+   "clues": [
+    "CL_DRIP",
+    "CL_IRON",
+    "CL_RATS"
+   ],
+   "has_deduce": true,
+   "has_battle": true
+  },
+  {
+   "scene": "N15",
+   "title": "인간 방패",
+   "pov": "kim",
+   "lens": "text",
+   "timeline_title": "인간 방패",
+   "start": 2629.458,
+   "dur": 196.333,
+   "shots": 6,
+   "clues": [
+    "CL_BATON",
+    "CL_HAZARD",
+    "CL_LANES"
+   ],
+   "has_deduce": false,
+   "has_battle": true
+  },
+  {
+   "scene": "10",
+   "title": "도로 횡단과 캡틴 구출",
+   "pov": "nuri",
+   "lens": "strand",
+   "timeline_title": "도로 횡단과 캡틴 구출",
+   "start": 2825.792,
+   "dur": 139.542,
+   "shots": 5,
+   "clues": [
+    "CL_HEADLIGHT",
+    "CL_WET_ASPHALT",
+    "CL_KIM_SWEAT"
+   ],
+   "has_deduce": false,
+   "has_battle": true
+  },
+  {
+   "scene": "11",
+   "title": "포획틀 잠금 해제",
+   "pov": "kkamang",
+   "lens": "high",
+   "timeline_title": "포획틀 잠금 해제",
+   "start": 2965.333,
+   "dur": 125.708,
+   "shots": 4,
+   "clues": [
+    "CL_TUNA",
+    "CL_RUBBER",
+    "CL_CLICK"
+   ],
+   "has_deduce": true,
+   "has_battle": false
+  },
+  {
+   "scene": "N18",
+   "title": "잿빛의 공중전",
+   "pov": "otbit",
+   "lens": "aerial",
+   "timeline_title": "잿빛의 공중전",
+   "start": 3091.042,
+   "dur": 153.458,
+   "shots": 6,
+   "clues": [
+    "CL_WIRE",
+    "CL_GLOVE",
+    "CL_SHADOW"
+   ],
+   "has_deduce": false,
+   "has_battle": true
+  },
+  {
+   "scene": "12",
+   "title": "인간들의 대치",
+   "pov": "kim",
+   "lens": "text",
+   "timeline_title": "인간들의 대치",
+   "start": 3244.5,
+   "dur": 132.917,
+   "shots": 4,
+   "clues": [
+    "CL_PHONE",
+    "CL_PLATE",
+    "CL_CHILD"
+   ],
+   "has_deduce": true,
+   "has_battle": true
+  },
+  {
+   "scene": "N20",
+   "title": "잊혀진 공원",
+   "pov": "nuri",
+   "lens": "strand",
+   "timeline_title": "잊혀진 공원",
+   "start": 3377.417,
+   "dur": 134.208,
+   "shots": 5,
+   "clues": [
+    "CL_IVY",
+    "CL_SPRING",
+    "CL_SALT"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "X",
+   "title": "막간 · 2막 숲의 시험",
+   "pov": "narrator",
+   "lens": "intermission",
+   "timeline_title": "2막 · 숲의 시험",
+   "start": 3511.625,
+   "dur": 24.417,
+   "shots": 3,
+   "clues": [],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "A21",
+   "title": "숲은 말을 하지 않는다",
+   "pov": "kkamang",
+   "lens": "high",
+   "timeline_title": "숲은 말을 하지 않는다",
+   "start": 3536.042,
+   "dur": 139.417,
+   "shots": 6,
+   "clues": [
+    "CL_URINE",
+    "CL_BOUNDARY",
+    "CL_ANTLER"
+   ],
+   "has_deduce": true,
+   "has_battle": true
+  },
+  {
+   "scene": "A22",
+   "title": "아픈 냄새는 울지 않는다",
+   "pov": "nuri",
+   "lens": "strand",
+   "timeline_title": "아픈 냄새는 울지 않는다",
+   "start": 3675.458,
+   "dur": 138.083,
+   "shots": 7,
+   "clues": [
+    "CL_FEVER",
+    "CL_HERB",
+    "CL_STAR"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "A23",
+   "title": "협상은 싸움보다 오래 남는다",
+   "pov": "captain",
+   "lens": "oneeye",
+   "timeline_title": "협상은 싸움보다 오래 남는다",
+   "start": 3813.542,
+   "dur": 165.167,
+   "shots": 7,
+   "clues": [
+    "CL_STEEL_TRAP",
+    "CL_BAIT",
+    "CL_TRACK"
+   ],
+   "has_deduce": true,
+   "has_battle": true
+  },
+  {
+   "scene": "A24",
+   "title": "폭우 전야, 숲은 숨을 고른다",
+   "pov": "kkamang",
+   "lens": "high",
+   "timeline_title": "폭우 전야, 숲은 숨을 고른다",
+   "start": 3978.708,
+   "dur": 106.417,
+   "shots": 6,
+   "clues": [
+    "CL_LOW_GROUND",
+    "CL_CLOUD",
+    "CL_ENGINE"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "A25",
+   "title": "비는 떨어지는 게 아니라, 덮쳐온다",
+   "pov": "nuri",
+   "lens": "strand",
+   "timeline_title": "비는 떨어지는 게 아니라, 덮쳐온다",
+   "start": 4085.125,
+   "dur": 165.792,
+   "shots": 8,
+   "clues": [
+    "CL_WATER_SOUND",
+    "CL_MUD",
+    "CL_ROPE"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "A26",
+   "title": "구조는 영웅이 아니라, 순서가 한다",
+   "pov": "captain",
+   "lens": "oneeye",
+   "timeline_title": "구조는 영웅이 아니라, 순서가 한다",
+   "start": 4250.917,
+   "dur": 256.167,
+   "shots": 10,
+   "clues": [
+    "CL_DROWN",
+    "CL_ROCK",
+    "CL_ORDER"
+   ],
+   "has_deduce": false,
+   "has_battle": true
+  },
+  {
+   "scene": "A27",
+   "title": "흔들리는 체온을 붙잡는 건 손이다",
+   "pov": "kkamang",
+   "lens": "high",
+   "timeline_title": "흔들리는 체온을 붙잡는 건 손이다",
+   "start": 4507.083,
+   "dur": 132.5,
+   "shots": 7,
+   "clues": [
+    "CL_HEADLAMP",
+    "CL_RUBBER2",
+    "CL_SORRY"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "A28",
+   "title": "숲으로 들어오는 발은 마음을 따라온다",
+   "pov": "kim",
+   "lens": "text",
+   "timeline_title": "숲으로 들어오는 발은 마음을 따라온다",
+   "start": 4639.583,
+   "dur": 233.583,
+   "shots": 8,
+   "clues": [
+    "CL_MUD_PATH",
+    "CL_SLOPE",
+    "CL_PUDDLE"
+   ],
+   "has_deduce": true,
+   "has_battle": false
+  },
+  {
+   "scene": "A29",
+   "title": "덫이 있는 땅, 덫이 없는 땅",
+   "pov": "kkamang",
+   "lens": "high",
+   "timeline_title": "덫이 있는 땅, 덫이 없는 땅",
+   "start": 4873.167,
+   "dur": 154.75,
+   "shots": 8,
+   "clues": [
+    "CL_NO_TRAP",
+    "CL_TWIG2",
+    "CL_STOP"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "A30",
+   "title": "기록은 칼이 아니라, 문을 여는 열쇠다",
+   "pov": "kim",
+   "lens": "text",
+   "timeline_title": "기록은 칼이 아니라, 문을 여는 열쇠다",
+   "start": 5027.917,
+   "dur": 171.542,
+   "shots": 7,
+   "clues": [
+    "CL_PLATE2",
+    "CL_WAVE",
+    "CL_CHILD2"
+   ],
+   "has_deduce": false,
+   "has_battle": true
+  },
+  {
+   "scene": "A31",
+   "title": "체온 릴레이, 살아 있음은 나눔이다",
+   "pov": "nuri",
+   "lens": "strand",
+   "timeline_title": "체온 릴레이, 살아 있음은 나눔이다",
+   "start": 5199.458,
+   "dur": 156.083,
+   "shots": 7,
+   "clues": [
+    "CL_BREATH",
+    "CL_BLANKET",
+    "CL_WIND"
+   ],
+   "has_deduce": false,
+   "has_battle": true
+  },
+  {
+   "scene": "A32",
+   "title": "마지막으로 끊어야 할 건, 의도다",
+   "pov": "captain",
+   "lens": "oneeye",
+   "timeline_title": "마지막으로 끊어야 할 건, 의도다",
+   "start": 5355.542,
+   "dur": 210.917,
+   "shots": 8,
+   "clues": [
+    "CL_MUD_PIT",
+    "CL_INTENT",
+    "CL_LIGHT2"
+   ],
+   "has_deduce": true,
+   "has_battle": true
+  },
+  {
+   "scene": "A33",
+   "title": "리더의 마지막 임무",
+   "pov": "captain",
+   "lens": "oneeye",
+   "timeline_title": "리더의 마지막 임무는, 자리를 비우는 것이다",
+   "start": 5566.458,
+   "dur": 140.333,
+   "shots": 8,
+   "clues": [
+    "CL_VOICE",
+    "CL_CHILD_WITNESS",
+    "CL_EMPTY"
+   ],
+   "has_deduce": false,
+   "has_battle": true
+  },
+  {
+   "scene": "A34",
+   "title": "이름은 살아남은 뒤에 온다",
+   "pov": "nuri",
+   "lens": "strand",
+   "timeline_title": "이름은 살아남은 뒤에 온다",
+   "start": 5706.792,
+   "dur": 90.25,
+   "shots": 6,
+   "clues": [
+    "CL_EYE_LIGHT",
+    "CL_MILK",
+    "CL_NAME"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "A35",
+   "title": "공존은 선언이 아니라, 거리다",
+   "pov": "kkamang",
+   "lens": "high",
+   "timeline_title": "공존은 선언이 아니라, 거리다",
+   "start": 5797.042,
+   "dur": 95.208,
+   "shots": 6,
+   "clues": [
+    "CL_DISTANCE",
+    "CL_RULE",
+    "CL_BOUNDARY2"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "A36",
+   "title": "문을 여는 사람",
+   "pov": "kim",
+   "lens": "text",
+   "timeline_title": "문을 지키는 사람에서, 문을 여는 사람으로",
+   "start": 5892.25,
+   "dur": 75.5,
+   "shots": 6,
+   "clues": [
+    "CL_CALL",
+    "CL_DOOR",
+    "CL_BADGE"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "A37",
+   "title": "깃발은 내려오고, 표지가 된다",
+   "pov": "somi",
+   "lens": "text",
+   "timeline_title": "깃발은 내려오고, 표지가 된다",
+   "start": 5967.75,
+   "dur": 102.875,
+   "shots": 7,
+   "clues": [
+    "CL_FLAG",
+    "CL_STAR_NAME",
+    "CL_WINDOW"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "A38",
+   "title": "일 년 뒤, 봄방학",
+   "pov": "somi",
+   "lens": "text",
+   "timeline_title": "일 년 뒤, 봄방학",
+   "start": 6070.625,
+   "dur": 121.875,
+   "shots": 7,
+   "clues": [
+    "CL_TOWEL_WINDOW",
+    "CL_YEAR",
+    "CL_SCHOOL"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  },
+  {
+   "scene": "A39",
+   "title": "다시 이어지는 약속",
+   "pov": "somi",
+   "lens": "text",
+   "timeline_title": "다시 이어지는 약속",
+   "start": 6192.5,
+   "dur": 81.625,
+   "shots": 3,
+   "clues": [
+    "CL_FOOTPRINT",
+    "CL_GAP",
+    "CL_NEXT"
+   ],
+   "has_deduce": false,
+   "has_battle": false
+  }
+ ],
+ "star_stages": [
+  {
+   "id": "eyes_shut",
+   "name": "눈 붙음",
+   "loss": 1.5,
+   "line": "손바닥만 한 몸이 손수건 안에서 파르르 떨었다."
+  },
+  {
+   "id": "cant_walk",
+   "name": "아직 못 걸음",
+   "loss": 1.3,
+   "line": "아직 걷지 못한다. 안고 옮겨야 한다."
+  },
+  {
+   "id": "leg_move",
+   "name": "발을 한 번 움직임",
+   "loss": 1.1,
+   "line": "발이 한 번, 아주 작게 움직였다."
+  },
+  {
+   "id": "eyes_open",
+   "name": "눈 갈라짐",
+   "loss": 0.9,
+   "line": "반쯤 뜬 눈. 그 빛 속에 내가 있었다."
+  },
+  {
+   "id": "standing",
+   "name": "눈 뜸",
+   "loss": 0.7,
+   "line": "이제는, 자기 발로 선다."
+  }
+ ],
+ "deploy": {
+  "url": "https://kthsp01a.github.io/kthsp1/concrete_rpg/",
+  "branch": "gh-pages",
+  "dir": "concrete_rpg/"
+ }
+}

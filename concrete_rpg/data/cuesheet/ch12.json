@@ -1,0 +1,831 @@
+{
+ "cuesheet_id": "cj_ch12_v37",
+ "chapter_no": 12,
+ "label": "12장",
+ "title": "협상",
+ "act": "2막",
+ "pov": "캡틴",
+ "star_stage": "cant_walk",
+ "amb": "assets/amb/amb_forest_night.opus",
+ "weather": "fog",
+ "scenes": [
+  "A23",
+  "A24"
+ ],
+ "beats": [
+  {
+   "beat_id": "B12-01",
+   "chapter": 12,
+   "scene": "A23",
+   "kind": "explore",
+   "title": "협상은 싸움보다 오래 남는다",
+   "pov": "captain",
+   "lens": "oneeye",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "clues": [
+    {
+     "id": "CL_STEEL_TRAP",
+     "label": "쇠 냄새",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "덫.",
+     "kw": "덫"
+    },
+    {
+     "id": "CL_BAIT",
+     "label": "참치 미끼",
+     "kind": "smell",
+     "tone": "#c98a6a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "덫은 물길 옆에 있었다.",
+     "kw": "미끼"
+    },
+    {
+     "id": "CL_TRACK",
+     "label": "발자국",
+     "kind": "smell",
+     "tone": "#8a7d6d",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "발자국"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 30.958,
+     "still": "assets/still/A23/cA23_0.webp",
+     "motion": "push_in",
+     "action": "약초를 물고 돌아온 잿빛",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "잿빛이 돌아왔다. 입에 풀뿌리를 물고 있었다. 쓴 냄새. 약초다.",
+       "file": "assets/vo/A23/A23_000.opus",
+       "t": 3815.942,
+       "dur": 6.012,
+       "wid": "A23_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "나는 고개를 끄덕였다.",
+       "file": "assets/vo/A23/A23_001.opus",
+       "t": 3824.301,
+       "dur": 1.317,
+       "wid": "A23_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "오늘 밤은 넘긴다.",
+       "file": "assets/vo/A23/A23_002.opus",
+       "t": 3828.283,
+       "dur": 1.154,
+       "wid": "A23_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "숨을 고르는 밤도 전투의 일부다.",
+       "file": "assets/vo/A23/A23_003.opus",
+       "t": 3831.89,
+       "dur": 2.259,
+       "wid": "A23_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "그때 들무리가 다시 나타났다. 이번엔 거리부터 달랐다. 한 걸음 더 가까웠다.",
+       "file": "assets/vo/A23/A23_004.opus",
+       "t": 3837.149,
+       "dur": 6.297,
+       "wid": "A23_004",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_STEEL_TRAP"
+     ]
+    },
+    {
+     "t0": 30.958,
+     "t1": 51.792,
+     "still": "assets/still/A23/cA23_1.webp",
+     "motion": "pan_lr",
+     "action": "숲의 협상은 시간으로 평가된다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "숲의 협상은 시간으로 평가된다. 가까워지는 것은 아직 적이 아니라는 뜻이고, 너무 가까워지면 그건 사냥이다.",
+       "file": "assets/vo/A23/A23_005.opus",
+       "t": 3845.792,
+       "dur": 9.434,
+       "wid": "A23_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "바람이 바뀌었다. 쇠 냄새. 아주 희미하지만, 분명한 냄새.",
+       "file": "assets/vo/A23/A23_006.opus",
+       "t": 3857.573,
+       "dur": 5.157,
+       "wid": "A23_006",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 51.792,
+     "t1": 61.875,
+     "still": "assets/still/A23/cA23_2.webp",
+     "motion": "push_fast",
+     "action": "\"덫\" — 쇠 냄새",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "덫.",
+       "file": "assets/vo/A23/A23_007.opus",
+       "t": 3865.395,
+       "dur": 0.287,
+       "wid": "A23_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "들무리의 리더도 알아차렸다. 귀가 뒤로 젖고, 목덜미의 털이 곤두섰다.",
+       "file": "assets/vo/A23/A23_008.opus",
+       "t": 3865.982,
+       "dur": 5.815,
+       "wid": "A23_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "숲의 적은 늘 둘 중 하나다. 굶주림, 혹은 인간. 오늘은 인간이었다.",
+       "file": "assets/vo/A23/A23_009.opus",
+       "t": 3874.144,
+       "dur": 6.382,
+       "wid": "A23_009",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_BAIT"
+     ]
+    },
+    {
+     "t0": 61.875,
+     "t1": 80.75,
+     "still": "assets/still/A23/cA23_3.webp",
+     "motion": "push_in",
+     "action": "물길 옆의 덫 — 철사 냄새가 땅을 긁는다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "나는 말했다.",
+       "file": "assets/vo/A23/A23_010.opus",
+       "t": 3882.872,
+       "dur": 0.87,
+       "wid": "A23_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "함께 막자.",
+       "file": "assets/vo/A23/A23_011.opus",
+       "t": 3886.408,
+       "dur": 0.928,
+       "wid": "A23_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "짧은 제안. 숲에서는 그걸로 충분하다.",
+       "file": "assets/vo/A23/A23_012.opus",
+       "t": 3889.788,
+       "dur": 3.255,
+       "wid": "A23_012",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 80.75,
+     "t1": 116.583,
+     "still": "assets/still/A23/cA23_4.webp",
+     "motion": "pan_fast",
+     "action": "찰칵— 소리가 났다. 시선이 쏠린다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "들무리의 리더가 망설였다. 망설임은 신뢰의 시작이다. 신뢰는 늘, 의심이 먼저 멈춘 자리에서 태어난다.",
+       "file": "assets/vo/A23/A23_013.opus",
+       "t": 3895.39,
+       "dur": 9.306,
+       "wid": "A23_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "덫은 물길 옆에 있었다. 철사 냄새가 땅을 긁고 있었다. 미끼는 말라붙은 생선이었다.",
+       "file": "assets/vo/A23/A23_014.opus",
+       "t": 3907.043,
+       "dur": 7.459,
+       "wid": "A23_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "까망이 앞발을 넣어 잠금장치를 만졌다. 들무리의 한 마리가 뒤를 봤다. 잿빛은 위쪽에서 유인을 준비했다.",
+       "file": "assets/vo/A23/A23_015.opus",
+       "t": 3916.848,
+       "dur": 9.799,
+       "wid": "A23_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "찰칵— 이번엔 소리가 컸다. 숲은 소리를 오래 기억한다.",
+       "file": "assets/vo/A23/A23_016.opus",
+       "t": 3928.994,
+       "dur": 4.616,
+       "wid": "A23_016",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 116.583,
+     "t1": 140.083,
+     "still": "assets/still/A23/cA23_5.webp",
+     "motion": "push_in",
+     "action": "\"반… 말고. 나눠.\"",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "그때 들무리의 리더가 일부러 마른 가지를 밟았다. 사람의 시선이 그쪽으로 쏠렸다.",
+       "file": "assets/vo/A23/A23_017.opus",
+       "t": 3936.61,
+       "dur": 6.735,
+       "wid": "A23_017",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "그 틈에 덫이 풀렸다. 공동 전투는 짧았고, 그래서 강했다.",
+       "file": "assets/vo/A23/A23_018.opus",
+       "t": 3945.691,
+       "dur": 4.958,
+       "wid": "A23_018",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "전투가 끝난 뒤, 들무리의 리더가 내게 고개를 끄덕였다.",
+       "file": "assets/vo/A23/A23_019.opus",
+       "t": 3952.996,
+       "dur": 4.241,
+       "wid": "A23_019",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_TRACK"
+     ]
+    }
+   ],
+   "gesture": "hold",
+   "next": "B12-02"
+  },
+  {
+   "beat_id": "B12-02",
+   "chapter": 12,
+   "scene": "A23",
+   "kind": "deduce",
+   "title": "추리판 · 오늘의 적은 누구인가",
+   "pov": "captain",
+   "lens": "board",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "question": {
+    "id": "QA23_ENEMY",
+    "text": "오늘의 적은 누구인가"
+   },
+   "hyps": [
+    {
+     "id": "HA23_HUMAN",
+     "line": "인간이다. 덫이다.",
+     "canon": true,
+     "needs": [
+      "CL_STEEL_TRAP",
+      "CL_BAIT"
+     ],
+     "effect": {
+      "tension": -1,
+      "reveal": true
+     }
+    },
+    {
+     "id": "HA23_DEER",
+     "line": "들무리다.",
+     "canon": false,
+     "needs": [
+      "CL_TRACK",
+      "CL_BAIT"
+     ],
+     "effect": {
+      "jeong": 1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_STEEL_TRAP",
+     "label": "쇠 냄새",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "덫.",
+     "kw": "덫"
+    },
+    {
+     "id": "CL_BAIT",
+     "label": "참치 미끼",
+     "kind": "smell",
+     "tone": "#c98a6a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "덫은 물길 옆에 있었다.",
+     "kw": "미끼"
+    },
+    {
+     "id": "CL_TRACK",
+     "label": "발자국",
+     "kind": "smell",
+     "tone": "#8a7d6d",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "발자국"
+    }
+   ],
+   "still": "assets/still/A23/cA23_5.webp",
+   "next": "B12-03"
+  },
+  {
+   "beat_id": "B12-03",
+   "chapter": 12,
+   "scene": "A23",
+   "kind": "battle",
+   "title": "대치 · 공동 덫 해제",
+   "pov": "captain",
+   "lens": "battle",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "still": "assets/still/A23/cA23_5.webp",
+   "battle": {
+    "id": "BT_A23",
+    "title": "공동 덫 해제",
+    "mode": "env",
+    "goal": {
+     "type": "free",
+     "value": 3,
+     "turns": 6
+    },
+    "warmth": 6,
+    "warmthLoss": 1,
+    "star": true,
+    "allies": [
+     "captain",
+     "otbit"
+    ],
+    "humans": [
+     "deer"
+    ],
+    "enemy": {
+     "name": "덫",
+     "kind": "env",
+     "tension": 0,
+     "intents": [
+      {
+       "name": "찰칵",
+       "text": "철사가 튕겼다",
+       "warmth": -1
+      },
+      {
+       "name": "쇠 긁기",
+       "text": "쇠가 땅을 긁었다",
+       "breath": -1
+      }
+     ]
+    },
+    "skills": [
+     "deer_twig",
+     "captain_nose",
+     "otbit_scratch"
+    ],
+    "intro": "덫은 우리 것이다. 손을 대는 순서가 서로 다를 뿐이다.",
+    "win": "관계가 바뀌는 소리는 아주 작다. \"반… 말고. 나눠.\"",
+    "lose": "철사가 조였다. 처음부터 다시, 조용히.",
+    "starStage": "cant_walk",
+    "scene": "A23",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_unlock",
+     "kkamang_tail_signal",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "captain_low_tail",
+     "otbit_scout",
+     "otbit_scratch",
+     "otbit_wing",
+     "otbit_herb",
+     "kim_pry",
+     "kim_baton",
+     "kim_record",
+     "kim_report",
+     "park_hazard",
+     "park_key",
+     "somi_towel",
+     "somi_milk",
+     "somi_witness",
+     "deer_twig"
+    ]
+   },
+   "next": "B12-04"
+  },
+  {
+   "beat_id": "B12-04",
+   "chapter": 12,
+   "scene": "A23",
+   "kind": "cut",
+   "title": "결과 컷 · 협상은 싸움보다 오래 남는다",
+   "pov": "captain",
+   "lens": "cut",
+   "weather": "fog",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A23.mp4",
+    "poster": "assets/cut/A23_poster.webp",
+    "tc_in": 3953.625,
+    "tc_out": 3978.709,
+    "action": "관계가 바뀌는 소리는 아주 작다",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "feral",
+      "text": "반… 말고.",
+      "file": "assets/vo/A23/A23_020.opus",
+      "t": 3959.902,
+      "dur": 0.81,
+      "wid": "A23_020",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "captain",
+      "text": "나눠.",
+      "file": "assets/vo/A23/A23_021.opus",
+      "t": 3963.712,
+      "dur": 0.554,
+      "wid": "A23_021",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "captain",
+      "text": "관계가 바뀌는 소리는 아주 작다. 하지만 숲에서는 그 작은 소리가 계절을 바꾼다.",
+      "file": "assets/vo/A23/A23_022.opus",
+      "t": 3966.719,
+      "dur": 7.49,
+      "wid": "A23_022",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B12-05"
+  },
+  {
+   "beat_id": "B12-05",
+   "chapter": 12,
+   "scene": "A24",
+   "kind": "explore",
+   "title": "폭우 전야, 숲은 숨을 고른다",
+   "pov": "kkamang",
+   "lens": "high",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "clues": [
+    {
+     "id": "CL_LOW_GROUND",
+     "label": "물이 고이지 않는 자리",
+     "kind": "smell",
+     "tone": "#8a7d6d",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 자리를 옮겼다.",
+     "kw": "물이 고이지"
+    },
+    {
+     "id": "CL_CLOUD",
+     "label": "구름 냄새",
+     "kind": "smell",
+     "tone": "#5f6d7d",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "하늘이 낮아졌다.",
+     "kw": "구름"
+    },
+    {
+     "id": "CL_ENGINE",
+     "label": "멀리 차 엔진",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "엔진"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 29.5,
+     "still": "assets/still/A24/cA24_0.webp",
+     "motion": "tilt_down",
+     "action": "폭우는 예고 없이 오지 않는다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "하늘이 낮아졌다. 구름이 나뭇가지에 걸릴 것처럼 내려왔다.",
+       "file": "assets/vo/A24/A24_000.opus",
+       "t": 3981.108,
+       "dur": 3.846,
+       "wid": "A24_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "폭우는 예고 없이 오지 않는다. 예고는 냄새로 온다. 흙이 먼저 마르고, 잎이 먼저 조용해진다.",
+       "file": "assets/vo/A24/A24_001.opus",
+       "t": 3986.901,
+       "dur": 6.597,
+       "wid": "A24_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 자리를 옮겼다. 바위 위, 뿌리가 드러난 곳. 물이 고이지 않는 자리. 숲에서 한 발 옮기는 선택은 생사를 가른다.",
+       "file": "assets/vo/A24/A24_002.opus",
+       "t": 3995.444,
+       "dur": 8.558,
+       "wid": "A24_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "약초의 냄새가 작은 점의 숨을 바꿨다. 아주 미세하게, 리듬이 깊어졌다.",
+       "file": "assets/vo/A24/A24_003.opus",
+       "t": 4005.949,
+       "dur": 4.742,
+       "wid": "A24_003",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_LOW_GROUND"
+     ]
+    },
+    {
+     "t0": 29.5,
+     "t1": 44.625,
+     "still": "assets/still/A24/cA24_1.webp",
+     "motion": "pan_rl",
+     "action": "물이 고이지 않는 자리",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "나는 그 변화를 놓치지 않았다.",
+       "file": "assets/vo/A24/A24_004.opus",
+       "t": 4012.637,
+       "dur": 1.758,
+       "wid": "A24_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "산다.",
+       "file": "assets/vo/A24/A24_005.opus",
+       "t": 4017.395,
+       "dur": 0.683,
+       "wid": "A24_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그 말은 선언이 아니라, 관찰이었다.",
+       "file": "assets/vo/A24/A24_006.opus",
+       "t": 4020.837,
+       "dur": 2.4,
+       "wid": "A24_006",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 44.625,
+     "t1": 64.583,
+     "still": "assets/still/A24/cA24_2.webp",
+     "motion": "push_in",
+     "action": "\"산다\" — 선언이 아니라 관찰",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "누리가 처음으로 웃는 표정을 지었다. 웃음은 소리가 아니라, 근육이 풀리는 것이다.",
+       "file": "assets/vo/A24/A24_007.opus",
+       "t": 4025.864,
+       "dur": 5.514,
+       "wid": "A24_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그런데 캡틴이 숲 가장자리에서 다시 쇠 냄새를 맡았다. 멀다. 하지만 사라지지 않았다. 도시는 쉽게 포기하지 않는다.",
+       "file": "assets/vo/A24/A24_008.opus",
+       "t": 4033.325,
+       "dur": 8.21,
+       "wid": "A24_008",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_CLOUD"
+     ]
+    },
+    {
+     "t0": 64.583,
+     "t1": 75.333,
+     "still": "assets/still/A24/cA24_3.webp",
+     "motion": "pan_lr",
+     "action": "도시는 쉽게 포기하지 않는다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "폭우 뒤에 온다.",
+       "file": "assets/vo/A24/A24_009.opus",
+       "t": 4043.773,
+       "dur": 1.117,
+       "wid": "A24_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "캡틴의 말은 예언 같았다.",
+       "file": "assets/vo/A24/A24_010.opus",
+       "t": 4046.934,
+       "dur": 1.432,
+       "wid": "A24_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 고개를 끄덕였다.",
+       "file": "assets/vo/A24/A24_011.opus",
+       "t": 4050.313,
+       "dur": 1.298,
+       "wid": "A24_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그럼 폭우를… 우리 편으로 만들자.",
+       "file": "assets/vo/A24/A24_012.opus",
+       "t": 4053.849,
+       "dur": 2.757,
+       "wid": "A24_012",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 75.333,
+     "t1": 91.458,
+     "still": "assets/still/A24/cA24_4.webp",
+     "motion": "pull_out",
+     "action": "폭우를 우리 편으로 만들자",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "비가 떨어지기 직전, 숲은 가장 조용해진다. 그 조용함 속에서 우리는 원을 만들었다.",
+       "file": "assets/vo/A24/A24_013.opus",
+       "t": 4059.365,
+       "dur": 5.569,
+       "wid": "A24_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "누리가 담요를 더 끌어당겼다. 잿빛은 바람을 읽었고, 들무리는 바깥을 지켰다.",
+       "file": "assets/vo/A24/A24_014.opus",
+       "t": 4066.88,
+       "dur": 5.525,
+       "wid": "A24_014",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_ENGINE"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B12-06"
+  },
+  {
+   "beat_id": "B12-06",
+   "chapter": 12,
+   "scene": "A24",
+   "kind": "cut",
+   "title": "결과 컷 · 폭우 전야, 숲은 숨을 고른다",
+   "pov": "kkamang",
+   "lens": "cut",
+   "weather": "fog",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A24.mp4",
+    "poster": "assets/cut/A24_poster.webp",
+    "tc_in": 4070.166,
+    "tc_out": 4085.125,
+    "action": "비가 떨어지기 직전, 숲은 가장 조용하다",
+    "motion": "push_in",
+    "subs": [
+     {
+      "speaker": "kkamang",
+      "text": "도시는 우리를 지우려 했지만, 숲은 우리를 시험한다. 그리고 시험은— 견디는 자의 편이다.",
+      "file": "assets/vo/A24/A24_015.opus",
+      "t": 4074.352,
+      "dur": 6.273,
+      "wid": "A24_015",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B13-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

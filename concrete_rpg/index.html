@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#04060a">
-<title>새벽의 냄새길 — 슬라이스 A</title>
+<meta name="description" content="새벽의 냄새길 — 콘크리트 정글의 작은 영웅들 인터랙티브 애니 RPG 완전판 (41씬)">
+<title>새벽의 냄새길 — 완전판 · 41씬</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%23bfe6d8'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="app/style.css">
 </head>
 <body>
@@ -15,8 +17,11 @@
   <div id="crease"></div>
 
   <div id="hudTop">
-    <div id="chapterMark"><b>SLICE A</b> · <span id="markText">서장 · 오래된 바다</span></div>
-    <button id="btnLog" aria-label="대사 기록">대사 기록</button>
+    <div id="chapterMark"><b>냄새길</b> · <span id="markText">서장 · 오래된 바다</span></div>
+    <div class="hudBtns">
+      <button id="btnMap" aria-label="냄새길 지도">지도</button>
+      <button id="btnLog" aria-label="대사 기록">기록</button>
+    </div>
     <div id="beatPips"></div>
   </div>
 
@@ -26,58 +31,83 @@
 
   <div id="panel">
     <div id="panelTitle"><b>—</b></div>
-    <div id="panelBody">
-      <div id="threadStrip"></div>
-    </div>
+    <div id="panelBody"></div>
   </div>
 
   <div id="ringLayer"></div>
 
   <div id="board">
     <div class="map"><img id="boardMap" alt=""></div>
-    <div id="boardHint">매듭을 끌어 물음표에 묶는다 · 실이 붙은 가설만 열린다</div>
+    <div id="boardHint">매듭을 물음표에 묶는다 · 실이 붙은 가설만 열린다</div>
     <svg id="boardSvg"></svg>
     <div id="hyps"></div>
     <button class="roundBtn ghost close" id="boardClose">닫기<small>장면으로</small></button>
   </div>
 
   <div id="logSheet">
-    <header><span>대사 기록 · 놓친 대사는 눌러서</span><button id="logClose">닫기</button></header>
+    <header><span>대사 기록 · 놓친 대사는 눌러서 다시</span><button id="logClose">닫기</button></header>
     <div id="logList"></div>
   </div>
 
+  <div id="mapSheet">
+    <header><span>냄새길 · 고가도로에서 숲까지</span><button id="mapClose">닫기</button></header>
+    <div id="mapWrap"><div id="mapLine"></div><div id="mapDots"></div></div>
+  </div>
+
+  <div id="interCard">
+    <div class="kicker" id="interKicker">INTERMISSION</div>
+    <h2 id="interTitle">2막 · 숲의 시험</h2>
+    <div class="sub" id="interSub"></div>
+  </div>
+
   <div id="ending">
-    <div class="kicker">SLICE A · END</div>
-    <h2 id="endTitle">등을 돌린 밤</h2>
+    <div class="kicker">41씬 · 완전판 · END</div>
+    <h2 id="endTitle">이름은 살아남은 뒤에 온다</h2>
     <div class="rec" id="endRec"></div>
     <div class="next" id="endNext"></div>
     <div class="btns">
-      <button id="endAgain">슬라이스 A 다시</button>
+      <button id="endAgain">처음부터</button>
+      <button id="endMap">냄새길 지도</button>
       <button id="endLog">대사 기록</button>
     </div>
   </div>
 
   <div id="title">
-    <div class="kicker">콘크리트 정글 외전</div>
-    <h1>새벽의 냄새길</h1>
-    <div class="sub">슬라이스 A — 서장 오래된 바다 · 제1장 기다림 · 제2장 골목의 여왕<br>v3.6 마스터본 컷과 13역 음성으로</div>
+    <div class="kicker">콘크리트 정글 외전 · 인터랙티브 애니 RPG</div>
+    <h1>새벽의<br>냄새길</h1>
+    <div class="sub" id="titleSub">41씬 완전판</div>
     <button class="go" id="startBtn">눌러서 시작<small>소리를 켜고 시작합니다</small></button>
     <button class="resume" id="resumeBtn" hidden>이어서 계속</button>
-    <div class="credit">권태홍 · 콘크리트 정글의 작은 영웅들 v3.6<br>음성·영상 원본 그대로 절출</div>
+    <div class="credit">권태홍 · 콘크리트 정글의 작은 영웅들 v3.6 마스터본<br>13역 음성 · v3.7 대본 · 33특기</div>
   </div>
 
   <div id="loader"><div class="ring"></div><span id="loaderText">준비 중</span></div>
  </div>
-  <div id="cut">
-    <video id="cutVideo" playsinline preload="auto"></video>
-    <div class="cap" id="cutCap"></div>
-    <div class="subs" id="cutSubs"></div>
-    <button class="skip" id="cutSkip">건너뛰기</button>
-    <div class="bar" id="cutBar"></div>
-  </div>
 
-
+ <div id="cut">
+   <div class="inner">
+     <div class="capTop" id="cutCapTop"></div>
+     <div class="frame">
+       <video id="cutVideo" playsinline preload="auto"></video>
+       <div id="cutFallback"></div>
+     </div>
+     <div class="meta">
+       <div class="cap" id="cutCap"></div>
+       <div class="capMeta" id="cutTitle"></div>
+       <div class="capAction" id="cutAction"></div>
+       <div class="capTime" id="cutTime"></div>
+     </div>
+   </div>
+   <button class="skip" id="cutSkip">건너뛰기</button>
+   <div class="bar"><i id="cutBar"></i></div>
+ </div>
 </div>
-<script src="app/app.js"></script>
+
+<script src="app/core.js"></script>
+<script src="app/data.js"></script>
+<script src="app/explore.js"></script>
+<script src="app/deduce.js"></script>
+<script src="app/battle.js"></script>
+<script src="app/flow.js"></script>
 </body>
 </html>

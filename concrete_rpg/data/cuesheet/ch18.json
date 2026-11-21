@@ -1,0 +1,508 @@
+{
+ "cuesheet_id": "cj_ch18_v37",
+ "chapter_no": 18,
+ "label": "종장",
+ "title": "일 년 뒤",
+ "act": "종장",
+ "pov": "소미",
+ "star_stage": "standing",
+ "amb": "assets/amb/amb_park.opus",
+ "weather": "dawn",
+ "scenes": [
+  "A38",
+  "A39"
+ ],
+ "beats": [
+  {
+   "beat_id": "B18-01",
+   "chapter": 18,
+   "scene": "A38",
+   "kind": "explore",
+   "title": "일 년 뒤, 봄방학",
+   "pov": "somi",
+   "lens": "text",
+   "weather": "dawn",
+   "amb": "assets/amb/amb_park.opus",
+   "clues": [
+    {
+     "id": "CL_TOWEL_WINDOW",
+     "label": "창가의 손수건",
+     "kind": "smell",
+     "tone": "#e3c25a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "그날 밤, 나는 창가에 손수건을 널었다.",
+     "kw": "손수건"
+    },
+    {
+     "id": "CL_YEAR",
+     "label": "일 년",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "그리고 일 년이 지났다.",
+     "kw": "일 년"
+    },
+    {
+     "id": "CL_SCHOOL",
+     "label": "봄방학",
+     "kind": "smell",
+     "tone": "#9fb6c9",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "봄방학"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 23.625,
+     "still": "assets/still/A38/cA38_0v.webp",
+     "motion": "tilt_down",
+     "action": "창가에 널린 노란 병아리 손수건 — 일 년 전의 그 밤",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "그날 밤, 나는 창가에 손수건을 널었다. 노란 병아리들이 바람에 조금씩 흔들렸다.",
+       "file": "assets/vo/A38/A38_000.opus",
+       "t": 6073.025,
+       "dur": 5.951,
+       "wid": "A38_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "그리고 일 년이 지났다. 우리는 이사를 갔다. 새 아파트, 새 학교. 하지만 약속은 이사짐에 넣지 않았다.",
+       "file": "assets/vo/A38/A38_001.opus",
+       "t": 6081.239,
+       "dur": 7.669,
+       "wid": "A38_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "봄 방학 첫날, 나는 할머니와 할아버지를 데리고 공원에 갔다. 캔 박스가 무거워서, 세 번 쉬었다.",
+       "file": "assets/vo/A38/A38_002.opus",
+       "t": 6091.908,
+       "dur": 7.082,
+       "wid": "A38_002",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_TOWEL_WINDOW"
+     ]
+    },
+    {
+     "t0": 23.625,
+     "t1": 39.75,
+     "still": "assets/still/A38/cA38_0.webp",
+     "motion": "pan_lr",
+     "action": "일 년이 지났다",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "담쟁이덩굴 틈새로 들어가며 외쳤다.",
+       "file": "assets/vo/A38/A38_003.opus",
+       "t": 6101.253,
+       "dur": 1.972,
+       "wid": "A38_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "얘들아! 우리 왔어!",
+       "file": "assets/vo/A38/A38_004.opus",
+       "t": 6105.827,
+       "dur": 1.205,
+       "wid": "A38_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "누리가 먼저 알아봤다. 꼬리가 보이지 않을 정도로 흔들면서, 넘어질 듯이 달려왔다.",
+       "file": "assets/vo/A38/A38_005.opus",
+       "t": 6107.273,
+       "dur": 5.666,
+       "wid": "A38_005",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 39.75,
+     "t1": 57.875,
+     "still": "assets/still/A38/cA38_1.webp",
+     "motion": "pan_fast",
+     "action": "누리가 먼저 알아봤다",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "그리고 까망이, 천천히, 아주 위엄 있게 걸어 내려와서 할아버지의 다리에 몸을 슥, 비볐다.",
+       "file": "assets/vo/A38/A38_006.opus",
+       "t": 6115.202,
+       "dur": 6.201,
+       "wid": "A38_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "할아버지가 화들짝 놀랐다.",
+       "file": "assets/vo/A38/A38_007.opus",
+       "t": 6123.666,
+       "dur": 1.289,
+       "wid": "A38_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "오, 오오, 이 녀석이.",
+       "file": "assets/vo/A38/A38_008.opus",
+       "t": 6127.557,
+       "dur": 1.478,
+       "wid": "A38_008",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_YEAR"
+     ]
+    },
+    {
+     "t0": 57.875,
+     "t1": 70.042,
+     "still": "assets/still/A38/cA38_2.webp",
+     "motion": "push_in",
+     "action": "아무도 못 보게, 손등으로 눈을 닦았다",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "그리고 아무도 못 보게, 손등으로 눈을 닦았다.",
+       "file": "assets/vo/A38/A38_009.opus",
+       "t": 6131.411,
+       "dur": 2.568,
+       "wid": "A38_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "별은 이제 작지 않았다. 제법 똘똘한 얼굴로 내 다리에 매달렸다. 목을 길게 빼고, 내 얼굴을 향해 입을 뿌끔 벌렸다. 소리는 나오지 않았다. 그래도 나는 알아들었다. 엄마가 말했어, 라고.",
+       "file": "assets/vo/A38/A38_010.opus",
+       "t": 6136.242,
+       "dur": 13.995,
+       "wid": "A38_010",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 70.042,
+     "t1": 87.792,
+     "still": "assets/still/A38/cA38_3.webp",
+     "motion": "push_in",
+     "action": "까망이, 아주 위엄 있게",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "나는 그 얼굴을 오래 보다가, 아주 작게 불렀다.",
+       "file": "assets/vo/A38/A38_011.opus",
+       "t": 6152.5,
+       "dur": 2.839,
+       "wid": "A38_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "별아. 잘 컸구나.",
+       "file": "assets/vo/A38/A38_012.opus",
+       "t": 6157.941,
+       "dur": 1.196,
+       "wid": "A38_012",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 87.792,
+     "t1": 107.167,
+     "still": "assets/still/A38/cA38_4.webp",
+     "motion": "push_fast",
+     "action": "\"네가 소미구나!\"",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "우리는 나란히 앉아, 우리들의 왕국을 내려다봤다. 인간과 동물, 늙은이와 어린이, 개와 고양이.",
+       "file": "assets/vo/A38/A38_013.opus",
+       "t": 6161.513,
+       "dur": 7.418,
+       "wid": "A38_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "까망이 나를 보고 입을 아주 조금 움직였다. 소리는 들리지 않았다. 그래도 무슨 말인지 알 것 같았다. 우리의 집은 여기니까, 라고.",
+       "file": "assets/vo/A38/A38_014.opus",
+       "t": 6171.194,
+       "dur": 9.363,
+       "wid": "A38_014",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_SCHOOL"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B18-02"
+  },
+  {
+   "beat_id": "B18-02",
+   "chapter": 18,
+   "scene": "A38",
+   "kind": "cut",
+   "title": "결과 컷 · 일 년 뒤, 봄방학",
+   "pov": "somi",
+   "lens": "cut",
+   "weather": "dawn",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A38.mp4",
+    "poster": "assets/cut/A38_poster.webp",
+    "tc_in": 6177.792,
+    "tc_out": 6192.5,
+    "action": "우리가 함께 있는 여기가, 전부 우리 집이야",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "somi",
+      "text": "나는 속으로 대답했다. 아니야. 우리가 함께 있는 여기가, 전부 우리 집이야.",
+      "file": "assets/vo/A38/A38_015.opus",
+      "t": 6182.82,
+      "dur": 5.18,
+      "wid": "A38_015",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B18-03"
+  },
+  {
+   "beat_id": "B18-03",
+   "chapter": 18,
+   "scene": "A39",
+   "kind": "explore",
+   "title": "다시 이어지는 약속",
+   "pov": "somi",
+   "lens": "text",
+   "weather": "dawn",
+   "amb": "assets/amb/amb_park.opus",
+   "clues": [
+    {
+     "id": "CL_FOOTPRINT",
+     "label": "흔적",
+     "kind": "smell",
+     "tone": "#b08a45",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "사람들은 기록을 남긴다.",
+     "kw": "흔적"
+    },
+    {
+     "id": "CL_GAP",
+     "label": "틈",
+     "kind": "smell",
+     "tone": "#6d879c",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "숲은 여전히 시험하고, 도시는 여전히 잊는다.",
+     "kw": "틈"
+    },
+    {
+     "id": "CL_NEXT",
+     "label": "다음",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "나는 손수건을 새로 빨아 말렸다.",
+     "kw": "다음"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 19.042,
+     "still": "assets/still/A39/cA39_0.webp",
+     "motion": "push_in",
+     "action": "손수건은 다음에도 가져갈 것이다",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "나는 손수건을 새로 빨아 말렸다. 다음에도 가져갈 거니까.",
+       "file": "assets/vo/A39/A39_000.opus",
+       "t": 6194.9,
+       "dur": 3.885,
+       "wid": "A39_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "햇빛이 잘 드는 창가에 널어두면, 노란 병아리들이 바람에 조금씩 흔들린다. 그걸 보고 있으면, 마음이 조용해진다.",
+       "file": "assets/vo/A39/A39_001.opus",
+       "t": 6201.785,
+       "dur": 8.347,
+       "wid": "A39_001",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_FOOTPRINT",
+      "CL_GAP"
+     ]
+    },
+    {
+     "t0": 19.042,
+     "t1": 55.083,
+     "still": "assets/still/A39/cA39_1.webp",
+     "motion": "pull_out",
+     "action": "사람들은 기록을 남기고, 동물들은 흔적을 남긴다",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "사람들은 기록을 남긴다. 동물들은 흔적을 남긴다. 그 골목에는, 둘 다 남았다.",
+       "file": "assets/vo/A39/A39_002.opus",
+       "t": 6213.132,
+       "dur": 6.003,
+       "wid": "A39_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "도시는 여전히 시끄럽다. 하지만 나는 이제 안다. 도시가 전부가 아니라는 걸.",
+       "file": "assets/vo/A39/A39_003.opus",
+       "t": 6222.135,
+       "dur": 5.232,
+       "wid": "A39_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "그리고 작은 것들이— 서로를 지키면— 끝내 지워지지 않는다는 걸.",
+       "file": "assets/vo/A39/A39_004.opus",
+       "t": 6230.367,
+       "dur": 4.187,
+       "wid": "A39_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "나는 속으로 이름을 불렀다. 누리. 까망. 캡틴. 잿빛. 별.",
+       "file": "assets/vo/A39/A39_005.opus",
+       "t": 6237.554,
+       "dur": 4.818,
+       "wid": "A39_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "다음에 또 올게.",
+       "file": "assets/vo/A39/A39_006.opus",
+       "t": 6245.372,
+       "dur": 0.907,
+       "wid": "A39_006",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_NEXT"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B18-04"
+  },
+  {
+   "beat_id": "B18-04",
+   "chapter": 18,
+   "scene": "A39",
+   "kind": "cut",
+   "title": "결과 컷 · 다시 이어지는 약속",
+   "pov": "somi",
+   "lens": "cut",
+   "weather": "dawn",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A39.mp4",
+    "poster": "assets/cut/A39_poster.webp",
+    "tc_in": 6247.583,
+    "tc_out": 6274.125,
+    "action": "틈은 남아 있으니까",
+    "motion": "pan_lr",
+    "subs": [
+     {
+      "speaker": "somi",
+      "text": "약속은 말이 아니라, 발걸음이다. 나는 그 발걸음을 계속 이어갈 것이다.",
+      "file": "assets/vo/A39/A39_007.opus",
+      "t": 6249.279,
+      "dur": 5.22,
+      "wid": "A39_007",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "somi",
+      "text": "숲은 여전히 시험하고, 도시는 여전히 잊는다. 그래도 괜찮다. 틈은 남아 있으니까. 그리고 그 틈에서, 우리는 다시 만난다.",
+      "file": "assets/vo/A39/A39_008.opus",
+      "t": 6257.499,
+      "dur": 8.688,
+      "wid": "A39_008",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": null
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

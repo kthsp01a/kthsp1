@@ -1,0 +1,1239 @@
+{
+ "cuesheet_id": "cj_ch14_v37",
+ "chapter_no": 14,
+ "label": "14장",
+ "title": "숲으로 들어오는 발",
+ "act": "2막",
+ "pov": "김반장",
+ "star_stage": "leg_move",
+ "amb": "assets/amb/amb_forest_day.opus",
+ "weather": "overcast",
+ "scenes": [
+  "A28",
+  "A29",
+  "A30"
+ ],
+ "beats": [
+  {
+   "beat_id": "B14-01",
+   "chapter": 14,
+   "scene": "A28",
+   "kind": "explore",
+   "title": "숲으로 들어오는 발은 마음을 따라온다",
+   "pov": "kim",
+   "lens": "text",
+   "weather": "overcast",
+   "amb": "assets/amb/amb_forest_day.opus",
+   "clues": [
+    {
+     "id": "CL_MUD_PATH",
+     "label": "진흙길",
+     "kind": "smell",
+     "tone": "#8a7d6d",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "",
+     "kw": "진흙"
+    },
+    {
+     "id": "CL_SLOPE",
+     "label": "경사",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "경사"
+    },
+    {
+     "id": "CL_PUDDLE",
+     "label": "웅덩이",
+     "kind": "smell",
+     "tone": "#6d879c",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "웅덩이"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 28.292,
+     "still": "assets/still/A28/cA28_0.webp",
+     "motion": "pan_lr",
+     "action": "비는 시야를 지우고, 망설임을 만든다",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "나는 비 오는 밤에 차를 몰았다. 와이퍼가 빠르게 움직였지만, 앞은 계속 하얗게 번졌다.",
+       "file": "assets/vo/A28/A28_000.opus",
+       "t": 4641.983,
+       "dur": 7.339,
+       "wid": "A28_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "비는 시야를 지우고, 시야가 지워지면 망설임이 생긴다. 망설임이 생기면 늦는다. 그런데 오늘, 나는 늦고 싶지 않았다.",
+       "file": "assets/vo/A28/A28_001.opus",
+       "t": 4651.274,
+       "dur": 9.769,
+       "wid": "A28_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "뒷좌석에는 소미와 박여사가 나란히 앉아 있었다. 소미는 말이 없었다. 말이 없는 아이는 가장 단단한 아이다.",
+       "file": "assets/vo/A28/A28_002.opus",
+       "t": 4662.994,
+       "dur": 9.144,
+       "wid": "A28_002",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_MUD_PATH"
+     ]
+    },
+    {
+     "t0": 28.292,
+     "t1": 50.792,
+     "still": "assets/still/A28/cA28_1.webp",
+     "motion": "push_in",
+     "action": "말이 없는 아이는 가장 단단한 아이",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "박여사는 우산을 챙기는 대신, 차량용 담요와 따뜻한 물병을 챙겼다.",
+       "file": "assets/vo/A28/A28_003.opus",
+       "t": 4674.09,
+       "dur": 5.435,
+       "wid": "A28_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "park",
+       "text": "숲은 도시처럼 해결 안 돼. 체온이 먼저야.",
+       "file": "assets/vo/A28/A28_004.opus",
+       "t": 4681.759,
+       "dur": 3.767,
+       "wid": "A28_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그 말이 가슴에 박혔다. 나는 평생 사람들의 출입만 관리했지, 체온을 관리한 적이 없었다.",
+       "file": "assets/vo/A28/A28_005.opus",
+       "t": 4687.572,
+       "dur": 7.466,
+       "wid": "A28_005",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 50.792,
+     "t1": 71.417,
+     "still": "assets/still/A28/cA28_2.webp",
+     "motion": "push_in",
+     "action": "\"숲은 도시처럼 해결 안 돼. 체온이 먼저야\"",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "숲 입구에서 차를 세우자, 바람이 얼굴을 때렸다. 비가 옆으로 내려쳤다. 우산은 의미가 없었다.",
+       "file": "assets/vo/A28/A28_006.opus",
+       "t": 4696.99,
+       "dur": 8.192,
+       "wid": "A28_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "소미가 손수건을 꺼냈다. 병아리 무늬. 그 손수건은 이제 귀여움이 아니라, 신호였다.",
+       "file": "assets/vo/A28/A28_007.opus",
+       "t": 4707.133,
+       "dur": 7.23,
+       "wid": "A28_007",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 71.417,
+     "t1": 81.917,
+     "still": "assets/still/A28/cA28_3.webp",
+     "motion": "pan_lr",
+     "action": "손수건은 이제 깃발이 아니라 신호",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "여기야.",
+       "file": "assets/vo/A28/A28_008.opus",
+       "t": 4716.598,
+       "dur": 0.55,
+       "wid": "A28_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "소미가 속삭였다.",
+       "file": "assets/vo/A28/A28_009.opus",
+       "t": 4719.194,
+       "dur": 1.133,
+       "wid": "A28_009",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_SLOPE"
+     ]
+    },
+    {
+     "t0": 81.917,
+     "t1": 112.542,
+     "still": "assets/still/A28/cA28_4.webp",
+     "motion": "push_fast",
+     "action": "\"여기야. 우리가 왔어.\"",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "우리가 왔어.",
+       "file": "assets/vo/A28/A28_010.opus",
+       "t": 4722.561,
+       "dur": 0.725,
+       "wid": "A28_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 속으로 그 말을 반복했다. 우리가. 그 단어가 이상하게 따뜻했다.",
+       "file": "assets/vo/A28/A28_011.opus",
+       "t": 4725.332,
+       "dur": 5.659,
+       "wid": "A28_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "숲 안쪽에서 빛이 흔들렸다. 플래시. 누군가가 탐색하고 있었다. 경비의 본능이 살아났다. 나는 소미를 뒤로 숨기고, 박여사를 옆에 세웠다.",
+       "file": "assets/vo/A28/A28_012.opus",
+       "t": 4732.942,
+       "dur": 12.569,
+       "wid": "A28_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그리고 휴대폰을 켰다. 촬영 모드. 이건 무기가 아니다. 하지만 불법이 가장 싫어하는 건 기록이다.",
+       "file": "assets/vo/A28/A28_013.opus",
+       "t": 4747.463,
+       "dur": 8.381,
+       "wid": "A28_013",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 112.542,
+     "t1": 149.542,
+     "still": "assets/still/A28/cA28_5.webp",
+     "motion": "push_in",
+     "action": "촬영 모드 — 불법이 가장 싫어하는 것",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "그때 어둠에서 까망이 나타났다. 젖은 털, 번쩍이는 눈. 그 눈빛은 여전히 차가웠지만, 예전과 달랐다. 이제는 꺼져가 아니라, 할 수 있겠냐였다.",
+       "file": "assets/vo/A28/A28_014.opus",
+       "t": 4758.844,
+       "dur": 12.023,
+       "wid": "A28_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 그 눈을 피하지 않고 마주 봤다. 그리고 아주 작은 목소리로 말했다.",
+       "file": "assets/vo/A28/A28_015.opus",
+       "t": 4772.819,
+       "dur": 5.607,
+       "wid": "A28_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "할 수 있어. 이번엔 끝까지.",
+       "file": "assets/vo/A28/A28_016.opus",
+       "t": 4780.66,
+       "dur": 2.161,
+       "wid": "A28_016",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "내 말이 그 아이에게 닿았는지는 모른다. 사람의 말은 그들에게 잘 들리지 않으니까. 하지만 까망은 꼬리를 아주 조금 올렸다. 그걸로 충분했다.",
+       "file": "assets/vo/A28/A28_017.opus",
+       "t": 4784.867,
+       "dur": 11.894,
+       "wid": "A28_017",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 149.542,
+     "t1": 193.083,
+     "still": "assets/still/A28/cA28_6.webp",
+     "motion": "push_in",
+     "action": "\"할 수 있겠냐?\"",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "어둠에서 캡틴이 나왔다. 젖은 몸이 떨렸지만, 눈은 살아 있었다. 옆에는 누리가 있었다. 털은 젖어 무거워졌지만, 눈빛은 더 단단해져 있었다.",
+       "file": "assets/vo/A28/A28_018.opus",
+       "t": 4798.712,
+       "dur": 12.15,
+       "wid": "A28_018",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "들무리의 어린 녀석이 바위 뒤에서 떨며 숨을 쉬고 있었다. 살았다는 모습. 소미가 눈물을 삼켰다. 울면 흔들릴까 봐, 또 참았다.",
+       "file": "assets/vo/A28/A28_019.opus",
+       "t": 4812.814,
+       "dur": 11.849,
+       "wid": "A28_019",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 담요를 꺼냈다. 담요는 단순한 천이 아니라, 문이었다. 따뜻함으로 열리는 문.",
+       "file": "assets/vo/A28/A28_020.opus",
+       "t": 4827.275,
+       "dur": 6.954,
+       "wid": "A28_020",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_PUDDLE"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B14-02"
+  },
+  {
+   "beat_id": "B14-02",
+   "chapter": 14,
+   "scene": "A28",
+   "kind": "deduce",
+   "title": "추리판 · 덫은 어디 있나",
+   "pov": "kim",
+   "lens": "board",
+   "weather": "overcast",
+   "amb": "assets/amb/amb_forest_day.opus",
+   "question": {
+    "id": "QA28_TRAP",
+    "text": "덫은 어디 있나"
+   },
+   "hyps": [
+    {
+     "id": "HA28_EASY",
+     "line": "사람이 편한 곳에 있다.",
+     "canon": true,
+     "needs": [
+      "CL_MUD_PATH",
+      "CL_SLOPE"
+     ],
+     "effect": {
+      "reveal": true
+     }
+    },
+    {
+     "id": "HA28_WATER",
+     "line": "물길 쪽에 있다.",
+     "canon": false,
+     "needs": [
+      "CL_PUDDLE",
+      "CL_SLOPE"
+     ],
+     "effect": {
+      "warmth": -1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_MUD_PATH",
+     "label": "진흙길",
+     "kind": "smell",
+     "tone": "#8a7d6d",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "",
+     "kw": "진흙"
+    },
+    {
+     "id": "CL_SLOPE",
+     "label": "경사",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "경사"
+    },
+    {
+     "id": "CL_PUDDLE",
+     "label": "웅덩이",
+     "kind": "smell",
+     "tone": "#6d879c",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "웅덩이"
+    }
+   ],
+   "still": "assets/still/A28/cA28_6.webp",
+   "next": "B14-03"
+  },
+  {
+   "beat_id": "B14-03",
+   "chapter": 14,
+   "scene": "A28",
+   "kind": "cut",
+   "title": "결과 컷 · 숲으로 들어오는 발은 마음을 따라온다",
+   "pov": "kim",
+   "lens": "cut",
+   "weather": "overcast",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A28.mp4",
+    "poster": "assets/cut/A28_poster.webp",
+    "tc_in": 4832.666,
+    "tc_out": 4873.166,
+    "action": "\"사람 판도, 숲 판도— 같이 하자\"",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "kim",
+      "text": "작은 점이 어디 있느냐고, 나는 입 밖에 내지 않고 까망을 봤다. 까망은 대답 대신 담요가 쌓인 바위 뒤를 한 번 봤다. 그 한 번의 시선이면 충분했다. 살아 있다는 뜻이었다.",
+      "file": "assets/vo/A28/A28_021.opus",
+      "t": 4836.18,
+      "dur": 14.26,
+      "wid": "A28_021",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "나는 숨을 들이마셨다. 그리고 말했다.",
+      "file": "assets/vo/A28/A28_022.opus",
+      "t": 4852.392,
+      "dur": 2.979,
+      "wid": "A28_022",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "이제부터는 사람 판도, 숲 판도, 같이 하자.",
+      "file": "assets/vo/A28/A28_023.opus",
+      "t": 4857.605,
+      "dur": 3.513,
+      "wid": "A28_023",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "비가 쏟아졌다. 하지만 그 비 속에서, 우리는 다시 하나의 무리가 됐다.",
+      "file": "assets/vo/A28/A28_024.opus",
+      "t": 4863.164,
+      "dur": 5.502,
+      "wid": "A28_024",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B14-04"
+  },
+  {
+   "beat_id": "B14-04",
+   "chapter": 14,
+   "scene": "A29",
+   "kind": "explore",
+   "title": "덫이 있는 땅, 덫이 없는 땅",
+   "pov": "kkamang",
+   "lens": "high",
+   "weather": "overcast",
+   "amb": "assets/amb/amb_forest_day.opus",
+   "clues": [
+    {
+     "id": "CL_NO_TRAP",
+     "label": "덫 없는 땅",
+     "kind": "smell",
+     "tone": "#7d8a5b",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 땅을 읽었다.",
+     "kw": "덫"
+    },
+    {
+     "id": "CL_TWIG2",
+     "label": "마른 가지",
+     "kind": "smell",
+     "tone": "#8a6a3c",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "가지"
+    },
+    {
+     "id": "CL_STOP",
+     "label": "멈추는 용기",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "소미는 손을 멈췄다.",
+     "kw": "멈추"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 17.417,
+     "still": "assets/still/A29/cA29_0.webp",
+     "motion": "pan_fast",
+     "action": "훈련된 손",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "포획꾼의 플래시는 일정하지 않았다. 불빛이 흔들릴 때는 두렵거나 서툰 사람이다. 하지만 지금 불빛은— 짧게, 정확하게— 좌우를 긁었다. 훈련된 손이었다.",
+       "file": "assets/vo/A29/A29_000.opus",
+       "t": 4875.567,
+       "dur": 11.207,
+       "wid": "A29_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 어둠 속에서 눈만 움직였다. 숲의 어둠은 완전한 어둠이 아니다. 비 때문에 잎이 반짝이고, 반짝임은 작은 거울이 된다. 거울은 빛을 되돌려준다. 되돌려주는 순간, 위치가 드러난다.",
+       "file": "assets/vo/A29/A29_001.opus",
+       "t": 4889.774,
+       "dur": 14.366,
+       "wid": "A29_001",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_NO_TRAP"
+     ]
+    },
+    {
+     "t0": 17.417,
+     "t1": 37.5,
+     "still": "assets/still/A29/cA29_1.webp",
+     "motion": "push_in",
+     "action": "숲의 어둠은 완전한 어둠이 아니다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "나는 캡틴에게 눈짓했다. 캡틴은 보았다는 뜻으로, 고개를 아주 조금만 끄덕였다.",
+       "file": "assets/vo/A29/A29_002.opus",
+       "t": 4907.14,
+       "dur": 5.418,
+       "wid": "A29_002",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 37.5,
+     "t1": 45.333,
+     "still": "assets/still/A29/cA29_2.webp",
+     "motion": "push_in",
+     "action": "눈짓 하나로 충분하다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "나는 땅을 읽었다. 덫은 사람의 습관이 놓인다. 사람은 편한 곳에 놓는다. 평평한 곳, 냄새가 모이는 곳, 길목.",
+       "file": "assets/vo/A29/A29_003.opus",
+       "t": 4915.558,
+       "dur": 8.065,
+       "wid": "A29_003",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 45.333,
+     "t1": 65.875,
+     "still": "assets/still/A29/cA29_3.webp",
+     "motion": "pan_lr",
+     "action": "덫이 있는 땅, 덫이 없는 땅",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "반대로 덫이 없는 땅은— 사람이 싫어하는 곳이다. 진흙, 경사, 물이 고이는 낮은 자리.",
+       "file": "assets/vo/A29/A29_004.opus",
+       "t": 4926.623,
+       "dur": 6.052,
+       "wid": "A29_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그래서 나는 일부러 사람이 싫어하는 길을 골랐다. 무리가 따라왔다.",
+       "file": "assets/vo/A29/A29_005.opus",
+       "t": 4935.675,
+       "dur": 4.237,
+       "wid": "A29_005",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_TWIG2"
+     ]
+    },
+    {
+     "t0": 65.875,
+     "t1": 90.5,
+     "still": "assets/still/A29/cA29_4.webp",
+     "motion": "pan_rl",
+     "action": "사람이 싫어하는 길로",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "누리는 계속 담요 쪽을 확인했다. 김반장은 소미를 자기 뒤로 숨기고, 폰으로 촬영 각도를 잡았다.",
+       "file": "assets/vo/A29/A29_006.opus",
+       "t": 4942.912,
+       "dur": 6.835,
+       "wid": "A29_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "박여사는 비를 맞으며도 한 번도 뒤로 물러서지 않았다. 그 노인의 자세는 숲에서도 흔들리지 않았다.",
+       "file": "assets/vo/A29/A29_007.opus",
+       "t": 4952.747,
+       "dur": 6.452,
+       "wid": "A29_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "소미가 손수건을 꺼내 들려는 순간, 내가 짧게 낮게 말했다.",
+       "file": "assets/vo/A29/A29_008.opus",
+       "t": 4962.199,
+       "dur": 4.076,
+       "wid": "A29_008",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 90.5,
+     "t1": 118.708,
+     "still": "assets/still/A29/cA29_5.webp",
+     "motion": "push_fast",
+     "action": "이번엔 멈추는 게 용기",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "지금은… 숨겨.",
+       "file": "assets/vo/A29/A29_009.opus",
+       "t": 4969.275,
+       "dur": 1.523,
+       "wid": "A29_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "소미는 손을 멈췄다. 아이의 용기는 앞으로만 가려 한다. 하지만 이번엔, 멈추는 게 용기였다.",
+       "file": "assets/vo/A29/A29_010.opus",
+       "t": 4973.798,
+       "dur": 6.693,
+       "wid": "A29_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "대신 잿빛을 봤다. 잿빛은 비를 맞아도 눈빛이 마르다. 그는 이미 앞쪽 경사로로 사라지듯 움직였다.",
+       "file": "assets/vo/A29/A29_011.opus",
+       "t": 4983.491,
+       "dur": 7.149,
+       "wid": "A29_011",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 118.708,
+     "t1": 145.208,
+     "still": "assets/still/A29/cA29_6.webp",
+     "motion": "pan_fast",
+     "action": "\"유인\"",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "유인.",
+       "file": "assets/vo/A29/A29_012.opus",
+       "t": 4993.64,
+       "dur": 0.544,
+       "wid": "A29_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "내 한 단어가 떨어졌다.",
+       "file": "assets/vo/A29/A29_013.opus",
+       "t": 4994.484,
+       "dur": 1.368,
+       "wid": "A29_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "잿빛은 일부러 젖은 낙엽을 밟았다. 사각사각, 철벅. 소리가 커졌다. 포획꾼의 플래시가 그쪽으로 확 돌아갔다.",
+       "file": "assets/vo/A29/A29_014.opus",
+       "t": 4996.152,
+       "dur": 8.081,
+       "wid": "A29_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그 순간, 나는 반대로 몸을 낮추고 작은 점을 더 깊은 굴로 옮겼다. 굴은 바람이 덜 들어오고, 체온이 덜 빠진다.",
+       "file": "assets/vo/A29/A29_015.opus",
+       "t": 5007.233,
+       "dur": 7.939,
+       "wid": "A29_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "오늘 밤, 체온은 생명줄이다.",
+       "file": "assets/vo/A29/A29_016.opus",
+       "t": 5018.172,
+       "dur": 1.891,
+       "wid": "A29_016",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_STOP"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B14-05"
+  },
+  {
+   "beat_id": "B14-05",
+   "chapter": 14,
+   "scene": "A29",
+   "kind": "cut",
+   "title": "결과 컷 · 덫이 있는 땅, 덫이 없는 땅",
+   "pov": "kkamang",
+   "lens": "cut",
+   "weather": "overcast",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A29.mp4",
+    "poster": "assets/cut/A29_poster.webp",
+    "tc_in": 5018.375,
+    "tc_out": 5027.917,
+    "action": "체온은 생명줄이다",
+    "motion": "push_in",
+    "subs": []
+   },
+   "next": "B14-06"
+  },
+  {
+   "beat_id": "B14-06",
+   "chapter": 14,
+   "scene": "A30",
+   "kind": "explore",
+   "title": "기록은 칼이 아니라, 문을 여는 열쇠다",
+   "pov": "kim",
+   "lens": "text",
+   "weather": "overcast",
+   "amb": "assets/amb/amb_forest_day.opus",
+   "clues": [
+    {
+     "id": "CL_PLATE2",
+     "label": "차량 번호",
+     "kind": "smell",
+     "tone": "#c9b48a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "차량 번호도 찍혔어요.",
+     "kw": "번호"
+    },
+    {
+     "id": "CL_WAVE",
+     "label": "파형",
+     "kind": "smell",
+     "tone": "#8ab0a0",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "나는 그 말이 녹음되는 걸 확인했다.",
+     "kw": "파형"
+    },
+    {
+     "id": "CL_CHILD2",
+     "label": "아이 앞",
+     "kind": "smell",
+     "tone": "#e3c25a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "포획꾼이 빛을 들고 다가오다, 소미를 발견했다.",
+     "kw": "아이"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 18.167,
+     "still": "assets/still/A30/cA30_0.webp",
+     "motion": "push_in",
+     "action": "떨림의 이유가 바뀌었다",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "예전엔 손이 떨리면 화가 났다. 왜 이렇게 약해졌지, 라는 화.",
+       "file": "assets/vo/A30/A30_000.opus",
+       "t": 5030.317,
+       "dur": 5.017,
+       "wid": "A30_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "하지만 지금 떨림은 달랐다. 내 손은 떨리면서도, 해야 할 일을 알고 있었다.",
+       "file": "assets/vo/A30/A30_001.opus",
+       "t": 5037.926,
+       "dur": 5.92,
+       "wid": "A30_001",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_PLATE2"
+     ]
+    },
+    {
+     "t0": 18.167,
+     "t1": 48.833,
+     "still": "assets/still/A30/cA30_1.webp",
+     "motion": "push_in",
+     "action": "파형은 내 편이었다",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "나는 폰을 더 꽉 쥐었다. 렌즈 위에 빗물이 맺혔다. 빗물을 손등으로 닦았다. 그런데 문득 생각했다. 내가 지금 닦는 건… 화면이 아니라, 내 변명인가.",
+       "file": "assets/vo/A30/A30_002.opus",
+       "t": 5046.438,
+       "dur": 14.306,
+       "wid": "A30_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "포획꾼은 숲에서 길을 잃은 척하지 않았다. 그건 그가 숲을 일터로 쓴다는 뜻이다.",
+       "file": "assets/vo/A30/A30_003.opus",
+       "t": 5063.744,
+       "dur": 6.537,
+       "wid": "A30_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그가 중얼거렸다.",
+       "file": "assets/vo/A30/A30_004.opus",
+       "t": 5072.873,
+       "dur": 1.101,
+       "wid": "A30_004",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 48.833,
+     "t1": 81.333,
+     "still": "assets/still/A30/cA30_2.webp",
+     "motion": "push_fast",
+     "action": "\"있네… 여기\" — 그 한마디가 증거",
+     "lines": [
+      {
+       "speaker": "villain",
+       "text": "있네… 여기.",
+       "file": "assets/vo/A30/A30_005.opus",
+       "t": 5076.942,
+       "dur": 2.364,
+       "wid": "A30_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그 한마디가 증거였다. 불법은 원래 조용히 한다. 조용히 해야 들키지 않으니까. 그런데 그는",
+       "file": "assets/vo/A30/A30_006.opus",
+       "t": 5082.306,
+       "dur": 7.372,
+       "wid": "A30_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "villain",
+       "text": "있네",
+       "file": "assets/vo/A30/A30_007.opus",
+       "t": 5092.646,
+       "dur": 0.521,
+       "wid": "A30_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "라고 말했다. 들켜도 괜찮다고 믿는 사람의 말이었다.",
+       "file": "assets/vo/A30/A30_008.opus",
+       "t": 5095.884,
+       "dur": 4.148,
+       "wid": "A30_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 그 말이 녹음되는 걸 확인했다. 화면의 작은 파형이 움직였다. 파형은 내 편이었다.",
+       "file": "assets/vo/A30/A30_009.opus",
+       "t": 5102.624,
+       "dur": 7.313,
+       "wid": "A30_009",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_WAVE"
+     ]
+    },
+    {
+     "t0": 81.333,
+     "t1": 97.875,
+     "still": "assets/still/A30/cA30_3.webp",
+     "motion": "push_in",
+     "action": "아이 앞에서, 폭력은 비용이 커진다",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "포획꾼이 빛을 들고 다가오다, 소미를 발견했다. 그의 걸음이 잠깐 멈췄다. 그 멈춤은 도덕이 아니라 계산이었다. 아이 앞에서 폭력은 비용이 커진다.",
+       "file": "assets/vo/A30/A30_010.opus",
+       "t": 5112.529,
+       "dur": 10.988,
+       "wid": "A30_010",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 97.875,
+     "t1": 115.667,
+     "still": "assets/still/A30/cA30_4.webp",
+     "motion": "push_fast",
+     "action": "\"지금 촬영 중입니다. 불법 포획.\"",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "나는 그 틈을 밀어붙였다.",
+       "file": "assets/vo/A30/A30_011.opus",
+       "t": 5126.109,
+       "dur": 1.4,
+       "wid": "A30_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "지금 촬영 중입니다.",
+       "file": "assets/vo/A30/A30_012.opus",
+       "t": 5127.809,
+       "dur": 1.261,
+       "wid": "A30_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "불법 포획.",
+       "file": "assets/vo/A30/A30_013.opus",
+       "t": 5129.37,
+       "dur": 0.791,
+       "wid": "A30_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "차량 번호도 찍혔어요.",
+       "file": "assets/vo/A30/A30_014.opus",
+       "t": 5130.461,
+       "dur": 1.407,
+       "wid": "A30_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "사실 차량 번호를 확실히 찍지 못했을 수도 있다. 하지만 중요한 건, 그가 찍혔다고 믿는 것이었다.",
+       "file": "assets/vo/A30/A30_015.opus",
+       "t": 5132.168,
+       "dur": 8.076,
+       "wid": "A30_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "포획꾼의 눈빛이 흔들렸다. 흔들림은 늘 다른 행동을 부른다. 그는 욕을 내뱉고, 방향을 바꿨다. 빛이 잿빛 쪽을 쫓았다.",
+       "file": "assets/vo/A30/A30_016.opus",
+       "t": 5142.836,
+       "dur": 10.374,
+       "wid": "A30_016",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 115.667,
+     "t1": 140.667,
+     "still": "assets/still/A30/cA30_5.webp",
+     "motion": "pan_fast",
+     "action": "흔들림은 다른 행동을 부른다",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "나는 속으로 말했다. 좋아. 따라가. 우린 그 사이에 끝낸다.",
+       "file": "assets/vo/A30/A30_017.opus",
+       "t": 5155.802,
+       "dur": 5.194,
+       "wid": "A30_017",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "박여사가 내 옆에서 아주 낮게 말했다.",
+       "file": "assets/vo/A30/A30_018.opus",
+       "t": 5163.588,
+       "dur": 2.815,
+       "wid": "A30_018",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_CHILD2"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B14-07"
+  },
+  {
+   "beat_id": "B14-07",
+   "chapter": 14,
+   "scene": "A30",
+   "kind": "battle",
+   "title": "대치 · 기록 대치 — 숲에서",
+   "pov": "kim",
+   "lens": "battle",
+   "weather": "overcast",
+   "amb": "assets/amb/amb_forest_day.opus",
+   "still": "assets/still/A30/cA30_5.webp",
+   "battle": {
+    "id": "BT_A30",
+    "title": "기록 대치 — 숲에서",
+    "mode": "human",
+    "goal": {
+     "type": "evidence",
+     "value": 3,
+     "turns": 6
+    },
+    "warmth": 7,
+    "warmthLoss": 1,
+    "star": true,
+    "allies": [
+     "kkamang"
+    ],
+    "humans": [
+     "kim",
+     "somi"
+    ],
+    "enemy": {
+     "name": "포획꾼",
+     "kind": "human",
+     "tension": 6,
+     "intents": [
+      {
+       "name": "다가옴",
+       "text": "그가 진흙을 밟고 다가왔다",
+       "warmth": -1
+      },
+      {
+       "name": "욕설",
+       "text": "낮은 욕설이 숲을 갈랐다",
+       "breath": -1
+      }
+     ]
+    },
+    "skills": [
+     "kim_record",
+     "kim_report",
+     "somi_witness",
+     "kkamang_tail_signal"
+    ],
+    "intro": "불법이 가장 싫어하는 것 — 촬영 모드.",
+    "win": "\"지금 촬영 중입니다. 불법 포획.\" 흔들림은 다른 행동을 불렀다.",
+    "lose": "화면이 흔들려 증거가 흐려졌다. 다시, 각도를 잡는다.",
+    "starStage": "leg_move",
+    "scene": "A30",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_unlock",
+     "kkamang_tail_signal",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "captain_low_tail",
+     "captain_save_breath",
+     "otbit_scout",
+     "otbit_scratch",
+     "otbit_wing",
+     "otbit_herb",
+     "otbit_above",
+     "kim_pry",
+     "kim_baton",
+     "kim_record",
+     "kim_report",
+     "park_hazard",
+     "park_key",
+     "somi_towel",
+     "somi_milk",
+     "somi_witness",
+     "deer_twig",
+     "deer_nape"
+    ]
+   },
+   "next": "B14-08"
+  },
+  {
+   "beat_id": "B14-08",
+   "chapter": 14,
+   "scene": "A30",
+   "kind": "cut",
+   "title": "결과 컷 · 기록은 칼이 아니라, 문을 여는 열쇠다",
+   "pov": "kim",
+   "lens": "cut",
+   "weather": "overcast",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A30.mp4",
+    "poster": "assets/cut/A30_poster.webp",
+    "tc_in": 5168.584,
+    "tc_out": 5199.459,
+    "action": "\"너 이제… 사람 같네\"",
+    "motion": "push_in",
+    "subs": [
+     {
+      "speaker": "park",
+      "text": "너 이제… 사람 같네.",
+      "file": "assets/vo/A30/A30_019.opus",
+      "t": 5169.371,
+      "dur": 2.185,
+      "wid": "A30_019",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "그 말이, 내 가슴에 뚝 떨어졌다. 경비가 아니라 사람. 나도 모르게 목이 잠겼다.",
+      "file": "assets/vo/A30/A30_020.opus",
+      "t": 5174.556,
+      "dur": 6.863,
+      "wid": "A30_020",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "아직 멀었어요.",
+      "file": "assets/vo/A30/A30_021.opus",
+      "t": 5184.388,
+      "dur": 0.845,
+      "wid": "A30_021",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "내가 말하자, 박여사는 고개를 끄덕였다.",
+      "file": "assets/vo/A30/A30_022.opus",
+      "t": 5187.95,
+      "dur": 2.917,
+      "wid": "A30_022",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "park",
+      "text": "멀어도 가는 거지.",
+      "file": "assets/vo/A30/A30_023.opus",
+      "t": 5193.835,
+      "dur": 1.124,
+      "wid": "A30_023",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B15-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

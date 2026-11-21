@@ -1,0 +1,431 @@
+{
+ "cuesheet_id": "cj_ch15_v37",
+ "chapter_no": 15,
+ "label": "15장",
+ "title": "체온 릴레이",
+ "act": "2막",
+ "pov": "누리",
+ "star_stage": "leg_move",
+ "amb": "assets/amb/amb_forest_night.opus",
+ "weather": "fog",
+ "scenes": [
+  "A31"
+ ],
+ "beats": [
+  {
+   "beat_id": "B15-01",
+   "chapter": 15,
+   "scene": "A31",
+   "kind": "explore",
+   "title": "체온 릴레이, 살아 있음은 나눔이다",
+   "pov": "nuri",
+   "lens": "strand",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "clues": [
+    {
+     "id": "CL_BREATH",
+     "label": "작은 숨",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "작은 점의 숨이 다시 얕아졌다.",
+     "kw": "숨"
+    },
+    {
+     "id": "CL_BLANKET",
+     "label": "담요",
+     "kind": "smell",
+     "tone": "#c9b48a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "나는 코로 담요를 밀었다.",
+     "kw": "담요"
+    },
+    {
+     "id": "CL_WIND",
+     "label": "바람",
+     "kind": "smell",
+     "tone": "#6d879c",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "까망이 내 옆에 몸을 붙였다.",
+     "kw": "바람"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 19.417,
+     "still": "assets/still/A31/cA31_0.webp",
+     "motion": "push_in",
+     "action": "두 번째 위기",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "작은 점의 숨이 다시 얕아졌다. 아까는 폭우 때문이었다면, 지금은 몸 안의 싸움이었다.",
+       "file": "assets/vo/A31/A31_000.opus",
+       "t": 5201.858,
+       "dur": 7.053,
+       "wid": "A31_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "열이 오르면 숨이 빨라지고, 숨이 빨라지면 체온이 더 빠지고, 체온이 빠지면— 끝이 가까워진다.",
+       "file": "assets/vo/A31/A31_001.opus",
+       "t": 5210.44,
+       "dur": 7.342,
+       "wid": "A31_001",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_BREATH"
+     ]
+    },
+    {
+     "t0": 19.417,
+     "t1": 33.917,
+     "still": "assets/still/A31/cA31_1.webp",
+     "motion": "push_in",
+     "action": "불은 혼자면 꺼진다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "나는 코로 담요를 밀었다. 내 숨을 최대한 담요 안으로 넣었다. 숨은 따뜻하다. 따뜻한 숨은 작은 불이다. 하지만 불은 혼자면 꺼진다.",
+       "file": "assets/vo/A31/A31_002.opus",
+       "t": 5219.311,
+       "dur": 12.796,
+       "wid": "A31_002",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 33.917,
+     "t1": 70.0,
+     "still": "assets/still/A31/cA31_2.webp",
+     "motion": "push_in",
+     "action": "바람을 막는 것도 체온이다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "까망이 내 옆에 몸을 붙였다. 캡틴도 반대편에 붙었다. 들무리 리더가 잠깐 망설이다가, 결국 바깥에서 바람을 막아주는 자리에 섰다. 바람을 막는 것도 체온이다.",
+       "file": "assets/vo/A31/A31_003.opus",
+       "t": 5233.636,
+       "dur": 13.934,
+       "wid": "A31_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "우리는 말을 하지 않았다. 말을 하면 숨이 흔들린다. 숨이 흔들리면, 작은 점의 숨도 흔들릴까 봐.",
+       "file": "assets/vo/A31/A31_004.opus",
+       "t": 5249.099,
+       "dur": 9.01,
+       "wid": "A31_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "잿빛이 젖은 풀뿌리를 다시 가져왔다. 쓴 냄새. 까망이 작은 점의 입가에 아주 조금만 묻혔다.",
+       "file": "assets/vo/A31/A31_005.opus",
+       "t": 5259.638,
+       "dur": 8.093,
+       "wid": "A31_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "고양이는 약을 많이 주지 않는다. 많이 주면 몸이 놀란다. 조금씩, 천천히. 숲의 치료법은 늘 시간이 걸린다.",
+       "file": "assets/vo/A31/A31_006.opus",
+       "t": 5269.26,
+       "dur": 10.443,
+       "wid": "A31_006",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_BLANKET"
+     ]
+    },
+    {
+     "t0": 70.0,
+     "t1": 92.708,
+     "still": "assets/still/A31/cA31_3.webp",
+     "motion": "push_in",
+     "action": "조금씩, 천천히 — 숲의 치료법",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "김반장이 따뜻한 물병을 꺼냈다. 비닐로 감싸서 열이 빨리 빠지지 않게 했다. 그리고 담요 바깥쪽에 대었다.",
+       "file": "assets/vo/A31/A31_007.opus",
+       "t": 5281.232,
+       "dur": 9.131,
+       "wid": "A31_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "나는 그 행동이 너무 낯설어서, 잠깐 멍해졌다. 사람 손이 우리 편일 때의 느낌을, 나는 아직 배우는 중이다.",
+       "file": "assets/vo/A31/A31_008.opus",
+       "t": 5291.892,
+       "dur": 8.739,
+       "wid": "A31_008",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 92.708,
+     "t1": 102.958,
+     "still": "assets/still/A31/cA31_4.webp",
+     "motion": "push_in",
+     "action": "사람 손이 우리 편일 때",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "그런데… 따뜻함이 담요로 스며들었다. 작은 점의 숨이 아주 미세하게 깊어졌다.",
+       "file": "assets/vo/A31/A31_009.opus",
+       "t": 5302.16,
+       "dur": 7.575,
+       "wid": "A31_009",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 102.958,
+     "t1": 138.375,
+     "still": "assets/still/A31/cA31_5.webp",
+     "motion": "push_in",
+     "action": "따뜻함은 조금으로도 생명을 붙잡는다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "그 작은 변화가, 내 가슴을 터뜨릴 뻔했다. 기쁨은 소리를 내고 싶게 만든다. 하지만 나는 또 참았다. 이번에는 참는 이유가 달랐다. 살리기 위해서.",
+       "file": "assets/vo/A31/A31_010.opus",
+       "t": 5311.799,
+       "dur": 13.858,
+       "wid": "A31_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "캡틴이 아주 낮게 말했다.",
+       "file": "assets/vo/A31/A31_011.opus",
+       "t": 5327.186,
+       "dur": 2.075,
+       "wid": "A31_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "살아라.",
+       "file": "assets/vo/A31/A31_012.opus",
+       "t": 5331.02,
+       "dur": 0.58,
+       "wid": "A31_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "명령이 아니라 기도였다. 기도는 약하지만, 기도는 오래 버틴다.",
+       "file": "assets/vo/A31/A31_013.opus",
+       "t": 5333.205,
+       "dur": 5.603,
+       "wid": "A31_013",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_WIND"
+     ]
+    }
+   ],
+   "gesture": "drag",
+   "next": "B15-02"
+  },
+  {
+   "beat_id": "B15-02",
+   "chapter": 15,
+   "scene": "A31",
+   "kind": "battle",
+   "title": "대치 · 체온 릴레이",
+   "pov": "nuri",
+   "lens": "battle",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "still": "assets/still/A31/cA31_5.webp",
+   "battle": {
+    "id": "BT_A31",
+    "title": "체온 릴레이",
+    "mode": "env",
+    "goal": {
+     "type": "hold",
+     "value": 5,
+     "turns": 5
+    },
+    "warmth": 5,
+    "warmthLoss": 2,
+    "star": true,
+    "allies": [
+     "nuri",
+     "otbit",
+     "captain"
+    ],
+    "humans": [
+     "deer",
+     "somi"
+    ],
+    "enemy": {
+     "name": "밤의 한기",
+     "kind": "env",
+     "tension": 0,
+     "intents": [
+      {
+       "name": "바람",
+       "text": "바람이 담요를 들췄다",
+       "warmth": -1
+      },
+      {
+       "name": "젖은 땅",
+       "text": "젖은 땅이 열을 빼앗았다",
+       "warmth": -1
+      },
+      {
+       "name": "긴 밤",
+       "text": "밤이 길었다",
+       "warmth": -1,
+       "breath": -1
+      }
+     ]
+    },
+    "skills": [
+     "nuri_warmth",
+     "deer_windbreak",
+     "otbit_herb",
+     "somi_milk"
+    ],
+    "intro": "불은 혼자면 꺼진다. 자리마다 체온을 내놓는다.",
+    "win": "발을 한 번 움직였다. 조금씩, 천천히 — 숲의 치료법.",
+    "lose": "온기가 끊겼다. 다시, 자리를 바꾼다.",
+    "starStage": "leg_move",
+    "scene": "A31",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_unlock",
+     "kkamang_tail_signal",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "captain_low_tail",
+     "captain_save_breath",
+     "otbit_scout",
+     "otbit_scratch",
+     "otbit_wing",
+     "otbit_herb",
+     "otbit_above",
+     "kim_pry",
+     "kim_baton",
+     "kim_record",
+     "kim_report",
+     "park_hazard",
+     "park_key",
+     "somi_towel",
+     "somi_milk",
+     "somi_witness",
+     "deer_twig",
+     "deer_windbreak",
+     "deer_nape"
+    ]
+   },
+   "next": "B15-03"
+  },
+  {
+   "beat_id": "B15-03",
+   "chapter": 15,
+   "scene": "A31",
+   "kind": "cut",
+   "title": "결과 컷 · 체온 릴레이, 살아 있음은 나눔이다",
+   "pov": "nuri",
+   "lens": "cut",
+   "weather": "fog",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A31.mp4",
+    "poster": "assets/cut/A31_poster.webp",
+    "tc_in": 5337.833,
+    "tc_out": 5355.541,
+    "action": "발을 한 번 움직였다",
+    "motion": "push_fast",
+    "subs": [
+     {
+      "speaker": "nuri",
+      "text": "작은 점이 아주 약하게— 정말 아주 약하게— 발을 한 번 움직였다.",
+      "file": "assets/vo/A31/A31_014.opus",
+      "t": 5340.337,
+      "dur": 5.131,
+      "wid": "A31_014",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "그 작은 움직임이, 우리 모두를 한 번 살렸다.",
+      "file": "assets/vo/A31/A31_015.opus",
+      "t": 5346.997,
+      "dur": 4.044,
+      "wid": "A31_015",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B16-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

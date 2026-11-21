@@ -1,0 +1,502 @@
+{
+ "cuesheet_id": "cj_ch02_v37",
+ "chapter_no": 2,
+ "label": "2장",
+ "title": "폭풍우와 보일러실",
+ "act": "1막",
+ "pov": "까망",
+ "star_stage": null,
+ "amb": "assets/amb/amb_storm.opus",
+ "weather": "storm",
+ "scenes": [
+  "N03"
+ ],
+ "beats": [
+  {
+   "beat_id": "B02-01",
+   "chapter": 2,
+   "scene": "N03",
+   "kind": "explore",
+   "title": "폭풍우와 보일러실",
+   "pov": "kkamang",
+   "lens": "high",
+   "weather": "storm",
+   "amb": "assets/amb/amb_storm.opus",
+   "clues": [
+    {
+     "id": "CL_BOILER_OIL",
+     "label": "보일러 기름",
+     "kind": "smell",
+     "tone": "#8a6a3c",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 낡은 상가 보일러실 환풍구 아래에서 그를 봤다.",
+     "kw": "보일러"
+    },
+    {
+     "id": "CL_WARM_VENT",
+     "label": "환풍구의 온기",
+     "kind": "smell",
+     "tone": "#d9a05b",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "나는 낡은 상가 보일러실 환풍구 아래에서 그를 봤다.",
+     "kw": "환풍구"
+    },
+    {
+     "id": "CL_WET_FUR",
+     "label": "젖은 털",
+     "kind": "smell",
+     "tone": "#5f7488",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "비가 오면 저 덩치 큰 개는 더 빨리 체온을 잃는다.",
+     "kw": "젖은"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 43.708,
+     "still": "assets/still/N03/cN03_0.webp",
+     "motion": "tilt_down",
+     "action": "처마 하나 없는 밤 — 체온을 빼앗기는 비",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "며칠 뒤, 하늘에 구멍이 났다. 비는 골목의 모든 냄새를 지웠다. 사람들은 우산을 쓰고 종종걸음으로 사라졌다.",
+       "file": "assets/vo/N03/N03_000.opus",
+       "t": 508.067,
+       "dur": 8.704,
+       "wid": "N03_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "비가 오면 저 덩치 큰 개는 더 빨리 체온을 잃는다. 젖은 털은 무겁고, 무거운 털은 움직임을 늦추고, 느린 건 도시에서 죽는다.",
+       "file": "assets/vo/N03/N03_001.opus",
+       "t": 518.429,
+       "dur": 10.313,
+       "wid": "N03_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 낡은 상가 보일러실 환풍구 아래에서 그를 봤다. 처마 하나 찾지 못하고, 이빨을 딱딱 부딪치며 서 있었다.",
+       "file": "assets/vo/N03/N03_002.opus",
+       "t": 530.981,
+       "dur": 8.942,
+       "wid": "N03_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "추워... 너무 추워... 주인님... 아무나 좀 도와주세요...",
+       "file": "assets/vo/N03/N03_003.opus",
+       "t": 541.83,
+       "dur": 5.85,
+       "wid": "N03_003",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_BOILER_OIL"
+     ]
+    },
+    {
+     "t0": 43.708,
+     "t1": 79.167,
+     "still": "assets/still/N03/cN03_1.webp",
+     "motion": "pan_lr",
+     "action": "환풍구 아래의 까망 — 저대로 두면 진짜 죽는다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "나는 혀를 찼다. 저대로 두면 진짜 죽는다. 죽으면, 내 구역이 더러워진다.",
+       "file": "assets/vo/N03/N03_004.opus",
+       "t": 550.292,
+       "dur": 6.228,
+       "wid": "N03_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "이봐, 덩치. 거기서 청승 떨지 말고 이리로 와. 보일러실 문 틈이 고장 나서 열려 있어.",
+       "file": "assets/vo/N03/N03_005.opus",
+       "t": 559.095,
+       "dur": 6.376,
+       "wid": "N03_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "하, 하지만... 네 구역이라고... 들어오면 가만 안 둔다고...",
+       "file": "assets/vo/N03/N03_006.opus",
+       "t": 567.129,
+       "dur": 6.197,
+       "wid": "N03_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "얼어 죽고 나서 내 구역에 시체 냄새 피우는 것보단 나으니까, 잔말 말고 들어와! 빨리! 내 꼬리 젖잖아!",
+       "file": "assets/vo/N03/N03_007.opus",
+       "t": 575.814,
+       "dur": 9.19,
+       "wid": "N03_007",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 79.167,
+     "t1": 109.25,
+     "still": "assets/still/N03/cN03_2.webp",
+     "motion": "push_fast",
+     "action": "끼익— 철문이 열리고, 덩치가 몸을 구겨 들어간다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "철문이 끼익, 울었다. 철문이 우는 소리는 오래된 집이 숨을 쉬는 소리 같았다.",
+       "file": "assets/vo/N03/N03_008.opus",
+       "t": 585.178,
+       "dur": 6.428,
+       "wid": "N03_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "놈이 몸을 최대한 줄여 들어왔다. 세상이 자기를 때릴까 봐. 그 모습이, 왜인지 더 못 봐주겠었다.",
+       "file": "assets/vo/N03/N03_009.opus",
+       "t": 593.845,
+       "dur": 7.886,
+       "wid": "N03_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "보일러가 웅, 낮게 돌아갔다. 바깥의 빗소리는 벽 하나를 두고 먹먹해졌다. 먼지와 뜨거운 금속 냄새, 그리고 마른 공기의 따스함.",
+       "file": "assets/vo/N03/N03_010.opus",
+       "t": 603.389,
+       "dur": 10.466,
+       "wid": "N03_010",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_WARM_VENT"
+     ]
+    },
+    {
+     "t0": 109.25,
+     "t1": 153.125,
+     "still": "assets/still/N03/cN03_3.webp",
+     "motion": "push_in",
+     "action": "보일러의 온기, 바닥을 미끄러지는 말린 생선 반쪽",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "아... 따뜻하다...",
+       "file": "assets/vo/N03/N03_011.opus",
+       "t": 615.762,
+       "dur": 1.83,
+       "wid": "N03_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그 한숨이 이상하게 길었다. 살아남은 자의 한숨은 길다.",
+       "file": "assets/vo/N03/N03_012.opus",
+       "t": 620.204,
+       "dur": 4.277,
+       "wid": "N03_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "착각하지 마. 널 구해주려고 한 게 아니니까. 네가 낑낑대는 소리 때문에 잠을 못 자서 그런 거야.",
+       "file": "assets/vo/N03/N03_013.opus",
+       "t": 626.388,
+       "dur": 6.918,
+       "wid": "N03_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "고마워... 정말 고마워. 이름이 뭐야? 나는 누리야. 세상의 모든 곳을 누비라고 지어준 이름이래.",
+       "file": "assets/vo/N03/N03_014.opus",
+       "t": 634.965,
+       "dur": 9.666,
+       "wid": "N03_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "세상을 누비기는커녕, 보일러실 구석도 제대로 못 누비는 꼴이네. ...까망.",
+       "file": "assets/vo/N03/N03_015.opus",
+       "t": 646.87,
+       "dur": 6.355,
+       "wid": "N03_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "까망이... 예쁜 이름이다. 털처럼 반짝거려.",
+       "file": "assets/vo/N03/N03_016.opus",
+       "t": 655.463,
+       "dur": 5.015,
+       "wid": "N03_016",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_WET_FUR"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B02-02"
+  },
+  {
+   "beat_id": "B02-02",
+   "chapter": 2,
+   "scene": "N03",
+   "kind": "deduce",
+   "title": "추리판 · 어디가 따뜻한가",
+   "pov": "kkamang",
+   "lens": "board",
+   "weather": "storm",
+   "amb": "assets/amb/amb_storm.opus",
+   "question": {
+    "id": "Q03_WARM",
+    "text": "어디가 따뜻한가"
+   },
+   "hyps": [
+    {
+     "id": "H03_BOILER",
+     "line": "보일러실 문이 고장 났다.",
+     "canon": true,
+     "needs": [
+      "CL_BOILER_OIL",
+      "CL_WARM_VENT"
+     ],
+     "effect": {
+      "warmth": 2
+     }
+    },
+    {
+     "id": "H03_EMPTY",
+     "line": "아무도 없는 집이다.",
+     "canon": false,
+     "needs": [
+      "CL_WET_FUR",
+      "CL_BOILER_OIL"
+     ],
+     "effect": {
+      "warmth": -1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_BOILER_OIL",
+     "label": "보일러 기름",
+     "kind": "smell",
+     "tone": "#8a6a3c",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 낡은 상가 보일러실 환풍구 아래에서 그를 봤다.",
+     "kw": "보일러"
+    },
+    {
+     "id": "CL_WARM_VENT",
+     "label": "환풍구의 온기",
+     "kind": "smell",
+     "tone": "#d9a05b",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "나는 낡은 상가 보일러실 환풍구 아래에서 그를 봤다.",
+     "kw": "환풍구"
+    },
+    {
+     "id": "CL_WET_FUR",
+     "label": "젖은 털",
+     "kind": "smell",
+     "tone": "#5f7488",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "비가 오면 저 덩치 큰 개는 더 빨리 체온을 잃는다.",
+     "kw": "젖은"
+    }
+   ],
+   "still": "assets/still/N03/cN03_3.webp",
+   "next": "B02-03"
+  },
+  {
+   "beat_id": "B02-03",
+   "chapter": 2,
+   "scene": "N03",
+   "kind": "battle",
+   "title": "대치 · 체온 유지",
+   "pov": "kkamang",
+   "lens": "battle",
+   "weather": "storm",
+   "amb": "assets/amb/amb_storm.opus",
+   "still": "assets/still/N03/cN03_3.webp",
+   "battle": {
+    "id": "BT_N03",
+    "title": "체온 유지",
+    "mode": "env",
+    "goal": {
+     "type": "hold",
+     "value": 4,
+     "turns": 4
+    },
+    "warmth": 6,
+    "warmthLoss": 2,
+    "star": false,
+    "allies": [
+     "nuri",
+     "kkamang"
+    ],
+    "humans": [],
+    "enemy": {
+     "name": "비",
+     "kind": "env",
+     "tension": 0,
+     "intents": [
+      {
+       "name": "한기",
+       "text": "빗물이 등줄기를 타고 흘렀다",
+       "warmth": -1
+      },
+      {
+       "name": "바람",
+       "text": "처마 없는 밤의 바람",
+       "warmth": -1,
+       "breath": -1
+      },
+      {
+       "name": "소나기",
+       "text": "하늘이 통째로 쏟아졌다",
+       "warmth": -2
+      }
+     ]
+    },
+    "skills": [
+     "nuri_warmth",
+     "kkamang_wall"
+    ],
+    "intro": "비는 적이 아니다. 시간이다. 버티는 만큼 이긴다.",
+    "win": "말린 생선 반쪽이 두 몫으로 나뉘었다. 씹는 소리가 살아 있다는 증거였다.",
+    "lose": "체온이 먼저 떠났다. 다시, 문틈을 찾는다.",
+    "starStage": null,
+    "scene": "N03",
+    "unlocked": [
+     "kkamang_wall",
+     "kkamang_jeong",
+     "captain_nose"
+    ]
+   },
+   "next": "B02-04"
+  },
+  {
+   "beat_id": "B02-04",
+   "chapter": 2,
+   "scene": "N03",
+   "kind": "cut",
+   "title": "결과 컷 · 폭풍우와 보일러실",
+   "pov": "kkamang",
+   "lens": "cut",
+   "weather": "storm",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/N03.mp4",
+    "poster": "assets/cut/N03_poster.webp",
+    "tc_in": 658.792,
+    "tc_out": 693.542,
+    "action": "씹는 소리가 살아 있다는 증거 — 나란한 두 심장",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "kkamang",
+      "text": "나는 말린 생선을 툭 밀었다.",
+      "file": "assets/vo/N03/N03_017.opus",
+      "t": 662.829,
+      "dur": 1.602,
+      "wid": "N03_017",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "반만 먹어. 나도 배고파.",
+      "file": "assets/vo/N03/N03_018.opus",
+      "t": 666.338,
+      "dur": 1.611,
+      "wid": "N03_018",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "놈이 한참을 바라보다가 아주 조심스럽게 물었다. 씹는 소리가 났다. 그 소리가 이상하게도, 살아 있다는 증거처럼 들렸다.",
+      "file": "assets/vo/N03/N03_019.opus",
+      "t": 669.691,
+      "dur": 9.617,
+      "wid": "N03_019",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "나는 속으로 알았다. 나는 방금, 문을 열었다. 내가 가장 싫어하던 일을 했다. 누군가를 들여보냈다.",
+      "file": "assets/vo/N03/N03_020.opus",
+      "t": 680.966,
+      "dur": 8.076,
+      "wid": "N03_020",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B03-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

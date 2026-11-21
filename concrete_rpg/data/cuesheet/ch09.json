@@ -1,0 +1,1139 @@
+{
+ "cuesheet_id": "cj_ch09_v37",
+ "chapter_no": 9,
+ "label": "9장",
+ "title": "포획틀",
+ "act": "1막",
+ "pov": "까망",
+ "star_stage": "eyes_shut",
+ "amb": "assets/amb/amb_park.opus",
+ "weather": "night",
+ "scenes": [
+  "11",
+  "N18",
+  "12"
+ ],
+ "beats": [
+  {
+   "beat_id": "B09-01",
+   "chapter": 9,
+   "scene": "11",
+   "kind": "explore",
+   "title": "포획틀 잠금 해제",
+   "pov": "kkamang",
+   "lens": "high",
+   "weather": "night",
+   "amb": "assets/amb/amb_park.opus",
+   "clues": [
+    {
+     "id": "CL_TUNA",
+     "label": "참치 미끼",
+     "kind": "smell",
+     "tone": "#c98a6a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 냄새로 포획틀 위치를 읽었다.",
+     "kw": "참치"
+    },
+    {
+     "id": "CL_RUBBER",
+     "label": "고무장갑",
+     "kind": "smell",
+     "tone": "#8a8a8a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "고무장갑"
+    },
+    {
+     "id": "CL_CLICK",
+     "label": "찰칵",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "찰칵— 잠금이 풀리는 순간의 소리는 너무 크다.",
+     "kw": "찰칵"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 29.75,
+     "still": "assets/still/11/c11_0.webp",
+     "motion": "push_in",
+     "action": "미끼는 달콤하지만 그 끝은 철이다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "도로를 넘긴 것만으로 끝이 아니다. 도시는 끝까지 우리를 놓치지 않는다. 포획틀은 늘 남아 있고, 틀에 걸린 동료는 더 남아 있다.",
+       "file": "assets/vo/11/11_000.opus",
+       "t": 2967.733,
+       "dur": 10.292,
+       "wid": "11_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 냄새로 포획틀 위치를 읽었다. 금속의 날선 냄새, 사람 손의 기름 냄새, 그리고 미끼로 쓰인 참치의 싸구려 냄새.",
+       "file": "assets/vo/11/11_001.opus",
+       "t": 2980.092,
+       "dur": 9.549,
+       "wid": "11_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "미끼는 달콤하지만, 그 달콤함의 끝은 철이다.",
+       "file": "assets/vo/11/11_002.opus",
+       "t": 2991.707,
+       "dur": 3.26,
+       "wid": "11_002",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_TUNA"
+     ]
+    },
+    {
+     "t0": 29.75,
+     "t1": 63.417,
+     "still": "assets/still/11/c11_1.webp",
+     "motion": "pan_lr",
+     "action": "나와 잿빛이 먼저, 그림자처럼",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "우리는 골목 안쪽으로 돌아들어갔다. 나와 잿빛이 먼저, 그림자처럼. 잿빛은 일부러 바닥을 긁었다. 사각사각. 사람이 고개를 돌리는 순간, 나는 반대로 움직였다.",
+       "file": "assets/vo/11/11_003.opus",
+       "t": 2997.034,
+       "dur": 14.005,
+       "wid": "11_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "포획틀 안에서 작은 고양이가 떨고 있었다. 그 눈은 도와줘, 가 아니라 끝났어, 라고 말하고 있었다. 끝났다고 믿는 눈은 죽기 쉽다.",
+       "file": "assets/vo/11/11_004.opus",
+       "t": 3013.106,
+       "dur": 11.313,
+       "wid": "11_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 낮은 목소리로 말했다.",
+       "file": "assets/vo/11/11_005.opus",
+       "t": 3027.154,
+       "dur": 1.566,
+       "wid": "11_005",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_RUBBER"
+     ]
+    },
+    {
+     "t0": 63.417,
+     "t1": 106.458,
+     "still": "assets/still/11/c11_2.webp",
+     "motion": "push_in",
+     "action": "차가운 철은 감정을 빼앗는다 — 그래서 더 집중해야 한다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "끝나지 않았어.",
+       "file": "assets/vo/11/11_006.opus",
+       "t": 3031.073,
+       "dur": 0.874,
+       "wid": "11_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "숨을 들이쉬고, 앞발을 조심스럽게 넣어 잠금장치를 만졌다. 철은 차갑다. 차가운 철은 감정을 빼앗는다. 그래서 더 집중해야 한다.",
+       "file": "assets/vo/11/11_007.opus",
+       "t": 3034.109,
+       "dur": 10.927,
+       "wid": "11_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "찰칵— 잠금이 풀리는 순간의 소리는 너무 크다. 하지만 밤엔 다른 소리들이 덮어준다. 멀리서 오토바이가 지나가고, 어딘가에서 개가 짖고, 사람들은 술 취해 웃는다.",
+       "file": "assets/vo/11/11_008.opus",
+       "t": 3047.103,
+       "dur": 13.487,
+       "wid": "11_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "문이 열렸다. 고양이가 튀어나와 내 몸에 부딪혔다. 나는 한 번도 그런 부딪힘을 싫어한 적이 없다. 그건, 살아 있다는 무게니까.",
+       "file": "assets/vo/11/11_009.opus",
+       "t": 3062.656,
+       "dur": 9.81,
+       "wid": "11_009",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_CLICK"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B09-02"
+  },
+  {
+   "beat_id": "B09-02",
+   "chapter": 9,
+   "scene": "11",
+   "kind": "deduce",
+   "title": "추리판 · 틀은 어디 있나",
+   "pov": "kkamang",
+   "lens": "board",
+   "weather": "night",
+   "amb": "assets/amb/amb_park.opus",
+   "question": {
+    "id": "Q11_TRAP",
+    "text": "틀은 어디 있나"
+   },
+   "hyps": [
+    {
+     "id": "H11_OUTSIDE",
+     "line": "공원 담장 바깥 길이다.",
+     "canon": true,
+     "needs": [
+      "CL_TUNA",
+      "CL_CLICK"
+     ],
+     "effect": {
+      "reveal": true,
+      "progress": 1
+     }
+    },
+    {
+     "id": "H11_INSIDE",
+     "line": "철망 안쪽이다.",
+     "canon": false,
+     "needs": [
+      "CL_RUBBER",
+      "CL_TUNA"
+     ],
+     "effect": {
+      "warmth": -1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_TUNA",
+     "label": "참치 미끼",
+     "kind": "smell",
+     "tone": "#c98a6a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 냄새로 포획틀 위치를 읽었다.",
+     "kw": "참치"
+    },
+    {
+     "id": "CL_RUBBER",
+     "label": "고무장갑",
+     "kind": "smell",
+     "tone": "#8a8a8a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "고무장갑"
+    },
+    {
+     "id": "CL_CLICK",
+     "label": "찰칵",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "찰칵— 잠금이 풀리는 순간의 소리는 너무 크다.",
+     "kw": "찰칵"
+    }
+   ],
+   "still": "assets/still/11/c11_2.webp",
+   "next": "B09-03"
+  },
+  {
+   "beat_id": "B09-03",
+   "chapter": 9,
+   "scene": "11",
+   "kind": "cut",
+   "title": "결과 컷 · 포획틀 잠금 해제",
+   "pov": "kkamang",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/11.mp4",
+    "poster": "assets/cut/11_poster.webp",
+    "tc_in": 3071.791,
+    "tc_out": 3091.041,
+    "action": "찰칵— 부딪힘은 살아 있다는 무게 — 그때 발소리가",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "kkamang",
+      "text": "그때, 사람의 발소리가 가까워졌다.",
+      "file": "assets/vo/11/11_010.opus",
+      "t": 3075.466,
+      "dur": 2.042,
+      "wid": "11_010",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "포획업자. 발소리는 경쾌했고, 그래서 더 악랄했다. 이 일에 죄책감이 없는 발소리였다.",
+      "file": "assets/vo/11/11_011.opus",
+      "t": 3079.575,
+      "dur": 6.966,
+      "wid": "11_011",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B09-04"
+  },
+  {
+   "beat_id": "B09-04",
+   "chapter": 9,
+   "scene": "N18",
+   "kind": "explore",
+   "title": "잿빛의 공중전",
+   "pov": "otbit",
+   "lens": "aerial",
+   "weather": "night",
+   "amb": "assets/amb/amb_park.opus",
+   "clues": [
+    {
+     "id": "CL_WIRE",
+     "label": "철망",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "골목 안쪽, 철망 앞에 두 사람이 서 있었다.",
+     "kw": "철망"
+    },
+    {
+     "id": "CL_GLOVE",
+     "label": "고무장갑",
+     "kind": "smell",
+     "tone": "#8a8a8a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "장갑"
+    },
+    {
+     "id": "CL_SHADOW",
+     "label": "사람의 그림자",
+     "kind": "smell",
+     "tone": "#5f6d7d",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "하지만 높은 곳에서 보면, 세상이 다르게 보인다.",
+     "kw": "그림자"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 49.292,
+     "still": "assets/still/N18/cN18_0.webp",
+     "motion": "tilt_down",
+     "action": "도로 위를 도는 잿빛 — 한 바퀴, 두 바퀴",
+     "lines": [
+      {
+       "speaker": "ash",
+       "text": "나는 겁이 많다. 비둘기는 원래 겁이 많다. 겁이 많아야 하늘에서 살아남는다.",
+       "file": "assets/vo/N18/N18_000.opus",
+       "t": 3093.442,
+       "dur": 5.873,
+       "wid": "N18_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "ash",
+       "text": "하지만 높은 곳에서 보면, 세상이 다르게 보인다. 길이 아니라 선으로, 사람이 아니라 그림자로.",
+       "file": "assets/vo/N18/N18_001.opus",
+       "t": 3101.619,
+       "dur": 7.574,
+       "wid": "N18_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "ash",
+       "text": "도로 위에 붉은 빛이 흩어져 있었다. 아저씨의 경광봉, 차들의 비상등, 그리고 낮게 흐르는 작은 몸들.",
+       "file": "assets/vo/N18/N18_002.opus",
+       "t": 3111.497,
+       "dur": 8.155,
+       "wid": "N18_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "ash",
+       "text": "나는 그 위를 돌았다. 한 바퀴, 두 바퀴. 바람이 날개를 밀었다. 무서웠지만, 무섭다고 말할 시간이 없었다.",
+       "file": "assets/vo/N18/N18_003.opus",
+       "t": 3121.957,
+       "dur": 9.029,
+       "wid": "N18_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "ash",
+       "text": "그때, 아래에서 이상한 냄새가 올라왔다. 담배, 땀, 기름, 그리고 짐승을 보는 사람 냄새.",
+       "file": "assets/vo/N18/N18_004.opus",
+       "t": 3133.986,
+       "dur": 7.024,
+       "wid": "N18_004",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_WIRE"
+     ]
+    },
+    {
+     "t0": 49.292,
+     "t1": 75.042,
+     "still": "assets/still/N18/cN18_1.webp",
+     "motion": "push_in",
+     "action": "철망 앞의 두 사람, 덫 안의 새끼 고양이",
+     "lines": [
+      {
+       "speaker": "ash",
+       "text": "골목 안쪽, 철망 앞에 두 사람이 서 있었다. 손에 손전등. 발밑에 포획틀. 틀 안의 작은 고양이는 위를 보고 있었다. 하늘에서 오는 것을 기다리는 눈이었다.",
+       "file": "assets/vo/N18/N18_005.opus",
+       "t": 3143.314,
+       "dur": 12.755,
+       "wid": "N18_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "ash",
+       "text": "누리는 골목 입구를 막고 서서, 낮게 으르렁거렸다. 나는 날개를 접고, 떨어졌다. 돌이 떨어지듯이. 아니, 조금 더 조용하게.",
+       "file": "assets/vo/N18/N18_006.opus",
+       "t": 3158.373,
+       "dur": 10.14,
+       "wid": "N18_006",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 75.042,
+     "t1": 109.75,
+     "still": "assets/still/N18/cN18_2.webp",
+     "motion": "push_fast",
+     "action": "빛 속으로 떨어지는 회색 날개 — 눈을 덮다",
+     "lines": [
+      {
+       "speaker": "ash",
+       "text": "손전등 빛 속으로 들어갔다. 빛은 따뜻하지 않았다. 빛은 사람의 눈이었다.",
+       "file": "assets/vo/N18/N18_007.opus",
+       "t": 3170.817,
+       "dur": 5.791,
+       "wid": "N18_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "ash",
+       "text": "나는 포획꾼의 얼굴 앞에서 날개를 폈다. 활짝. 회색 날개가 그의 시야를 통째로 덮었다.",
+       "file": "assets/vo/N18/N18_008.opus",
+       "t": 3178.912,
+       "dur": 7.26,
+       "wid": "N18_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "villain",
+       "text": "뭐야! 뭐야 이거!",
+       "file": "assets/vo/N18/N18_009.opus",
+       "t": 3188.797,
+       "dur": 2.497,
+       "wid": "N18_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "ash",
+       "text": "그가 뒤로 물러섰다. 손전등이 바닥을 굴렀다. 그 순간이, 우리가 훔친 시간이다.",
+       "file": "assets/vo/N18/N18_010.opus",
+       "t": 3191.594,
+       "dur": 6.012,
+       "wid": "N18_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "ash",
+       "text": "누리가 진흙을 박차고 달려나갔다. 덩치 큰 몸이 표적이 됐다.",
+       "file": "assets/vo/N18/N18_011.opus",
+       "t": 3199.911,
+       "dur": 4.473,
+       "wid": "N18_011",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_GLOVE"
+     ]
+    },
+    {
+     "t0": 109.75,
+     "t1": 118.208,
+     "still": "assets/still/N18/cN18_3.webp",
+     "motion": "pan_fast",
+     "action": "진흙을 박차고 돌격하는 누리 — 표적이 된다",
+     "lines": [
+      {
+       "speaker": "villain",
+       "text": "큰 놈! 돈 된다!",
+       "file": "assets/vo/N18/N18_012.opus",
+       "t": 3207.009,
+       "dur": 2.392,
+       "wid": "N18_012",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 118.208,
+     "t1": 127.625,
+     "still": "assets/still/N18/cN18_4.webp",
+     "motion": "push_in",
+     "action": "찰칵 — 잠금이 풀리는 소리",
+     "lines": [
+      {
+       "speaker": "ash",
+       "text": "나는 다시 날아 올랐다. 두 번째 사람의 손전등 위에서 한 번 더 날개를 폈다. 빛이 흔들리는 동안, 철망 아래에서 그림자 하나가 빠져나가는 것이 보였다.",
+       "file": "assets/vo/N18/N18_013.opus",
+       "t": 3209.701,
+       "dur": 12.521,
+       "wid": "N18_013",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_SHADOW"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B09-05"
+  },
+  {
+   "beat_id": "B09-05",
+   "chapter": 9,
+   "scene": "N18",
+   "kind": "battle",
+   "title": "대치 · 포획틀 — 순서가 답이다",
+   "pov": "otbit",
+   "lens": "battle",
+   "weather": "night",
+   "amb": "assets/amb/amb_park.opus",
+   "still": "assets/still/N18/cN18_4.webp",
+   "battle": {
+    "id": "BT_N18",
+    "title": "포획틀 — 순서가 답이다",
+    "mode": "animal",
+    "goal": {
+     "type": "free",
+     "value": 4,
+     "turns": 8
+    },
+    "warmth": 6,
+    "warmthLoss": 1,
+    "star": true,
+    "allies": [
+     "kkamang",
+     "otbit",
+     "nuri"
+    ],
+    "humans": [],
+    "enemy": {
+     "name": "포획업자",
+     "kind": "human",
+     "tension": 7,
+     "intents": [
+      {
+       "name": "접근",
+       "text": "포획업자의 발소리가 가까워졌다",
+       "warmth": -1
+      },
+      {
+       "name": "들춰보기",
+       "text": "철망을 손으로 들췄다",
+       "breath": -1
+      },
+      {
+       "name": "철망 걷기",
+       "text": "철망이 통째로 흔들렸다",
+       "warmth": -2
+      }
+     ]
+    },
+    "skills": [
+     "otbit_scratch",
+     "otbit_wing",
+     "kkamang_unlock",
+     "nuri_sad_eyes"
+    ],
+    "intro": "긁기 → 날개 → 미끼 → 해제. 순서가 틀리면 소리가 난다.",
+    "win": "찰칵— 잠금이 풀렸다. 오늘 밤, 우리는 다 살아 있었다.",
+    "lose": "철망이 다시 닫혔다. 순서를 처음부터 고른다.",
+    "starStage": "eyes_shut",
+    "scene": "N18",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_unlock",
+     "kkamang_tail_signal",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "otbit_scout",
+     "otbit_scratch",
+     "otbit_wing",
+     "kim_pry",
+     "kim_baton",
+     "park_hazard",
+     "somi_towel"
+    ]
+   },
+   "next": "B09-06"
+  },
+  {
+   "beat_id": "B09-06",
+   "chapter": 9,
+   "scene": "N18",
+   "kind": "cut",
+   "title": "결과 컷 · 잿빛의 공중전",
+   "pov": "otbit",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/N18.mp4",
+    "poster": "assets/cut/N18_poster.webp",
+    "tc_in": 3218.667,
+    "tc_out": 3244.5,
+    "action": "다시 하늘로 — 오늘 밤, 우리는 다 살아 있었다",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "ash",
+      "text": "다시 하늘로. 담 위로, 차 위로. 돌아봤을 때 틀은 비어 있었다.",
+      "file": "assets/vo/N18/N18_014.opus",
+      "t": 3224.526,
+      "dur": 4.837,
+      "wid": "N18_014",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "ash",
+      "text": "심장이 아팠다. 겁이 나서가 아니라, 너무 빨리 뛰어서. 나는 살아 있었다. 오늘 밤, 우리는 다 살아 있었다.",
+      "file": "assets/vo/N18/N18_015.opus",
+      "t": 3231.667,
+      "dur": 8.333,
+      "wid": "N18_015",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B09-07"
+  },
+  {
+   "beat_id": "B09-07",
+   "chapter": 9,
+   "scene": "12",
+   "kind": "explore",
+   "title": "인간들의 대치",
+   "pov": "kim",
+   "lens": "text",
+   "weather": "night",
+   "amb": "assets/amb/amb_park.opus",
+   "clues": [
+    {
+     "id": "CL_PHONE",
+     "label": "파형",
+     "kind": "smell",
+     "tone": "#8ab0a0",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 침착하게 휴대폰을 들었다.",
+     "kw": "파형"
+    },
+    {
+     "id": "CL_PLATE",
+     "label": "차량 번호",
+     "kind": "smell",
+     "tone": "#c9b48a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "번호"
+    },
+    {
+     "id": "CL_CHILD",
+     "label": "아이의 목격",
+     "kind": "smell",
+     "tone": "#e3c25a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "아이"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 30.375,
+     "still": "assets/still/12/c12_0.webp",
+     "motion": "pan_rl",
+     "action": "\"여기 내 구역인데?\" — 생명에겐 집, 인간에겐 돈",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "포획업자는 나를 보자마자 욕을 뱉었다.",
+       "file": "assets/vo/12/12_000.opus",
+       "t": 3246.9,
+       "dur": 2.861,
+       "wid": "12_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "villain",
+       "text": "뭐야, 당신? 여기 내 구역인데?",
+       "file": "assets/vo/12/12_001.opus",
+       "t": 3252.016,
+       "dur": 4.212,
+       "wid": "12_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "내 구역이라는 말이 웃겼다. 생명에게 구역은 집이고, 인간에게 구역은 돈이다.",
+       "file": "assets/vo/12/12_002.opus",
+       "t": 3258.286,
+       "dur": 6.629,
+       "wid": "12_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 침착하게 휴대폰을 들었다. 화면의 작은 파형이 움직였다. 파형은, 내 편이었다.",
+       "file": "assets/vo/12/12_003.opus",
+       "t": 3266.876,
+       "dur": 7.183,
+       "wid": "12_003",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_PHONE"
+     ]
+    },
+    {
+     "t0": 30.375,
+     "t1": 62.417,
+     "still": "assets/still/12/c12_1.webp",
+     "motion": "push_in",
+     "action": "파형은, 내 편이었다 — \"촬영 중입니다. 신고합니다\"",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "촬영 중입니다. 불법 포획, 신고합니다.",
+       "file": "assets/vo/12/12_004.opus",
+       "t": 3276.313,
+       "dur": 3.484,
+       "wid": "12_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그 말이 나오자 포획업자의 눈빛이 바뀌었다. 폭력은 들킬 때 가장 먼저 튀어나온다. 그는 한 발 다가왔다.",
+       "file": "assets/vo/12/12_005.opus",
+       "t": 3281.856,
+       "dur": 8.944,
+       "wid": "12_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "꺼. 지금 꺼라.",
+       "file": "assets/vo/12/12_006.opus",
+       "t": 3293.055,
+       "dur": 1.341,
+       "wid": "12_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "박여사 할머니가 차에서 내려왔다. 차키를 손가락에 끼운 채, 딱 서 있었다. 그 모습이 이상하게도 든든했다.",
+       "file": "assets/vo/12/12_007.opus",
+       "t": 3296.454,
+       "dur": 9.186,
+       "wid": "12_007",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_PLATE"
+     ]
+    },
+    {
+     "t0": 62.417,
+     "t1": 92.625,
+     "still": "assets/still/12/c12_2.webp",
+     "motion": "pan_lr",
+     "action": "지키기로 마음먹은 늙은 사람은 칼보다 단단하다",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "늙은 사람은 약해 보이지만, 지키기로 마음먹은 늙은 사람은 칼보다 단단하다.",
+       "file": "assets/vo/12/12_008.opus",
+       "t": 3307.601,
+       "dur": 6.267,
+       "wid": "12_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "소미가 내 뒤에서 떨고 있었다. 나는 떨리는 걸 알면서도, 시선을 피하지 않고 말했다.",
+       "file": "assets/vo/12/12_009.opus",
+       "t": 3315.828,
+       "dur": 6.785,
+       "wid": "12_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "애 앞에서 뭔 짓이야.",
+       "file": "assets/vo/12/12_010.opus",
+       "t": 3324.868,
+       "dur": 1.405,
+       "wid": "12_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그 한 마디가 포획업자의 망설임을 만들었다. 불법을 하는 인간들도 계산은 한다. 목격자는, 불편하다.",
+       "file": "assets/vo/12/12_011.opus",
+       "t": 3328.332,
+       "dur": 8.625,
+       "wid": "12_011",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_CHILD"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B09-08"
+  },
+  {
+   "beat_id": "B09-08",
+   "chapter": 9,
+   "scene": "12",
+   "kind": "deduce",
+   "title": "추리판 · 무엇이 그를 끝내나",
+   "pov": "kim",
+   "lens": "board",
+   "weather": "night",
+   "amb": "assets/amb/amb_park.opus",
+   "question": {
+    "id": "Q12_RECORD",
+    "text": "무엇이 그를 끝내나"
+   },
+   "hyps": [
+    {
+     "id": "H12_RECORD",
+     "line": "기록이 이긴다.",
+     "canon": true,
+     "needs": [
+      "CL_PHONE",
+      "CL_PLATE"
+     ],
+     "effect": {
+      "evidence": 1
+     }
+    },
+    {
+     "id": "H12_FORCE",
+     "line": "힘이 이긴다.",
+     "canon": false,
+     "needs": [
+      "CL_CHILD",
+      "CL_PHONE"
+     ],
+     "effect": {
+      "tension": -1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_PHONE",
+     "label": "파형",
+     "kind": "smell",
+     "tone": "#8ab0a0",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 침착하게 휴대폰을 들었다.",
+     "kw": "파형"
+    },
+    {
+     "id": "CL_PLATE",
+     "label": "차량 번호",
+     "kind": "smell",
+     "tone": "#c9b48a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "번호"
+    },
+    {
+     "id": "CL_CHILD",
+     "label": "아이의 목격",
+     "kind": "smell",
+     "tone": "#e3c25a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "아이"
+    }
+   ],
+   "still": "assets/still/12/c12_2.webp",
+   "next": "B09-09"
+  },
+  {
+   "beat_id": "B09-09",
+   "chapter": 9,
+   "scene": "12",
+   "kind": "battle",
+   "title": "대치 · 기록 대치",
+   "pov": "kim",
+   "lens": "battle",
+   "weather": "night",
+   "amb": "assets/amb/amb_park.opus",
+   "still": "assets/still/12/c12_2.webp",
+   "battle": {
+    "id": "BT_12",
+    "title": "기록 대치",
+    "mode": "human",
+    "goal": {
+     "type": "evidence",
+     "value": 3,
+     "turns": 6
+    },
+    "warmth": 8,
+    "warmthLoss": 0,
+    "star": false,
+    "allies": [
+     "kkamang"
+    ],
+    "humans": [
+     "kim",
+     "somi",
+     "park"
+    ],
+    "enemy": {
+     "name": "포획업자",
+     "kind": "human",
+     "tension": 5,
+     "intents": [
+      {
+       "name": "위협",
+       "text": "그가 한 걸음 다가왔다",
+       "warmth": -1
+      },
+      {
+       "name": "차키",
+       "text": "차키가 손에서 돌았다",
+       "breath": -1
+      }
+     ]
+    },
+    "skills": [
+     "kim_record",
+     "kim_report",
+     "park_key",
+     "somi_witness",
+     "kkamang_wall"
+    ],
+    "intro": "파형은, 내 편이었다.",
+    "win": "\"지금 촬영 중입니다. 신고합니다.\" — 기록이 우리 편이 됐다.",
+    "lose": "파형이 흔들렸다. 다시, 각도를 잡는다.",
+    "starStage": "eyes_shut",
+    "scene": "12",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_unlock",
+     "kkamang_tail_signal",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "otbit_scout",
+     "otbit_scratch",
+     "otbit_wing",
+     "kim_pry",
+     "kim_baton",
+     "kim_record",
+     "kim_report",
+     "park_hazard",
+     "park_key",
+     "somi_towel",
+     "somi_witness"
+    ]
+   },
+   "next": "B09-10"
+  },
+  {
+   "beat_id": "B09-10",
+   "chapter": 9,
+   "scene": "12",
+   "kind": "cut",
+   "title": "결과 컷 · 인간들의 대치",
+   "pov": "kim",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/12.mp4",
+    "poster": "assets/cut/12_poster.webp",
+    "tc_in": 3337.125,
+    "tc_out": 3377.417,
+    "action": "기록이 우리 편이 됐다 — 재수 없네",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "kim",
+      "text": "그 틈에 나는 신고 버튼을 눌렀다. 삐— 전화 연결음.",
+      "file": "assets/vo/12/12_012.opus",
+      "t": 3338.917,
+      "dur": 4.386,
+      "wid": "12_012",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "도시는 그 순간, 아주 조금 우리 편이 됐다. 법이 아니라, 기록이 우리 편이 된 거다.",
+      "file": "assets/vo/12/12_013.opus",
+      "t": 3345.264,
+      "dur": 6.535,
+      "wid": "12_013",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "포획업자는 욕을 내뱉고 뒤로 물러났다.",
+      "file": "assets/vo/12/12_014.opus",
+      "t": 3353.759,
+      "dur": 2.588,
+      "wid": "12_014",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "villain",
+      "text": "재수 없네.",
+      "file": "assets/vo/12/12_015.opus",
+      "t": 3358.602,
+      "dur": 0.794,
+      "wid": "12_015",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "그리고 어둠 속으로 사라졌다.",
+      "file": "assets/vo/12/12_016.opus",
+      "t": 3361.454,
+      "dur": 1.685,
+      "wid": "12_016",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "나는 숨을 내쉬었다. 내 손이 다시 떨렸다. 하지만 이번 떨림은— 내가 살아 있다는 떨림이었다.",
+      "file": "assets/vo/12/12_017.opus",
+      "t": 3365.1,
+      "dur": 7.817,
+      "wid": "12_017",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B10-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

@@ -1,0 +1,1117 @@
+{
+ "cuesheet_id": "cj_ch04_v37",
+ "chapter_no": 4,
+ "label": "4장",
+ "title": "노란 손수건",
+ "act": "1막",
+ "pov": "소미",
+ "star_stage": null,
+ "amb": "assets/amb/amb_urban.opus",
+ "weather": "night",
+ "scenes": [
+  "03",
+  "N06",
+  "N07"
+ ],
+ "beats": [
+  {
+   "beat_id": "B04-01",
+   "chapter": 4,
+   "scene": "03",
+   "kind": "explore",
+   "title": "사료 그릇과 노란 손수건",
+   "pov": "somi",
+   "lens": "text",
+   "weather": "night",
+   "amb": "assets/amb/amb_urban.opus",
+   "clues": [
+    {
+     "id": "CL_TOWEL",
+     "label": "노란 손수건",
+     "kind": "smell",
+     "tone": "#e3c25a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 주머니에서 손수건을 꺼냈다.",
+     "kw": "손수건"
+    },
+    {
+     "id": "CL_BOWL",
+     "label": "사료 그릇",
+     "kind": "smell",
+     "tone": "#b08a45",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "강아지가 한 걸음 물러났다.",
+     "kw": "그릇"
+    },
+    {
+     "id": "CL_EAR_MARK",
+     "label": "귀 끝의 표시",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "귀 끝"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 52.458,
+     "still": "assets/still/03/c03_0.webp",
+     "motion": "pan_lr",
+     "action": "골목 끝에서 본 이상한 둘 — 고양이는 혼자라고 들었는데",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "나는 어른들이 싫어하는 걸 잘 안다. 더러운 것, 느린 것, 눈에 띄는 것. 어른들은 그런 것들을 위험이라고 부르지만, 사실은 귀찮음이라는 뜻일 때가 많다.",
+       "file": "assets/vo/03/03_000.opus",
+       "t": 915.9,
+       "dur": 10.988,
+       "wid": "03_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "엄마는 말했다. 만지지 마, 더러워. 그러다 물리면 어쩌려고. 틀린 말은 아니다. 하지만 엄마의 말 속엔 다른 뜻이 숨어 있다. 무서워. 감당하기 싫어.",
+       "file": "assets/vo/03/03_001.opus",
+       "t": 929.888,
+       "dur": 12.731,
+       "wid": "03_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "나는 골목 끝에서 큰 강아지와 검은 고양이를 봤다. 둘이 같이 있는 게 이상했다. 고양이는 혼자라고 들었으니까. 그런데 검은 고양이는 강아지 옆에서, 마치 경호원처럼 눈을 가늘게 뜨고 있었다.",
+       "file": "assets/vo/03/03_002.opus",
+       "t": 945.619,
+       "dur": 14.075,
+       "wid": "03_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "나는 사료 봉지를 꼭 쥐었다. 종이컵을 한 번 더 씻었다. 물만 씻는 게 아니다. 내 마음도 씻는 것 같았다. 사람 냄새가 너무 세면 싫어할까 봐, 손을 바지에 문질러 땀을 닦았다.",
+       "file": "assets/vo/03/03_003.opus",
+       "t": 962.694,
+       "dur": 14.006,
+       "wid": "03_003",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_TOWEL"
+     ]
+    },
+    {
+     "t0": 52.458,
+     "t1": 82.375,
+     "still": "assets/still/03/c03_1.webp",
+     "motion": "push_in",
+     "action": "\"괜찮아. 안 때려\" — 떨리는 목소리, 앞서는 마음",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "괜찮아. 안 때려. 안 소리 지를게.",
+       "file": "assets/vo/03/03_004.opus",
+       "t": 979.7,
+       "dur": 2.431,
+       "wid": "03_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "내 목소리는 떨렸다. 무서워서가 아니라, 마음이 앞서서.",
+       "file": "assets/vo/03/03_005.opus",
+       "t": 985.131,
+       "dur": 4.106,
+       "wid": "03_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "강아지가 한 걸음 물러났다. 그 눈이 너무… 애기 같아서, 가슴이 아팠다. 나는 그릇에 사료를 부었다. 톡톡 떨어지는 소리가 작게 났다. 그 작은 소리가 왜 이렇게 크게 들리는지 모르겠다.",
+       "file": "assets/vo/03/03_006.opus",
+       "t": 992.237,
+       "dur": 14.875,
+       "wid": "03_006",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 82.375,
+     "t1": 137.375,
+     "still": "assets/still/03/c03_2.webp",
+     "motion": "pan_rl",
+     "action": "첫 끼 — 간절하고 예쁜 밥 먹는 소리",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "검은 고양이가 나를 똑바로 봤다. 그 눈빛이 말하는 것 같았다. 건드리면, 가만 안 둬.",
+       "file": "assets/vo/03/03_007.opus",
+       "t": 1010.112,
+       "dur": 6.15,
+       "wid": "03_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "나는 고개를 끄덕였다.",
+       "file": "assets/vo/03/03_008.opus",
+       "t": 1019.262,
+       "dur": 1.305,
+       "wid": "03_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "응. 나도 알아. 안 건드려. 그냥, 밥만 주고 갈게.",
+       "file": "assets/vo/03/03_009.opus",
+       "t": 1023.567,
+       "dur": 3.873,
+       "wid": "03_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "강아지가 코를 킁킁거리더니, 아주 조심스럽게 먹기 시작했다. 그 순간 눈물이 날 뻔했다. 밥 먹는 소리가 이렇게 간절하고 예쁠 수 있다는 걸 처음 알았다.",
+       "file": "assets/vo/03/03_010.opus",
+       "t": 1030.44,
+       "dur": 12.573,
+       "wid": "03_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "사람이 먹는 건 늘 시끄럽고 급하다. 그런데 이 아이는, 너무 간절하게, 그리고 너무 예쁘게 먹었다.",
+       "file": "assets/vo/03/03_011.opus",
+       "t": 1046.013,
+       "dur": 7.253,
+       "wid": "03_011",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_BOWL"
+     ]
+    },
+    {
+     "t0": 137.375,
+     "t1": 173.5,
+     "still": "assets/still/03/c03_3.webp",
+     "motion": "push_in",
+     "action": "노란 병아리 손수건 — 이건 네 거야. 너의 이름은, 누리",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "나는 주머니에서 손수건을 꺼냈다. 노란 병아리 무늬. 엄마가 사 준, 내가 제일 좋아하는 손수건이다.",
+       "file": "assets/vo/03/03_012.opus",
+       "t": 1056.266,
+       "dur": 7.656,
+       "wid": "03_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "그릇 옆에 조심스럽게 깔아주었다. 밥이 흙에 닿지 않게. 그리고 아주 작게 말했다.",
+       "file": "assets/vo/03/03_013.opus",
+       "t": 1066.922,
+       "dur": 5.819,
+       "wid": "03_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "이건, 네 거야.",
+       "file": "assets/vo/03/03_014.opus",
+       "t": 1075.741,
+       "dur": 0.867,
+       "wid": "03_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "문득, 낡은 목줄의 갈라진 가죽 사이로 희미하게 눌린 글자가 보였다. 누리.",
+       "file": "assets/vo/03/03_015.opus",
+       "t": 1079.608,
+       "dur": 5.887,
+       "wid": "03_015",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_EAR_MARK"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B04-02"
+  },
+  {
+   "beat_id": "B04-02",
+   "chapter": 4,
+   "scene": "03",
+   "kind": "deduce",
+   "title": "추리판 · '정리'는 무슨 뜻인가",
+   "pov": "somi",
+   "lens": "board",
+   "weather": "night",
+   "amb": "assets/amb/amb_urban.opus",
+   "question": {
+    "id": "Q03_CLEAN",
+    "text": "'정리'는 무슨 뜻인가"
+   },
+   "hyps": [
+    {
+     "id": "H03_GONE",
+     "line": "사라진다는 뜻이다.",
+     "canon": true,
+     "needs": [
+      "CL_TOWEL",
+      "CL_BOWL"
+     ],
+     "effect": {
+      "evidence": 1
+     }
+    },
+    {
+     "id": "H03_MOVE",
+     "line": "이사한다는 뜻이다.",
+     "canon": false,
+     "needs": [
+      "CL_EAR_MARK",
+      "CL_BOWL"
+     ],
+     "effect": {
+      "jeong": 1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_TOWEL",
+     "label": "노란 손수건",
+     "kind": "smell",
+     "tone": "#e3c25a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 주머니에서 손수건을 꺼냈다.",
+     "kw": "손수건"
+    },
+    {
+     "id": "CL_BOWL",
+     "label": "사료 그릇",
+     "kind": "smell",
+     "tone": "#b08a45",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "강아지가 한 걸음 물러났다.",
+     "kw": "그릇"
+    },
+    {
+     "id": "CL_EAR_MARK",
+     "label": "귀 끝의 표시",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "귀 끝"
+    }
+   ],
+   "still": "assets/still/03/c03_3.webp",
+   "next": "B04-03"
+  },
+  {
+   "beat_id": "B04-03",
+   "chapter": 4,
+   "scene": "03",
+   "kind": "cut",
+   "title": "결과 컷 · 사료 그릇과 노란 손수건",
+   "pov": "somi",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/03.mp4",
+    "poster": "assets/cut/03_poster.webp",
+    "tc_in": 1087.0,
+    "tc_out": 1104.875,
+    "action": "그릇 옆에 내려앉은 회색 비둘기 — 너는 잿빛이야",
+    "motion": "push_in",
+    "subs": [
+     {
+      "speaker": "somi",
+      "text": "세상을 다 누비라고 지어준 이름이었을 텐데, 넌 왜 여기서 꼼짝도 않고 기다리고만 있니.",
+      "file": "assets/vo/03/03_016.opus",
+      "t": 1088.495,
+      "dur": 6.56,
+      "wid": "03_016",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B04-04"
+  },
+  {
+   "beat_id": "B04-04",
+   "chapter": 4,
+   "scene": "N06",
+   "kind": "explore",
+   "title": "집중 포획 공고",
+   "pov": "captain",
+   "lens": "oneeye",
+   "weather": "night",
+   "amb": "assets/amb/amb_urban.opus",
+   "clues": [
+    {
+     "id": "CL_INK",
+     "label": "잉크와 풀",
+     "kind": "smell",
+     "tone": "#5f6d7d",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "",
+     "kw": "공고"
+    },
+    {
+     "id": "CL_NEW_MONEY",
+     "label": "새 돈 냄새",
+     "kind": "smell",
+     "tone": "#8a9a5b",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "돈"
+    },
+    {
+     "id": "CL_STEEL",
+     "label": "쇠 냄새",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "포획틀은 조용하다.",
+     "kw": "철"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 49.042,
+     "still": "assets/still/N06/cN06_0.webp",
+     "motion": "pan_lr",
+     "action": "게시판에 박히는 종이 한 장 — 탁",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "도시는 계절로만 우리를 심판하지 않는다. 가끔은 종이 한 장으로 심판한다.",
+       "file": "assets/vo/N06/N06_000.opus",
+       "t": 1107.275,
+       "dur": 6.444,
+       "wid": "N06_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "그날 아침, 아파트 게시판에 종이가 박혔다. 탁. 스테이플러 소리는 작았지만, 골목 끝까지 들렸다.",
+       "file": "assets/vo/N06/N06_001.opus",
+       "t": 1116.719,
+       "dur": 9.095,
+       "wid": "N06_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "알려드립니다. 쾌적하고 위생적인 주거 환경 조성을 위해, 단지 내 길고양이 집중 관리 및 정화 활동을 실시할 예정입니다.",
+       "file": "assets/vo/N06/N06_002.opus",
+       "t": 1128.814,
+       "dur": 10.872,
+       "wid": "N06_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "나는 그 문장을 읽지 못한다. 하지만 글자의 냄새는 읽는다. 잉크, 풀, 그리고 그 뒤에 붙은 사람들의 안도.",
+       "file": "assets/vo/N06/N06_003.opus",
+       "t": 1142.513,
+       "dur": 9.79,
+       "wid": "N06_003",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_INK"
+     ]
+    },
+    {
+     "t0": 49.042,
+     "t1": 92.625,
+     "still": "assets/still/N06/cN06_1.webp",
+     "motion": "push_in",
+     "action": "공고를 읽는 소미 — 숨을 헙",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "소미가 그 앞에 서 있었다. 종이를 읽고, 숨을 헙, 들이마셨다. 아이는 글자를 읽을 줄 알았다. 그래서 더 무서웠을 것이다.",
+       "file": "assets/vo/N06/N06_004.opus",
+       "t": 1155.018,
+       "dur": 11.603,
+       "wid": "N06_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "정리. 그 단어를 사람들은 좋은 말로 쓴다. 정리는 치우는 일이고, 치우는 일은 깨끗한 일이라고.",
+       "file": "assets/vo/N06/N06_005.opus",
+       "t": 1169.621,
+       "dur": 8.734,
+       "wid": "N06_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "하지만 우리에게 정리는 사라짐이다. 사라짐은 소리가 없다. 그릇이 깨질 때는 소리가 나는데, 삶이 정리될 때는 소리가 안 난다.",
+       "file": "assets/vo/N06/N06_006.opus",
+       "t": 1181.069,
+       "dur": 11.032,
+       "wid": "N06_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "오래전에도 그랬다. 깨끗한 환경을 만든다며, 우리 동족을 모두 데려갔다. 돌아온 것은 없었다.",
+       "file": "assets/vo/N06/N06_007.opus",
+       "t": 1194.816,
+       "dur": 8.556,
+       "wid": "N06_007",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_NEW_MONEY"
+     ]
+    },
+    {
+     "t0": 92.625,
+     "t1": 145.5,
+     "still": "assets/still/N06/cN06_2.webp",
+     "motion": "push_fast",
+     "action": "포획틀 — 철이 아니라 참을성으로 만든 물건",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "까망이 내 옆에 앉았다. 꼬리가 아주 낮았다.",
+       "file": "assets/vo/N06/N06_008.opus",
+       "t": 1206.086,
+       "dur": 3.801,
+       "wid": "N06_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "대장. 이번엔 달라?",
+       "file": "assets/vo/N06/N06_009.opus",
+       "t": 1212.887,
+       "dur": 1.244,
+       "wid": "N06_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "이번에도 같다.",
+       "file": "assets/vo/N06/N06_010.opus",
+       "t": 1216.846,
+       "dur": 1.023,
+       "wid": "N06_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "나는 거짓말을 하지 않는다. 늙은 고양이의 정직함은 마지막 재산이다.",
+       "file": "assets/vo/N06/N06_011.opus",
+       "t": 1220.696,
+       "dur": 6.118,
+       "wid": "N06_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그럼 왜 가만히 있어요?",
+       "file": "assets/vo/N06/N06_012.opus",
+       "t": 1229.814,
+       "dur": 1.226,
+       "wid": "N06_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "가만히 있지 않는다. 다만, 아직 순서를 정하지 않았을 뿐이다.",
+       "file": "assets/vo/N06/N06_013.opus",
+       "t": 1233.754,
+       "dur": 5.036,
+       "wid": "N06_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "포획틀은 조용하다. 철이 아니라 참을성으로 만든 물건이다. 참치 통조림 하나, 철망 하나, 그리고 기다림.",
+       "file": "assets/vo/N06/N06_014.opus",
+       "t": 1241.618,
+       "dur": 9.881,
+       "wid": "N06_014",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_STEEL"
+     ]
+    }
+   ],
+   "gesture": "hold",
+   "next": "B04-05"
+  },
+  {
+   "beat_id": "B04-05",
+   "chapter": 4,
+   "scene": "N06",
+   "kind": "cut",
+   "title": "결과 컷 · 집중 포획 공고",
+   "pov": "captain",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/N06.mp4",
+    "poster": "assets/cut/N06_poster.webp",
+    "tc_in": 1250.375,
+    "tc_out": 1280.875,
+    "action": "꺼지지 않는 방 불빛 — 크레파스가 움직인다",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "captain",
+      "text": "우리는 그 기다림을 이기는 법을 배웠다. 하지만 모든 아이가 그것을 배운 것은 아니다.",
+      "file": "assets/vo/N06/N06_015.opus",
+      "t": 1254.213,
+      "dur": 6.808,
+      "wid": "N06_015",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "captain",
+      "text": "그날 밤, 소미의 방 불빛이 오래 꺼지지 않았다. 나는 창밖 담벼락에서 그 빛을 봤다. 아이가 무언가를 그리기 시작하면, 어른들은 대개 웃는다.",
+      "file": "assets/vo/N06/N06_016.opus",
+      "t": 1264.021,
+      "dur": 12.354,
+      "wid": "N06_016",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B04-06"
+  },
+  {
+   "beat_id": "B04-06",
+   "chapter": 4,
+   "scene": "N07",
+   "kind": "explore",
+   "title": "크레파스 포스터",
+   "pov": "somi",
+   "lens": "text",
+   "weather": "night",
+   "amb": "assets/amb/amb_urban.opus",
+   "clues": [
+    {
+     "id": "CL_CRAYON",
+     "label": "크레파스 가루",
+     "kind": "smell",
+     "tone": "#e08a4a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "크레파스가 부러졌다.",
+     "kw": "크레파스"
+    },
+    {
+     "id": "CL_TAPE",
+     "label": "찢긴 테이프",
+     "kind": "smell",
+     "tone": "#c9b48a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "아침에 엘리베이터에 붙였다.",
+     "kw": "테이프"
+    },
+    {
+     "id": "CL_ELEVEN",
+     "label": "열한 마리 그림",
+     "kind": "smell",
+     "tone": "#e3c25a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "밤새 그렸다.",
+     "kw": "열한"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 43.0,
+     "still": "assets/still/N07/cN07_0.webp",
+     "motion": "pan_lr",
+     "action": "밤새 그린 열한 마리 — 부러진 크레파스",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "나는 그림을 잘 그리지 못한다. 하지만 못 그리는 그림도 붙일 수는 있다.",
+       "file": "assets/vo/N07/N07_000.opus",
+       "t": 1283.275,
+       "dur": 4.907,
+       "wid": "N07_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "밤새 그렸다. 까망이, 누리, 캡틴 할아버지, 잿빛이. 다섯 마리, 여섯 마리, 세다 보니 열한 마리였다.",
+       "file": "assets/vo/N07/N07_001.opus",
+       "t": 1290.38,
+       "dur": 7.733,
+       "wid": "N07_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "크레파스가 부러졌다. 부러진 크레파스로 그린 선은 조금 삐뚤었다. 삐뚤어도 괜찮았다. 우리가 삐뚤어진 것처럼.",
+       "file": "assets/vo/N07/N07_002.opus",
+       "t": 1300.31,
+       "dur": 8.392,
+       "wid": "N07_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "큰 글씨로 썼다. 우리도 이 골목에 살아요. 밥은 제가 치울게요. 잡아가지 마세요.",
+       "file": "assets/vo/N07/N07_003.opus",
+       "t": 1310.9,
+       "dur": 6.254,
+       "wid": "N07_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "아침에 엘리베이터에 붙였다. 스카치테이프를 네 번 붙였다. 한 번으로는 떨어질 것 같아서.",
+       "file": "assets/vo/N07/N07_004.opus",
+       "t": 1320.154,
+       "dur": 6.431,
+       "wid": "N07_004",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_CRAYON"
+     ]
+    },
+    {
+     "t0": 43.0,
+     "t1": 53.25,
+     "still": "assets/still/N07/cN07_s1.webp",
+     "motion": "push_in",
+     "action": "새벽 엘리베이터 — 혼자 네 번 붙인 테이프",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "학교에 다녀왔다. 하루 종일 비가 왔다. 우산이 없어서 교실 창문에 맺힌 물방울을 오래 봤다.",
+       "file": "assets/vo/N07/N07_005.opus",
+       "t": 1328.782,
+       "dur": 6.987,
+       "wid": "N07_005",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 53.25,
+     "t1": 59.333,
+     "still": "assets/still/N07/cN07_s2.webp",
+     "motion": "pull_out",
+     "action": "포스터가 사라진 강철 벽 — 찢긴 테이프 자국",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "집에 돌아왔을 때도 비는 그치지 않았다. 엘리베이터 앞에 가 보니, 포스터가 없었다.",
+       "file": "assets/vo/N07/N07_006.opus",
+       "t": 1338.672,
+       "dur": 5.449,
+       "wid": "N07_006",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 59.333,
+     "t1": 66.292,
+     "still": "assets/still/N07/cN07_2.webp",
+     "motion": "tilt_down",
+     "action": "쓰레기통의 찢긴 포스터 — 반으로 갈라진 얼굴",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "찢긴 종이가 쓰레기통에 있었다. 까망이의 얼굴이 반으로 갈라져 있었다. 비에 젖은 종이는 더 이상 종이가 아니었다.",
+       "file": "assets/vo/N07/N07_007.opus",
+       "t": 1346.319,
+       "dur": 8.327,
+       "wid": "N07_007",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 66.292,
+     "t1": 86.417,
+     "still": "assets/still/N07/cN07_s3.webp",
+     "motion": "push_in",
+     "action": "빗자루를 든 김반장 — 그 앞에 서 있었다",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "김반장 아저씨가 그 앞에 서 있었다. 손에는 빗자루가 있었다. 나는 아무 말도 못 했다.",
+       "file": "assets/vo/N07/N07_008.opus",
+       "t": 1356.843,
+       "dur": 6.061,
+       "wid": "N07_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "또 그러면, 엄마한테 이른다.",
+       "file": "assets/vo/N07/N07_009.opus",
+       "t": 1365.404,
+       "dur": 2.122,
+       "wid": "N07_009",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_TAPE"
+     ]
+    },
+    {
+     "t0": 86.417,
+     "t1": 94.875,
+     "still": "assets/still/N07/cN07_s4.webp",
+     "motion": "push_fast",
+     "action": "베개에 얼굴을 묻고 우는 소미",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "아저씨는 그렇게 말하고 돌아섰다. 목소리는 화가 났는데, 등은 화가 나 보이지 않았다.",
+       "file": "assets/vo/N07/N07_010.opus",
+       "t": 1369.824,
+       "dur": 5.921,
+       "wid": "N07_010",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 94.875,
+     "t1": 113.5,
+     "still": "assets/still/N07/cN07_3.webp",
+     "motion": "pan_rl",
+     "action": "다른 엘리베이터의 같은 그림 — 박여사가 발견한다",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "나는 방에 들어가 불을 끄고 울었다. 소리 안 나게 우는 법은 안다. 베개에 얼굴을 묻으면 된다.",
+       "file": "assets/vo/N07/N07_011.opus",
+       "t": 1377.943,
+       "dur": 7.281,
+       "wid": "N07_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "창밖에서는 비가 계속 내렸다. 나는 잠이 안 와서, 늦은 밤에 놀이터로 나갔다.",
+       "file": "assets/vo/N07/N07_012.opus",
+       "t": 1388.126,
+       "dur": 5.673,
+       "wid": "N07_012",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 113.5,
+     "t1": 124.875,
+     "still": "assets/still/N07/cN07_1.webp",
+     "motion": "push_in",
+     "action": "할머니는 내 그림을 보고, 나를 보고",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "벤치가 젖어 있었지만 그냥 앉았다. 방에 있는 것보다, 차라리 비를 맞는 게 나았다.",
+       "file": "assets/vo/N07/N07_013.opus",
+       "t": 1395.997,
+       "dur": 5.701,
+       "wid": "N07_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "그때 옆에 누가 앉았다. 박여사 할머니였다. 할머니는 우산도 없이 앉아서, 나보다 먼저 젖었다.",
+       "file": "assets/vo/N07/N07_014.opus",
+       "t": 1404.698,
+       "dur": 7.097,
+       "wid": "N07_014",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 124.875,
+     "t1": 155.375,
+     "still": "assets/still/N07/cN07_4.webp",
+     "motion": "push_in",
+     "action": "벤치의 계획 — TNR",
+     "lines": [
+      {
+       "speaker": "park",
+       "text": "소미야, 네 마음이 참 예쁘구나. 하지만 그림만으로는 어른들의 생각을 바꾸기 힘들어. 우리에겐 계획이 필요하단다.",
+       "file": "assets/vo/N07/N07_015.opus",
+       "t": 1414.295,
+       "dur": 10.686,
+       "wid": "N07_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "계획이요?",
+       "file": "assets/vo/N07/N07_016.opus",
+       "t": 1427.178,
+       "dur": 0.575,
+       "wid": "N07_016",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "park",
+       "text": "응. 아기 고양이들이 길에서 춥고 배고프게 태어나지 않게, 병원에서 아프지 않게 살짝 수술해 주고, 원래 살던 동네로 다시 돌려보내 주는 약속이란다.",
+       "file": "assets/vo/N07/N07_017.opus",
+       "t": 1429.951,
+       "dur": 12.659,
+       "wid": "N07_017",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 155.375,
+     "t1": 185.25,
+     "still": "assets/still/N07/cN07_s5.webp",
+     "motion": "push_in",
+     "action": "계획을 듣는 소미 — 귀 끝의 작은 표시",
+     "lines": [
+      {
+       "speaker": "park",
+       "text": "그리고 귀 끝에 아주 작은 표시를 남겨. 이 아이는 동네가 함께 보살피는 가족이라고 알려주는 표시야.",
+       "file": "assets/vo/N07/N07_018.opus",
+       "t": 1444.808,
+       "dur": 9.359,
+       "wid": "N07_018",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "park",
+       "text": "그럼 아무도 함부로 해치지 않아. 아이들이 더는 길에서 아프게 태어나지 않게 하는 방법이지.",
+       "file": "assets/vo/N07/N07_019.opus",
+       "t": 1456.364,
+       "dur": 7.346,
+       "wid": "N07_019",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "그럼 까망이랑 누리도, 아프지 않고 여기서 계속 살 수 있어요?",
+       "file": "assets/vo/N07/N07_020.opus",
+       "t": 1465.908,
+       "dur": 3.653,
+       "wid": "N07_020",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_ELEVEN"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B04-07"
+  },
+  {
+   "beat_id": "B04-07",
+   "chapter": 4,
+   "scene": "N07",
+   "kind": "deduce",
+   "title": "추리판 · 왜 내 그림이 사라졌나",
+   "pov": "somi",
+   "lens": "board",
+   "weather": "night",
+   "amb": "assets/amb/amb_urban.opus",
+   "question": {
+    "id": "Q07_ERASED",
+    "text": "왜 내 그림이 사라졌나"
+   },
+   "hyps": [
+    {
+     "id": "H07_PEOPLE",
+     "line": "사람들이 지운다.",
+     "canon": true,
+     "needs": [
+      "CL_TAPE",
+      "CL_ELEVEN"
+     ],
+     "effect": {
+      "evidence": 1
+     }
+    },
+    {
+     "id": "H07_WIND",
+     "line": "바람이 가져갔다.",
+     "canon": false,
+     "needs": [
+      "CL_CRAYON",
+      "CL_TAPE"
+     ],
+     "effect": {
+      "warmth": 1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_CRAYON",
+     "label": "크레파스 가루",
+     "kind": "smell",
+     "tone": "#e08a4a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "크레파스가 부러졌다.",
+     "kw": "크레파스"
+    },
+    {
+     "id": "CL_TAPE",
+     "label": "찢긴 테이프",
+     "kind": "smell",
+     "tone": "#c9b48a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "아침에 엘리베이터에 붙였다.",
+     "kw": "테이프"
+    },
+    {
+     "id": "CL_ELEVEN",
+     "label": "열한 마리 그림",
+     "kind": "smell",
+     "tone": "#e3c25a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "밤새 그렸다.",
+     "kw": "열한"
+    }
+   ],
+   "still": "assets/still/N07/cN07_s5.webp",
+   "next": "B04-08"
+  },
+  {
+   "beat_id": "B04-08",
+   "chapter": 4,
+   "scene": "N07",
+   "kind": "cut",
+   "title": "결과 컷 · 크레파스 포스터",
+   "pov": "somi",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/N07.mp4",
+    "poster": "assets/cut/N07_poster.webp",
+    "tc_in": 1466.125,
+    "tc_out": 1498.292,
+    "action": "비 내리는 놀이터 원경 — 김반장의 마음",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "park",
+      "text": "그래. 우리가 밥을 챙기고, 자리를 치우고, 동네 어른들께 하나씩 알려주면 된단다. 가장 중요한 건, 김반장님의 마음을 여는 거야.",
+      "file": "assets/vo/N07/N07_021.opus",
+      "t": 1471.758,
+      "dur": 11.401,
+      "wid": "N07_021",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "park",
+      "text": "그 아저씨는 동물을 싫어하는 게 아닐지도 몰라. 내가 듣기론, 옛날에 아주 아끼던 고양이가 있었대.",
+      "file": "assets/vo/N07/N07_022.opus",
+      "t": 1485.357,
+      "dur": 8.435,
+      "wid": "N07_022",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B05-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

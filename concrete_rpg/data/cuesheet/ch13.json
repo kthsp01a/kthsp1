@@ -1,0 +1,1222 @@
+{
+ "cuesheet_id": "cj_ch13_v37",
+ "chapter_no": 13,
+ "label": "13장",
+ "title": "폭우",
+ "act": "2막",
+ "pov": "누리",
+ "star_stage": "cant_walk",
+ "amb": "assets/amb/amb_storm.opus",
+ "weather": "storm",
+ "scenes": [
+  "A25",
+  "A26",
+  "A27"
+ ],
+ "beats": [
+  {
+   "beat_id": "B13-01",
+   "chapter": 13,
+   "scene": "A25",
+   "kind": "explore",
+   "title": "비는 떨어지는 게 아니라, 덮쳐온다",
+   "pov": "nuri",
+   "lens": "strand",
+   "weather": "storm",
+   "amb": "assets/amb/amb_storm.opus",
+   "clues": [
+    {
+     "id": "CL_WATER_SOUND",
+     "label": "물소리",
+     "kind": "smell",
+     "tone": "#6d879c",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "도시의 경적이 벽이라면, 숲의 물소리는 바닥이었다.",
+     "kw": "물소리"
+    },
+    {
+     "id": "CL_MUD",
+     "label": "진흙",
+     "kind": "smell",
+     "tone": "#8a7d6d",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "진흙"
+    },
+    {
+     "id": "CL_ROPE",
+     "label": "밧줄",
+     "kind": "smell",
+     "tone": "#b08a45",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "밧줄"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 12.667,
+     "still": "assets/still/A25/cA25_0.webp",
+     "motion": "push_fast",
+     "action": "첫 방울은 경고",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "빗방울이 내 코끝에 닿았다. 차가운 점 하나. 그 점이",
+       "file": "assets/vo/A25/A25_000.opus",
+       "t": 4087.525,
+       "dur": 5.594,
+       "wid": "A25_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "narrator",
+       "text": "이제 시작",
+       "file": "assets/vo/A25/A25_001.opus",
+       "t": 4095.571,
+       "dur": 0.743,
+       "wid": "A25_001",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_WATER_SOUND"
+     ]
+    },
+    {
+     "t0": 12.667,
+     "t1": 43.0,
+     "still": "assets/still/A25/cA25_1.webp",
+     "motion": "pan_fast",
+     "action": "숲의 비는 숨을 허락하지 않는다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "이라고 말하는 것 같았다.",
+       "file": "assets/vo/A25/A25_002.opus",
+       "t": 4098.027,
+       "dur": 1.772,
+       "wid": "A25_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "숲의 비는 도시처럼 우산을 허락하지 않는다. 숲의 비는 숨을 허락하지 않는다.",
+       "file": "assets/vo/A25/A25_003.opus",
+       "t": 4101.438,
+       "dur": 6.418,
+       "wid": "A25_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "두 번째 방울이 떨어지기 전에, 바람이 땅을 훑었다. 젖은 흙 냄새가 확 퍼졌다. 젖은 흙은 미끄럽고, 미끄러움은 실종을 만든다.",
+       "file": "assets/vo/A25/A25_004.opus",
+       "t": 4109.494,
+       "dur": 11.581,
+       "wid": "A25_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "까망이 내 옆에서 몸을 낮췄다.",
+       "file": "assets/vo/A25/A25_005.opus",
+       "t": 4123.23,
+       "dur": 2.289,
+       "wid": "A25_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "움직인다.",
+       "file": "assets/vo/A25/A25_006.opus",
+       "t": 4125.819,
+       "dur": 0.705,
+       "wid": "A25_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "말이 짧아졌다. 짧아질수록 급하다.",
+       "file": "assets/vo/A25/A25_007.opus",
+       "t": 4126.824,
+       "dur": 3.339,
+       "wid": "A25_007",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 43.0,
+     "t1": 72.208,
+     "still": "assets/still/A25/cA25_2.webp",
+     "motion": "tilt_down",
+     "action": "물길이 길을 삼킨다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "비가 본격적으로 쏟아지자, 물길이 달라졌다. 어제까지 피할 수 있던 흐름이, 오늘은 피할 수 없는 벽이 되었다.",
+       "file": "assets/vo/A25/A25_008.opus",
+       "t": 4130.463,
+       "dur": 8.826,
+       "wid": "A25_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "물은 작은 소리로 시작해 큰 소리로 변했다. 졸졸… 콸콸… 우르르르.",
+       "file": "assets/vo/A25/A25_009.opus",
+       "t": 4140.927,
+       "dur": 7.734,
+       "wid": "A25_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "도시의 경적이 벽이라면, 숲의 물소리는 바닥이었다. 바닥이 흔들리면, 어디에도 설 수 없다.",
+       "file": "assets/vo/A25/A25_010.opus",
+       "t": 4150.816,
+       "dur": 7.863,
+       "wid": "A25_010",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 72.208,
+     "t1": 105.917,
+     "still": "assets/still/A25/cA25_3.webp",
+     "motion": "pan_lr",
+     "action": "살릴 속도로 움직인다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "김반장 아저씨가 없었다. 하지만 그의 담요는 남아 있었다. 담요는 따뜻함의 기술이었다.",
+       "file": "assets/vo/A25/A25_011.opus",
+       "t": 4160.317,
+       "dur": 7.864,
+       "wid": "A25_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "나는 담요를 물고 끌었다. 까망이 반대쪽을 물었다. 캡틴은 뒤에서 밀었다.",
+       "file": "assets/vo/A25/A25_012.opus",
+       "t": 4169.82,
+       "dur": 7.027,
+       "wid": "A25_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "작은 점의 체온이 흔들릴까 봐, 우리는 속도를 조절했다. 빨리 가면 살 것 같지만, 약한 것은 빠름에 먼저 죽는다. 그래서 우리는 살릴 속도로 움직였다.",
+       "file": "assets/vo/A25/A25_013.opus",
+       "t": 4178.486,
+       "dur": 13.669,
+       "wid": "A25_013",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_MUD"
+     ]
+    },
+    {
+     "t0": 105.917,
+     "t1": 113.708,
+     "still": "assets/still/A25/cA25_4.webp",
+     "motion": "push_fast",
+     "action": "바위를 올라타는 순간",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "물길을 피해 바위를 올라타는 순간, 잿빛이 뒤쪽에서 짧게 소리냈다.",
+       "file": "assets/vo/A25/A25_014.opus",
+       "t": 4194.309,
+       "dur": 5.154,
+       "wid": "A25_014",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 113.708,
+     "t1": 131.292,
+     "still": "assets/still/A25/cA25_5.webp",
+     "motion": "pan_fast",
+     "action": "쿵—! 바닥이 흔들렸다",
+     "lines": [
+      {
+       "speaker": "ash",
+       "text": "위!",
+       "file": "assets/vo/A25/A25_015.opus",
+       "t": 4201.323,
+       "dur": 0.414,
+       "wid": "A25_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "그 말이 뭔지 알기도 전에, 나무 위에서 무엇인가가 떨어졌다. 가지. 빗물에 젖어 무거워진 굵은 가지였다.",
+       "file": "assets/vo/A25/A25_016.opus",
+       "t": 4202.037,
+       "dur": 9.113,
+       "wid": "A25_016",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "쿵—! 바닥이 흔들렸고, 나는 반사적으로 몸을 틀었다.",
+       "file": "assets/vo/A25/A25_017.opus",
+       "t": 4212.789,
+       "dur": 5.408,
+       "wid": "A25_017",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 131.292,
+     "t1": 157.417,
+     "still": "assets/still/A25/cA25_6.webp",
+     "motion": "push_fast",
+     "action": "미끄러지는 건 소리가 없다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "그 순간, 들무리의 어린 한 마리가 미끄러졌다. 미끄러지는 건 소리가 없다. 소리 없이, 사라진다.",
+       "file": "assets/vo/A25/A25_018.opus",
+       "t": 4218.497,
+       "dur": 8.758,
+       "wid": "A25_018",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "까망이 이름을 부르려다 멈췄다. 이름을 부르면 공포가 커지고, 공포가 커지면 실수가 늘어난다.",
+       "file": "assets/vo/A25/A25_019.opus",
+       "t": 4228.893,
+       "dur": 7.851,
+       "wid": "A25_019",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "하지만 나는 봤다. 그 아이가 물길 쪽으로 굴러 떨어지는 걸.",
+       "file": "assets/vo/A25/A25_020.opus",
+       "t": 4238.383,
+       "dur": 5.223,
+       "wid": "A25_020",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_ROPE"
+     ]
+    }
+   ],
+   "gesture": "drag",
+   "next": "B13-02"
+  },
+  {
+   "beat_id": "B13-02",
+   "chapter": 13,
+   "scene": "A25",
+   "kind": "cut",
+   "title": "결과 컷 · 비는 떨어지는 게 아니라, 덮쳐온다",
+   "pov": "nuri",
+   "lens": "cut",
+   "weather": "storm",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A25.mp4",
+    "poster": "assets/cut/A25_poster.webp",
+    "tc_in": 4242.542,
+    "tc_out": 4250.917,
+    "action": "나는 뛰었다",
+    "motion": "push_fast",
+    "subs": [
+     {
+      "speaker": "nuri",
+      "text": "나는 뛰었다.",
+      "file": "assets/vo/A25/A25_021.opus",
+      "t": 4245.245,
+      "dur": 1.172,
+      "wid": "A25_021",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B13-03"
+  },
+  {
+   "beat_id": "B13-03",
+   "chapter": 13,
+   "scene": "A26",
+   "kind": "explore",
+   "title": "구조는 영웅이 아니라, 순서가 한다",
+   "pov": "captain",
+   "lens": "oneeye",
+   "weather": "storm",
+   "amb": "assets/amb/amb_storm.opus",
+   "clues": [
+    {
+     "id": "CL_DROWN",
+     "label": "익사 냄새",
+     "kind": "smell",
+     "tone": "#5f7488",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "누리가 물길로 들어가면 살아남을 수 있다.",
+     "kw": "물"
+    },
+    {
+     "id": "CL_ROCK",
+     "label": "바위",
+     "kind": "smell",
+     "tone": "#8a8a8a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "물길의 모서리에는 소용돌이가 있었다.",
+     "kw": "바위"
+    },
+    {
+     "id": "CL_ORDER",
+     "label": "순서",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "순서"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 28.958,
+     "still": "assets/still/A26/cA26_0.webp",
+     "motion": "push_in",
+     "action": "리더는 구조가 아니라 순서를 만든다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "누리가 뛰는 순간, 나는 움직이지 않았다. 늙은 몸은 반사로 뛰면 죽는다. 나는 뛰기 전에 계산했다.",
+       "file": "assets/vo/A26/A26_000.opus",
+       "t": 4253.317,
+       "dur": 9.13,
+       "wid": "A26_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "누리가 물길로 들어가면 살아남을 수 있다. 하지만 돌아올 확률은 낮다. 그리고 작은 점은 지금 당장 흔들리면 꺼질 수 있다.",
+       "file": "assets/vo/A26/A26_001.opus",
+       "t": 4265.447,
+       "dur": 10.789,
+       "wid": "A26_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "나는 입 안에서 단단한 결정을 굴렸다.",
+       "file": "assets/vo/A26/A26_002.opus",
+       "t": 4278.669,
+       "dur": 2.817,
+       "wid": "A26_002",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_DROWN"
+     ]
+    },
+    {
+     "t0": 28.958,
+     "t1": 53.042,
+     "still": "assets/still/A26/cA26_1.webp",
+     "motion": "push_in",
+     "action": "\"작은 점.\" \"지켜.\"",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "까망.",
+       "file": "assets/vo/A26/A26_003.opus",
+       "t": 4284.266,
+       "dur": 0.604,
+       "wid": "A26_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "까망이 즉시 시선을 돌렸다.",
+       "file": "assets/vo/A26/A26_004.opus",
+       "t": 4287.418,
+       "dur": 1.806,
+       "wid": "A26_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "작은 점.",
+       "file": "assets/vo/A26/A26_005.opus",
+       "t": 4292.004,
+       "dur": 0.697,
+       "wid": "A26_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "지켜.",
+       "file": "assets/vo/A26/A26_006.opus",
+       "t": 4295.133,
+       "dur": 0.555,
+       "wid": "A26_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "까망의 눈이 잠깐 흔들렸다. 리더에게 흔들림은 금지지만, 이 아이는 감정을 가진 리더다. 그 감정이 리더를 더 강하게 만들기도 한다.",
+       "file": "assets/vo/A26/A26_007.opus",
+       "t": 4298.237,
+       "dur": 11.523,
+       "wid": "A26_007",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 53.042,
+     "t1": 73.167,
+     "still": "assets/still/A26/cA26_2.webp",
+     "motion": "push_fast",
+     "action": "\"가\" — 허락은 숲에서 가장 큰 신뢰",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "나는 들무리 리더를 봤다.",
+       "file": "assets/vo/A26/A26_008.opus",
+       "t": 4312.192,
+       "dur": 1.364,
+       "wid": "A26_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "너는…",
+       "file": "assets/vo/A26/A26_009.opus",
+       "t": 4316.336,
+       "dur": 0.596,
+       "wid": "A26_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "feral",
+       "text": "네 새끼.",
+       "file": "assets/vo/A26/A26_010.opus",
+       "t": 4319.932,
+       "dur": 0.63,
+       "wid": "A26_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "들무리 리더의 귀가 뒤로 젖었다. 그리고 말했다.",
+       "file": "assets/vo/A26/A26_011.opus",
+       "t": 4323.111,
+       "dur": 3.695,
+       "wid": "A26_011",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 73.167,
+     "t1": 91.875,
+     "still": "assets/still/A26/cA26_3.webp",
+     "motion": "pan_rl",
+     "action": "힘이 세지만 방향이 일정한 곳",
+     "lines": [
+      {
+       "speaker": "feral",
+       "text": "가.",
+       "file": "assets/vo/A26/A26_012.opus",
+       "t": 4329.586,
+       "dur": 0.47,
+       "wid": "A26_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "그 말은 명령이 아니라, 허락이었다. 허락은 숲에서 가장 큰 신뢰다.",
+       "file": "assets/vo/A26/A26_013.opus",
+       "t": 4332.604,
+       "dur": 5.646,
+       "wid": "A26_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "물길의 모서리에는 소용돌이가 있었다. 그곳은 빨려 들어간다. 대신 바위 끝, 물이 부딪히는 곳은 힘이 세지만 방향이 일정하다. 일정하면, 타고 나올 수 있다.",
+       "file": "assets/vo/A26/A26_014.opus",
+       "t": 4340.682,
+       "dur": 13.803,
+       "wid": "A26_014",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 91.875,
+     "t1": 122.833,
+     "still": "assets/still/A26/cA26_4.webp",
+     "motion": "push_fast",
+     "action": "독을 마시는 순간이 지금이다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "나는 몸을 낮췄다. 젖은 털은 무겁고, 무거움은 늙은 몸에게 독이다. 하지만 독을 마시는 순간이 있다. 그 순간이 지금이다.",
+       "file": "assets/vo/A26/A26_015.opus",
+       "t": 4356.918,
+       "dur": 10.896,
+       "wid": "A26_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "나는 물길로 뛰어들었다. 차가움이 뼛속으로 파고들었다. 나는 숨을 아꼈다. 숨을 아끼는 건 겁이 아니라, 시간을 버는 기술이다.",
+       "file": "assets/vo/A26/A26_016.opus",
+       "t": 4370.247,
+       "dur": 11.416,
+       "wid": "A26_016",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_ROCK"
+     ]
+    },
+    {
+     "t0": 122.833,
+     "t1": 152.375,
+     "still": "assets/still/A26/cA26_5.webp",
+     "motion": "pan_fast",
+     "action": "목덜미로 물고, 바위로 밀어낸다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "물길 중앙에서 누리의 등판이 보였다. 그는 들무리 어린 녀석을 목덜미로 물고, 바위 쪽으로 밀고 있었다.",
+       "file": "assets/vo/A26/A26_017.opus",
+       "t": 4384.095,
+       "dur": 8.709,
+       "wid": "A26_017",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "그 장면은 전투 같았다. 힘과 힘이 부딪히는 전투. 그리고 그 순간 나는 깨달았다. 누리는 더 이상 기다리는 개가 아니다. 누리는 구하는 개다.",
+       "file": "assets/vo/A26/A26_018.opus",
+       "t": 4395.237,
+       "dur": 12.102,
+       "wid": "A26_018",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 152.375,
+     "t1": 189.0,
+     "still": "assets/still/A26/cA26_6.webp",
+     "motion": "push_in",
+     "action": "\"올라가\"",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "왼쪽!",
+       "file": "assets/vo/A26/A26_019.opus",
+       "t": 4410.119,
+       "dur": 0.571,
+       "wid": "A26_019",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "내가 짧게 외쳤다.",
+       "file": "assets/vo/A26/A26_020.opus",
+       "t": 4410.99,
+       "dur": 1.2,
+       "wid": "A26_020",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "누리가 방향을 틀었고, 물살이 그의 옆구리를 후려쳤다. 그의 발이 바위에 닿았다. 그리고 바위가 미끄러졌다.",
+       "file": "assets/vo/A26/A26_021.opus",
+       "t": 4412.49,
+       "dur": 9.382,
+       "wid": "A26_021",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "나는 마지막 힘으로 바위 틈에 발톱을 박았다. 그리고 누리의 옆구리를 밀었다.",
+       "file": "assets/vo/A26/A26_022.opus",
+       "t": 4424.304,
+       "dur": 6.595,
+       "wid": "A26_022",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "올라가.",
+       "file": "assets/vo/A26/A26_023.opus",
+       "t": 4433.679,
+       "dur": 0.64,
+       "wid": "A26_023",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "누리가 올라갔다. 어린 들무리도 간신히 올라갔다. 그리고— 나는, 그 다음이 문제였다.",
+       "file": "assets/vo/A26/A26_024.opus",
+       "t": 4436.867,
+       "dur": 7.251,
+       "wid": "A26_024",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 189.0,
+     "t1": 217.125,
+     "still": "assets/still/A26/cA26_7.webp",
+     "motion": "push_fast",
+     "action": "늙은 몸의 한계",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "바위를 잡았지만 발이 떨렸다. 차가움이 이미 근육을 먹고 있었다. 몸이",
+       "file": "assets/vo/A26/A26_025.opus",
+       "t": 4446.551,
+       "dur": 6.292,
+       "wid": "A26_025",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "narrator",
+       "text": "여기까지",
+       "file": "assets/vo/A26/A26_026.opus",
+       "t": 4455.623,
+       "dur": 0.769,
+       "wid": "A26_026",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "라고 말하는 순간, 마음도 무너지기 쉽다.",
+       "file": "assets/vo/A26/A26_027.opus",
+       "t": 4458.94,
+       "dur": 3.07,
+       "wid": "A26_027",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "그때 들무리 리더가 나타났다. 물길 가장자리에서 내게 몸을 내밀었다. 협상 상대였던 그가, 지금은 구조자였다.",
+       "file": "assets/vo/A26/A26_028.opus",
+       "t": 4465.01,
+       "dur": 9.188,
+       "wid": "A26_028",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 217.125,
+     "t1": 239.375,
+     "still": "assets/still/A26/cA26_8.webp",
+     "motion": "push_in",
+     "action": "협상 상대가, 지금은 구조자였다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "그는 내 목덜미를 물었다. 아프게가 아니라, 확실하게. 그리고 끌었다.",
+       "file": "assets/vo/A26/A26_029.opus",
+       "t": 4476.631,
+       "dur": 5.83,
+       "wid": "A26_029",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "나는 순간, 부끄러웠다. 그러나 부끄러움은 짧게 끝났다. 살아야, 부끄러움도 의미가 있다.",
+       "file": "assets/vo/A26/A26_030.opus",
+       "t": 4484.893,
+       "dur": 7.942,
+       "wid": "A26_030",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_ORDER"
+     ]
+    }
+   ],
+   "gesture": "hold",
+   "next": "B13-04"
+  },
+  {
+   "beat_id": "B13-04",
+   "chapter": 13,
+   "scene": "A26",
+   "kind": "battle",
+   "title": "대치 · 물길 구조",
+   "pov": "captain",
+   "lens": "battle",
+   "weather": "storm",
+   "amb": "assets/amb/amb_storm.opus",
+   "still": "assets/still/A26/cA26_8.webp",
+   "battle": {
+    "id": "BT_A26",
+    "title": "물길 구조",
+    "mode": "env",
+    "goal": {
+     "type": "rescue",
+     "value": 4,
+     "turns": 7
+    },
+    "warmth": 5,
+    "warmthLoss": 2,
+    "star": true,
+    "allies": [
+     "nuri",
+     "captain",
+     "otbit"
+    ],
+    "humans": [
+     "deer"
+    ],
+    "enemy": {
+     "name": "물길",
+     "kind": "env",
+     "tension": 0,
+     "intents": [
+      {
+       "name": "물살",
+       "text": "물이 다리를 쓸어갔다",
+       "warmth": -2
+      },
+      {
+       "name": "우르르",
+       "text": "바위가 굴러 내려왔다",
+       "breath": -1
+      },
+      {
+       "name": "불어남",
+       "text": "물길이 넓어졌다",
+       "warmth": -1
+      }
+     ]
+    },
+    "skills": [
+     "deer_nape",
+     "nuri_nape_bite",
+     "captain_save_breath",
+     "otbit_above"
+    ],
+    "intro": "구조는 영웅이 아니라 순서가 한다.",
+    "win": "\"올라가.\" 늙은 몸의 한계를, 순서가 이겼다.",
+    "lose": "물이 순서를 삼켰다. 다시, 맨 앞을 바꾼다.",
+    "starStage": "cant_walk",
+    "scene": "A26",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_unlock",
+     "kkamang_tail_signal",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "captain_low_tail",
+     "captain_save_breath",
+     "otbit_scout",
+     "otbit_scratch",
+     "otbit_wing",
+     "otbit_herb",
+     "otbit_above",
+     "kim_pry",
+     "kim_baton",
+     "kim_record",
+     "kim_report",
+     "park_hazard",
+     "park_key",
+     "somi_towel",
+     "somi_milk",
+     "somi_witness",
+     "deer_twig",
+     "deer_nape"
+    ]
+   },
+   "next": "B13-05"
+  },
+  {
+   "beat_id": "B13-05",
+   "chapter": 13,
+   "scene": "A26",
+   "kind": "cut",
+   "title": "결과 컷 · 구조는 영웅이 아니라, 순서가 한다",
+   "pov": "captain",
+   "lens": "cut",
+   "weather": "storm",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A26.mp4",
+    "poster": "assets/cut/A26_poster.webp",
+    "tc_in": 4490.292,
+    "tc_out": 4507.084,
+    "action": "부끄러움보다 먼저, 살아 있음",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "captain",
+      "text": "바위 위로 올라온 나는 젖은 숨을 토했다. 그리고 바로, 까망 쪽을 봤다. 작은 점은—?",
+      "file": "assets/vo/A26/A26_031.opus",
+      "t": 4495.268,
+      "dur": 7.316,
+      "wid": "A26_031",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B13-06"
+  },
+  {
+   "beat_id": "B13-06",
+   "chapter": 13,
+   "scene": "A27",
+   "kind": "explore",
+   "title": "흔들리는 체온을 붙잡는 건 손이다",
+   "pov": "kkamang",
+   "lens": "high",
+   "weather": "storm",
+   "amb": "assets/amb/amb_storm.opus",
+   "clues": [
+    {
+     "id": "CL_HEADLAMP",
+     "label": "사냥꾼의 빛",
+     "kind": "smell",
+     "tone": "#e8e2c8",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 잿빛을 찾았다.",
+     "kw": "빛"
+    },
+    {
+     "id": "CL_RUBBER2",
+     "label": "고무장갑",
+     "kind": "smell",
+     "tone": "#8a8a8a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "그때였다.",
+     "kw": "고무장갑"
+    },
+    {
+     "id": "CL_SORRY",
+     "label": "미안함의 땀",
+     "kind": "smell",
+     "tone": "#bfa06a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "나는 냄새로 구분했다.",
+     "kw": "땀"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 24.042,
+     "still": "assets/still/A27/cA27_0.webp",
+     "motion": "push_in",
+     "action": "고양이의 체온은 작지만, 집중하면 불이 된다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "나는 작은 점을 감싼 담요 위에 몸을 얹었다. 고양이의 체온은 작지만, 집중하면 불이 된다. 불은 약한 것을 지킨다.",
+       "file": "assets/vo/A27/A27_000.opus",
+       "t": 4509.483,
+       "dur": 8.583,
+       "wid": "A27_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "작은 점의 숨이 흔들렸다. 흔들림은 아직 싸우고 있다는 뜻이기도 하다. 완전히 꺼지면, 흔들리지 않는다.",
+       "file": "assets/vo/A27/A27_001.opus",
+       "t": 4520.741,
+       "dur": 7.178,
+       "wid": "A27_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 작은 점의 귀 뒤를 핥았다. 핥음은 간호이자 신호다.",
+       "file": "assets/vo/A27/A27_002.opus",
+       "t": 4530.595,
+       "dur": 3.697,
+       "wid": "A27_002",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_HEADLAMP"
+     ]
+    },
+    {
+     "t0": 24.042,
+     "t1": 32.458,
+     "still": "assets/still/A27/cA27_1.webp",
+     "motion": "push_in",
+     "action": "\"여기 있어.\" \"놓지 마.\"",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "여기 있어.",
+       "file": "assets/vo/A27/A27_003.opus",
+       "t": 4537.292,
+       "dur": 0.696,
+       "wid": "A27_003",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 32.458,
+     "t1": 69.125,
+     "still": "assets/still/A27/cA27_2.webp",
+     "motion": "pull_out",
+     "action": "폭우는 적이지만, 우산이 될 수도 있다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "놓지 마.",
+       "file": "assets/vo/A27/A27_004.opus",
+       "t": 4540.663,
+       "dur": 0.645,
+       "wid": "A27_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "비가 너무 세서, 소리가 모든 것을 덮었다. 그런데 그 덮임이 역설적으로 도움이 되었다. 발소리도 덮이고, 냄새도 퍼진다.",
+       "file": "assets/vo/A27/A27_005.opus",
+       "t": 4544.105,
+       "dur": 8.42,
+       "wid": "A27_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "쫓는 자도, 쫓기는 자도 서로를 정확히 못 본다. 나는 그걸 이용했다.",
+       "file": "assets/vo/A27/A27_006.opus",
+       "t": 4555.2,
+       "dur": 4.594,
+       "wid": "A27_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "바위 뒤, 뿌리 사이, 낙엽이 쌓인 낮은 굴. 나는 작은 점을 그 안으로 옮겼다. 옮길 때마다 담요가 젖었지만, 담요는 젖어도 따뜻함을 조금 남겼다.",
+       "file": "assets/vo/A27/A27_007.opus",
+       "t": 4562.469,
+       "dur": 10.782,
+       "wid": "A27_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "따뜻함은 완벽이 아니라 조금으로도 생명을 붙잡는다.",
+       "file": "assets/vo/A27/A27_008.opus",
+       "t": 4575.927,
+       "dur": 3.263,
+       "wid": "A27_008",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_RUBBER2"
+     ]
+    },
+    {
+     "t0": 69.125,
+     "t1": 78.833,
+     "still": "assets/still/A27/cA27_3.webp",
+     "motion": "push_fast",
+     "action": "쇠. 기름. 고무장갑.",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "그때였다. 비 속에서도 지워지지 않는 냄새가 났다. 쇠. 기름. 인간의 고무장갑.",
+       "file": "assets/vo/A27/A27_009.opus",
+       "t": 4582.19,
+       "dur": 5.633,
+       "wid": "A27_009",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 78.833,
+     "t1": 98.792,
+     "still": "assets/still/A27/cA27_4.webp",
+     "motion": "pan_lr",
+     "action": "도시가 숲까지 따라왔다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "내 눈이 가늘어졌다. 도시가 숲까지 따라왔다. 포획꾼은 비를 무서워하지 않는다. 돈이 비를 이긴다.",
+       "file": "assets/vo/A27/A27_010.opus",
+       "t": 4590.498,
+       "dur": 7.361,
+       "wid": "A27_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 잿빛을 찾았다. 잿빛이 멀리서 신호처럼 꼬리를 한 번 쳤다. 왔다는 뜻.",
+       "file": "assets/vo/A27/A27_011.opus",
+       "t": 4600.859,
+       "dur": 5.161,
+       "wid": "A27_011",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 98.792,
+     "t1": 114.125,
+     "still": "assets/still/A27/cA27_5.webp",
+     "motion": "pan_rl",
+     "action": "사냥꾼의 빛, 그리고 다른 빛",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "숲 가장자리에서 작은 빛이 번쩍였다. 휴대폰 플래시. 사람이 길을 찾는 방식.",
+       "file": "assets/vo/A27/A27_012.opus",
+       "t": 4608.695,
+       "dur": 5.901,
+       "wid": "A27_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "하지만 그 빛은 두 종류였다. 사냥꾼의 빛. 그리고— 다른 빛.",
+       "file": "assets/vo/A27/A27_013.opus",
+       "t": 4617.271,
+       "dur": 4.225,
+       "wid": "A27_013",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_SORRY"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B13-07"
+  },
+  {
+   "beat_id": "B13-07",
+   "chapter": 13,
+   "scene": "A27",
+   "kind": "cut",
+   "title": "결과 컷 · 흔들리는 체온을 붙잡는 건 손이다",
+   "pov": "kkamang",
+   "lens": "cut",
+   "weather": "storm",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A27.mp4",
+    "poster": "assets/cut/A27_poster.webp",
+    "tc_in": 4621.208,
+    "tc_out": 4639.583,
+    "action": "익숙한 땀 냄새 — 사람의 미안함",
+    "motion": "push_in",
+    "subs": [
+     {
+      "speaker": "kkamang",
+      "text": "나는 냄새로 구분했다. 후레시가 아니라, 익숙한 땀 냄새. 쇳내와 함께 섞인, 사람의 미안함 냄새.",
+      "file": "assets/vo/A27/A27_014.opus",
+      "t": 4624.172,
+      "dur": 7.392,
+      "wid": "A27_014",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "김반장.",
+      "file": "assets/vo/A27/A27_015.opus",
+      "t": 4634.239,
+      "dur": 0.844,
+      "wid": "A27_015",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B14-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

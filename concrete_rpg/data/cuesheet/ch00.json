@@ -1,0 +1,473 @@
+{
+ "cuesheet_id": "cj_ch00_v37",
+ "chapter_no": 0,
+ "label": "서장",
+ "title": "오래된 바다",
+ "act": "1막",
+ "pov": "캡틴",
+ "star_stage": null,
+ "amb": "assets/amb/amb_urban.opus",
+ "weather": "dawn",
+ "scenes": [
+  "00"
+ ],
+ "beats": [
+  {
+   "beat_id": "B00-01",
+   "chapter": 0,
+   "scene": "00",
+   "kind": "explore",
+   "title": "오래된 바다",
+   "pov": "captain",
+   "lens": "oneeye",
+   "weather": "dawn",
+   "amb": "assets/amb/amb_urban.opus",
+   "clues": [
+    {
+     "id": "SM_OIL",
+     "label": "기름때",
+     "kind": "smell",
+     "tone": "#8a6a3c",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "그 새벽, 고가도로 아래.",
+     "kw": "기름때"
+    },
+    {
+     "id": "SM_SOUR",
+     "label": "시큼한 국물",
+     "kind": "smell",
+     "tone": "#b08a45",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "그 새벽, 고가도로 아래.",
+     "kw": "시큼한 국물"
+    },
+    {
+     "id": "SM_WET",
+     "label": "젖은 콘크리트",
+     "kind": "smell",
+     "tone": "#6d879c",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": false,
+     "from": "그 새벽, 고가도로 아래.",
+     "kw": "젖은 콘크리트"
+    },
+    {
+     "id": "SM_SOAP",
+     "label": "비누",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.79,
+     "ny": 0.66,
+     "hidden": true,
+     "from": "그 사이를 가르는, 아주 얇고 이상하게 깨끗한 향이 지나갔다.",
+     "kw": "비누"
+    },
+    {
+     "id": "OB_TAIL",
+     "label": "리듬 있는 꼬리",
+     "kind": "observe",
+     "tone": "#c9b48a",
+     "nx": 0.34,
+     "ny": 0.86,
+     "hidden": false,
+     "from": "개가 앉아 있었다.",
+     "kw": "꼬리를 흔들"
+    },
+    {
+     "id": "OB_POSTURE",
+     "label": "기다리는 자세",
+     "kind": "observe",
+     "tone": "#9fb6c9",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "",
+     "kw": "기다리는 자세"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 29.0,
+     "still": "assets/still/00/c00_0.webp",
+     "motion": "tilt_down",
+     "action": "도시는 말하지 않는다, 대신 숨을 쉰다 — 새벽 도시 전경",
+     "lines": [
+      {
+       "speaker": "narrator",
+       "text": "도시는 말하지 않는다. 대신, 숨을 쉰다.",
+       "file": "assets/vo/00/00_000.opus",
+       "t": 17.4,
+       "dur": 3.016,
+       "wid": "00_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "narrator",
+       "text": "사람들은 그 숨을 듣지 못한다. 너무 위를 보며 살기 때문이다.",
+       "file": "assets/vo/00/00_001.opus",
+       "t": 23.416,
+       "dur": 5.185,
+       "wid": "00_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "narrator",
+       "text": "하지만 어떤 존재들은 아래를 본다. 틈을 본다. 그리고— 먼저 움직인다.",
+       "file": "assets/vo/00/00_002.opus",
+       "t": 31.601,
+       "dur": 6.031,
+       "wid": "00_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "narrator",
+       "text": "이것은, 그 존재들에 대한 기록이다.",
+       "file": "assets/vo/00/00_003.opus",
+       "t": 40.632,
+       "dur": 2.535,
+       "wid": "00_003",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "SM_OIL"
+     ]
+    },
+    {
+     "t0": 29.0,
+     "t1": 53.5,
+     "still": "assets/still/00/c00_1.webp",
+     "motion": "pan_lr",
+     "action": "도시는 오래된 바다 — 빛의 해류, 떠내려오는 약한 것들",
+     "lines": [
+      {
+       "speaker": "narrator",
+       "text": "도시는 오래된 바다였다. 물 대신 빛이 흐르고, 파도 대신 엔진이 울며, 해류 대신 습관이 방향을 만들었다.",
+       "file": "assets/vo/00/00_004.opus",
+       "t": 46.167,
+       "dur": 8.91,
+       "wid": "00_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "narrator",
+       "text": "바다에는 늘 떠내려오는 것이 있다. 떠내려오는 건 언제나 약한 것들, 아직 규칙을 모르는 것들, 그리고— 너무 믿어버린 것들이다.",
+       "file": "assets/vo/00/00_005.opus",
+       "t": 58.077,
+       "dur": 10.592,
+       "wid": "00_005",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "SM_SOUR",
+      "SM_WET"
+     ]
+    },
+    {
+     "t0": 53.5,
+     "t1": 90.375,
+     "still": "assets/still/00/c00_2.webp",
+     "motion": "push_fast",
+     "action": "캡틴의 왼쪽 눈 — 돌이 스치고 세상이 반쪽이 된 밤",
+     "lines": [
+      {
+       "speaker": "narrator",
+       "text": "캡틴은 한쪽 눈으로만 세상을 봤다. 다른 한쪽은, 젊은 날의 밤에 잃었다.",
+       "file": "assets/vo/00/00_006.opus",
+       "t": 71.669,
+       "dur": 6.585,
+       "wid": "00_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "narrator",
+       "text": "그날도 평범했다. 사람이 돌을 던졌고, 캡틴은 피하지 않았다. 돌은 왼쪽 눈을 스쳤다. 세상은, 한쪽이 사라졌다.",
+       "file": "assets/vo/00/00_007.opus",
+       "t": 81.254,
+       "dur": 9.756,
+       "wid": "00_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "narrator",
+       "text": "그 뒤로 그는 눈 대신 냄새를 늘렸다. 냄새는 거짓말을 못 한다. 사람은 입으로 거짓말을 하지만, 땀과 손기름은 정직하다.",
+       "file": "assets/vo/00/00_008.opus",
+       "t": 94.01,
+       "dur": 10.541,
+       "wid": "00_008",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "SM_SOAP",
+      "OB_TAIL"
+     ]
+    },
+    {
+     "t0": 90.375,
+     "t1": 150.708,
+     "still": "assets/still/00/c00_3.webp",
+     "motion": "push_in",
+     "action": "고가도로 아래, 비누 향을 끊지 못하고 앉아 있는 누리",
+     "lines": [
+      {
+       "speaker": "narrator",
+       "text": "그 새벽, 고가도로 아래. 기름때 냄새, 오래된 쓰레기에서 새어 나온 시큼한 국물 냄새, 젖은 콘크리트의 금속성 비린내가 층층이 깔려 있었다.",
+       "file": "assets/vo/00/00_009.opus",
+       "t": 107.551,
+       "dur": 12.471,
+       "wid": "00_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "narrator",
+       "text": "그 사이를 가르는, 아주 얇고 이상하게 깨끗한 향이 지나갔다. 비누. 아직 집이 남아 있는 냄새였다.",
+       "file": "assets/vo/00/00_010.opus",
+       "t": 123.022,
+       "dur": 8.602,
+       "wid": "00_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "narrator",
+       "text": "개가 앉아 있었다. 덩치가 컸고, 눈은 너무 커서 밤을 담아버릴 것 같았다. 꼬리를 흔들고 있었다. 주인을 믿는 리듬.",
+       "file": "assets/vo/00/00_011.opus",
+       "t": 134.624,
+       "dur": 10.025,
+       "wid": "00_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "narrator",
+       "text": "기다림은 도시에서 사치다. 도시는 기다리는 걸 싫어한다. 기다림은 비효율이니까. 도시는 효율적으로 약한 것을 정리한다.",
+       "file": "assets/vo/00/00_012.opus",
+       "t": 147.649,
+       "dur": 10.382,
+       "wid": "00_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "narrator",
+       "text": "캡틴은 중얼거렸다. 떠내려왔군.",
+       "file": "assets/vo/00/00_013.opus",
+       "t": 161.031,
+       "dur": 2.486,
+       "wid": "00_013",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "OB_POSTURE"
+     ]
+    }
+   ],
+   "gesture": "hold",
+   "next": "B00-02"
+  },
+  {
+   "beat_id": "B00-02",
+   "chapter": 0,
+   "scene": "00",
+   "kind": "deduce",
+   "title": "추리판 · 저 개는 왜 여기 있나",
+   "pov": "captain",
+   "lens": "board",
+   "weather": "dawn",
+   "amb": "assets/amb/amb_urban.opus",
+   "question": {
+    "id": "Q00_DOG",
+    "text": "저 개는 왜 여기 있나"
+   },
+   "hyps": [
+    {
+     "id": "H00_DRIFTED",
+     "line": "떠내려왔군.",
+     "canon": true,
+     "needs": [
+      "SM_SOAP",
+      "OB_TAIL"
+     ],
+     "effect": {
+      "battle_tension": -2
+     }
+    },
+    {
+     "id": "H00_LOST",
+     "line": "길을 잃었군.",
+     "canon": false,
+     "needs": [
+      "SM_WET",
+      "OB_POSTURE"
+     ],
+     "effect": {
+      "battle_tension": 0
+     }
+    },
+    {
+     "id": "H00_BAIT",
+     "line": "사람의 미끼다.",
+     "canon": false,
+     "needs": [
+      "SM_OIL",
+      "SM_SOUR"
+     ],
+     "effect": {
+      "battle_tension": 2,
+      "reveal": true
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "SM_OIL",
+     "label": "기름때",
+     "kind": "smell",
+     "tone": "#8a6a3c",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "그 새벽, 고가도로 아래.",
+     "kw": "기름때"
+    },
+    {
+     "id": "SM_SOUR",
+     "label": "시큼한 국물",
+     "kind": "smell",
+     "tone": "#b08a45",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "그 새벽, 고가도로 아래.",
+     "kw": "시큼한 국물"
+    },
+    {
+     "id": "SM_WET",
+     "label": "젖은 콘크리트",
+     "kind": "smell",
+     "tone": "#6d879c",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": false,
+     "from": "그 새벽, 고가도로 아래.",
+     "kw": "젖은 콘크리트"
+    },
+    {
+     "id": "SM_SOAP",
+     "label": "비누",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.79,
+     "ny": 0.66,
+     "hidden": true,
+     "from": "그 사이를 가르는, 아주 얇고 이상하게 깨끗한 향이 지나갔다.",
+     "kw": "비누"
+    },
+    {
+     "id": "OB_TAIL",
+     "label": "리듬 있는 꼬리",
+     "kind": "observe",
+     "tone": "#c9b48a",
+     "nx": 0.34,
+     "ny": 0.86,
+     "hidden": false,
+     "from": "개가 앉아 있었다.",
+     "kw": "꼬리를 흔들"
+    },
+    {
+     "id": "OB_POSTURE",
+     "label": "기다리는 자세",
+     "kind": "observe",
+     "tone": "#9fb6c9",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "",
+     "kw": "기다리는 자세"
+    }
+   ],
+   "still": "assets/still/00/c00_3.webp",
+   "next": "B00-03"
+  },
+  {
+   "beat_id": "B00-03",
+   "chapter": 0,
+   "scene": "00",
+   "kind": "cut",
+   "title": "결과 컷 · 오래된 바다",
+   "pov": "captain",
+   "lens": "cut",
+   "weather": "dawn",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/00.mp4",
+    "poster": "assets/cut/00_poster.webp",
+    "tc_in": 165.708,
+    "tc_out": 196.208,
+    "action": "담장 끝의 작은 검은 그림자, 까망 — 위험의 언어",
+    "motion": "pan_rl",
+    "subs": [
+     {
+      "speaker": "narrator",
+      "text": "담장 끝에서 작은 검은 그림자가 나타났다. 까망이었다. 그녀의 꼬리는 아주 낮게, 아주 천천히 움직였다. 위험.",
+      "file": "assets/vo/00/00_014.opus",
+      "t": 166.517,
+      "dur": 10.362,
+      "wid": "00_014",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "narrator",
+      "text": "캡틴은 결론을 내렸다. 오늘 밤, 이 골목은 하나를 잃거나— 아니면 아주 드물게, 하나를 얻게 된다.",
+      "file": "assets/vo/00/00_015.opus",
+      "t": 179.879,
+      "dur": 8.36,
+      "wid": "00_015",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B01-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

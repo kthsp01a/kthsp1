@@ -1,0 +1,499 @@
+{
+ "count": 33,
+ "unlock_order": [
+  "00",
+  "01",
+  "N02",
+  "N03",
+  "N04",
+  "03",
+  "N06",
+  "N07",
+  "04",
+  "N09",
+  "N10",
+  "N11",
+  "N12",
+  "06",
+  "09",
+  "N15",
+  "10",
+  "11",
+  "N18",
+  "12",
+  "N20",
+  "X",
+  "A21",
+  "A22",
+  "A23",
+  "A24",
+  "A25",
+  "A26",
+  "A27",
+  "A28",
+  "A29",
+  "A30",
+  "A31",
+  "A32",
+  "A33",
+  "A34",
+  "A35",
+  "A36",
+  "A37",
+  "A38",
+  "A39"
+ ],
+ "skills": [
+  {
+   "id": "nuri_sad_eyes",
+   "owner": "nuri",
+   "name": "슬픈 눈",
+   "unlock": "N04",
+   "act": "동물",
+   "ops": {
+    "tension": -2,
+    "stun": 0
+   },
+   "desc": "사람 상대의 시선을 끌어 1턴 고정",
+   "src": "세상에서 제일 슬픈 눈으로",
+   "unlock_index": 4
+  },
+  {
+   "id": "nuri_growl",
+   "owner": "nuri",
+   "name": "크르르릉",
+   "unlock": "N04",
+   "act": "동물",
+   "ops": {
+    "tension": -2,
+    "guard": 0
+   },
+   "desc": "들짐승 상대 긴장 하락·후퇴 유도",
+   "src": "가슴 깊은 곳에서 소리를 냈다",
+   "unlock_index": 4
+  },
+  {
+   "id": "nuri_warmth",
+   "owner": "nuri",
+   "name": "체온 나누기",
+   "unlock": "N04",
+   "act": "동물",
+   "ops": {
+    "warmth": 2,
+    "star": 1
+   },
+   "desc": "아군과 작은 점의 체온 회복",
+   "src": "내 체온으로 그를 녹였다",
+   "unlock_index": 4
+  },
+  {
+   "id": "nuri_nape_bite",
+   "owner": "nuri",
+   "name": "목덜미 물기",
+   "unlock": "N11",
+   "act": "동물",
+   "ops": {
+    "progress": 1,
+    "guard": 1
+   },
+   "desc": "위기에 빠진 아군 1명 구출 — 대로에서는 각성기로 자동 발동",
+   "src": "아프지 않게. 놓치지 않게.",
+   "unlock_index": 11
+  },
+  {
+   "id": "nuri_body_push",
+   "owner": "nuri",
+   "name": "몸 밀어넣기",
+   "unlock": "09",
+   "act": "동물",
+   "ops": {
+    "progress": 1,
+    "breath": -1
+   },
+   "desc": "좁은 틈·철창 돌파",
+   "src": "그런데 그는 밀어 넣었다",
+   "unlock_index": 14
+  },
+  {
+   "id": "kkamang_wall",
+   "owner": "kkamang",
+   "name": "담장 위",
+   "unlock": "N02",
+   "act": "동물",
+   "ops": {
+    "reveal": 1
+   },
+   "desc": "다음 턴 상대 행동을 미리 공개",
+   "src": "위에 있으면 도망칠 길이 많다",
+   "unlock_index": 2
+  },
+  {
+   "id": "kkamang_shadow",
+   "owner": "kkamang",
+   "name": "그림자 질주",
+   "unlock": "N04",
+   "act": "동물",
+   "ops": {
+    "tension": -1,
+    "progress": 1
+   },
+   "desc": "시선이 돌려진 턴에 훔치기·잠입",
+   "src": "검은 것이 바람처럼 지나갔다",
+   "unlock_index": 4
+  },
+  {
+   "id": "kkamang_unlock",
+   "owner": "kkamang",
+   "name": "잠금 해제",
+   "unlock": "11",
+   "act": "동물",
+   "ops": {
+    "progress": 2,
+    "noise": 1
+   },
+   "desc": "포획틀·덫 해제(2턴, 소리 발생)",
+   "src": "앞발을 조심스럽게 넣어",
+   "unlock_index": 17
+  },
+  {
+   "id": "kkamang_tail_signal",
+   "owner": "kkamang",
+   "name": "꼬리 신호",
+   "unlock": "06",
+   "act": "동물",
+   "ops": {
+    "guard": 1,
+    "reveal": 1
+   },
+   "desc": "파티 경보 — 꼬리 모양이 곧 위험 표시",
+   "src": "빠르면 위험, 낮으면 경계, 탁탁 치면 화",
+   "unlock_index": 13
+  },
+  {
+   "id": "kkamang_jeong",
+   "owner": "kkamang",
+   "name": "정은 실수다",
+   "unlock": "N02",
+   "act": "패시브",
+   "ops": {
+    "jeong": 1
+   },
+   "desc": "정 게이지가 오를수록 협동기가 열린다",
+   "src": "정은, 실수다.",
+   "unlock_index": 2
+  },
+  {
+   "id": "captain_nose",
+   "owner": "captain",
+   "name": "한쪽 눈의 코",
+   "unlock": "00",
+   "act": "동물",
+   "ops": {
+    "reveal": 1,
+    "tension": -1
+   },
+   "desc": "거짓 냄새·숨은 사람 간파",
+   "src": "땀과 손기름은 정직하다",
+   "unlock_index": 0
+  },
+  {
+   "id": "captain_order",
+   "owner": "captain",
+   "name": "순서 정하기",
+   "unlock": "N06",
+   "act": "동물",
+   "ops": {
+    "breath": 2
+   },
+   "desc": "아군 턴 순서 재배치(이번 턴 모두 숨 회복)",
+   "src": "아직 순서를 정하지 않았을 뿐",
+   "unlock_index": 6
+  },
+  {
+   "id": "captain_low_tail",
+   "owner": "captain",
+   "name": "낮은 꼬리, 느린 걸음",
+   "unlock": "A21",
+   "act": "동물",
+   "ops": {
+    "jeong": 2,
+    "tension": -1
+   },
+   "desc": "협상 대치의 긴장 하락",
+   "src": "싸우지 않고 이기는 방식",
+   "unlock_index": 22
+  },
+  {
+   "id": "captain_save_breath",
+   "owner": "captain",
+   "name": "숨 아끼기",
+   "unlock": "A26",
+   "act": "동물",
+   "ops": {
+    "charge": 1
+   },
+   "desc": "이번 턴 대기, 다음 턴 강화(강화 1중첩)",
+   "src": "시간을 버는 기술이다",
+   "unlock_index": 27
+  },
+  {
+   "id": "captain_still",
+   "owner": "captain",
+   "name": "움직이지 않는 리더",
+   "unlock": "A33",
+   "act": "동물",
+   "ops": {
+    "tension": -3
+   },
+   "desc": "사람 상대의 불안 상승",
+   "src": "상대를 더 불안하게 만든다",
+   "unlock_index": 34
+  },
+  {
+   "id": "captain_empty_seat",
+   "owner": "captain",
+   "name": "자리 비우기",
+   "unlock": "A33",
+   "act": "동물",
+   "ops": {
+    "evidence": 2,
+    "jeong": 1
+   },
+   "desc": "리더 칸을 까망에게 넘김(시스템 연출)",
+   "src": "리더의 마지막 임무는",
+   "unlock_index": 34
+  },
+  {
+   "id": "otbit_scout",
+   "owner": "otbit",
+   "name": "정찰",
+   "unlock": "N12",
+   "act": "동물",
+   "ops": {
+    "reveal": 1,
+    "progress": 1
+   },
+   "desc": "지도·경로 공개",
+   "src": "잿빛. 정찰 결과는.",
+   "unlock_index": 12
+  },
+  {
+   "id": "otbit_scratch",
+   "owner": "otbit",
+   "name": "바닥 긁기",
+   "unlock": "11",
+   "act": "동물",
+   "ops": {
+    "tension": -1,
+    "reveal": 1
+   },
+   "desc": "상대 시선 돌리기",
+   "src": "사각사각",
+   "unlock_index": 17
+  },
+  {
+   "id": "otbit_wing",
+   "owner": "otbit",
+   "name": "날개 펴기",
+   "unlock": "N18",
+   "act": "동물",
+   "ops": {
+    "guard": 1,
+    "stun": 1
+   },
+   "desc": "상대 1턴 시야 차단",
+   "src": "시야를 통째로 덮었다",
+   "unlock_index": 18
+  },
+  {
+   "id": "otbit_herb",
+   "owner": "otbit",
+   "name": "약초",
+   "unlock": "A22",
+   "act": "동물",
+   "ops": {
+    "star": 2,
+    "warmth": 1
+   },
+   "desc": "작은 점의 열 하락",
+   "src": "쓴 냄새. 약초다.",
+   "unlock_index": 23
+  },
+  {
+   "id": "otbit_above",
+   "owner": "otbit",
+   "name": "위!",
+   "unlock": "A25",
+   "act": "동물",
+   "ops": {
+    "guard": 1,
+    "warmth": 1
+   },
+   "desc": "낙하물 경보, 회피",
+   "src": "위!",
+   "unlock_index": 26
+  },
+  {
+   "id": "kim_pry",
+   "owner": "kim",
+   "name": "빠루",
+   "unlock": "09",
+   "act": "사람",
+   "ops": {
+    "progress": 1
+   },
+   "desc": "철창 개방(작전: 돕기일 때 발동)",
+   "src": "김반장이 빠루를 끼웠다",
+   "unlock_index": 14
+  },
+  {
+   "id": "kim_baton",
+   "owner": "kim",
+   "name": "경광봉 인간 방패",
+   "unlock": "N15",
+   "act": "사람",
+   "ops": {
+    "guard": 1,
+    "progress": 1
+   },
+   "desc": "차선 1개 정지",
+   "src": "내 몸은 규칙이 아니었다",
+   "unlock_index": 15
+  },
+  {
+   "id": "kim_record",
+   "owner": "kim",
+   "name": "기록",
+   "unlock": "12",
+   "act": "사람",
+   "ops": {
+    "evidence": 1
+   },
+   "desc": "증거 게이지 상승",
+   "src": "파형은, 내 편이었다",
+   "unlock_index": 19
+  },
+  {
+   "id": "kim_report",
+   "owner": "kim",
+   "name": "신고",
+   "unlock": "12",
+   "act": "사람",
+   "ops": {
+    "evidence": 2,
+    "stun": 1
+   },
+   "desc": "증거가 차면 대치 종료",
+   "src": "삐— 전화 연결음",
+   "unlock_index": 19
+  },
+  {
+   "id": "park_hazard",
+   "owner": "park",
+   "name": "비상등 차벽",
+   "unlock": "N15",
+   "act": "사람",
+   "ops": {
+    "guard": 2,
+    "warmth": 1
+   },
+   "desc": "마지막 줄을 위한 안전 구역 생성",
+   "src": "그 빛이… 길을 만들어줬다",
+   "unlock_index": 15
+  },
+  {
+   "id": "park_key",
+   "owner": "park",
+   "name": "차키 든 자세",
+   "unlock": "12",
+   "act": "사람",
+   "ops": {
+    "tension": -2
+   },
+   "desc": "사람 상대 위압",
+   "src": "칼보다 단단하다",
+   "unlock_index": 19
+  },
+  {
+   "id": "somi_towel",
+   "owner": "somi",
+   "name": "노란 손수건",
+   "unlock": "03",
+   "act": "사람",
+   "ops": {
+    "jeong": 2,
+    "warmth": 1
+   },
+   "desc": "무리 집결·진정. A29부터는 숨기기도 가능",
+   "src": "이건, 네 거야.",
+   "unlock_index": 5
+  },
+  {
+   "id": "somi_milk",
+   "owner": "somi",
+   "name": "따뜻한 우유",
+   "unlock": "N20",
+   "act": "사람",
+   "ops": {
+    "star": 2,
+    "breath": 1
+   },
+   "desc": "작은 점의 체온·숨 회복",
+   "src": "작은 혀가 두어 번 움직였다",
+   "unlock_index": 20
+  },
+  {
+   "id": "somi_witness",
+   "owner": "somi",
+   "name": "목격자",
+   "unlock": "12",
+   "act": "패시브",
+   "ops": {
+    "guard": 1
+   },
+   "desc": "곁에 있는 것만으로 사람 상대의 폭력 억제",
+   "src": "애 앞에서 뭔 짓이야.",
+   "unlock_index": 19
+  },
+  {
+   "id": "deer_twig",
+   "owner": "deer",
+   "name": "마른 가지 밟기",
+   "unlock": "A23",
+   "act": "사람",
+   "ops": {
+    "reveal": 1,
+    "tension": -1
+   },
+   "desc": "상대 시선 돌리기",
+   "src": "일부러 마른 가지를 밟았다",
+   "unlock_index": 24
+  },
+  {
+   "id": "deer_windbreak",
+   "owner": "deer",
+   "name": "바람막이",
+   "unlock": "A31",
+   "act": "사람",
+   "ops": {
+    "warmth": 2
+   },
+   "desc": "체온 손실 감소",
+   "src": "바람을 막는 것도 체온이다",
+   "unlock_index": 32
+  },
+  {
+   "id": "deer_nape",
+   "owner": "deer",
+   "name": "목덜미 구조",
+   "unlock": "A26",
+   "act": "사람",
+   "ops": {
+    "progress": 2
+   },
+   "desc": "물길에서 캡틴 구출",
+   "src": "아프게가 아니라, 확실하게",
+   "unlock_index": 27
+  }
+ ]
+}

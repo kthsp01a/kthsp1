@@ -1,0 +1,338 @@
+{
+ "cuesheet_id": "cj_ch10_v37",
+ "chapter_no": 10,
+ "label": "10장",
+ "title": "잊혀진 공원",
+ "act": "1막",
+ "pov": "누리",
+ "star_stage": "cant_walk",
+ "amb": "assets/amb/amb_park.opus",
+ "weather": "dawn",
+ "scenes": [
+  "N20"
+ ],
+ "beats": [
+  {
+   "beat_id": "B10-01",
+   "chapter": 10,
+   "scene": "N20",
+   "kind": "explore",
+   "title": "잊혀진 공원",
+   "pov": "nuri",
+   "lens": "strand",
+   "weather": "dawn",
+   "amb": "assets/amb/amb_park.opus",
+   "clues": [
+    {
+     "id": "CL_IVY",
+     "label": "담쟁이",
+     "kind": "smell",
+     "tone": "#7d8a5b",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "높은 담쟁이덩굴이 천연의 벽을 이루고 있었다.",
+     "kw": "담쟁이"
+    },
+    {
+     "id": "CL_SPRING",
+     "label": "마르지 않은 샘",
+     "kind": "smell",
+     "tone": "#6d879c",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "가운데에 작은 샘이 있었다.",
+     "kw": "샘"
+    },
+    {
+     "id": "CL_SALT",
+     "label": "소금 맛",
+     "kind": "smell",
+     "tone": "#c9b48a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "그의 거친 손이 가늘게 떨리고 있었다.",
+     "kw": "소금"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 29.625,
+     "still": "assets/still/N20/cN20_0.webp",
+     "motion": "tilt_down",
+     "action": "마지막 덮개를 밀어 올리면 — 새소리",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "마지막 하수구 덮개를 밀어 올렸다. 그 너머에서, 새소리가 났다.",
+       "file": "assets/vo/N20/N20_000.opus",
+       "t": 3379.817,
+       "dur": 5.65,
+       "wid": "N20_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "밤새 걸었다. 발바닥이 아팠다. 아픈 걸 잊은 건, 냄새 때문이었다. 흙, 잎, 물. 사람 냄새가 없었다.",
+       "file": "assets/vo/N20/N20_001.opus",
+       "t": 3386.114,
+       "dur": 10.298,
+       "wid": "N20_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "높은 담쟁이덩굴이 천연의 벽을 이루고 있었다. 사람은 못 넘는 벽. 우리는 넘을 수 있는 벽.",
+       "file": "assets/vo/N20/N20_002.opus",
+       "t": 3397.058,
+       "dur": 6.866,
+       "wid": "N20_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "가운데에 작은 샘이 있었다. 마르지 않은 물. 나는 그 물을 마셨다. 차갑고, 이상하게 달았다.",
+       "file": "assets/vo/N20/N20_003.opus",
+       "t": 3404.571,
+       "dur": 8.497,
+       "wid": "N20_003",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_IVY"
+     ]
+    },
+    {
+     "t0": 29.625,
+     "t1": 48.542,
+     "still": "assets/still/N20/cN20_1.webp",
+     "motion": "pan_lr",
+     "action": "담쟁이덩굴의 벽, 마르지 않은 샘 — 잊혀진 공원",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "작은 점이 가방에서 나와, 흙 위에 첫 발을 디뎠다. 그리고 아주 작게 말했다.",
+       "file": "assets/vo/N20/N20_004.opus",
+       "t": 3413.714,
+       "dur": 6.437,
+       "wid": "N20_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "byeol",
+       "text": "와...",
+       "file": "assets/vo/N20/N20_005.opus",
+       "t": 3420.895,
+       "dur": 0.589,
+       "wid": "N20_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "모두 무사한 거지?",
+       "file": "assets/vo/N20/N20_006.opus",
+       "t": 3422.454,
+       "dur": 1.703,
+       "wid": "N20_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "내 목소리가 갈라졌다. 대답 대신, 모두가 내 쪽을 봤다. 그게 대답이었다.",
+       "file": "assets/vo/N20/N20_007.opus",
+       "t": 3424.835,
+       "dur": 7.427,
+       "wid": "N20_007",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 48.542,
+     "t1": 92.375,
+     "still": "assets/still/N20/cN20_2.webp",
+     "motion": "push_in",
+     "action": "모두 무사한 거지 — \\\"그래. 모두.\\\"",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "까망이 샘가에 주저앉았다.",
+       "file": "assets/vo/N20/N20_008.opus",
+       "t": 3432.909,
+       "dur": 2.179,
+       "wid": "N20_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그래. 모두.",
+       "file": "assets/vo/N20/N20_009.opus",
+       "t": 3435.831,
+       "dur": 0.737,
+       "wid": "N20_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "그 한마디에, 나는 처음으로 숨을 크게 쉬었다.",
+       "file": "assets/vo/N20/N20_010.opus",
+       "t": 3437.247,
+       "dur": 3.714,
+       "wid": "N20_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "먼동이 텄다. 회색 빛이 낡은 담벼락과 철문을 하나씩 드러냈다.",
+       "file": "assets/vo/N20/N20_011.opus",
+       "t": 3441.608,
+       "dur": 5.528,
+       "wid": "N20_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "우리는 모든 것을 잃었다. 집도, 골목도, 급식소도. 하지만 가장 소중한 것을 지켰다. 모두를.",
+       "file": "assets/vo/N20/N20_012.opus",
+       "t": 3447.782,
+       "dur": 10.327,
+       "wid": "N20_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "도로 입구에 박여사님의 차가 서 있었다. 소미가 차에서 내려 담장 쪽으로 달려왔다. 박여사님도 뒤따라 내렸다.",
+       "file": "assets/vo/N20/N20_013.opus",
+       "t": 3458.756,
+       "dur": 9.163,
+       "wid": "N20_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "김반장 아저씨는 우리를 보내주러 와 있었다. 자기 담요를 가방 위에 덮어 주고, 내 머리를 말없이 쓰다듬었다.",
+       "file": "assets/vo/N20/N20_014.opus",
+       "t": 3468.566,
+       "dur": 8.428,
+       "wid": "N20_014",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_SPRING"
+     ]
+    },
+    {
+     "t0": 92.375,
+     "t1": 116.833,
+     "still": "assets/still/N20/cN20_3.webp",
+     "motion": "push_in",
+     "action": "\\\"씩씩하게... 잘 지내야 한다\\\" — 소금 맛이 나는 손",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "씩씩하게 잘 지내야 한다, 이 녀석.",
+       "file": "assets/vo/N20/N20_015.opus",
+       "t": 3477.737,
+       "dur": 2.583,
+       "wid": "N20_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "그의 거친 손이 가늘게 떨리고 있었다. 나는 그의 손을 핥았다. 소금 맛이 났다.",
+       "file": "assets/vo/N20/N20_016.opus",
+       "t": 3480.999,
+       "dur": 6.928,
+       "wid": "N20_016",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "가는 새벽빛 속에서, 소미가 노란 병아리 손수건을 꺼내 조용히 흔들었다. 그 손은 흔들렸지만, 눈은 웃고 있었다.",
+       "file": "assets/vo/N20/N20_017.opus",
+       "t": 3488.573,
+       "dur": 9.076,
+       "wid": "N20_017",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_SALT"
+     ]
+    }
+   ],
+   "gesture": "drag",
+   "next": "B10-02"
+  },
+  {
+   "beat_id": "B10-02",
+   "chapter": 10,
+   "scene": "N20",
+   "kind": "cut",
+   "title": "결과 컷 · 잊혀진 공원",
+   "pov": "nuri",
+   "lens": "cut",
+   "weather": "dawn",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/N20.mp4",
+    "poster": "assets/cut/N20_poster.webp",
+    "tc_in": 3494.25,
+    "tc_out": 3511.625,
+    "action": "약한 것 먼저 — 사람의 길은 사람이 책임진다",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "nuri",
+      "text": "나는 꼬리를 흔들었다. 기다림은 끝났고, 선택이 시작됐다. 살아남음은 운이 아니라, 우리였다.",
+      "file": "assets/vo/N20/N20_018.opus",
+      "t": 3498.296,
+      "dur": 8.829,
+      "wid": "N20_018",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B11-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

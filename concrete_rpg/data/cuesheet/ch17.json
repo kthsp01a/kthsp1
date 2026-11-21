@@ -1,0 +1,1151 @@
+{
+ "cuesheet_id": "cj_ch17_v37",
+ "chapter_no": 17,
+ "label": "17장",
+ "title": "이름",
+ "act": "2막",
+ "pov": "누리",
+ "star_stage": "eyes_open",
+ "amb": "assets/amb/amb_forest_day.opus",
+ "weather": "dawn",
+ "scenes": [
+  "A34",
+  "A35",
+  "A36",
+  "A37"
+ ],
+ "beats": [
+  {
+   "beat_id": "B17-01",
+   "chapter": 17,
+   "scene": "A34",
+   "kind": "explore",
+   "title": "이름은 살아남은 뒤에 온다",
+   "pov": "nuri",
+   "lens": "strand",
+   "weather": "dawn",
+   "amb": "assets/amb/amb_forest_day.opus",
+   "clues": [
+    {
+     "id": "CL_EYE_LIGHT",
+     "label": "눈 갈라짐",
+     "kind": "smell",
+     "tone": "#dfe9ef",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "작은 점이 눈을 떴다.",
+     "kw": "눈"
+    },
+    {
+     "id": "CL_MILK",
+     "label": "우유",
+     "kind": "smell",
+     "tone": "#e8e2c8",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "우유"
+    },
+    {
+     "id": "CL_NAME",
+     "label": "이름",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "이름은 불러야 생기지만, 너무 빨리 부르면 사라진다.",
+     "kw": "이름"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 12.708,
+     "still": "assets/still/A34/cA34_0.webp",
+     "motion": "push_in",
+     "action": "반쯤 뜬 눈 — 가장 큰 기적",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "작은 점이 눈을 떴다. 완전히가 아니라, 반쯤. 그 반쯤이 세상에서 가장 큰 기적이었다.",
+       "file": "assets/vo/A34/A34_000.opus",
+       "t": 5709.192,
+       "dur": 8.736,
+       "wid": "A34_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "눈은 처음에 아무것도 보지 않았다. 그냥 빛만 느꼈다. 그 빛 속에… 내가 있었다.",
+       "file": "assets/vo/A34/A34_001.opus",
+       "t": 5719.285,
+       "dur": 8.493,
+       "wid": "A34_001",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_EYE_LIGHT"
+     ]
+    },
+    {
+     "t0": 12.708,
+     "t1": 35.292,
+     "still": "assets/still/A34/cA34_1.webp",
+     "motion": "push_fast",
+     "action": "그 빛 속에… 내가 있었다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "나는 움직이지 않았다. 움직이면, 그 눈이 다시 닫힐까 봐.",
+       "file": "assets/vo/A34/A34_002.opus",
+       "t": 5729.611,
+       "dur": 5.762,
+       "wid": "A34_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "이름은 불러야 생기지만, 너무 빨리 부르면 사라진다.",
+       "file": "assets/vo/A34/A34_003.opus",
+       "t": 5736.73,
+       "dur": 4.112,
+       "wid": "A34_003",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 35.292,
+     "t1": 46.083,
+     "still": "assets/still/A34/cA34_2.webp",
+     "motion": "pull_out",
+     "action": "숲의 예의",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "까망이 옆에 와서 앉았다. 캡틴도 가까이 왔다. 들무리 리더는 한 걸음 떨어져 섰다. 숲의 예의다.",
+       "file": "assets/vo/A34/A34_004.opus",
+       "t": 5742.2,
+       "dur": 9.21,
+       "wid": "A34_004",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_MILK"
+     ]
+    },
+    {
+     "t0": 46.083,
+     "t1": 59.0,
+     "still": "assets/still/A34/cA34_3.webp",
+     "motion": "push_in",
+     "action": "\"아직. 지금은… 숨부터\"",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "아직.",
+       "file": "assets/vo/A34/A34_005.opus",
+       "t": 5752.971,
+       "dur": 0.49,
+       "wid": "A34_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "까망이 말했다.",
+       "file": "assets/vo/A34/A34_006.opus",
+       "t": 5754.886,
+       "dur": 1.25,
+       "wid": "A34_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "지금은… 숨부터.",
+       "file": "assets/vo/A34/A34_007.opus",
+       "t": 5757.697,
+       "dur": 1.652,
+       "wid": "A34_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "나는 고개를 끄덕였다. 이 순간에는, 고개 끄덕임이 말보다 크다.",
+       "file": "assets/vo/A34/A34_008.opus",
+       "t": 5761.274,
+       "dur": 5.799,
+       "wid": "A34_008",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 59.0,
+     "t1": 77.708,
+     "still": "assets/still/A34/cA34_4.webp",
+     "motion": "push_fast",
+     "action": "살아 있다는 소리",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "작은 점이 아주 약하게 소리를 냈다. 울음도, 기침도 아닌— 그 중간. 살아 있다는 소리.",
+       "file": "assets/vo/A34/A34_009.opus",
+       "t": 5768.43,
+       "dur": 8.908,
+       "wid": "A34_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "그 소리를 들은 순간, 내 안에서 무언가가 끝났다. 그리고 다른 무언가가 시작됐다.",
+       "file": "assets/vo/A34/A34_010.opus",
+       "t": 5779.171,
+       "dur": 6.883,
+       "wid": "A34_010",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_NAME"
+     ]
+    }
+   ],
+   "gesture": "drag",
+   "next": "B17-02"
+  },
+  {
+   "beat_id": "B17-02",
+   "chapter": 17,
+   "scene": "A34",
+   "kind": "cut",
+   "title": "결과 컷 · 이름은 살아남은 뒤에 온다",
+   "pov": "nuri",
+   "lens": "cut",
+   "weather": "dawn",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A34.mp4",
+    "poster": "assets/cut/A34_poster.webp",
+    "tc_in": 5784.5,
+    "tc_out": 5797.042,
+    "action": "무언가가 끝나고, 무언가가 시작됐다",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "nuri",
+      "text": "나는 속으로 말했다. 이제… 이름을 가져도 돼.",
+      "file": "assets/vo/A34/A34_011.opus",
+      "t": 5787.411,
+      "dur": 5.131,
+      "wid": "A34_011",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B17-03"
+  },
+  {
+   "beat_id": "B17-03",
+   "chapter": 17,
+   "scene": "A35",
+   "kind": "explore",
+   "title": "공존은 선언이 아니라, 거리다",
+   "pov": "kkamang",
+   "lens": "high",
+   "weather": "dawn",
+   "amb": "assets/amb/amb_forest_day.opus",
+   "clues": [
+    {
+     "id": "CL_DISTANCE",
+     "label": "거리",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "공존은 선언이 아니라, 거리다.",
+     "kw": "거리"
+    },
+    {
+     "id": "CL_RULE",
+     "label": "규칙",
+     "kind": "smell",
+     "tone": "#c9b48a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "그 말은 명령이 아니라, 규칙이었다.",
+     "kw": "규칙"
+    },
+    {
+     "id": "CL_BOUNDARY2",
+     "label": "경계",
+     "kind": "smell",
+     "tone": "#7d6b8a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "넘지 않는다.",
+     "kw": "넘지"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 13.75,
+     "still": "assets/still/A35/cA35_0.webp",
+     "motion": "push_in",
+     "action": "싸우지 않고 앉는 것 — 공격하지 않겠다는 뜻",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "들무리 리더가 앞으로 나왔다. 그는 싸우지 않았다. 앉았다. 숲에서 앉는다는 건— 공격하지 않겠다는 뜻이다.",
+       "file": "assets/vo/A35/A35_000.opus",
+       "t": 5799.442,
+       "dur": 7.573,
+       "wid": "A35_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "feral",
+       "text": "여기.",
+       "file": "assets/vo/A35/A35_001.opus",
+       "t": 5808.64,
+       "dur": 0.488,
+       "wid": "A35_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그가 말했다.",
+       "file": "assets/vo/A35/A35_002.opus",
+       "t": 5810.614,
+       "dur": 0.77,
+       "wid": "A35_002",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_DISTANCE"
+     ]
+    },
+    {
+     "t0": 13.75,
+     "t1": 42.167,
+     "still": "assets/still/A35/cA35_1.webp",
+     "motion": "push_in",
+     "action": "\"여기. 반. 넘지 않는다\"",
+     "lines": [
+      {
+       "speaker": "feral",
+       "text": "반.",
+       "file": "assets/vo/A35/A35_003.opus",
+       "t": 5813.009,
+       "dur": 0.434,
+       "wid": "A35_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "넘지 않는다.",
+       "file": "assets/vo/A35/A35_004.opus",
+       "t": 5814.859,
+       "dur": 1.158,
+       "wid": "A35_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 그 말을 이해했다. 영역을 나누되, 벽을 세우지 않겠다는 뜻.",
+       "file": "assets/vo/A35/A35_005.opus",
+       "t": 5817.502,
+       "dur": 4.229,
+       "wid": "A35_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 고개를 끄덕였다.",
+       "file": "assets/vo/A35/A35_006.opus",
+       "t": 5823.147,
+       "dur": 1.24,
+       "wid": "A35_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "먹이.",
+       "file": "assets/vo/A35/A35_007.opus",
+       "t": 5826.012,
+       "dur": 0.647,
+       "wid": "A35_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "함께.",
+       "file": "assets/vo/A35/A35_008.opus",
+       "t": 5828.075,
+       "dur": 0.575,
+       "wid": "A35_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "두 문장. 숲에서는 충분했다.",
+       "file": "assets/vo/A35/A35_009.opus",
+       "t": 5830.135,
+       "dur": 1.959,
+       "wid": "A35_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "캡틴이 마지막으로 말했다.",
+       "file": "assets/vo/A35/A35_010.opus",
+       "t": 5833.51,
+       "dur": 1.515,
+       "wid": "A35_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "첫째.",
+       "file": "assets/vo/A35/A35_011.opus",
+       "t": 5836.65,
+       "dur": 0.668,
+       "wid": "A35_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "약한 것 먼저.",
+       "file": "assets/vo/A35/A35_012.opus",
+       "t": 5838.734,
+       "dur": 1.065,
+       "wid": "A35_012",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 42.167,
+     "t1": 46.542,
+     "still": "assets/still/A35/cA35_2.webp",
+     "motion": "pan_lr",
+     "action": "규칙은 싸움보다 오래 남는다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "둘째.",
+       "file": "assets/vo/A35/A35_013.opus",
+       "t": 5841.214,
+       "dur": 0.609,
+       "wid": "A35_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "아이 앞에서 싸우지 않는다.",
+       "file": "assets/vo/A35/A35_014.opus",
+       "t": 5843.239,
+       "dur": 1.638,
+       "wid": "A35_014",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_RULE"
+     ]
+    },
+    {
+     "t0": 46.542,
+     "t1": 59.458,
+     "still": "assets/still/A35/cA35_3.webp",
+     "motion": "pull_out",
+     "action": "숲의 규칙이 하나 늘었다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "셋째.",
+       "file": "assets/vo/A35/A35_015.opus",
+       "t": 5846.293,
+       "dur": 0.623,
+       "wid": "A35_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "사람의 길은— 사람이 책임진다.",
+       "file": "assets/vo/A35/A35_016.opus",
+       "t": 5848.331,
+       "dur": 2.509,
+       "wid": "A35_016",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그 말은 명령이 아니라, 규칙이었다. 규칙은 싸움보다 오래 남는다. 들무리 리더도 고개를 끄덕였다. 숲의 규칙이 하나 늘었다.",
+       "file": "assets/vo/A35/A35_017.opus",
+       "t": 5852.326,
+       "dur": 8.961,
+       "wid": "A35_017",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 59.458,
+     "t1": 67.792,
+     "still": "assets/still/A35/cA35_5.webp",
+     "motion": "push_in",
+     "action": "이번엔, 참지 않고 웃었다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "밤이 걷히고, 숲이 모습을 드러냈다. 우리는 처음으로, 이 숲을 두려움 없이 둘러봤다.",
+       "file": "assets/vo/A35/A35_018.opus",
+       "t": 5864.287,
+       "dur": 5.632,
+       "wid": "A35_018",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_BOUNDARY2"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B17-04"
+  },
+  {
+   "beat_id": "B17-04",
+   "chapter": 17,
+   "scene": "A35",
+   "kind": "cut",
+   "title": "결과 컷 · 공존은 선언이 아니라, 거리다",
+   "pov": "kkamang",
+   "lens": "cut",
+   "weather": "dawn",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A35.mp4",
+    "poster": "assets/cut/A35_poster.webp",
+    "tc_in": 5864.834,
+    "tc_out": 5892.25,
+    "action": "공존은 거리다",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "kkamang",
+      "text": "잿빛이 높은 가지에 앉아 날개를 폈다. 누리가 젖은 털을 털었다. 소미가 웃었다. 이번엔, 참지 않고 웃었다.",
+      "file": "assets/vo/A35/A35_019.opus",
+      "t": 5871.334,
+      "dur": 7.824,
+      "wid": "A35_019",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "공존은 선언이 아니라, 거리다. 서로를 해치지 않을 만큼 가깝고, 서로를 숨 쉬게 할 만큼 먼 거리.",
+      "file": "assets/vo/A35/A35_020.opus",
+      "t": 5880.574,
+      "dur": 7.176,
+      "wid": "A35_020",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B17-05"
+  },
+  {
+   "beat_id": "B17-05",
+   "chapter": 17,
+   "scene": "A36",
+   "kind": "explore",
+   "title": "문을 여는 사람",
+   "pov": "kim",
+   "lens": "text",
+   "weather": "dawn",
+   "amb": "assets/amb/amb_forest_day.opus",
+   "clues": [
+    {
+     "id": "CL_CALL",
+     "label": "긴 전화",
+     "kind": "smell",
+     "tone": "#8ab0a0",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "전화는 길었다.",
+     "kw": "전화"
+    },
+    {
+     "id": "CL_DOOR",
+     "label": "열린 문",
+     "kind": "smell",
+     "tone": "#b08a45",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "하지만 나는 끊지 않았다.",
+     "kw": "문"
+    },
+    {
+     "id": "CL_BADGE",
+     "label": "배지",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "배지"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 21.583,
+     "still": "assets/still/A36/cA36_0.webp",
+     "motion": "push_in",
+     "action": "전화는 길었다",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "전화는 길었다. 설명은 반복됐다. 위치는 세 번이나 다시 말해야 했다.",
+       "file": "assets/vo/A36/A36_000.opus",
+       "t": 5894.65,
+       "dur": 5.822,
+       "wid": "A36_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "하지만 나는 끊지 않았다. 이번엔 문을 닫지 않기로 했으니까.",
+       "file": "assets/vo/A36/A36_001.opus",
+       "t": 5901.995,
+       "dur": 4.421,
+       "wid": "A36_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "네.",
+       "file": "assets/vo/A36/A36_002.opus",
+       "t": 5908.167,
+       "dur": 0.407,
+       "wid": "A36_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "네.",
+       "file": "assets/vo/A36/A36_003.opus",
+       "t": 5910.097,
+       "dur": 0.43,
+       "wid": "A36_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "예. 기다립니다.",
+       "file": "assets/vo/A36/A36_004.opus",
+       "t": 5912.05,
+       "dur": 1.411,
+       "wid": "A36_004",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_CALL"
+     ]
+    },
+    {
+     "t0": 21.583,
+     "t1": 31.167,
+     "still": "assets/still/A36/cA36_1.webp",
+     "motion": "push_fast",
+     "action": "이번엔 후회가 아니라 피로",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "전화를 끊자, 손이 떨렸다. 이번엔… 후회가 아니라 피로였다.",
+       "file": "assets/vo/A36/A36_005.opus",
+       "t": 5915.06,
+       "dur": 5.694,
+       "wid": "A36_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 숲을 바라봤다. 예전 같았으면 관리 대상이었을 풍경. 지금은— 지켜야 할 자리.",
+       "file": "assets/vo/A36/A36_006.opus",
+       "t": 5922.81,
+       "dur": 7.035,
+       "wid": "A36_006",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 31.167,
+     "t1": 45.75,
+     "still": "assets/still/A36/cA36_2.webp",
+     "motion": "pan_lr",
+     "action": "관리 대상에서, 지켜야 할 자리로",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "난…",
+       "file": "assets/vo/A36/A36_007.opus",
+       "t": 5931.596,
+       "dur": 0.657,
+       "wid": "A36_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "내가 말을 꺼냈다가 멈췄다.",
+       "file": "assets/vo/A36/A36_008.opus",
+       "t": 5934.651,
+       "dur": 1.866,
+       "wid": "A36_008",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_DOOR"
+     ]
+    },
+    {
+     "t0": 45.75,
+     "t1": 54.667,
+     "still": "assets/still/A36/cA36_3.webp",
+     "motion": "push_in",
+     "action": "\"계속 와도 돼?\"",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "소미가 대신 말했다.",
+       "file": "assets/vo/A36/A36_009.opus",
+       "t": 5938.04,
+       "dur": 1.186,
+       "wid": "A36_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "아저씨.",
+       "file": "assets/vo/A36/A36_010.opus",
+       "t": 5940.978,
+       "dur": 0.603,
+       "wid": "A36_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "계속 와도 돼?",
+       "file": "assets/vo/A36/A36_011.opus",
+       "t": 5943.103,
+       "dur": 0.746,
+       "wid": "A36_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그 질문은 허락이 아니라, 초대였다.",
+       "file": "assets/vo/A36/A36_012.opus",
+       "t": 5945.448,
+       "dur": 2.457,
+       "wid": "A36_012",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 54.667,
+     "t1": 61.375,
+     "still": "assets/still/A36/cA36_4.webp",
+     "motion": "push_fast",
+     "action": "\"문… 열어둘게\"",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "나는 고개를 끄덕였다.",
+       "file": "assets/vo/A36/A36_013.opus",
+       "t": 5949.428,
+       "dur": 1.228,
+       "wid": "A36_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "응.",
+       "file": "assets/vo/A36/A36_014.opus",
+       "t": 5952.408,
+       "dur": 0.46,
+       "wid": "A36_014",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_BADGE"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B17-06"
+  },
+  {
+   "beat_id": "B17-06",
+   "chapter": 17,
+   "scene": "A36",
+   "kind": "cut",
+   "title": "결과 컷 · 문을 여는 사람",
+   "pov": "kim",
+   "lens": "cut",
+   "weather": "dawn",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A36.mp4",
+    "poster": "assets/cut/A36_poster.webp",
+    "tc_in": 5953.625,
+    "tc_out": 5967.75,
+    "action": "직업은 끝나고, 역할이 시작됐다",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "kim",
+      "text": "문… 열어둘게.",
+      "file": "assets/vo/A36/A36_015.opus",
+      "t": 5954.39,
+      "dur": 1.408,
+      "wid": "A36_015",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "그 말로, 나의 직업은 끝났다. 그리고 나의 역할은 시작됐다.",
+      "file": "assets/vo/A36/A36_016.opus",
+      "t": 5957.957,
+      "dur": 5.293,
+      "wid": "A36_016",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B17-07"
+  },
+  {
+   "beat_id": "B17-07",
+   "chapter": 17,
+   "scene": "A37",
+   "kind": "explore",
+   "title": "깃발은 내려오고, 표지가 된다",
+   "pov": "somi",
+   "lens": "text",
+   "weather": "dawn",
+   "amb": "assets/amb/amb_forest_day.opus",
+   "clues": [
+    {
+     "id": "CL_FLAG",
+     "label": "깃발",
+     "kind": "smell",
+     "tone": "#e3c25a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 병아리 손수건을 펴서, 작은 점 옆에 놓았다.",
+     "kw": "깃발"
+    },
+    {
+     "id": "CL_STAR_NAME",
+     "label": "별",
+     "kind": "smell",
+     "tone": "#dfe9ef",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "별.",
+     "kw": "별"
+    },
+    {
+     "id": "CL_WINDOW",
+     "label": "창",
+     "kind": "smell",
+     "tone": "#9fb6c9",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "창"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 19.667,
+     "still": "assets/still/A37/cA37_0.webp",
+     "motion": "push_in",
+     "action": "\"이름. 있어도 돼?\"",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "나는 작은 점 앞에 쪼그려 앉았다. 작은 점은 이제 눈을 제대로 뜨고 있었다.",
+       "file": "assets/vo/A37/A37_000.opus",
+       "t": 5970.15,
+       "dur": 5.379,
+       "wid": "A37_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "이름.",
+       "file": "assets/vo/A37/A37_001.opus",
+       "t": 5977.974,
+       "dur": 0.468,
+       "wid": "A37_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "내가 조심스럽게 말했다.",
+       "file": "assets/vo/A37/A37_002.opus",
+       "t": 5980.699,
+       "dur": 1.284,
+       "wid": "A37_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "있어도 돼?",
+       "file": "assets/vo/A37/A37_003.opus",
+       "t": 5984.429,
+       "dur": 0.619,
+       "wid": "A37_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "아무도 말하지 않았다. 그 침묵이 허락이었다.",
+       "file": "assets/vo/A37/A37_004.opus",
+       "t": 5987.304,
+       "dur": 3.01,
+       "wid": "A37_004",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_FLAG"
+     ]
+    },
+    {
+     "t0": 19.667,
+     "t1": 30.792,
+     "still": "assets/still/A37/cA37_1.webp",
+     "motion": "push_in",
+     "action": "깃발의 역할을 끝냈다",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "나는 병아리 손수건을 펴서, 작은 점 옆에 놓았다. 손수건은 이제 흔들리지 않았다. 깃발의 역할을 끝냈다.",
+       "file": "assets/vo/A37/A37_005.opus",
+       "t": 5992.477,
+       "dur": 8.069,
+       "wid": "A37_005",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 30.792,
+     "t1": 35.542,
+     "still": "assets/still/A37/cA37_2.webp",
+     "motion": "push_fast",
+     "action": "\"너는… 별\"",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "너는…",
+       "file": "assets/vo/A37/A37_006.opus",
+       "t": 6002.991,
+       "dur": 0.476,
+       "wid": "A37_006",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_STAR_NAME"
+     ]
+    },
+    {
+     "t0": 35.542,
+     "t1": 49.292,
+     "still": "assets/still/A37/cA37_3.webp",
+     "motion": "tilt_down",
+     "action": "비 뒤의 별은 유난히 밝다",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "내가 숨을 고르고 말했다.",
+       "file": "assets/vo/A37/A37_007.opus",
+       "t": 6006.467,
+       "dur": 1.302,
+       "wid": "A37_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "별.",
+       "file": "assets/vo/A37/A37_008.opus",
+       "t": 6010.215,
+       "dur": 0.456,
+       "wid": "A37_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "밤하늘에 별이 하나 보였다. 비 뒤의 별은 유난히 밝았다. 작은 점— 아니, 별— 이 꼬리를 아주 조금 움직였다. 이름은 받아들여졌다.",
+       "file": "assets/vo/A37/A37_009.opus",
+       "t": 6012.927,
+       "dur": 9.965,
+       "wid": "A37_009",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 49.292,
+     "t1": 58.333,
+     "still": "assets/still/A37/cA37_4.webp",
+     "motion": "push_in",
+     "action": "이름은 받아들여졌다",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "그때, 캡틴이 한 발 뒤로 물러섰다. 정말로, 물러섰다. 그리고 까망을 봤다.",
+       "file": "assets/vo/A37/A37_010.opus",
+       "t": 6025.892,
+       "dur": 5.272,
+       "wid": "A37_010",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 58.333,
+     "t1": 90.75,
+     "still": "assets/still/A37/cA37_5.webp",
+     "motion": "pull_out",
+     "action": "리더는 조용히 바뀐다",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "까망은 아무 말도 하지 않았다. 말이 필요 없었다.",
+       "file": "assets/vo/A37/A37_011.opus",
+       "t": 6033.327,
+       "dur": 3.276,
+       "wid": "A37_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "그 순간, 리더는 바뀌었다. 조용히. 아무도 박수 치지 않게.",
+       "file": "assets/vo/A37/A37_012.opus",
+       "t": 6039.603,
+       "dur": 3.988,
+       "wid": "A37_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "숲은 여전히 시험한다. 도시는 여전히 잊는다. 하지만— 누리는 더 이상 기다리지 않는다. 까망은 혼자가 아니다. 별은 살아남았다. 사람들은 문을 닫지 않았다.",
+       "file": "assets/vo/A37/A37_013.opus",
+       "t": 6045.753,
+       "dur": 12.811,
+       "wid": "A37_013",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_WINDOW"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B17-08"
+  },
+  {
+   "beat_id": "B17-08",
+   "chapter": 17,
+   "scene": "A37",
+   "kind": "cut",
+   "title": "결과 컷 · 깃발은 내려오고, 표지가 된다",
+   "pov": "somi",
+   "lens": "cut",
+   "weather": "dawn",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A37.mp4",
+    "poster": "assets/cut/A37_poster.webp",
+    "tc_in": 6058.5,
+    "tc_out": 6070.625,
+    "action": "이야기가 계속된다",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "somi",
+      "text": "그리고 내 손수건은, 이제 흔드는 깃발이 아니라, 이야기의 표지가 되었다.",
+      "file": "assets/vo/A37/A37_014.opus",
+      "t": 6061.387,
+      "dur": 4.738,
+      "wid": "A37_014",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B18-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

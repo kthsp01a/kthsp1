@@ -1,0 +1,669 @@
+{
+ "cuesheet_id": "cj_ch05_v37",
+ "chapter_no": 5,
+ "label": "5장",
+ "title": "나비의 기억",
+ "act": "1막",
+ "pov": "김반장",
+ "star_stage": null,
+ "amb": "assets/amb/amb_urban.opus",
+ "weather": "rain",
+ "scenes": [
+  "04",
+  "N09"
+ ],
+ "beats": [
+  {
+   "beat_id": "B05-01",
+   "chapter": 5,
+   "scene": "04",
+   "kind": "explore",
+   "title": "깨진 그릇과 나비의 기억",
+   "pov": "kim",
+   "lens": "text",
+   "weather": "rain",
+   "amb": "assets/amb/amb_urban.opus",
+   "clues": [
+    {
+     "id": "CL_BROKEN_BOWL",
+     "label": "깨진 그릇",
+     "kind": "smell",
+     "tone": "#b0a89a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "그런데 요즘 골목에 그릇이 생겼다.",
+     "kw": "그릇"
+    },
+    {
+     "id": "CL_BRAKE",
+     "label": "브레이크 소리",
+     "kind": "smell",
+     "tone": "#7d8a9a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "그 사이에 나비는 나갔다.",
+     "kw": "브레이크"
+    },
+    {
+     "id": "CL_NABI_HAIR",
+     "label": "나비의 털",
+     "kind": "smell",
+     "tone": "#c9a0a0",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "나비.",
+     "kw": "나비"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 20.625,
+     "still": "assets/still/04/c04_0.webp",
+     "motion": "push_in",
+     "action": "털이 문제가 아니라 — 나비",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "털이 문제라고, 나는 늘 생각했다. 털만 아니면 민원이 덜 들어오고, 내가 덜 화내고, 경비실에서 조금 더 조용히 살 수 있을 거라고.",
+       "file": "assets/vo/04/04_000.opus",
+       "t": 1500.692,
+       "dur": 10.971,
+       "wid": "04_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "근데 사실은 안다. 털이 아니다.",
+       "file": "assets/vo/04/04_001.opus",
+       "t": 1514.663,
+       "dur": 2.604,
+       "wid": "04_001",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_BROKEN_BOWL"
+     ]
+    },
+    {
+     "t0": 20.625,
+     "t1": 87.833,
+     "still": "assets/still/04/c04_1.webp",
+     "motion": "push_fast",
+     "action": "그날 비, 브레이크 소리, 비명 — 그리고 허공",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "나비.",
+       "file": "assets/vo/04/04_002.opus",
+       "t": 1520.267,
+       "dur": 0.545,
+       "wid": "04_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그날도 비가 왔다. 나는 문을 제대로 닫지 않았다. 잠깐이면 돼, 라고 말하며 걸쇠만 대충 걸어두고 라면 물을 올렸다.",
+       "file": "assets/vo/04/04_003.opus",
+       "t": 1523.812,
+       "dur": 9.742,
+       "wid": "04_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그 사이에 나비는 나갔다. 나는 늦게 깨달았다. 밖은 이미 도로였다. 브레이크 소리. 비명. 비. 그리고— 허공.",
+       "file": "assets/vo/04/04_004.opus",
+       "t": 1536.554,
+       "dur": 9.437,
+       "wid": "04_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그 이후로 나는 고양이를 보면 화가 났다. 화가 난다는 건, 사실 내가 내 죄를 봐야 한다는 뜻이다. 보기가 싫어서 화를 냈다. 남을 쫓아내면, 내 죄도 조금 덜 보일 것 같아서.",
+       "file": "assets/vo/04/04_005.opus",
+       "t": 1548.991,
+       "dur": 14.373,
+       "wid": "04_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그런데 요즘 골목에 그릇이 생겼다. 아이 하나가 사료를 놓고 간다. 그걸 보면 내 안에서 뭔가 들끓는다. 또 시작이군. 또 내가 지키지 못할 걸 만들려는군.",
+       "file": "assets/vo/04/04_006.opus",
+       "t": 1566.364,
+       "dur": 13.192,
+       "wid": "04_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그날, 나는 그릇을 깨뜨렸다. 와장창.",
+       "file": "assets/vo/04/04_007.opus",
+       "t": 1582.556,
+       "dur": 3.09,
+       "wid": "04_007",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_BRAKE"
+     ]
+    },
+    {
+     "t0": 87.833,
+     "t1": 116.792,
+     "still": "assets/still/04/c04_2.webp",
+     "motion": "tilt_down",
+     "action": "와장창 — 치워지지 않는 소리",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "유리 조각은 당장 치워도, 소리는 치워지지 않는다. 그 뒤에 이어진 아이의 울음이 경비실 벽을 타고 들어와, 내 귀 뒤쪽에 달라붙었다.",
+       "file": "assets/vo/04/04_008.opus",
+       "t": 1588.646,
+       "dur": 12.009,
+       "wid": "04_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 돌아섰다. 돌아서는 순간, 울음은 비 오는 날의 브레이크 소리처럼 내 귀를 찢었다.",
+       "file": "assets/vo/04/04_009.opus",
+       "t": 1603.655,
+       "dur": 7.94,
+       "wid": "04_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그날 밤, 소미가 그림을 들고 왔다.",
+       "file": "assets/vo/04/04_010.opus",
+       "t": 1614.595,
+       "dur": 2.378,
+       "wid": "04_010",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_NABI_HAIR"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B05-02"
+  },
+  {
+   "beat_id": "B05-02",
+   "chapter": 5,
+   "scene": "04",
+   "kind": "deduce",
+   "title": "추리판 · 무엇이 문제였나",
+   "pov": "kim",
+   "lens": "board",
+   "weather": "rain",
+   "amb": "assets/amb/amb_urban.opus",
+   "question": {
+    "id": "Q04_WHAT",
+    "text": "무엇이 문제였나"
+   },
+   "hyps": [
+    {
+     "id": "H04_DOOR",
+     "line": "털이 아니라, 닫지 못한 문이다.",
+     "canon": true,
+     "needs": [
+      "CL_BRAKE",
+      "CL_BROKEN_BOWL"
+     ],
+     "effect": {
+      "tension": -1
+     }
+    },
+    {
+     "id": "H04_FUR",
+     "line": "털 때문이다.",
+     "canon": false,
+     "needs": [
+      "CL_NABI_HAIR",
+      "CL_BROKEN_BOWL"
+     ],
+     "effect": {
+      "warmth": 1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_BROKEN_BOWL",
+     "label": "깨진 그릇",
+     "kind": "smell",
+     "tone": "#b0a89a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "그런데 요즘 골목에 그릇이 생겼다.",
+     "kw": "그릇"
+    },
+    {
+     "id": "CL_BRAKE",
+     "label": "브레이크 소리",
+     "kind": "smell",
+     "tone": "#7d8a9a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "그 사이에 나비는 나갔다.",
+     "kw": "브레이크"
+    },
+    {
+     "id": "CL_NABI_HAIR",
+     "label": "나비의 털",
+     "kind": "smell",
+     "tone": "#c9a0a0",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "나비.",
+     "kw": "나비"
+    }
+   ],
+   "still": "assets/still/04/c04_2.webp",
+   "next": "B05-03"
+  },
+  {
+   "beat_id": "B05-03",
+   "chapter": 5,
+   "scene": "04",
+   "kind": "cut",
+   "title": "결과 컷 · 깨진 그릇과 나비의 기억",
+   "pov": "kim",
+   "lens": "cut",
+   "weather": "rain",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/04.mp4",
+    "poster": "assets/cut/04_poster.webp",
+    "tc_in": 1615.084,
+    "tc_out": 1644.917,
+    "action": "\"아저씨도 좋아했잖아요\" — 숨통을 끊는 한 마디",
+    "motion": "push_in",
+    "subs": [
+     {
+      "speaker": "kim",
+      "text": "그림 속에서 나는 웃고 있었다. 무릎 위에는 검은 고양이가 있었다. 젊은 날의 나였다. 아직 아무것도 잃지 않은 얼굴이었다.",
+      "file": "assets/vo/04/04_011.opus",
+      "t": 1619.973,
+      "dur": 10.844,
+      "wid": "04_011",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "somi",
+      "text": "아저씨도 좋아했잖아요.",
+      "file": "assets/vo/04/04_012.opus",
+      "t": 1633.817,
+      "dur": 1.221,
+      "wid": "04_012",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "그 말이, 내 숨통을 끊었다.",
+      "file": "assets/vo/04/04_013.opus",
+      "t": 1638.038,
+      "dur": 1.815,
+      "wid": "04_013",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B05-04"
+  },
+  {
+   "beat_id": "B05-04",
+   "chapter": 5,
+   "scene": "N09",
+   "kind": "explore",
+   "title": "그림 한 장, 그리고 급식소",
+   "pov": "kim",
+   "lens": "text",
+   "weather": "rain",
+   "amb": "assets/amb/amb_urban.opus",
+   "clues": [
+    {
+     "id": "CL_WOOD",
+     "label": "나무 냄새",
+     "kind": "smell",
+     "tone": "#8a6a3c",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "다음 날, 나는 창고에서 나무를 꺼냈다.",
+     "kw": "나무"
+    },
+    {
+     "id": "CL_HAMMER",
+     "label": "망치 자국",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "다음 날, 나는 창고에서 나무를 꺼냈다.",
+     "kw": "망치"
+    },
+    {
+     "id": "CL_OLD_PHOTO",
+     "label": "오래된 사진",
+     "kind": "smell",
+     "tone": "#c9b48a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "사진"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 44.667,
+     "still": "assets/still/N09/cN09_0.webp",
+     "motion": "push_in",
+     "action": "손에서 놓지 못한 그림 — 노란 크레파스 가루",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "나는 그 그림을 손에서 놓지 못했다. 크레파스가 손가락에 묻었다. 노란 가루가, 이상하게 따뜻했다.",
+       "file": "assets/vo/N09/N09_000.opus",
+       "t": 1647.317,
+       "dur": 8.239,
+       "wid": "N09_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그림 아래에 서툰 글씨가 있었다. 아저씨도 나비를 사랑했었잖아요.",
+       "file": "assets/vo/N09/N09_001.opus",
+       "t": 1658.556,
+       "dur": 5.214,
+       "wid": "N09_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "이걸... 이걸 어떻게...",
+       "file": "assets/vo/N09/N09_002.opus",
+       "t": 1666.77,
+       "dur": 2.288,
+       "wid": "N09_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "내 목소리가 갈라졌다. 오래 쓰지 않은 문이 열릴 때 나는 소리처럼.",
+       "file": "assets/vo/N09/N09_003.opus",
+       "t": 1672.058,
+       "dur": 5.428,
+       "wid": "N09_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "할머니한테 들었어요. 아저씨가 옛날에 키우던 고양이... 나비요. 문을 열어뒀다가 잃어버리고 나서, 매일 우셨다고.",
+       "file": "assets/vo/N09/N09_004.opus",
+       "t": 1680.486,
+       "dur": 9.194,
+       "wid": "N09_004",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_WOOD"
+     ]
+    },
+    {
+     "t0": 44.667,
+     "t1": 104.542,
+     "still": "assets/still/N09/cN09_1.webp",
+     "motion": "pull_out",
+     "action": "팔 년 만에 입 밖에 낸 말 — \\\"내 가족이었어\\\"",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "그래. 그날 밤에도 문은 반쯤 열려 있었다. 라면 물이 끓는 동안, 딱 그만큼의 시간이었다. 그 짧은 틈이, 그 녀석에게는 전부였다.",
+       "file": "assets/vo/N09/N09_005.opus",
+       "t": 1692.68,
+       "dur": 11.322,
+       "wid": "N09_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "그 녀석은... 내 가족이었어.",
+       "file": "assets/vo/N09/N09_006.opus",
+       "t": 1707.002,
+       "dur": 2.685,
+       "wid": "N09_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 그 말을 팔 년 만에 입 밖에 냈다. 입 밖에 내자, 숨이 쉬어졌다.",
+       "file": "assets/vo/N09/N09_007.opus",
+       "t": 1712.687,
+       "dur": 5.671,
+       "wid": "N09_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "나비도 가족이 필요해요. 저도, 누리도요. 아저씨가 우리 가족을 지켜주세요. 나비가 돌아온 것처럼.",
+       "file": "assets/vo/N09/N09_008.opus",
+       "t": 1721.358,
+       "dur": 7.397,
+       "wid": "N09_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "내가 운 건, 나비 때문만이 아니었다. 이 아이가, 나를 나쁜 사람에서 슬픈 사람으로 바꿔준 것 때문이었다.",
+       "file": "assets/vo/N09/N09_009.opus",
+       "t": 1731.755,
+       "dur": 9.268,
+       "wid": "N09_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "제가 밥그릇 매일 닦을게요. 약속해요.",
+       "file": "assets/vo/N09/N09_010.opus",
+       "t": 1744.023,
+       "dur": 2.347,
+       "wid": "N09_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 고개를 끄덕였다. 고개를 끄덕이는 데 이렇게 힘이 들 줄은 몰랐다.",
+       "file": "assets/vo/N09/N09_011.opus",
+       "t": 1749.37,
+       "dur": 5.435,
+       "wid": "N09_011",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 104.542,
+     "t1": 148.167,
+     "still": "assets/still/N09/cN09_2.webp",
+     "motion": "pan_lr",
+     "action": "창고에서 꺼낸 나무 — 손이 떨리지 않았다",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "다음 날, 나는 창고에서 나무를 꺼냈다. 톱, 망치, 못. 손이 떨리지 않았다. 이상하게도.",
+       "file": "assets/vo/N09/N09_012.opus",
+       "t": 1757.805,
+       "dur": 7.834,
+       "wid": "N09_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "학생, 그렇게 하면 안 되고, 망치는 이렇게, 짧게 잡고 쳐야 힘이 실리는 거야. 이리 줘봐.",
+       "file": "assets/vo/N09/N09_013.opus",
+       "t": 1768.639,
+       "dur": 7.36,
+       "wid": "N09_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "네, 반장 할아버지! 와, 정말 튼튼한 급식소가 만들어지고 있어요!",
+       "file": "assets/vo/N09/N09_014.opus",
+       "t": 1778.999,
+       "dur": 5.002,
+       "wid": "N09_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "비바람에도 끄떡없게. 이왕 하는 거, 제대로. 나는 못을 일부러 크게 박았다. 속죄는 조용히 하면 금방 잊히니까.",
+       "file": "assets/vo/N09/N09_015.opus",
+       "t": 1784.301,
+       "dur": 9.52,
+       "wid": "N09_015",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_HAMMER"
+     ]
+    },
+    {
+     "t0": 148.167,
+     "t1": 184.583,
+     "still": "assets/still/N09/cN09_3.webp",
+     "motion": "push_in",
+     "action": "못을 일부러 크게 박는다 — 속죄는 조용히 하면 잊히니까",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "지붕이 생기고, 바람막이가 달리고, 물그릇이 놓였다. 간판은 소미가 썼다. 서툰 글씨. 누리네 급식소.",
+       "file": "assets/vo/N09/N09_016.opus",
+       "t": 1796.821,
+       "dur": 8.924,
+       "wid": "N09_016",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "까망이 지붕 위에서 내려다보며 말했다.",
+       "file": "assets/vo/N09/N09_017.opus",
+       "t": 1808.745,
+       "dur": 2.658,
+       "wid": "N09_017",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "디자인이 좀 촌스럽긴 한데... 뭐, 비는 안 새겠네. 합격.",
+       "file": "assets/vo/N09/N09_018.opus",
+       "t": 1814.403,
+       "dur": 4.967,
+       "wid": "N09_018",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "누리가 내 다리에 머리를 부볐다. 붕붕붕. 나는 모르는 척했지만, 손은 그 녀석 등에 올라가 있었다.",
+       "file": "assets/vo/N09/N09_019.opus",
+       "t": 1822.37,
+       "dur": 8.23,
+       "wid": "N09_019",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_OLD_PHOTO"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B05-05"
+  },
+  {
+   "beat_id": "B05-05",
+   "chapter": 5,
+   "scene": "N09",
+   "kind": "cut",
+   "title": "결과 컷 · 그림 한 장, 그리고 급식소",
+   "pov": "kim",
+   "lens": "cut",
+   "weather": "rain",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/N09.mp4",
+    "poster": "assets/cut/N09_poster.webp",
+    "tc_in": 1829.5,
+    "tc_out": 1853.167,
+    "action": "옥상의 저녁 — 이제 무섭지 않은 불빛",
+    "motion": "tilt_down",
+    "subs": [
+     {
+      "speaker": "kim",
+      "text": "그날 저녁, 옥상에 올라갔다. 도시의 불빛이 반짝였다. 무섭지 않았다. 오래 무서웠는데, 그날은 이상하게, 그냥 불빛이었다.",
+      "file": "assets/vo/N09/N09_020.opus",
+      "t": 1833.6,
+      "dur": 11.39,
+      "wid": "N09_020",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B06-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

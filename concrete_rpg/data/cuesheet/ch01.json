@@ -1,0 +1,693 @@
+{
+ "cuesheet_id": "cj_ch01_v37",
+ "chapter_no": 1,
+ "label": "1장",
+ "title": "기다림",
+ "act": "1막",
+ "pov": "누리",
+ "star_stage": null,
+ "amb": "assets/amb/amb_road.opus",
+ "weather": "rain",
+ "scenes": [
+  "01",
+  "N02"
+ ],
+ "beats": [
+  {
+   "beat_id": "B01-01",
+   "chapter": 1,
+   "scene": "01",
+   "kind": "explore",
+   "title": "누리의 기다림",
+   "pov": "nuri",
+   "lens": "strand",
+   "weather": "rain",
+   "amb": "assets/amb/amb_road.opus",
+   "clues": [
+    {
+     "id": "CL_OWNER_STEP",
+     "label": "주인 발자국",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "내 앞에는 주인님의 냄새가 있었다.",
+     "kw": "발자국"
+    },
+    {
+     "id": "CL_CAR_DOOR",
+     "label": "가벼운 차 문",
+     "kind": "smell",
+     "tone": "#9fb6c9",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "차 문이 닫히는 소리는 가벼웠다.",
+     "kw": "차 문"
+    },
+    {
+     "id": "CL_HAND_CREAM",
+     "label": "아침의 핸드크림",
+     "kind": "smell",
+     "tone": "#d9c8a0",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "내 앞에는 주인님의 냄새가 있었다.",
+     "kw": "핸드크림"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 30.583,
+     "still": "assets/still/01/c01_0.webp",
+     "motion": "pull_out",
+     "action": "\"잠깐만 있어\" — 차가 가볍게 사라지고",
+     "lines": [
+      {
+       "speaker": "nuri_owner",
+       "text": "잠깐만 기다려. 금방 올게.",
+       "file": "assets/vo/01/01_000.opus",
+       "t": 198.608,
+       "dur": 1.707,
+       "wid": "01_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "차 문이 닫히는 소리는 가벼웠다. 가볍게 닫히고, 가볍게 출발하고, 가볍게 사라진다. 그런데 남겨진 쪽의 시간은 가볍지 않다.",
+       "file": "assets/vo/01/01_001.opus",
+       "t": 201.929,
+       "dur": 11.191,
+       "wid": "01_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "나는 앉았다. 앉아 있으면 착한 아이니까. 움직이면 혼날지도 모르니까. 기다리면 칭찬받으니까.",
+       "file": "assets/vo/01/01_002.opus",
+       "t": 214.663,
+       "dur": 9.182,
+       "wid": "01_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "내 앞에는 주인님의 냄새가 있었다. 발자국은 모양이 아니라 냄새로 남는다. 사람의 발바닥에서 나는 땀, 신발 안쪽의 먼지, 세제, 그리고 오늘 아침의 핸드크림.",
+       "file": "assets/vo/01/01_003.opus",
+       "t": 225.388,
+       "dur": 13.323,
+       "wid": "01_003",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_OWNER_STEP"
+     ]
+    },
+    {
+     "t0": 30.583,
+     "t1": 64.833,
+     "still": "assets/still/01/c01_1.webp",
+     "motion": "pan_lr",
+     "action": "냄새로 주인을 붙잡는 코끝 — 얇아지는 흔적",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "나는 그 냄새를 코끝으로 붙잡았다. 냄새는 손으로 잡을 수 없는데, 나는 코로 잡을 수 있다고 믿었다.",
+       "file": "assets/vo/01/01_004.opus",
+       "t": 240.254,
+       "dur": 8.226,
+       "wid": "01_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "시간이 지나자 냄새는 얇아졌다. 얇아지면 바람에 찢긴다. 찢기면, 흩어진다.",
+       "file": "assets/vo/01/01_005.opus",
+       "t": 251.48,
+       "dur": 7.825,
+       "wid": "01_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "바닥은 낮에 덥다가 밤이 되면 너무 빨리 식었다. 아스팔트는 체온을 빼앗는 재주가 있었다. 발바닥에서 무릎으로, 무릎에서 배로, 배에서 가슴으로.",
+       "file": "assets/vo/01/01_006.opus",
+       "t": 260.848,
+       "dur": 12.066,
+       "wid": "01_006",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_CAR_DOOR"
+     ]
+    },
+    {
+     "t0": 64.833,
+     "t1": 88.417,
+     "still": "assets/still/01/c01_2.webp",
+     "motion": "tilt_down",
+     "action": "배고픔의 협박, 한 발 내딛고 멈춘 발",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "배가 울었다. 배고픔은 참으라고 설득하지 않는다. 배고픔은 지금이라고 협박한다.",
+       "file": "assets/vo/01/01_007.opus",
+       "t": 274.457,
+       "dur": 7.997,
+       "wid": "01_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "쓰레기봉투에서 냄새가 났다. 튀김의 기름, 삶은 고기의 단내, 찢어진 비닐에서 흐른 국물. 나는 한 발을 내딛었다가 멈췄다. 주인님이 보면 싫어할 것 같아서.",
+       "file": "assets/vo/01/01_008.opus",
+       "t": 284.496,
+       "dur": 14.171,
+       "wid": "01_008",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_HAND_CREAM"
+     ]
+    }
+   ],
+   "gesture": "drag",
+   "next": "B01-02"
+  },
+  {
+   "beat_id": "B01-02",
+   "chapter": 1,
+   "scene": "01",
+   "kind": "deduce",
+   "title": "추리판 · 주인은 돌아오나",
+   "pov": "nuri",
+   "lens": "board",
+   "weather": "rain",
+   "amb": "assets/amb/amb_road.opus",
+   "question": {
+    "id": "Q01_BACK",
+    "text": "주인은 돌아오나"
+   },
+   "hyps": [
+    {
+     "id": "H01_WAIT",
+     "line": "주인은 돌아온다.",
+     "canon": true,
+     "needs": [
+      "CL_OWNER_STEP",
+      "CL_CAR_DOOR"
+     ],
+     "effect": {
+      "battle_tension": -1
+     }
+    },
+    {
+     "id": "H01_GONE",
+     "line": "안 돌아온다.",
+     "canon": false,
+     "needs": [
+      "CL_HAND_CREAM",
+      "CL_CAR_DOOR"
+     ],
+     "effect": {
+      "battle_tension": 1,
+      "jeong": 1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_OWNER_STEP",
+     "label": "주인 발자국",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "내 앞에는 주인님의 냄새가 있었다.",
+     "kw": "발자국"
+    },
+    {
+     "id": "CL_CAR_DOOR",
+     "label": "가벼운 차 문",
+     "kind": "smell",
+     "tone": "#9fb6c9",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "차 문이 닫히는 소리는 가벼웠다.",
+     "kw": "차 문"
+    },
+    {
+     "id": "CL_HAND_CREAM",
+     "label": "아침의 핸드크림",
+     "kind": "smell",
+     "tone": "#d9c8a0",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "내 앞에는 주인님의 냄새가 있었다.",
+     "kw": "핸드크림"
+    }
+   ],
+   "still": "assets/still/01/c01_2.webp",
+   "next": "B01-03"
+  },
+  {
+   "beat_id": "B01-03",
+   "chapter": 1,
+   "scene": "01",
+   "kind": "cut",
+   "title": "결과 컷 · 누리의 기다림",
+   "pov": "nuri",
+   "lens": "cut",
+   "weather": "rain",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/01.mp4",
+    "poster": "assets/cut/01_poster.webp",
+    "tc_in": 284.625,
+    "tc_out": 353.416,
+    "action": "그림자가 발끝을 덮고, 조용한 울음 — 위에서 목소리가 떨어진다",
+    "motion": "push_in",
+    "subs": [
+     {
+      "speaker": "nuri",
+      "text": "그런데, 주인님은 없었다.",
+      "file": "assets/vo/01/01_009.opus",
+      "t": 300.21,
+      "dur": 2.55,
+      "wid": "01_009",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "그 생각을 끝까지 하면, 내 안에서 무언가가 바뀔 것 같았다. 기다리는 누리에서, 버려진 누리로.",
+      "file": "assets/vo/01/01_010.opus",
+      "t": 304.303,
+      "dur": 8.016,
+      "wid": "01_010",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "그래서 나는 다시 앉았다. 꼬리를 흔들었다. 꼬리를 흔들면, 돌아올 것 같아서. 꼬리를 흔들면, 시간이 덜 무서울 것 같아서.",
+      "file": "assets/vo/01/01_011.opus",
+      "t": 313.862,
+      "dur": 11.915,
+      "wid": "01_011",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "해가 내려가며 고가도로 기둥의 그림자가 길어졌다. 그림자가 내 발끝을 덮었다. 가슴이 차가워지는 순간, 나는 아주 조용히 울었다.",
+      "file": "assets/vo/01/01_012.opus",
+      "t": 328.777,
+      "dur": 11.983,
+      "wid": "01_012",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "그때, 위에서 목소리가 떨어졌다.",
+      "file": "assets/vo/01/01_013.opus",
+      "t": 343.76,
+      "dur": 2.988,
+      "wid": "01_013",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "야.",
+      "file": "assets/vo/01/01_014.opus",
+      "t": 348.505,
+      "dur": 0.411,
+      "wid": "01_014",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B01-04"
+  },
+  {
+   "beat_id": "B01-04",
+   "chapter": 1,
+   "scene": "N02",
+   "kind": "explore",
+   "title": "골목의 여왕",
+   "pov": "kkamang",
+   "lens": "high",
+   "weather": "rain",
+   "amb": "assets/amb/amb_road.opus",
+   "clues": [
+    {
+     "id": "CL_RAIN_WALL",
+     "label": "비 맞은 담벼락",
+     "kind": "smell",
+     "tone": "#6d879c",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 담벼락 위에서 놈을 내려다봤다.",
+     "kw": "담벼락"
+    },
+    {
+     "id": "CL_LOW_TAIL",
+     "label": "낮은 꼬리",
+     "kind": "smell",
+     "tone": "#c9b48a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "꼬리"
+    },
+    {
+     "id": "CL_JEONG_EYE",
+     "label": "버티는 눈",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "놈의 눈이 흔들렸다.",
+     "kw": "버티"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 31.417,
+     "still": "assets/still/N02/cN02_0.webp",
+     "motion": "pan_lr",
+     "action": "담벼락 위의 여왕과, 아래의 덩치 — 첫 대면",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "딱 봐도 집 냄새가 나는 놈이었다. 털에 비누 향이 묻어 있었다.",
+       "file": "assets/vo/N02/N02_000.opus",
+       "t": 355.817,
+       "dur": 4.463,
+       "wid": "N02_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그런 향은 골목에서 오래 못 간다. 골목은 향을 좋아하지 않는다. 골목은 향을 더럽혀야 마음이 편하다.",
+       "file": "assets/vo/N02/N02_001.opus",
+       "t": 362.546,
+       "dur": 7.805,
+       "wid": "N02_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 담벼락 위에서 놈을 내려다봤다. 위에 있으면 도망칠 길이 많다. 아래는 끊길 수 있는 길이다.",
+       "file": "assets/vo/N02/N02_002.opus",
+       "t": 372.616,
+       "dur": 7.313,
+       "wid": "N02_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그거, 맛이 좀 어떤가?",
+       "file": "assets/vo/N02/N02_003.opus",
+       "t": 382.53,
+       "dur": 1.229,
+       "wid": "N02_003",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_RAIN_WALL"
+     ]
+    },
+    {
+     "t0": 31.417,
+     "t1": 77.333,
+     "still": "assets/still/N02/cN02_1.webp",
+     "motion": "push_in",
+     "action": "\\\"여긴 내 구역이야\\\" — 빼앗거나, 빼앗기거나",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "놈이 화들짝 몸을 돌렸다. 입에 물고 있던 기름 묻은 종이를 떨어뜨렸다. 눈이 컸다. 큰 눈은 기대를 담기 좋은 그릇이다. 기대는 깨지면 조각이 많다.",
+       "file": "assets/vo/N02/N02_004.opus",
+       "t": 386.136,
+       "dur": 11.421,
+       "wid": "N02_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "여긴 내 구역이야. 이 도시에서는 빼앗거나, 빼앗기거나. 넌 후자 쪽인 것 같군.",
+       "file": "assets/vo/N02/N02_005.opus",
+       "t": 400.157,
+       "dur": 6.678,
+       "wid": "N02_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "놈이 뒷걸음질 쳤다.",
+       "file": "assets/vo/N02/N02_006.opus",
+       "t": 409.212,
+       "dur": 1.25,
+       "wid": "N02_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "죄송해요... 그냥, 배가 너무 고파서...",
+       "file": "assets/vo/N02/N02_007.opus",
+       "t": 413.063,
+       "dur": 4.047,
+       "wid": "N02_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "죄송하면 다야? 사과로 배를 채울 수 있을 것 같아? 너 같은 놈이 제일 먼저 죽어. 로드킬을 당해서 아스팔트 위의 붉은 얼룩이 되거나.",
+       "file": "assets/vo/N02/N02_008.opus",
+       "t": 420.11,
+       "dur": 11.331,
+       "wid": "N02_008",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_LOW_TAIL"
+     ]
+    },
+    {
+     "t0": 77.333,
+     "t1": 109.125,
+     "still": "assets/still/N02/cN02_2.webp",
+     "motion": "push_fast",
+     "action": "\\\"주인님이 꼭 온다고 했단 말이에요\\\" — 버티는 눈",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "주인님이 올 때까지 기다려야 해요. 꼭 온다고 했단 말이에요.",
+       "file": "assets/vo/N02/N02_009.opus",
+       "t": 434.441,
+       "dur": 4.733,
+       "wid": "N02_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그 목소리를 듣는 순간, 내 안에서 오래된 어딘가가 따끔했다. 나도 예전에 비슷한 목소리를 낸 적이 있다. 돌아올 거야, 라고.",
+       "file": "assets/vo/N02/N02_010.opus",
+       "t": 441.551,
+       "dur": 9.709,
+       "wid": "N02_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "인간은 돌아오지 않아. 돌아오면, 애초에 널 두고 가지도 않았겠지.",
+       "file": "assets/vo/N02/N02_011.opus",
+       "t": 453.86,
+       "dur": 4.546,
+       "wid": "N02_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그 말은 잔인해서가 아니라, 정확해서 했다. 정확함은 종종 잔인하게 들린다.",
+       "file": "assets/vo/N02/N02_012.opus",
+       "t": 460.783,
+       "dur": 5.979,
+       "wid": "N02_012",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_JEONG_EYE"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B01-05"
+  },
+  {
+   "beat_id": "B01-05",
+   "chapter": 1,
+   "scene": "N02",
+   "kind": "battle",
+   "title": "대치 · 말의 대치",
+   "pov": "kkamang",
+   "lens": "battle",
+   "weather": "rain",
+   "amb": "assets/amb/amb_road.opus",
+   "still": "assets/still/N02/cN02_2.webp",
+   "battle": {
+    "id": "BT_N02",
+    "title": "말의 대치",
+    "mode": "talk",
+    "goal": {
+     "type": "jeong",
+     "value": 3,
+     "turns": 5
+    },
+    "warmth": 6,
+    "warmthLoss": 0,
+    "star": false,
+    "allies": [
+     "nuri"
+    ],
+    "humans": [],
+    "enemy": {
+     "name": "까망",
+     "kind": "animal",
+     "tension": 3,
+     "intents": [
+      {
+       "name": "할퀴기",
+       "text": "까망이 앞발을 들었다",
+       "warmth": -1
+      },
+      {
+       "name": "으르렁",
+       "text": "낮은 울음이 목덜미를 스쳤다",
+       "breath": -1
+      },
+      {
+       "name": "쫓아내기",
+       "text": "담벼락이 좁아졌다",
+       "warmth": -1
+      }
+     ]
+    },
+    "skills": [],
+    "options": [
+     "낮추기",
+     "버티기",
+     "살피기"
+    ],
+    "intro": "까망은 명령을 듣지 않는다. 대답만 듣는다.",
+    "win": "까망이 등을 돌렸다. 남겨진 자세 그대로.",
+    "lose": "누리의 다리가 꺾였다. 그래도 눈은 떼지 않았다.",
+    "starStage": null,
+    "scene": "N02",
+    "unlocked": [
+     "kkamang_wall",
+     "kkamang_jeong",
+     "captain_nose"
+    ]
+   },
+   "next": "B01-06"
+  },
+  {
+   "beat_id": "B01-06",
+   "chapter": 1,
+   "scene": "N02",
+   "kind": "cut",
+   "title": "결과 컷 · 골목의 여왕",
+   "pov": "kkamang",
+   "lens": "cut",
+   "weather": "rain",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/N02.mp4",
+    "poster": "assets/cut/N02_poster.webp",
+    "tc_in": 462.542,
+    "tc_out": 505.667,
+    "action": "등을 돌리고 떠나는 까망 — 남겨진 자세 그대로",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "kkamang",
+      "text": "놈의 눈이 흔들렸다. 흔들리면서도 버틴다. 그게 제일 위험하다. 무너지면 움직이는데, 버티면 죽는다.",
+      "file": "assets/vo/N02/N02_013.opus",
+      "t": 469.028,
+      "dur": 8.385,
+      "wid": "N02_013",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "나는 등을 돌렸다. 더 말하면 감정이 생긴다. 감정은 실수다. 실수는 상처고, 상처는 죽음이다. 정은, 실수다.",
+      "file": "assets/vo/N02/N02_014.opus",
+      "t": 480.413,
+      "dur": 9.963,
+      "wid": "N02_014",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "담벼락을 타고 올라가며 뒤를 한 번 봤다. 놈은 아직 그 자리에 앉아 있었다. 기다리는 자세 그대로.",
+      "file": "assets/vo/N02/N02_015.opus",
+      "t": 493.376,
+      "dur": 7.791,
+      "wid": "N02_015",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B02-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

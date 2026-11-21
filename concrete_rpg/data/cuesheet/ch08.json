@@ -1,0 +1,1189 @@
+{
+ "cuesheet_id": "cj_ch08_v37",
+ "chapter_no": 8,
+ "label": "8장",
+ "title": "하수구와 빛의 강",
+ "act": "1막",
+ "pov": "캡틴",
+ "star_stage": "eyes_shut",
+ "amb": "assets/amb/amb_sewer.opus",
+ "weather": "night",
+ "scenes": [
+  "09",
+  "N15",
+  "10"
+ ],
+ "beats": [
+  {
+   "beat_id": "B08-01",
+   "chapter": 8,
+   "scene": "09",
+   "kind": "explore",
+   "title": "하수구 침투 작전",
+   "pov": "captain",
+   "lens": "oneeye",
+   "weather": "night",
+   "amb": "assets/amb/amb_sewer.opus",
+   "clues": [
+    {
+     "id": "CL_DRIP",
+     "label": "물방울",
+     "kind": "smell",
+     "tone": "#6d879c",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "우리는 하수구로 들어갔다.",
+     "kw": "물방울"
+    },
+    {
+     "id": "CL_IRON",
+     "label": "철 냄새",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "나는 짧게 말했다.",
+     "kw": "철"
+    },
+    {
+     "id": "CL_RATS",
+     "label": "쥐 냄새",
+     "kind": "smell",
+     "tone": "#8a7d6d",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "쥐"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 54.0,
+     "still": "assets/still/09/c09_0.webp",
+     "motion": "pan_lr",
+     "action": "역할 — 까망은 길, 잿빛은 속도, 누리는 방패",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "무리는 언제나 약한 곳에서 부서진다. 그래서 무리를 살리는 법은, 약한 곳을 기준으로 움직이는 것이다.",
+       "file": "assets/vo/09/09_000.opus",
+       "t": 2457.983,
+       "dur": 8.921,
+       "wid": "09_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "나는 가장 먼저 작은 점의 숨소리를 확인했다. 아기 고양이의 숨은 가볍다. 가벼워서 더 쉽게 끊어진다. 그 숨이 규칙적으로 이어지는 것만으로도, 오늘 밤의 목적이 생긴다.",
+       "file": "assets/vo/09/09_001.opus",
+       "t": 2469.904,
+       "dur": 15.714,
+       "wid": "09_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "역할.",
+       "file": "assets/vo/09/09_002.opus",
+       "t": 2488.618,
+       "dur": 0.65,
+       "wid": "09_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "나는 짧게 말했다. 까망은 길을 읽는다. 잿빛은 속도다. 누리는 방패다. 김반장은 철과 인간의 판을 안다. 소미는, 사람의 마음을 움직인다.",
+       "file": "assets/vo/09/09_003.opus",
+       "t": 2492.268,
+       "dur": 13.542,
+       "wid": "09_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "우리는 하수구로 들어갔다. 하수구의 벽은 젖어 있었고, 물방울이 똑똑 떨어졌다. 그 소리는 심장박동과 닮아 있어, 모두의 숨을 더 크게 들리게 만든다.",
+       "file": "assets/vo/09/09_004.opus",
+       "t": 2508.81,
+       "dur": 14.274,
+       "wid": "09_004",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_DRIP"
+     ]
+    },
+    {
+     "t0": 54.0,
+     "t1": 103.917,
+     "still": "assets/still/09/c09_1.webp",
+     "motion": "pan_rl",
+     "action": "물방울 소리는 심장박동과 닮았다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "나는 꼬리를 낮추고, 발바닥을 최대한 조용히 붙였다. 어둠은 무섭지 않다. 어둠은 그냥 색이 없는 것뿐이다. 무서운 건, 소리다.",
+       "file": "assets/vo/09/09_005.opus",
+       "t": 2526.084,
+       "dur": 12.084,
+       "wid": "09_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "중간에서 철창이 나왔다. 쇠 냄새가 확 올라왔다. 도시는 틀을 좋아한다. 틀은 정리를 쉽게 하니까.",
+       "file": "assets/vo/09/09_006.opus",
+       "t": 2541.168,
+       "dur": 8.557,
+       "wid": "09_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "김반장이 빠루를 끼웠다. 삐걱— 소리. 위험. 하지만 김반장은 멈추지 않았다.",
+       "file": "assets/vo/09/09_007.opus",
+       "t": 2552.725,
+       "dur": 7.107,
+       "wid": "09_007",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_IRON"
+     ]
+    },
+    {
+     "t0": 103.917,
+     "t1": 121.875,
+     "still": "assets/still/09/c09_2.webp",
+     "motion": "push_in",
+     "action": "삐걱— 숨이 멈추는 순간 세상도 멈춘다",
+     "lines": [
+      {
+       "speaker": "captain",
+       "text": "숨이 멈추는 순간, 세상도 멈춘다.",
+       "file": "assets/vo/09/09_008.opus",
+       "t": 2562.832,
+       "dur": 2.811,
+       "wid": "09_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "깡—!",
+       "file": "assets/vo/09/09_009.opus",
+       "t": 2568.643,
+       "dur": 0.398,
+       "wid": "09_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "철창이 벌어졌다. 누리가 먼저 머리를 밀어 넣었다. 큰 몸은 원래 먼저 못 들어간다. 그런데 그는 밀어 넣었다. 안쪽에서 약한 울음이 들렸다. 작은 점이 아니었다. 다른 아이였다.",
+       "file": "assets/vo/09/09_010.opus",
+       "t": 2569.341,
+       "dur": 17.23,
+       "wid": "09_010",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_RATS"
+     ]
+    }
+   ],
+   "gesture": "hold",
+   "next": "B08-02"
+  },
+  {
+   "beat_id": "B08-02",
+   "chapter": 8,
+   "scene": "09",
+   "kind": "deduce",
+   "title": "추리판 · 하수구는 어디서 끝나나",
+   "pov": "captain",
+   "lens": "board",
+   "weather": "night",
+   "amb": "assets/amb/amb_sewer.opus",
+   "question": {
+    "id": "Q09_END",
+    "text": "하수구는 어디서 끝나나"
+   },
+   "hyps": [
+    {
+     "id": "H09_GUTTER",
+     "line": "이쪽 갓길에서 끝난다.",
+     "canon": true,
+     "needs": [
+      "CL_DRIP",
+      "CL_IRON"
+     ],
+     "effect": {
+      "reveal": true
+     }
+    },
+    {
+     "id": "H09_FAR",
+     "line": "반대편까지 이어진다.",
+     "canon": false,
+     "needs": [
+      "CL_RATS",
+      "CL_IRON"
+     ],
+     "effect": {
+      "warmth": -1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_DRIP",
+     "label": "물방울",
+     "kind": "smell",
+     "tone": "#6d879c",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "우리는 하수구로 들어갔다.",
+     "kw": "물방울"
+    },
+    {
+     "id": "CL_IRON",
+     "label": "철 냄새",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "나는 짧게 말했다.",
+     "kw": "철"
+    },
+    {
+     "id": "CL_RATS",
+     "label": "쥐 냄새",
+     "kind": "smell",
+     "tone": "#8a7d6d",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "쥐"
+    }
+   ],
+   "still": "assets/still/09/c09_2.webp",
+   "next": "B08-03"
+  },
+  {
+   "beat_id": "B08-03",
+   "chapter": 8,
+   "scene": "09",
+   "kind": "battle",
+   "title": "대치 · 철창",
+   "pov": "captain",
+   "lens": "battle",
+   "weather": "night",
+   "amb": "assets/amb/amb_sewer.opus",
+   "still": "assets/still/09/c09_2.webp",
+   "battle": {
+    "id": "BT_09",
+    "title": "철창",
+    "mode": "env",
+    "goal": {
+     "type": "free",
+     "value": 3,
+     "turns": 5
+    },
+    "warmth": 6,
+    "warmthLoss": 1,
+    "star": false,
+    "allies": [
+     "nuri"
+    ],
+    "humans": [
+     "kim"
+    ],
+    "enemy": {
+     "name": "철창",
+     "kind": "env",
+     "tension": 0,
+     "intents": [
+      {
+       "name": "삐걱",
+       "text": "녹슨 쇠가 살을 긁었다",
+       "warmth": -1
+      },
+      {
+       "name": "깡",
+       "text": "철창이 튕겨 돌아왔다",
+       "breath": -1
+      }
+     ]
+    },
+    "skills": [
+     "kim_pry",
+     "nuri_body_push"
+    ],
+    "intro": "큰 몸은 원래 먼저 못 들어간다. 그런데 그는 밀어 넣었다.",
+    "win": "철창이 벌어졌다. 먼저 들어간 건, 가장 큰 몸이었다.",
+    "lose": "철창은 그대로였다. 손을 다시 끼운다.",
+    "starStage": "eyes_shut",
+    "scene": "09",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_tail_signal",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "otbit_scout",
+     "kim_pry",
+     "somi_towel"
+    ]
+   },
+   "next": "B08-04"
+  },
+  {
+   "beat_id": "B08-04",
+   "chapter": 8,
+   "scene": "09",
+   "kind": "cut",
+   "title": "결과 컷 · 하수구 침투 작전",
+   "pov": "captain",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/09.mp4",
+    "poster": "assets/cut/09_poster.webp",
+    "tc_in": 2577.458,
+    "tc_out": 2629.458,
+    "action": "철창이 벌어졌다 — 큰 몸은 원래 먼저 못 들어간다. 그런데 그는 밀어 넣었다",
+    "motion": "push_in",
+    "subs": [
+     {
+      "speaker": "captain",
+      "text": "그 울음이 우리 모두의 가슴을 찢었다. 늦지 않았다는 희망과, 너무 늦을 수 있다는 공포가 동시에 몰려왔다.",
+      "file": "assets/vo/09/09_011.opus",
+      "t": 2589.571,
+      "dur": 9.359,
+      "wid": "09_011",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "captain",
+      "text": "그 순간 나는 생각했다. 인간도, 때론 무리의 일원이 될 수 있구나.",
+      "file": "assets/vo/09/09_012.opus",
+      "t": 2601.93,
+      "dur": 5.45,
+      "wid": "09_012",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B08-05"
+  },
+  {
+   "beat_id": "B08-05",
+   "chapter": 8,
+   "scene": "N15",
+   "kind": "explore",
+   "title": "인간 방패",
+   "pov": "kim",
+   "lens": "text",
+   "weather": "night",
+   "amb": "assets/amb/amb_sewer.opus",
+   "clues": [
+    {
+     "id": "CL_BATON",
+     "label": "경광봉",
+     "kind": "smell",
+     "tone": "#e3c25a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 경광봉을 켰다.",
+     "kw": "경광봉"
+    },
+    {
+     "id": "CL_HAZARD",
+     "label": "비상등",
+     "kind": "smell",
+     "tone": "#e0a04a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "박여사님이 차를 비스듬히 세웠다.",
+     "kw": "비상등"
+    },
+    {
+     "id": "CL_LANES",
+     "label": "여덟 차선",
+     "kind": "smell",
+     "tone": "#9aa7b0",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "물이 흐르는 강이 아니었다.",
+     "kw": "차선"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 73.542,
+     "still": "assets/still/N15/cN15_0.webp",
+     "motion": "tilt_down",
+     "action": "하수구 출구 앞의 강 — 빛이 흐르는 팔 차선",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "그날 밤, 자정을 조금 넘긴 시각. 하수구 입구. 악취가 확 끼쳤다. 사람인 나는 본능적으로 인상을 찌푸렸다.",
+       "file": "assets/vo/N15/N15_000.opus",
+       "t": 2631.858,
+       "dur": 9.67,
+       "wid": "N15_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "하지만 동시에 생각했다. 이 냄새 속에서, 저 아이들이 살았구나.",
+       "file": "assets/vo/N15/N15_001.opus",
+       "t": 2644.218,
+       "dur": 5.442,
+       "wid": "N15_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 후레시를 끄고, 어둠에 눈을 맞췄다. 빛은 길을 보여주지만, 동시에 우리를 드러낸다.",
+       "file": "assets/vo/N15/N15_002.opus",
+       "t": 2652.349,
+       "dur": 7.525,
+       "wid": "N15_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "가자.",
+       "file": "assets/vo/N15/N15_003.opus",
+       "t": 2662.874,
+       "dur": 0.48,
+       "wid": "N15_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "자기 목소리가 생각보다 낮게 나왔다. 낮은 목소리는 명령이 아니라, 책임처럼 들렸다.",
+       "file": "assets/vo/N15/N15_004.opus",
+       "t": 2666.175,
+       "dur": 7.281,
+       "wid": "N15_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "하수구 끝에서 지상으로 올라섰다. 차가운 공기가 뺨을 때렸다. 그리고 그 앞에, 강이 있었다.",
+       "file": "assets/vo/N15/N15_005.opus",
+       "t": 2676.145,
+       "dur": 7.761,
+       "wid": "N15_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "물이 흐르는 강이 아니었다. 빛이 흐르는 강이었다. 왕복 팔 차선. 쉬지 않고 달리는 차들의 붉은 등과 흰 등.",
+       "file": "assets/vo/N15/N15_006.opus",
+       "t": 2686.596,
+       "dur": 9.402,
+       "wid": "N15_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "신호등은 고장 나 깜빡이고 있었다. 초록, 빨강, 초록. 아무 의미 없이.",
+       "file": "assets/vo/N15/N15_007.opus",
+       "t": 2698.688,
+       "dur": 6.381,
+       "wid": "N15_007",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_BATON"
+     ]
+    },
+    {
+     "t0": 73.542,
+     "t1": 106.75,
+     "still": "assets/still/N15/cN15_1.webp",
+     "motion": "push_in",
+     "action": "가방 끈을 두 번 묶는 손 — 두 번 넘어질 뻔하고",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "소미가 내 옆에서 작은 점을 가방에 넣고, 가방 끈을 두 번 묶었다. 손이 떨렸다.",
+       "file": "assets/vo/N15/N15_008.opus",
+       "t": 2707.758,
+       "dur": 6.621,
+       "wid": "N15_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "아저씨. 무서워요.",
+       "file": "assets/vo/N15/N15_009.opus",
+       "t": 2717.379,
+       "dur": 1.112,
+       "wid": "N15_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나도 무섭다.",
+       "file": "assets/vo/N15/N15_010.opus",
+       "t": 2721.491,
+       "dur": 0.917,
+       "wid": "N15_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 거짓말을 하지 않았다. 어른이 무섭다고 말하면, 아이는 조금 덜 무서워한다.",
+       "file": "assets/vo/N15/N15_011.opus",
+       "t": 2725.229,
+       "dur": 7.092,
+       "wid": "N15_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 경광봉을 켰다. 붉은 빛이 젖은 아스팔트에 번졌다. 그리고 도로로 뛰어들었다.",
+       "file": "assets/vo/N15/N15_012.opus",
+       "t": 2735.321,
+       "dur": 6.902,
+       "wid": "N15_012",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 106.75,
+     "t1": 134.417,
+     "still": "assets/still/N15/cN15_2.webp",
+     "motion": "push_fast",
+     "action": "경광봉을 머리 위로 — 도로로 뛰어든 인간 방패",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "차가 왔다. 끼이익, 급정거. 타이어 타는 냄새. 운전자의 욕이 창문을 뚫고 나왔다.",
+       "file": "assets/vo/N15/N15_013.opus",
+       "t": 2744.912,
+       "dur": 7.955,
+       "wid": "N15_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "villain",
+       "text": "아, 이 아저씨 미쳤어?! 죽고 싶어?!",
+       "file": "assets/vo/N15/N15_014.opus",
+       "t": 2755.867,
+       "dur": 3.572,
+       "wid": "N15_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 고개를 숙였다.",
+       "file": "assets/vo/N15/N15_015.opus",
+       "t": 2759.739,
+       "dur": 1.178,
+       "wid": "N15_015",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_HAZARD"
+     ]
+    },
+    {
+     "t0": 134.417,
+     "t1": 158.792,
+     "still": "assets/still/N15/cN15_3.webp",
+     "motion": "pan_fast",
+     "action": "낮은 것들이, 아주 낮게, 아주 빠르게",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "죄송합니다! 잠시만요! 애들이 지나갑니다! 생명이 지나갑니다!",
+       "file": "assets/vo/N15/N15_016.opus",
+       "t": 2763.917,
+       "dur": 6.665,
+       "wid": "N15_016",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "고양이들이 달렸다. 타다다닥. 낮은 것들이, 아주 낮게, 아주 빠르게.",
+       "file": "assets/vo/N15/N15_017.opus",
+       "t": 2770.882,
+       "dur": 5.736,
+       "wid": "N15_017",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "나는 두 번째 차선으로 갔다. 경광봉을 머리 위로 들고, 양팔을 벌렸다. 내 몸은 규칙이 아니었다. 그냥 몸이었다.",
+       "file": "assets/vo/N15/N15_018.opus",
+       "t": 2779.308,
+       "dur": 9.8,
+       "wid": "N15_018",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 158.792,
+     "t1": 170.958,
+     "still": "assets/still/N15/cN15_4.webp",
+     "motion": "pan_lr",
+     "action": "비스듬히 세운 차, 깜빡이는 비상등 — 마지막 줄의 길",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "박여사님이 차를 비스듬히 세웠다. 비상등이 깜빡였다. 그 빛이, 마지막 줄의 아이들에게 길을 만들어줬다.",
+       "file": "assets/vo/N15/N15_019.opus",
+       "t": 2791.798,
+       "dur": 9.107,
+       "wid": "N15_019",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_LANES"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B08-06"
+  },
+  {
+   "beat_id": "B08-06",
+   "chapter": 8,
+   "scene": "N15",
+   "kind": "battle",
+   "title": "대치 · 8차선 횡단 — 열한 마리",
+   "pov": "kim",
+   "lens": "battle",
+   "weather": "night",
+   "amb": "assets/amb/amb_sewer.opus",
+   "still": "assets/still/N15/cN15_4.webp",
+   "battle": {
+    "id": "BT_N15",
+    "title": "8차선 횡단 — 열한 마리",
+    "mode": "animal",
+    "goal": {
+     "type": "through",
+     "value": 3,
+     "turns": 8
+    },
+    "warmth": 6,
+    "warmthLoss": 2,
+    "star": true,
+    "allies": [
+     "nuri",
+     "kkamang",
+     "otbit"
+    ],
+    "humans": [
+     "kim",
+     "park"
+    ],
+    "enemy": {
+     "name": "대로",
+     "kind": "env",
+     "tension": 0,
+     "intents": [
+      {
+       "name": "트럭",
+       "text": "트럭이 경적을 울리며 지나갔다",
+       "warmth": -2
+      },
+      {
+       "name": "급정거",
+       "text": "끼이익— 검은 타이어가 밀려왔다",
+       "breath": -1,
+       "warmth": -1
+      },
+      {
+       "name": "빗길",
+       "text": "발이 미끄러졌다",
+       "warmth": -1
+      }
+     ]
+    },
+    "skills": [
+     "kim_baton",
+     "park_hazard",
+     "nuri_nape_bite",
+     "kkamang_wall",
+     "otbit_scout"
+    ],
+    "intro": "세 줄. 열한 마리. 낙오자는 없다.",
+    "win": "마지막 줄이 붙었다. \"바보.\" \"잘했어.\"",
+    "lose": "줄이 끊겼다. 다시, 순서를 짠다.",
+    "starStage": "eyes_shut",
+    "scene": "N15",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_tail_signal",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "otbit_scout",
+     "kim_pry",
+     "kim_baton",
+     "park_hazard",
+     "somi_towel"
+    ]
+   },
+   "next": "B08-07"
+  },
+  {
+   "beat_id": "B08-07",
+   "chapter": 8,
+   "scene": "N15",
+   "kind": "cut",
+   "title": "결과 컷 · 인간 방패",
+   "pov": "kim",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/N15.mp4",
+    "poster": "assets/cut/N15_poster.webp",
+    "tc_in": 2800.416,
+    "tc_out": 2825.791,
+    "action": "가방을 안고 달리는 소미 — 계속 뛰었다",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "kim",
+      "text": "소미가 뛰었다. 가방을 안고, 넘어지지 않으려고, 두 번 넘어질 뻔하고, 계속 뛰었다.",
+      "file": "assets/vo/N15/N15_020.opus",
+      "t": 2803.594,
+      "dur": 7.003,
+      "wid": "N15_020",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kim",
+      "text": "그리고 나는 알았다. 인간 방패는 강한 사람이 되는 게 아니라, 이 자리를 비켜주지 않는 것이라는 걸.",
+      "file": "assets/vo/N15/N15_021.opus",
+      "t": 2813.287,
+      "dur": 8.004,
+      "wid": "N15_021",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B08-08"
+  },
+  {
+   "beat_id": "B08-08",
+   "chapter": 8,
+   "scene": "10",
+   "kind": "explore",
+   "title": "도로 횡단과 캡틴 구출",
+   "pov": "nuri",
+   "lens": "strand",
+   "weather": "night",
+   "amb": "assets/amb/amb_sewer.opus",
+   "clues": [
+    {
+     "id": "CL_HEADLIGHT",
+     "label": "헤드라이트",
+     "kind": "smell",
+     "tone": "#e8e2c8",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "헤드라이트가 커졌다.",
+     "kw": "헤드라이트"
+    },
+    {
+     "id": "CL_WET_ASPHALT",
+     "label": "젖은 아스팔트",
+     "kind": "smell",
+     "tone": "#6d879c",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "아스팔트"
+    },
+    {
+     "id": "CL_KIM_SWEAT",
+     "label": "김반장의 땀",
+     "kind": "smell",
+     "tone": "#bfa06a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "땀"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 35.875,
+     "still": "assets/still/10/c10_0.webp",
+     "motion": "pan_lr",
+     "action": "지상으로 — 비상등은 사람에겐 경고, 나에겐 희망",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "김반장 아저씨가 먼저 지상으로 올라갔다. 나는 그의 뒤를 따라 나왔다. 매연 냄새가 코를 찔렀다. 매연 냄새는 나에게 달려, 라고 말한다. 달리지 않으면 밟힌다고.",
+       "file": "assets/vo/10/10_000.opus",
+       "t": 2828.192,
+       "dur": 15.062,
+       "wid": "10_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "박여사 할머니의 차가 먼저 나갔다. 비상등이 깜빡이는 소리가 밤을 가른다. 그 깜빡임은 사람들에겐 경고지만, 나에겐 희망이었다. 길이 생겼다.",
+       "file": "assets/vo/10/10_001.opus",
+       "t": 2844.534,
+       "dur": 12.915,
+       "wid": "10_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "까망이 낮게 말했다.",
+       "file": "assets/vo/10/10_002.opus",
+       "t": 2858.729,
+       "dur": 1.665,
+       "wid": "10_002",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_HEADLIGHT"
+     ]
+    },
+    {
+     "t0": 35.875,
+     "t1": 51.583,
+     "still": "assets/still/10/c10_1.webp",
+     "motion": "pan_fast",
+     "action": "발이 미끄러지는 순간마다 심장이 떨어졌다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "지금.",
+       "file": "assets/vo/10/10_003.opus",
+       "t": 2861.865,
+       "dur": 0.435,
+       "wid": "10_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "고양이들이 먼저 뛰었다. 나는 그 뒤를 따라 달렸다. 발이 미끄러지는 순간마다 심장이 떨어졌다. 그런데도 멈출 수 없었다. 멈추면, 끝이다.",
+       "file": "assets/vo/10/10_004.opus",
+       "t": 2863.643,
+       "dur": 13.767,
+       "wid": "10_004",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 51.583,
+     "t1": 70.875,
+     "still": "assets/still/10/c10_2.webp",
+     "motion": "push_fast",
+     "action": "캡틴이 미끄러졌다 — 헤드라이트가 커지고 밤이 없어진다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "중앙분리대에서 캡틴이 미끄러졌다. 늙은 몸이 아주 잠깐 비틀렸다. 그 짧은 비틀림이, 트럭에게는 충분한 시간이었다.",
+       "file": "assets/vo/10/10_005.opus",
+       "t": 2878.69,
+       "dur": 10.433,
+       "wid": "10_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "헤드라이트가 커졌다. 밤이 없어졌다. 경적이 울었다.",
+       "file": "assets/vo/10/10_006.opus",
+       "t": 2890.403,
+       "dur": 5.774,
+       "wid": "10_006",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_WET_ASPHALT"
+     ]
+    },
+    {
+     "t0": 70.875,
+     "t1": 100.208,
+     "still": "assets/still/10/c10_3.webp",
+     "motion": "pan_fast",
+     "action": "몸이 먼저 돌아섰다 — 목덜미를 물고, 끌고, 또 끌었다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "그 순간 나는 생각하지 않았다. 몸이 돌아섰다.",
+       "file": "assets/vo/10/10_007.opus",
+       "t": 2899.177,
+       "dur": 4.363,
+       "wid": "10_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "나는 캡틴에게 달려들어 목덜미를 물었다. 아프지 않게. 하지만 놓치지 않게. 그리고 끌었다. 끌고, 또 끌었다.",
+       "file": "assets/vo/10/10_008.opus",
+       "t": 2904.82,
+       "dur": 11.052,
+       "wid": "10_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "트럭이 스쳤다. 바람이 얼굴을 베었다. 나는 굴렀다. 숨이 턱 막혔다. 가슴이 터질 것 같았다.",
+       "file": "assets/vo/10/10_009.opus",
+       "t": 2917.152,
+       "dur": 9.382,
+       "wid": "10_009",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_KIM_SWEAT"
+     ]
+    }
+   ],
+   "gesture": "drag",
+   "next": "B08-09"
+  },
+  {
+   "beat_id": "B08-09",
+   "chapter": 8,
+   "scene": "10",
+   "kind": "battle",
+   "title": "대치 · 캡틴 구출",
+   "pov": "nuri",
+   "lens": "battle",
+   "weather": "night",
+   "amb": "assets/amb/amb_sewer.opus",
+   "still": "assets/still/10/c10_3.webp",
+   "battle": {
+    "id": "BT_10",
+    "title": "캡틴 구출",
+    "mode": "animal",
+    "goal": {
+     "type": "rescue",
+     "value": 2,
+     "turns": 5
+    },
+    "warmth": 5,
+    "warmthLoss": 2,
+    "star": true,
+    "allies": [
+     "nuri",
+     "kkamang"
+    ],
+    "humans": [
+     "kim"
+    ],
+    "enemy": {
+     "name": "헤드라이트",
+     "kind": "env",
+     "tension": 0,
+     "intents": [
+      {
+       "name": "가속",
+       "text": "빛이 점점 커졌다",
+       "warmth": -2
+      },
+      {
+       "name": "경적",
+       "text": "경적이 밤을 찢었다",
+       "breath": -1
+      }
+     ]
+    },
+    "skills": [
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kim_baton"
+    ],
+    "intro": "몸이 먼저 돌아섰다. 목덜미를 물고, 끌고, 또 끌었다.",
+    "win": "쿵. 쿵. 심장 소리. \"바보.\" \"잘했어.\"",
+    "lose": "빛이 코앞까지 왔다. 다시, 몸이 먼저 움직인다.",
+    "starStage": "eyes_shut",
+    "scene": "10",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_tail_signal",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "otbit_scout",
+     "kim_pry",
+     "kim_baton",
+     "park_hazard",
+     "somi_towel"
+    ]
+   },
+   "next": "B08-10"
+  },
+  {
+   "beat_id": "B08-10",
+   "chapter": 8,
+   "scene": "10",
+   "kind": "cut",
+   "title": "결과 컷 · 도로 횡단과 캡틴 구출",
+   "pov": "nuri",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/10.mp4",
+    "poster": "assets/cut/10_poster.webp",
+    "tc_in": 2926.0,
+    "tc_out": 2965.334,
+    "action": "쿵. 쿵. — 심장 소리, \"바보. 잘했어\"",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "nuri",
+      "text": "그런데 캡틴이 살아 있었다. 그것만으로도, 세상이 잠깐 멈춘 것 같았다. 캡틴의 심장 소리가 들렸다. 쿵. 쿵.",
+      "file": "assets/vo/10/10_010.opus",
+      "t": 2927.814,
+      "dur": 10.32,
+      "wid": "10_010",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "늙은 캡틴이 거친 숨을 몰아쉬며 내 젖은 뺨을 핥았다.",
+      "file": "assets/vo/10/10_011.opus",
+      "t": 2939.414,
+      "dur": 4.14,
+      "wid": "10_011",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "곁으로 달려온 까망도 그제야, 떨리는 숨을 내쉬었다.",
+      "file": "assets/vo/10/10_012.opus",
+      "t": 2944.833,
+      "dur": 4.188,
+      "wid": "10_012",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "바보.",
+      "file": "assets/vo/10/10_013.opus",
+      "t": 2950.493,
+      "dur": 0.471,
+      "wid": "10_013",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "그리고 작게 덧붙였다.",
+      "file": "assets/vo/10/10_014.opus",
+      "t": 2952.307,
+      "dur": 1.905,
+      "wid": "10_014",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "잘했어.",
+      "file": "assets/vo/10/10_015.opus",
+      "t": 2955.683,
+      "dur": 0.617,
+      "wid": "10_015",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "그 한 마디가, 내 몸을 다시 일으켰다.",
+      "file": "assets/vo/10/10_016.opus",
+      "t": 2957.644,
+      "dur": 3.19,
+      "wid": "10_016",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B09-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

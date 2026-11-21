@@ -1,0 +1,771 @@
+{
+ "cuesheet_id": "cj_ch06_v37",
+ "chapter_no": 6,
+ "label": "6장",
+ "title": "붉은 현수막",
+ "act": "1막",
+ "pov": "까망",
+ "star_stage": "eyes_shut",
+ "amb": "assets/amb/amb_demo.opus",
+ "weather": "dust",
+ "scenes": [
+  "N10",
+  "N11"
+ ],
+ "beats": [
+  {
+   "beat_id": "B06-01",
+   "chapter": 6,
+   "scene": "N10",
+   "kind": "explore",
+   "title": "붉은 현수막",
+   "pov": "kkamang",
+   "lens": "high",
+   "weather": "dust",
+   "amb": "assets/amb/amb_demo.opus",
+   "clues": [
+    {
+     "id": "CL_RED",
+     "label": "붉은 천",
+     "kind": "smell",
+     "tone": "#b0444a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "아파트 정문 벽.",
+     "kw": "붉은"
+    },
+    {
+     "id": "CL_DUST",
+     "label": "먼지",
+     "kind": "smell",
+     "tone": "#a89a86",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "",
+     "kw": "먼지"
+    },
+    {
+     "id": "CL_CRANE",
+     "label": "굴착기 진동",
+     "kind": "smell",
+     "tone": "#8a7d6d",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "멀리서 육중한 기계 소리가 났다.",
+     "kw": "쿵"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 37.0,
+     "still": "assets/still/N10/cN10_0.webp",
+     "motion": "push_fast",
+     "action": "푸드덕 — 하늘에서 떨어진 잿빛",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "평화는 언제나 폭풍 전의 고요와 같다. 그 고요를, 나는 믿지 않았다.",
+       "file": "assets/vo/N10/N10_000.opus",
+       "t": 1855.567,
+       "dur": 5.281,
+       "wid": "N10_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "어느 아침, 하늘에서 무언가 다급하게 퍼드덕거리며 떨어졌다. 잿빛이었다.",
+       "file": "assets/vo/N10/N10_001.opus",
+       "t": 1863.066,
+       "dur": 5.519,
+       "wid": "N10_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "ash",
+       "text": "구구! 큰일 났어! 대박 사건! 아니, 쪽박 사건! 다들 나와봐!",
+       "file": "assets/vo/N10/N10_002.opus",
+       "t": 1871.135,
+       "dur": 5.927,
+       "wid": "N10_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "캡틴이 나른하게 눈을 떴다.",
+       "file": "assets/vo/N10/N10_003.opus",
+       "t": 1877.302,
+       "dur": 1.489,
+       "wid": "N10_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "captain",
+       "text": "잿빛, 아침부터 왜 이렇게 소란인가. 또 공원 비둘기 영역 다툼이라도?",
+       "file": "assets/vo/N10/N10_004.opus",
+       "t": 1881.341,
+       "dur": 6.232,
+       "wid": "N10_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "ash",
+       "text": "영역 다툼이 문제예요? 지금 우리 영역이 통째로 날아가게 생겼는데! 저기 정문에! 빨간 현수막!",
+       "file": "assets/vo/N10/N10_005.opus",
+       "t": 1889.791,
+       "dur": 9.189,
+       "wid": "N10_005",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_RED"
+     ]
+    },
+    {
+     "t0": 37.0,
+     "t1": 63.417,
+     "still": "assets/still/N10/cN10_1.webp",
+     "motion": "pan_lr",
+     "action": "정문에 걸린 붉은 천 — 축 재개발 사업 승인",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "아파트 정문 벽. 거대한 붉은 천이 바람에 펄럭였다. 펄럭, 퍽.",
+       "file": "assets/vo/N10/N10_006.opus",
+       "t": 1899.22,
+       "dur": 5.431,
+       "wid": "N10_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "박여사가 그 앞에 서서, 소리 없이 읽었다. 그리고 아주 작게 말했다.",
+       "file": "assets/vo/N10/N10_007.opus",
+       "t": 1907.643,
+       "dur": 5.042,
+       "wid": "N10_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "park",
+       "text": "축 경축, 재개발 사업 승인.",
+       "file": "assets/vo/N10/N10_008.opus",
+       "t": 1915.235,
+       "dur": 2.237,
+       "wid": "N10_008",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_DUST"
+     ]
+    },
+    {
+     "t0": 63.417,
+     "t1": 94.25,
+     "still": "assets/still/N10/cN10_2.webp",
+     "motion": "push_in",
+     "action": "\\\"전부 사라진다는 뜻이다\\\" — 세 사람의 얼굴",
+     "lines": [
+      {
+       "speaker": "somi",
+       "text": "재...개발이요? 그게 뭔데요?",
+       "file": "assets/vo/N10/N10_009.opus",
+       "t": 1919.69,
+       "dur": 1.892,
+       "wid": "N10_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "소미의 목소리가 떨렸다.",
+       "file": "assets/vo/N10/N10_010.opus",
+       "t": 1924.582,
+       "dur": 1.257,
+       "wid": "N10_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "김반장이 굳은 얼굴로 대답했다.",
+       "file": "assets/vo/N10/N10_011.opus",
+       "t": 1928.057,
+       "dur": 1.896,
+       "wid": "N10_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "전부 사라진다는 뜻이다. 우리 집도, 이 골목도, 전부 다.",
+       "file": "assets/vo/N10/N10_012.opus",
+       "t": 1932.503,
+       "dur": 5.019,
+       "wid": "N10_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 그 천 냄새를 맡았다. 새 천, 새 잉크, 그리고 그 뒤에 붙은 돈 냄새. 돈 냄새는 늘 깨끗하다. 그래서 더 나쁘다.",
+       "file": "assets/vo/N10/N10_013.opus",
+       "t": 1939.851,
+       "dur": 9.57,
+       "wid": "N10_013",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_CRANE"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B06-02"
+  },
+  {
+   "beat_id": "B06-02",
+   "chapter": 6,
+   "scene": "N10",
+   "kind": "cut",
+   "title": "결과 컷 · 붉은 현수막",
+   "pov": "kkamang",
+   "lens": "cut",
+   "weather": "dust",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/N10.mp4",
+    "poster": "assets/cut/N10_poster.webp",
+    "tc_in": 1947.417,
+    "tc_out": 1989.625,
+    "action": "멀리서 쿵, 쿵 — 도시가 이를 갈고 있다",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "kkamang",
+      "text": "멀리서 육중한 기계 소리가 났다. 쿵. 쿵. 땅이 울렸다. 도시가 이를 갈고 있었다.",
+      "file": "assets/vo/N10/N10_014.opus",
+      "t": 1951.639,
+      "dur": 7.198,
+      "wid": "N10_014",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "소미가 내 쪽을 봤다. 기대하는 눈이었다. 나는 그 눈을 피했다. 이번엔, 내가 답을 가지고 있지 않았다.",
+      "file": "assets/vo/N10/N10_015.opus",
+      "t": 1961.829,
+      "dur": 7.856,
+      "wid": "N10_015",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "도시는 우리가 따뜻해지면, 더 큰 차가움을 들이민다.",
+      "file": "assets/vo/N10/N10_016.opus",
+      "t": 1971.903,
+      "dur": 3.641,
+      "wid": "N10_016",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "나는 속으로 욕을 했다. 그리고 결심했다. 이번에는 기다리지 않는다. 이번에는, 먼저 움직인다.",
+      "file": "assets/vo/N10/N10_017.opus",
+      "t": 1977.762,
+      "dur": 7.363,
+      "wid": "N10_017",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B06-03"
+  },
+  {
+   "beat_id": "B06-03",
+   "chapter": 6,
+   "scene": "N11",
+   "kind": "explore",
+   "title": "부서지는 골목",
+   "pov": "nuri",
+   "lens": "strand",
+   "weather": "dust",
+   "amb": "assets/amb/amb_demo.opus",
+   "clues": [
+    {
+     "id": "CL_KITTEN",
+     "label": "갓난 새끼 냄새",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "무너진 장롱 밑에, 갓난 새끼가 있었다.",
+     "kw": "새끼"
+    },
+    {
+     "id": "CL_LACQUER",
+     "label": "장롱 옻",
+     "kind": "smell",
+     "tone": "#8a5a3c",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "무너진 장롱 밑에, 갓난 새끼가 있었다.",
+     "kw": "장롱"
+    },
+    {
+     "id": "CL_LULLABY",
+     "label": "자장가 소리",
+     "kind": "smell",
+     "tone": "#c9b48a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "자장"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 46.25,
+     "still": "assets/still/N11/cN11_0.webp",
+     "motion": "pan_fast",
+     "action": "굴착기가 팔을 뻗으면 벽은 벽이 아니다 — 그냥 먼지",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "첫날, 앞동이 사라졌다. 굴착기가 팔을 뻗으면, 벽은 벽이 아니었다. 그냥 먼지였다.",
+       "file": "assets/vo/N11/N11_000.opus",
+       "t": 1992.025,
+       "dur": 8.168,
+       "wid": "N11_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "쿵. 쿵. 땅이 흔들렸다. 소미네 집 쪽에서 먼지가 났다. 무서운 냄새가 났다. 흙냄새가 아니라, 부서진 돌 냄새였다.",
+       "file": "assets/vo/N11/N11_001.opus",
+       "t": 2001.828,
+       "dur": 11.97,
+       "wid": "N11_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "사람들은 이삿짐 트럭에 가구를 실었다. 트럭이 떠나면, 집은 집이 아니었다.",
+       "file": "assets/vo/N11/N11_002.opus",
+       "t": 2015.976,
+       "dur": 6.53,
+       "wid": "N11_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kim",
+       "text": "얘들아! 여기 있으면 안 된다! 다들 나와! 빨리!",
+       "file": "assets/vo/N11/N11_003.opus",
+       "t": 2024.373,
+       "dur": 5.036,
+       "wid": "N11_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "김반장이 달려왔다. 숨이 찼다.",
+       "file": "assets/vo/N11/N11_004.opus",
+       "t": 2029.657,
+       "dur": 3.255,
+       "wid": "N11_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "somi",
+       "text": "할아버지! 우리 이사 가야 한대요! 아파트를 다 부순대요! 나비랑 누리는 어떡해요?",
+       "file": "assets/vo/N11/N11_005.opus",
+       "t": 2034.779,
+       "dur": 6.657,
+       "wid": "N11_005",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_KITTEN"
+     ]
+    },
+    {
+     "t0": 46.25,
+     "t1": 76.042,
+     "still": "assets/still/N11/cN11_1.webp",
+     "motion": "pull_out",
+     "action": "이삿짐 트럭이 떠나면 집은 집이 아니다",
+     "lines": [
+      {
+       "speaker": "kim",
+       "text": "이 많은 애들을 데리고 어디로 간단 말입니까... 보호소? 거긴 들어가는 순간 죽는 곳인데.",
+       "file": "assets/vo/N11/N11_006.opus",
+       "t": 2041.676,
+       "dur": 8.125,
+       "wid": "N11_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "그날 밤, 나는 혼자 남은 빈집에 들어갔다. 벽지가 반쯤 뜯긴 집. 사람 냄새가 아직 남아 있었다.",
+       "file": "assets/vo/N11/N11_007.opus",
+       "t": 2052.801,
+       "dur": 7.835,
+       "wid": "N11_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "그때, 아주 작은 소리가 났다. 미야... 미야...",
+       "file": "assets/vo/N11/N11_008.opus",
+       "t": 2063.636,
+       "dur": 5.186,
+       "wid": "N11_008",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 76.042,
+     "t1": 99.792,
+     "still": "assets/still/N11/cN11_2.webp",
+     "motion": "push_in",
+     "action": "무너진 장롱 밑의 갓난 새끼 — 손바닥만 한 몸",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "무너진 장롱 밑에, 갓난 새끼가 있었다. 눈도 제대로 못 떴다. 몸이 손바닥만 했다.",
+       "file": "assets/vo/N11/N11_009.opus",
+       "t": 2071.232,
+       "dur": 7.83,
+       "wid": "N11_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "나는 입으로 조심스럽게 물어 꺼냈다. 아프지 않게. 놓치지 않게.",
+       "file": "assets/vo/N11/N11_010.opus",
+       "t": 2080.697,
+       "dur": 6.231,
+       "wid": "N11_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "그리고 그 소리에, 까망이 왔다. 한참을 보다가, 아주 작게 말했다.",
+       "file": "assets/vo/N11/N11_011.opus",
+       "t": 2088.563,
+       "dur": 6.041,
+       "wid": "N11_011",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_LACQUER"
+     ]
+    },
+    {
+     "t0": 99.792,
+     "t1": 128.958,
+     "still": "assets/still/N11/cN11_3.webp",
+     "motion": "pan_lr",
+     "action": "\\\"짐이 늘었군\\\" — 고개를 돌리는 건 들키기 싫어서",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "...짐이 늘었군.",
+       "file": "assets/vo/N11/N11_012.opus",
+       "t": 2096.471,
+       "dur": 1.029,
+       "wid": "N11_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "두고 갈 순 없지. 우리 식구니까.",
+       "file": "assets/vo/N11/N11_013.opus",
+       "t": 2099.678,
+       "dur": 2.173,
+       "wid": "N11_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "그 말을 하고도, 그녀는 고개를 돌렸다. 고개를 돌리는 건, 들키기 싫어서다.",
+       "file": "assets/vo/N11/N11_014.opus",
+       "t": 2103.563,
+       "dur": 6.778,
+       "wid": "N11_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "나는 소미를 찾아갔다. 소미는 자기 손수건을 꺼냈다. 노란 병아리 무늬.",
+       "file": "assets/vo/N11/N11_015.opus",
+       "t": 2111.976,
+       "dur": 6.971,
+       "wid": "N11_015",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_LULLABY"
+     ]
+    }
+   ],
+   "gesture": "drag",
+   "next": "B06-04"
+  },
+  {
+   "beat_id": "B06-04",
+   "chapter": 6,
+   "scene": "N11",
+   "kind": "deduce",
+   "title": "추리판 · 어미는 어디 있나",
+   "pov": "nuri",
+   "lens": "board",
+   "weather": "dust",
+   "amb": "assets/amb/amb_demo.opus",
+   "question": {
+    "id": "Q11_MOTHER",
+    "text": "어미는 어디 있나"
+   },
+   "hyps": [
+    {
+     "id": "H11_COLD",
+     "line": "이미 식었다.",
+     "canon": true,
+     "needs": [
+      "CL_KITTEN",
+      "CL_LACQUER"
+     ],
+     "effect": {
+      "star": 1
+     }
+    },
+    {
+     "id": "H11_SOON",
+     "line": "곧 돌아온다.",
+     "canon": false,
+     "needs": [
+      "CL_LULLABY",
+      "CL_KITTEN"
+     ],
+     "effect": {
+      "warmth": 1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_KITTEN",
+     "label": "갓난 새끼 냄새",
+     "kind": "smell",
+     "tone": "#bfe6d8",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "무너진 장롱 밑에, 갓난 새끼가 있었다.",
+     "kw": "새끼"
+    },
+    {
+     "id": "CL_LACQUER",
+     "label": "장롱 옻",
+     "kind": "smell",
+     "tone": "#8a5a3c",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "무너진 장롱 밑에, 갓난 새끼가 있었다.",
+     "kw": "장롱"
+    },
+    {
+     "id": "CL_LULLABY",
+     "label": "자장가 소리",
+     "kind": "smell",
+     "tone": "#c9b48a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "자장"
+    }
+   ],
+   "still": "assets/still/N11/cN11_3.webp",
+   "next": "B06-05"
+  },
+  {
+   "beat_id": "B06-05",
+   "chapter": 6,
+   "scene": "N11",
+   "kind": "battle",
+   "title": "대치 · 입으로 물어 꺼내기",
+   "pov": "nuri",
+   "lens": "battle",
+   "weather": "dust",
+   "amb": "assets/amb/amb_demo.opus",
+   "still": "assets/still/N11/cN11_3.webp",
+   "battle": {
+    "id": "BT_N11",
+    "title": "입으로 물어 꺼내기",
+    "mode": "env",
+    "goal": {
+     "type": "rescue",
+     "value": 3,
+     "turns": 6
+    },
+    "warmth": 6,
+    "warmthLoss": 1,
+    "star": true,
+    "allies": [
+     "nuri",
+     "kkamang"
+    ],
+    "humans": [],
+    "enemy": {
+     "name": "무너지는 벽",
+     "kind": "env",
+     "tension": 0,
+     "intents": [
+      {
+       "name": "먼지",
+       "text": "분진이 숨을 막았다",
+       "breath": -1
+      },
+      {
+       "name": "파편",
+       "text": "작은 돌이 등을 스쳤다",
+       "warmth": -1
+      },
+      {
+       "name": "이차 붕괴",
+       "text": "천장이 한 번 더 울었다",
+       "warmth": -2
+      }
+     ]
+    },
+    "skills": [
+     "nuri_nape_bite",
+     "nuri_warmth",
+     "kkamang_wall"
+    ],
+    "intro": "누르는 힘을 조절한다. 아프지 않게, 놓치지 않게.",
+    "win": "노란 병아리 손수건에 감긴 생명이 파르르 떨었다. 살아 있다.",
+    "lose": "손이 미끄러졌다. 다시, 순서를 고른다.",
+    "starStage": "eyes_shut",
+    "scene": "N11",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "somi_towel"
+    ]
+   },
+   "next": "B06-06"
+  },
+  {
+   "beat_id": "B06-06",
+   "chapter": 6,
+   "scene": "N11",
+   "kind": "cut",
+   "title": "결과 컷 · 부서지는 골목",
+   "pov": "nuri",
+   "lens": "cut",
+   "weather": "dust",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/N11.mp4",
+    "poster": "assets/cut/N11_poster.webp",
+    "tc_in": 2118.583,
+    "tc_out": 2154.083,
+    "action": "노란 병아리 손수건에 감긴 생명 — 파르르",
+    "motion": "push_in",
+    "subs": [
+     {
+      "speaker": "somi",
+      "text": "이걸로 감싸줘. 내 냄새가 나면, 얘가 덜 무서울 거야.",
+      "file": "assets/vo/N11/N11_016.opus",
+      "t": 2120.815,
+      "dur": 4.062,
+      "wid": "N11_016",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "소미가 손수건을 새끼의 몸에 감았다.",
+      "file": "assets/vo/N11/N11_017.opus",
+      "t": 2127.159,
+      "dur": 2.905,
+      "wid": "N11_017",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "그 작은 것이, 손수건 속에서 숨을 쉬었다. 파르르. 아주 작은 파르르.",
+      "file": "assets/vo/N11/N11_018.opus",
+      "t": 2131.699,
+      "dur": 6.918,
+      "wid": "N11_018",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "나는 그날 밤 잠을 못 잤다. 이 아이를 지고, 강을 건널 생각을 했다. 강은, 아직 보지도 못했는데.",
+      "file": "assets/vo/N11/N11_019.opus",
+      "t": 2140.252,
+      "dur": 9.331,
+      "wid": "N11_019",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B07-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

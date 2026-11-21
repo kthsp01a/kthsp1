@@ -1,0 +1,844 @@
+{
+ "cuesheet_id": "cj_ch11_v37",
+ "chapter_no": 11,
+ "label": "11장",
+ "title": "숲의 침묵",
+ "act": "2막",
+ "pov": "",
+ "star_stage": "cant_walk",
+ "amb": "assets/amb/amb_forest_night.opus",
+ "weather": "fog",
+ "scenes": [
+  "X",
+  "A21",
+  "A22"
+ ],
+ "beats": [
+  {
+   "beat_id": "B11-01",
+   "chapter": 11,
+   "scene": "X",
+   "kind": "intermission",
+   "title": "막간 · 2막 숲의 시험",
+   "pov": "narrator",
+   "lens": "intermission",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "lines": [
+    {
+     "speaker": "narrator",
+     "text": "여기서부터는, 두 번째 이야기다.",
+     "file": "assets/vo/X/X_000.opus",
+     "t": 3514.025,
+     "dur": 2.028,
+     "wid": "X_000",
+     "deadline_ms": 300
+    },
+    {
+     "speaker": "narrator",
+     "text": "도시가 끝나고, 숲이 시작된다.",
+     "file": "assets/vo/X/X_001.opus",
+     "t": 3518.385,
+     "dur": 2.11,
+     "wid": "X_001",
+     "deadline_ms": 300
+    },
+    {
+     "speaker": "narrator",
+     "text": "약한 것들이 서로를 지키는 방법은, 아직 아무도 가르쳐 주지 않았다.",
+     "file": "assets/vo/X/X_002.opus",
+     "t": 3522.828,
+     "dur": 5.244,
+     "wid": "X_002",
+     "deadline_ms": 300
+    },
+    {
+     "speaker": "narrator",
+     "text": "2막 — 숲의 시험.",
+     "file": "assets/vo/X/X_003.opus",
+     "t": 3530.404,
+     "dur": 1.138,
+     "wid": "X_003",
+     "deadline_ms": 300
+    }
+   ],
+   "still": "assets/still/X/intermission.webp",
+   "quote": "INTERMISSION — 1막의 도시가 뒤로 물러나고, 2막의 숲이 앞으로 온다.",
+   "next": "B11-02"
+  },
+  {
+   "beat_id": "B11-02",
+   "chapter": 11,
+   "scene": "A21",
+   "kind": "explore",
+   "title": "숲은 말을 하지 않는다",
+   "pov": "kkamang",
+   "lens": "high",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "clues": [
+    {
+     "id": "CL_URINE",
+     "label": "오줌 농도",
+     "kind": "smell",
+     "tone": "#8a7d6d",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "숲의 침묵은 정보로 가득했다.",
+     "kw": "오줌"
+    },
+    {
+     "id": "CL_BOUNDARY",
+     "label": "영역의 선",
+     "kind": "smell",
+     "tone": "#7d6b8a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "영역은 바깥.",
+     "kw": "영역"
+    },
+    {
+     "id": "CL_ANTLER",
+     "label": "마른 가지",
+     "kind": "smell",
+     "tone": "#8a6a3c",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "가지"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 32.625,
+     "still": "assets/still/A21/cA21_0.webp",
+     "motion": "pan_lr",
+     "action": "잊혀진 공원의 새벽 — 도시가 뒤에 있고, 숲이 앞에 있다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "숲은 조용했다. 도시의 소음이 멀어질수록, 침묵은 더 커졌다. 그런데 그 침묵은 비어 있지 않았다.",
+       "file": "assets/vo/A21/A21_000.opus",
+       "t": 3538.442,
+       "dur": 6.885,
+       "wid": "A21_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "숲의 침묵은 정보로 가득했다. 잎이 비비는 방향, 흙이 눌린 흔적, 오래된 오줌 냄새의 농도.",
+       "file": "assets/vo/A21/A21_001.opus",
+       "t": 3547.905,
+       "dur": 6.528,
+       "wid": "A21_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 고개를 낮추고 귀를 세웠다. 자리는 소유가 아니라 사용의 흔적이다. 숲에서는 오래 사용한 자가 주인이다.",
+       "file": "assets/vo/A21/A21_002.opus",
+       "t": 3557.01,
+       "dur": 7.722,
+       "wid": "A21_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "여긴… 누군가의 자리다.",
+       "file": "assets/vo/A21/A21_003.opus",
+       "t": 3567.667,
+       "dur": 2.02,
+       "wid": "A21_003",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_URINE"
+     ]
+    },
+    {
+     "t0": 32.625,
+     "t1": 53.875,
+     "still": "assets/still/A21/cA21_2.webp",
+     "motion": "push_fast",
+     "action": "\"여긴… 누군가의 자리다\"",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "그때 그림자들이 움직였다. 세 마리. 날카로운 눈, 얇은 몸, 굶주림의 냄새. 들무리였다.",
+       "file": "assets/vo/A21/A21_004.opus",
+       "t": 3572.687,
+       "dur": 6.768,
+       "wid": "A21_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그들은 먼저 말을 걸지 않았다. 숲의 첫 대화는 늘 거리다.",
+       "file": "assets/vo/A21/A21_005.opus",
+       "t": 3582.033,
+       "dur": 3.682,
+       "wid": "A21_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 거리를 계산했다. 한 번의 도약, 두 번의 도약. 싸우면 이긴다. 하지만 싸우면 다친다. 다치면 겨울을 못 넘긴다.",
+       "file": "assets/vo/A21/A21_006.opus",
+       "t": 3588.293,
+       "dur": 8.913,
+       "wid": "A21_006",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 53.875,
+     "t1": 93.0,
+     "still": "assets/still/A21/cA21_3.webp",
+     "motion": "pull_out",
+     "action": "들무리의 첫 등장 — 거리가 곧 대화다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "캡틴이 앞으로 나섰다. 느린 걸음, 낮은 꼬리. 늙은 고양이가 싸우지 않고 이기는 방식.",
+       "file": "assets/vo/A21/A21_007.opus",
+       "t": 3600.206,
+       "dur": 5.935,
+       "wid": "A21_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "여긴 잠깐 머문다.",
+       "file": "assets/vo/A21/A21_008.opus",
+       "t": 3609.076,
+       "dur": 1.077,
+       "wid": "A21_008",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "짧은 말이었다. 그러나 숲에서는 그걸로 충분했다.",
+       "file": "assets/vo/A21/A21_009.opus",
+       "t": 3612.849,
+       "dur": 3.243,
+       "wid": "A21_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "들무리의 리더가 콧김을 뿜었다. 짙은 줄무늬 위로 바람에 긁힌 흉터가 희게 남아 있었다.",
+       "file": "assets/vo/A21/A21_010.opus",
+       "t": 3618.67,
+       "dur": 6.036,
+       "wid": "A21_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "feral",
+       "text": "먹이는 반.",
+       "file": "assets/vo/A21/A21_011.opus",
+       "t": 3627.641,
+       "dur": 0.784,
+       "wid": "A21_011",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_BOUNDARY"
+     ]
+    },
+    {
+     "t0": 93.0,
+     "t1": 111.583,
+     "still": "assets/still/A21/cA21_4.webp",
+     "motion": "push_in",
+     "action": "\"먹이는 반. 영역은 바깥.\"",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "영역은 바깥.",
+       "file": "assets/vo/A21/A21_012.opus",
+       "t": 3631.003,
+       "dur": 0.909,
+       "wid": "A21_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "나는 이를 갈았다. 반은 굶으라는 뜻이고, 바깥은 언제든 쫓겨날 수 있다는 뜻이었다.",
+       "file": "assets/vo/A21/A21_013.opus",
+       "t": 3634.608,
+       "dur": 6.123,
+       "wid": "A21_013",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그런데 캡틴은 고개를 끄덕였다. 전쟁을 피하는 선택은, 숲에서는 승리다.",
+       "file": "assets/vo/A21/A21_014.opus",
+       "t": 3643.309,
+       "dur": 4.718,
+       "wid": "A21_014",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 111.583,
+     "t1": 129.917,
+     "still": "assets/still/A21/cA21_5.webp",
+     "motion": "pan_rl",
+     "action": "전쟁을 피하는 선택은, 숲에서는 승리다",
+     "lines": [
+      {
+       "speaker": "kkamang",
+       "text": "잠자리는 바위 뒤, 바람이 덜 드는 곳. 물길에서 한 발짝 비켜난 자리. 숲은 자리 선정이 생존의 절반이다.",
+       "file": "assets/vo/A21/A21_015.opus",
+       "t": 3650.605,
+       "dur": 7.723,
+       "wid": "A21_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "누리가 담요를 조심히 내려놓았다. 작은 점의 숨이 약했다. 내 심장이 내려앉았다.",
+       "file": "assets/vo/A21/A21_016.opus",
+       "t": 3660.905,
+       "dur": 5.774,
+       "wid": "A21_016",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_ANTLER"
+     ]
+    }
+   ],
+   "gesture": "tap",
+   "next": "B11-03"
+  },
+  {
+   "beat_id": "B11-03",
+   "chapter": 11,
+   "scene": "A21",
+   "kind": "deduce",
+   "title": "추리판 · 여긴 누구 자리인가",
+   "pov": "kkamang",
+   "lens": "board",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "question": {
+    "id": "QA21_WHOSE",
+    "text": "여긴 누구 자리인가"
+   },
+   "hyps": [
+    {
+     "id": "HA21_DEER",
+     "line": "들무리의 자리다.",
+     "canon": true,
+     "needs": [
+      "CL_URINE",
+      "CL_BOUNDARY"
+     ],
+     "effect": {
+      "tension": -1,
+      "jeong": 1
+     }
+    },
+    {
+     "id": "HA21_EMPTY",
+     "line": "빈 숲이다.",
+     "canon": false,
+     "needs": [
+      "CL_ANTLER",
+      "CL_BOUNDARY"
+     ],
+     "effect": {
+      "warmth": -1
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_URINE",
+     "label": "오줌 농도",
+     "kind": "smell",
+     "tone": "#8a7d6d",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "숲의 침묵은 정보로 가득했다.",
+     "kw": "오줌"
+    },
+    {
+     "id": "CL_BOUNDARY",
+     "label": "영역의 선",
+     "kind": "smell",
+     "tone": "#7d6b8a",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "영역은 바깥.",
+     "kw": "영역"
+    },
+    {
+     "id": "CL_ANTLER",
+     "label": "마른 가지",
+     "kind": "smell",
+     "tone": "#8a6a3c",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "",
+     "kw": "가지"
+    }
+   ],
+   "still": "assets/still/A21/cA21_5.webp",
+   "next": "B11-04"
+  },
+  {
+   "beat_id": "B11-04",
+   "chapter": 11,
+   "scene": "A21",
+   "kind": "battle",
+   "title": "대치 · 거리 협상",
+   "pov": "kkamang",
+   "lens": "battle",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "still": "assets/still/A21/cA21_5.webp",
+   "battle": {
+    "id": "BT_A21",
+    "title": "거리 협상",
+    "mode": "talk",
+    "goal": {
+     "type": "jeong",
+     "value": 4,
+     "turns": 5
+    },
+    "warmth": 6,
+    "warmthLoss": 1,
+    "star": true,
+    "allies": [
+     "kkamang",
+     "nuri"
+    ],
+    "humans": [],
+    "enemy": {
+     "name": "들무리 리더",
+     "kind": "animal",
+     "tension": 6,
+     "intents": [
+      {
+       "name": "뿔 세우기",
+       "text": "수컷이 뿔을 세웠다",
+       "warmth": -1
+      },
+      {
+       "name": "포위",
+       "text": "무리가 둘러섰다",
+       "breath": -1
+      }
+     ]
+    },
+    "skills": [
+     "kkamang_wall",
+     "captain_low_tail",
+     "nuri_growl"
+    ],
+    "intro": "먹이는 반. 영역은 바깥. 거리가 곧 대화다.",
+    "win": "전쟁을 피하는 선택은, 숲에서는 승리다.",
+    "lose": "거리가 무너졌다. 다시, 한 걸음 물러선다.",
+    "starStage": "cant_walk",
+    "scene": "A21",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "nuri_nape_bite",
+     "nuri_body_push",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_unlock",
+     "kkamang_tail_signal",
+     "kkamang_jeong",
+     "captain_nose",
+     "captain_order",
+     "captain_low_tail",
+     "otbit_scout",
+     "otbit_scratch",
+     "otbit_wing",
+     "kim_pry",
+     "kim_baton",
+     "kim_record",
+     "kim_report",
+     "park_hazard",
+     "park_key",
+     "somi_towel",
+     "somi_milk",
+     "somi_witness"
+    ]
+   },
+   "next": "B11-05"
+  },
+  {
+   "beat_id": "B11-05",
+   "chapter": 11,
+   "scene": "A21",
+   "kind": "cut",
+   "title": "결과 컷 · 숲은 말을 하지 않는다",
+   "pov": "kkamang",
+   "lens": "cut",
+   "weather": "fog",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A21.mp4",
+    "poster": "assets/cut/A21_poster.webp",
+    "tc_in": 3665.959,
+    "tc_out": 3675.459,
+    "action": "작은 점의 숨이 약하다 — 오늘은 지켜야 한다",
+    "motion": "push_in",
+    "subs": [
+     {
+      "speaker": "kkamang",
+      "text": "오늘은… 지켜야 한다.",
+      "file": "assets/vo/A21/A21_017.opus",
+      "t": 3669.257,
+      "dur": 1.702,
+      "wid": "A21_017",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B11-06"
+  },
+  {
+   "beat_id": "B11-06",
+   "chapter": 11,
+   "scene": "A22",
+   "kind": "explore",
+   "title": "아픈 냄새는 울지 않는다",
+   "pov": "nuri",
+   "lens": "strand",
+   "weather": "fog",
+   "amb": "assets/amb/amb_forest_night.opus",
+   "clues": [
+    {
+     "id": "CL_FEVER",
+     "label": "열",
+     "kind": "smell",
+     "tone": "#c98a6a",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "열이야.",
+     "kw": "열"
+    },
+    {
+     "id": "CL_HERB",
+     "label": "약초",
+     "kind": "smell",
+     "tone": "#7d8a5b",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "잿빛이 물길을 따라 사라졌다.",
+     "kw": "약초"
+    },
+    {
+     "id": "CL_STAR",
+     "label": "별",
+     "kind": "smell",
+     "tone": "#dfe9ef",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "숲의 밤은 별이 많았다.",
+     "kw": "별"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 26.917,
+     "still": "assets/still/A22/cA22_0.webp",
+     "motion": "push_in",
+     "action": "체온을 나누는 방법",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "작은 점의 숨은 가벼웠다. 가벼워서, 끊기기 쉬웠다.",
+       "file": "assets/vo/A22/A22_000.opus",
+       "t": 3677.858,
+       "dur": 5.015,
+       "wid": "A22_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "나는 옆에 엎드려 내 체온을 나눴다. 몸을 붙이면 숨이 조금 깊어진다. 그걸 나는 말이 아니라 몸으로 배웠다.",
+       "file": "assets/vo/A22/A22_001.opus",
+       "t": 3684.312,
+       "dur": 9.182,
+       "wid": "A22_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "비가 올 냄새가 났다. 비는 숲을 살리지만, 약한 것부터 시험한다.",
+       "file": "assets/vo/A22/A22_002.opus",
+       "t": 3694.933,
+       "dur": 6.108,
+       "wid": "A22_002",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_FEVER"
+     ]
+    },
+    {
+     "t0": 26.917,
+     "t1": 44.375,
+     "still": "assets/still/A22/cA22_1.webp",
+     "motion": "push_fast",
+     "action": "짧고 마른 기침 — 빈 공간이 울리는 소리",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "밤이 깊어지자, 작은 점이 기침을 했다. 짧고 마른 기침. 소리가 아니라, 빈 공간이 울리는 기침이었다.",
+       "file": "assets/vo/A22/A22_003.opus",
+       "t": 3704.041,
+       "dur": 9.915,
+       "wid": "A22_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "까망.",
+       "file": "assets/vo/A22/A22_004.opus",
+       "t": 3716.176,
+       "dur": 0.54,
+       "wid": "A22_004",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "내가 불렀다. 목소리가 갈라졌다.",
+       "file": "assets/vo/A22/A22_005.opus",
+       "t": 3716.891,
+       "dur": 3.223,
+       "wid": "A22_005",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 44.375,
+     "t1": 61.625,
+     "still": "assets/still/A22/cA22_2.webp",
+     "motion": "push_in",
+     "action": "\"열이야\" — 열은 싸워야 한다는 신호",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "까망이 다가와 작은 점의 귀 뒤를 핥았다. 그리고 아주 낮게 말했다.",
+       "file": "assets/vo/A22/A22_006.opus",
+       "t": 3720.281,
+       "dur": 5.631,
+       "wid": "A22_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "열이야.",
+       "file": "assets/vo/A22/A22_007.opus",
+       "t": 3727.563,
+       "dur": 0.565,
+       "wid": "A22_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "열은 싸워야 한다는 신호다. 그런데 싸울 힘이 없는 아이에게 열은, 가장 먼저 꺼지는 불이다.",
+       "file": "assets/vo/A22/A22_008.opus",
+       "t": 3729.638,
+       "dur": 7.705,
+       "wid": "A22_008",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_HERB"
+     ]
+    },
+    {
+     "t0": 61.625,
+     "t1": 78.708,
+     "still": "assets/still/A22/cA22_3.webp",
+     "motion": "pan_lr",
+     "action": "리더는 잠을 마지막에 잔다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "캡틴은 자리를 옮기지 않았다. 리더는 잠을 마지막에 잔다.",
+       "file": "assets/vo/A22/A22_009.opus",
+       "t": 3739.277,
+       "dur": 5.23,
+       "wid": "A22_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "잿빛이 물길을 따라 사라졌다. 약초와 물을 찾으러. 날갯짓 소리가 빗방울 냄새에 섞여 멀어졌다.",
+       "file": "assets/vo/A22/A22_010.opus",
+       "t": 3745.946,
+       "dur": 8.766,
+       "wid": "A22_010",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 78.708,
+     "t1": 89.167,
+     "still": "assets/still/A22/cA22_4.webp",
+     "motion": "push_in",
+     "action": "방패는 움직이지 않는다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "나는 꼼짝하지 않았다. 방패는 움직이지 않는다. 방패가 흔들리면, 뒤에 있는 것들이 먼저 다친다.",
+       "file": "assets/vo/A22/A22_011.opus",
+       "t": 3756.646,
+       "dur": 8.875,
+       "wid": "A22_011",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 89.167,
+     "t1": 109.25,
+     "still": "assets/still/A22/cA22_5.webp",
+     "motion": "tilt_down",
+     "action": "숲의 밤은 별이 많고, 별은 잔인하다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "숲의 밤은 별이 많았다. 별은 희망을 보여주면서, 동시에 시간을 늘린다.",
+       "file": "assets/vo/A22/A22_012.opus",
+       "t": 3766.96,
+       "dur": 6.347,
+       "wid": "A22_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "작은 점의 숨이 한 번 끊길 듯 얕아졌다, 다시 이어졌다. 그 순간, 나는 울지 않았다. 울면 체온이 흔들린다.",
+       "file": "assets/vo/A22/A22_013.opus",
+       "t": 3774.746,
+       "dur": 10.421,
+       "wid": "A22_013",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_STAR"
+     ]
+    }
+   ],
+   "gesture": "drag",
+   "next": "B11-07"
+  },
+  {
+   "beat_id": "B11-07",
+   "chapter": 11,
+   "scene": "A22",
+   "kind": "cut",
+   "title": "결과 컷 · 아픈 냄새는 울지 않는다",
+   "pov": "nuri",
+   "lens": "cut",
+   "weather": "fog",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/A22.mp4",
+    "poster": "assets/cut/A22_poster.webp",
+    "tc_in": 3784.708,
+    "tc_out": 3813.541,
+    "action": "아침은 늘, 오는 쪽이었다",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "nuri",
+      "text": "나는 이를 악물고, 내 숨을 아이의 숨에 맞췄다. 하나, 둘. 하나, 둘.",
+      "file": "assets/vo/A22/A22_014.opus",
+      "t": 3787.101,
+      "dur": 6.914,
+      "wid": "A22_014",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "기다리는 법은 안다. 이번엔, 기다리면서 지키는 법을 배운다.",
+      "file": "assets/vo/A22/A22_015.opus",
+      "t": 3795.454,
+      "dur": 5.727,
+      "wid": "A22_015",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "아침이 오지 않을 것 같은 밤이었다. 하지만 아침은 늘, 오는 쪽이었다.",
+      "file": "assets/vo/A22/A22_016.opus",
+      "t": 3803.115,
+      "dur": 5.926,
+      "wid": "A22_016",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B12-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}

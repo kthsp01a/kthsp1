@@ -1,0 +1,618 @@
+{
+ "cuesheet_id": "cj_ch03_v37",
+ "chapter_no": 3,
+ "label": "3장",
+ "title": "콤비의 탄생",
+ "act": "1막",
+ "pov": "누리",
+ "star_stage": null,
+ "amb": "assets/amb/amb_market.opus",
+ "weather": "night",
+ "scenes": [
+  "N04"
+ ],
+ "beats": [
+  {
+   "beat_id": "B03-01",
+   "chapter": 3,
+   "scene": "N04",
+   "kind": "explore",
+   "title": "콤비의 탄생",
+   "pov": "nuri",
+   "lens": "strand",
+   "weather": "night",
+   "amb": "assets/amb/amb_market.opus",
+   "clues": [
+    {
+     "id": "CL_FISH",
+     "label": "말린 생선",
+     "kind": "smell",
+     "tone": "#d9a05b",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 코를 세웠다.",
+     "kw": "생선"
+    },
+    {
+     "id": "CL_SHOP_HAND",
+     "label": "가게 주인의 손기름",
+     "kind": "smell",
+     "tone": "#8a6a3c",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "하지만 가게 주인은 덩치 큰 개를 보면 쫓아냈다.",
+     "kw": "주인"
+    },
+    {
+     "id": "CL_DOG_TURF",
+     "label": "들개의 영역",
+     "kind": "smell",
+     "tone": "#7d6b8a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "들개들이 몰려온 날, 나는 가슴 깊은 곳에서 소리를 냈다.",
+     "kw": "들개"
+    }
+   ],
+   "shots": [
+    {
+     "t0": 0.0,
+     "t1": 41.375,
+     "still": "assets/still/N04/cN04_0.webp",
+     "motion": "pan_rl",
+     "action": "불편한 동거 — 서로를 없는 듯이",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "보일러실에서 사흘이 지났다. 우리는 서로를 없는 듯이 대했다. 하지만 굶주림은 그 어떤 어색함보다 강했다.",
+       "file": "assets/vo/N04/N04_000.opus",
+       "t": 695.942,
+       "dur": 9.476,
+       "wid": "N04_000",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "까망의 배에서 소리가 났다. 내 배에서도 났다. 두 소리가 번갈아 울리면, 왠지 웃음이 났다.",
+       "file": "assets/vo/N04/N04_001.opus",
+       "t": 706.985,
+       "dur": 8.884,
+       "wid": "N04_001",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "네 배 소리 때문에 사냥에 집중을 못 하겠어.",
+       "file": "assets/vo/N04/N04_002.opus",
+       "t": 718.275,
+       "dur": 2.511,
+       "wid": "N04_002",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "미안...",
+       "file": "assets/vo/N04/N04_003.opus",
+       "t": 722.353,
+       "dur": 0.577,
+       "wid": "N04_003",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "나는 코를 세웠다. 시장 한구석, 생선 가게에서 새어 나오는 비린내. 기름진 것, 차가운 것, 아주 싱싱한 것.",
+       "file": "assets/vo/N04/N04_004.opus",
+       "t": 725.369,
+       "dur": 10.165,
+       "wid": "N04_004",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_FISH"
+     ]
+    },
+    {
+     "t0": 41.375,
+     "t1": 63.125,
+     "still": "assets/still/N04/cN04_1.webp",
+     "motion": "pan_fast",
+     "action": "세 번 쫓겨난 누리 — \\\"저리 가, 이놈의 개!\\\"",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "하지만 가게 주인은 덩치 큰 개를 보면 쫓아냈다.",
+       "file": "assets/vo/N04/N04_005.opus",
+       "t": 737.101,
+       "dur": 3.51,
+       "wid": "N04_005",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "fish",
+       "text": "저리 가, 이놈의 개! 썩 꺼져!",
+       "file": "assets/vo/N04/N04_006.opus",
+       "t": 742.406,
+       "dur": 2.011,
+       "wid": "N04_006",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "나는 그렇게 세 번 쫓겨났다. 네 번째, 까망이 내 앞을 막아섰다.",
+       "file": "assets/vo/N04/N04_007.opus",
+       "t": 744.626,
+       "dur": 5.918,
+       "wid": "N04_007",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그렇게 순순히 물러나서야 뭘 얻겠어. 머리를 써야지, 덩치.",
+       "file": "assets/vo/N04/N04_008.opus",
+       "t": 752.339,
+       "dur": 4.521,
+       "wid": "N04_008",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 63.125,
+     "t1": 94.458,
+     "still": "assets/still/N04/cN04_2.webp",
+     "motion": "push_in",
+     "action": "작전 회의 — \\\"내가 시선을 끌게\\\" / \\\"아니, 네가 끌어\\\"",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "머리?",
+       "file": "assets/vo/N04/N04_009.opus",
+       "t": 758.427,
+       "dur": 0.563,
+       "wid": "N04_009",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "내가 시선을 끌게. 아니, 반대다. 네가 시선을 끌어. 넌 덩치가 크니까, 사람들은 너만 봐.",
+       "file": "assets/vo/N04/N04_010.opus",
+       "t": 760.557,
+       "dur": 6.432,
+       "wid": "N04_010",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "난... 연기를 못하는데.",
+       "file": "assets/vo/N04/N04_011.opus",
+       "t": 768.556,
+       "dur": 2.587,
+       "wid": "N04_011",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "그 눈으로 바라보기만 해. 세상에서 제일 슬픈 눈으로.",
+       "file": "assets/vo/N04/N04_012.opus",
+       "t": 773.241,
+       "dur": 3.725,
+       "wid": "N04_012",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "나는 가게 반대편에 서서, 할 수 있는 데까지 슬프게 울었다. 끼잉... 멍... 끄으응...",
+       "file": "assets/vo/N04/N04_013.opus",
+       "t": 778.609,
+       "dur": 9.052,
+       "wid": "N04_013",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_SHOP_HAND"
+     ]
+    },
+    {
+     "t0": 94.458,
+     "t1": 117.125,
+     "still": "assets/still/N04/cN04_3.webp",
+     "motion": "push_in",
+     "action": "세상에서 제일 슬픈 눈 — 미끼가 된 누리",
+     "lines": [
+      {
+       "speaker": "fish",
+       "text": "어유, 저 개 좀 봐. 며칠 굶었나 보네. 뼈다귀라도 하나 줄까?",
+       "file": "assets/vo/N04/N04_014.opus",
+       "t": 790.328,
+       "dur": 5.127,
+       "wid": "N04_014",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "주인이 국자를 놓고 문을 열었다.",
+       "file": "assets/vo/N04/N04_015.opus",
+       "t": 797.098,
+       "dur": 2.54,
+       "wid": "N04_015",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "그 순간이었다. 오른쪽에서 검은 것이 바람처럼 지나갔다. 사사삭. 생선 한 마리가, 통째로, 사라졌다.",
+       "file": "assets/vo/N04/N04_016.opus",
+       "t": 802.638,
+       "dur": 10.448,
+       "wid": "N04_016",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 117.125,
+     "t1": 131.583,
+     "still": "assets/still/N04/cN04_4.webp",
+     "motion": "pan_fast",
+     "action": "사사삭 — 통째로 사라진 생선, 터지는 욕설",
+     "lines": [
+      {
+       "speaker": "fish",
+       "text": "야! 저 도둑고양이! 내 생선!",
+       "file": "assets/vo/N04/N04_017.opus",
+       "t": 814.881,
+       "dur": 2.223,
+       "wid": "N04_017",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "주인의 욕이 골목을 따라왔다. 나는 신나서 짖었다. 멍! 멍! 도망쳐, 까망아!",
+       "file": "assets/vo/N04/N04_018.opus",
+       "t": 817.313,
+       "dur": 8.615,
+       "wid": "N04_018",
+       "deadline_ms": 300
+      }
+     ]
+    },
+    {
+     "t0": 131.583,
+     "t1": 174.25,
+     "still": "assets/still/N04/cN04_5.webp",
+     "motion": "push_in",
+     "action": "머리는 내 것, 꼬리는 네 것 — 반쪽이었는데 배가 꽉 찼다",
+     "lines": [
+      {
+       "speaker": "nuri",
+       "text": "보일러실에 돌아와, 까망은 생선을 바닥에 내려놓았다. 그리고 머리 쪽을 자기 앞으로 끌어당기고, 턱짓으로 꼬리 쪽을 가리켰다.",
+       "file": "assets/vo/N04/N04_019.opus",
+       "t": 826.129,
+       "dur": 9.67,
+       "wid": "N04_019",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "kkamang",
+       "text": "먹어. 네 몫이야.",
+       "file": "assets/vo/N04/N04_020.opus",
+       "t": 837.594,
+       "dur": 1.298,
+       "wid": "N04_020",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "그날 생선은 이상하게 맛있었다. 반쪽이었는데, 배가 꽉 찼다.",
+       "file": "assets/vo/N04/N04_021.opus",
+       "t": 840.535,
+       "dur": 5.849,
+       "wid": "N04_021",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "그 뒤로 우리는 콤비가 됐다. 까망은 높은 곳에서 위험을 먼저 보는 눈이 됐고, 나는 낮은 곳에서 그녀를 지키는 방패가 됐다.",
+       "file": "assets/vo/N04/N04_022.opus",
+       "t": 849.384,
+       "dur": 9.539,
+       "wid": "N04_022",
+       "deadline_ms": 300
+      },
+      {
+       "speaker": "nuri",
+       "text": "들개들이 몰려온 날, 나는 가슴 깊은 곳에서 소리를 냈다. 크르르릉! 그 소리는 내가 낸 소리인데도 낯설었다.",
+       "file": "assets/vo/N04/N04_023.opus",
+       "t": 860.49,
+       "dur": 8.755,
+       "wid": "N04_023",
+       "deadline_ms": 300
+      }
+     ],
+     "clues": [
+      "CL_DOG_TURF"
+     ]
+    }
+   ],
+   "gesture": "drag",
+   "next": "B03-02"
+  },
+  {
+   "beat_id": "B03-02",
+   "chapter": 3,
+   "scene": "N04",
+   "kind": "deduce",
+   "title": "추리판 · 왜 세 번 쫓겨났나",
+   "pov": "nuri",
+   "lens": "board",
+   "weather": "night",
+   "amb": "assets/amb/amb_market.opus",
+   "question": {
+    "id": "Q04_THRICE",
+    "text": "왜 세 번 쫓겨났나"
+   },
+   "hyps": [
+    {
+     "id": "H04_SIZE",
+     "line": "덩치가 시선을 끈다.",
+     "canon": true,
+     "needs": [
+      "CL_FISH",
+      "CL_SHOP_HAND"
+     ],
+     "effect": {
+      "battle_tension": -2
+     }
+    },
+    {
+     "id": "H04_DOG",
+     "line": "들개가 진짜 위험이다.",
+     "canon": false,
+     "needs": [
+      "CL_DOG_TURF",
+      "CL_FISH"
+     ],
+     "effect": {
+      "reveal": true
+     }
+    }
+   ],
+   "clues": [
+    {
+     "id": "CL_FISH",
+     "label": "말린 생선",
+     "kind": "smell",
+     "tone": "#d9a05b",
+     "nx": 0.24,
+     "ny": 0.72,
+     "hidden": false,
+     "from": "나는 코를 세웠다.",
+     "kw": "생선"
+    },
+    {
+     "id": "CL_SHOP_HAND",
+     "label": "가게 주인의 손기름",
+     "kind": "smell",
+     "tone": "#8a6a3c",
+     "nx": 0.63,
+     "ny": 0.8,
+     "hidden": false,
+     "from": "하지만 가게 주인은 덩치 큰 개를 보면 쫓아냈다.",
+     "kw": "주인"
+    },
+    {
+     "id": "CL_DOG_TURF",
+     "label": "들개의 영역",
+     "kind": "smell",
+     "tone": "#7d6b8a",
+     "nx": 0.44,
+     "ny": 0.6,
+     "hidden": true,
+     "from": "들개들이 몰려온 날, 나는 가슴 깊은 곳에서 소리를 냈다.",
+     "kw": "들개"
+    }
+   ],
+   "still": "assets/still/N04/cN04_5.webp",
+   "next": "B03-03"
+  },
+  {
+   "beat_id": "B03-03",
+   "chapter": 3,
+   "scene": "N04",
+   "kind": "battle",
+   "title": "대치 · 생선가게 · 들개",
+   "pov": "nuri",
+   "lens": "battle",
+   "weather": "night",
+   "amb": "assets/amb/amb_market.opus",
+   "still": "assets/still/N04/cN04_5.webp",
+   "battle": {
+    "id": "BT_N04",
+    "title": "생선가게 · 들개",
+    "mode": "animal",
+    "goal": {
+     "type": "tension",
+     "value": 0,
+     "turns": 10
+    },
+    "warmth": 8,
+    "warmthLoss": 1,
+    "star": false,
+    "allies": [
+     "nuri",
+     "kkamang"
+    ],
+    "humans": [],
+    "enemy": {
+     "name": "가게 주인",
+     "kind": "human",
+     "tension": 7,
+     "intents": [
+      {
+       "name": "빗자루",
+       "text": "빗자루가 바닥을 쓸었다",
+       "warmth": -1
+      },
+      {
+       "name": "고함",
+       "text": "\"저리 가, 이놈의 개!\"",
+       "breath": -1
+      },
+      {
+       "name": "물벼락",
+       "text": "찬물이 얼굴로 날아왔다",
+       "warmth": -2
+      }
+     ]
+    },
+    "phases": [
+     {
+      "name": "들개",
+      "kind": "animal",
+      "tension": 5,
+      "intents": [
+       {
+        "name": "으르렁",
+        "text": "들개가 이빨을 드러냈다",
+        "warmth": -1,
+        "breath": -1
+       },
+       {
+        "name": "돌진",
+        "text": "들개가 달려들었다",
+        "warmth": -2
+       }
+      ]
+     }
+    ],
+    "skills": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "kkamang_wall",
+     "kkamang_shadow"
+    ],
+    "intro": "세 번 쫓겨났다. 네 번째는, 혼자 하지 않는다.",
+    "win": "머리는 내 것, 꼬리는 네 것. 반쪽이었는데 배가 꽉 찼다.",
+    "lose": "생선은 떨어졌고, 둘 다 굶었다. 다시, 작전을 짠다.",
+    "starStage": null,
+    "scene": "N04",
+    "unlocked": [
+     "nuri_sad_eyes",
+     "nuri_growl",
+     "nuri_warmth",
+     "kkamang_wall",
+     "kkamang_shadow",
+     "kkamang_jeong",
+     "captain_nose"
+    ]
+   },
+   "next": "B03-04"
+  },
+  {
+   "beat_id": "B03-04",
+   "chapter": 3,
+   "scene": "N04",
+   "kind": "cut",
+   "title": "결과 컷 · 콤비의 탄생",
+   "pov": "nuri",
+   "lens": "cut",
+   "weather": "night",
+   "amb": null,
+   "cut": {
+    "file": "assets/cut/N04.mp4",
+    "poster": "assets/cut/N04_poster.webp",
+    "tc_in": 867.792,
+    "tc_out": 913.5,
+    "action": "늙고 병든 고양이 — 체온과 생선 반쪽을 나눈 밤",
+    "motion": "pull_out",
+    "subs": [
+     {
+      "speaker": "nuri",
+      "text": "들개들이 낑낑거리며 물러났다. 까망이 내 옆에서 아주 낮게 울었다. 그르르... 그 소리를 나는 오래 기억했다.",
+      "file": "assets/vo/N04/N04_024.opus",
+      "t": 869.446,
+      "dur": 10.331,
+      "wid": "N04_024",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "어느 추운 밤, 늙고 병든 고양이 한 마리가 보일러실로 들어왔다. 모두가 외면했지만, 나는 내 체온으로 그를 녹였다.",
+      "file": "assets/vo/N04/N04_025.opus",
+      "t": 881.875,
+      "dur": 9.536,
+      "wid": "N04_025",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "까망은 아무 말 없이, 어렵게 구해온 생선을 반으로 갈랐다. 그리고 등을 돌린 채 잤다.",
+      "file": "assets/vo/N04/N04_026.opus",
+      "t": 892.978,
+      "dur": 7.17,
+      "wid": "N04_026",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "nuri",
+      "text": "너도... 따뜻한 냄새가 나, 까망아.",
+      "file": "assets/vo/N04/N04_027.opus",
+      "t": 901.943,
+      "dur": 3.753,
+      "wid": "N04_027",
+      "deadline_ms": 300
+     },
+     {
+      "speaker": "kkamang",
+      "text": "...시끄러워, 덩치.",
+      "file": "assets/vo/N04/N04_028.opus",
+      "t": 907.794,
+      "dur": 1.206,
+      "wid": "N04_028",
+      "deadline_ms": 300
+     }
+    ]
+   },
+   "next": "B04-01"
+  }
+ ],
+ "source": {
+  "timeline": "concrete_jungle/v36/audio/timeline_v36.json",
+  "master": "콘크리트 정글의 작은 영웅들 - 극장판 v3.6 마스터본 (105분 · 성우13역·오디오북·작화 전면 수복).mp4",
+  "script": "downloads/콘크리트정글_v3.7_수정대본.txt"
+ },
+ "rights": {
+  "vo": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 13역 음성(자체 TTS·연출 파이프라인 산출). 원본 WAV는 v36/tts/."
+  },
+  "cut": {
+   "basis": "kth_own_production",
+   "publish": "yes",
+   "note": "태홍 님 제작 v3.6 마스터본에서 직접 절출(재인코딩)."
+  },
+  "bgm": {
+   "basis": "self_synthesized",
+   "publish": "yes",
+   "note": "게임 BGM은 Web Audio 자작 합성(피아노 단음·기타 리듬·저음 드론). 결과 컷 안의 음악은 마스터본 자체 사운드."
+  },
+  "amb": {
+   "basis": "free_library",
+   "publish": "yes",
+   "note": "v3.6 믹스에 쓰인 무료 실녹음 앰비언스 라이브러리(audio_v3/sfx/real)에서 절출."
+  },
+  "sfx": {
+   "basis": "free_library+kth_own",
+   "publish": "yes",
+   "note": "무료 실녹음 라이브러리 + v3.6 마스터 직접 절출(차 문·낮은 꼬리)."
+  }
+ },
+ "gate": "TECH_QA_PASS",
+ "fallback": "still+subtitle"
+}
