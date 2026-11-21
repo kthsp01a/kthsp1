@@ -126,6 +126,11 @@ foreach (var c in index.chapters) {
 - **죽음 없음**: `warmth<=0` 또는 마디 초과 → 위기 → 재시작(`retry`) 또는 이어가기.
 - **가설 효과 이월**: 추리판에서 고른 `hyp.effect` 가 다음 대치 시작값을 바꿉니다(`battle_tension`, `warmth`, `evidence`, `progress`, `jeong`, `reveal`).
 
+## 5-1. 사운드 연출 필드
+- `beat.carry` — 다음 장에 남기는 소리(잔향 큐). 비트 시작 시 1회 재생.
+- `beat.silence` — 침묵 큐(5곳: N06·N11·10·A26·N20). 모든 버스를 내리고 심장박동만 남깁니다.
+- `beat.v37_delta` — v3.7 개정 영향 표시(①별이 성장 ②탈출·대로·포획틀 동선 ③N12 화자 ④뒷말 축소 ⑤연대기).
+
 ## 6. 별이 성장(호위 대상)
 `data/characters.json` → `star_stages[]`: `eyes_shut` → `cant_walk` → `leg_move` → `eyes_open` → `standing`.
 각 단계 `loss` 가 체온 손실률에 가산됩니다(웹: `loss + (stage.loss - 1)`).

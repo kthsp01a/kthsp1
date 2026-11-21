@@ -323,6 +323,7 @@
    "carry": "assets/sfx/heart.opus",
    "carry_note": "숨 맞추기, 하나 둘",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B11-03"
   },
@@ -402,6 +403,7 @@
      "kw": "가지"
     }
    ],
+   "v37_delta": "none",
    "still": "assets/still/A21/cA21_5.webp",
    "next": "B11-04"
   },
@@ -488,6 +490,7 @@
      "somi_witness"
     ]
    },
+   "v37_delta": "none",
    "next": "B11-05"
   },
   {
@@ -519,6 +522,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B11-06"
   },
   {
@@ -760,6 +764,7 @@
    "carry": "assets/sfx/heart.opus",
    "carry_note": "숨 맞추기, 하나 둘",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "drag",
    "next": "B11-07"
   },
@@ -810,6 +815,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B12-01"
   }
  ],

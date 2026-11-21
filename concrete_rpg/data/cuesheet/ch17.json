@@ -218,6 +218,7 @@
    "carry": "assets/sfx/whoosh.opus",
    "carry_note": "손수건이 바람에 흔드는 소리",
    "silence": null,
+   "v37_delta": "① 별이 눈 갈라짐",
    "gesture": "drag",
    "next": "B17-02"
   },
@@ -250,6 +251,7 @@
      }
     ]
    },
+   "v37_delta": "① 별이 눈 갈라짐",
    "next": "B17-03"
   },
   {
@@ -527,6 +529,7 @@
    "carry": "assets/sfx/whoosh.opus",
    "carry_note": "손수건이 바람에 흔드는 소리",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B17-04"
   },
@@ -568,6 +571,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B17-05"
   },
   {
@@ -809,6 +813,7 @@
    "carry": "assets/sfx/whoosh.opus",
    "carry_note": "손수건이 바람에 흔드는 소리",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B17-06"
   },
@@ -850,6 +855,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B17-07"
   },
   {
@@ -1091,6 +1097,7 @@
    "carry": "assets/sfx/whoosh.opus",
    "carry_note": "손수건이 바람에 흔드는 소리",
    "silence": null,
+   "v37_delta": "① 별이 눈 뜸 — 리더 승계",
    "gesture": "tap",
    "next": "B17-08"
   },
@@ -1123,6 +1130,7 @@
      }
     ]
    },
+   "v37_delta": "① 별이 눈 뜸 — 리더 승계",
    "next": "B18-01"
   }
  ],

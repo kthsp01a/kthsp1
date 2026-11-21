@@ -190,6 +190,7 @@
    "carry": "assets/sfx/siren.opus",
    "carry_note": "신고 연결음, 삐—",
    "silence": null,
+   "v37_delta": "② 포획틀은 공원 담장 바깥 길 — v3.6 컷 유지",
    "gesture": "tap",
    "next": "B09-02"
   },
@@ -269,6 +270,7 @@
      "kw": "찰칵"
     }
    ],
+   "v37_delta": "② 포획틀은 공원 담장 바깥 길 — v3.6 컷 유지",
    "still": "assets/still/11/c11_2.webp",
    "next": "B09-03"
   },
@@ -310,6 +312,7 @@
      }
     ]
    },
+   "v37_delta": "② 포획틀은 공원 담장 바깥 길 — v3.6 컷 유지",
    "next": "B09-04"
   },
   {
@@ -542,6 +545,7 @@
    "carry": "assets/sfx/siren.opus",
    "carry_note": "신고 연결음, 삐—",
    "silence": null,
+   "v37_delta": "② 포획틀 위치·통합 순서 — v3.6 컷 유지",
    "gesture": "tap",
    "next": "B09-05"
   },
@@ -629,6 +633,7 @@
      "somi_towel"
     ]
    },
+   "v37_delta": "② 포획틀 위치·통합 순서 — v3.6 컷 유지",
    "next": "B09-06"
   },
   {
@@ -669,6 +674,7 @@
      }
     ]
    },
+   "v37_delta": "② 포획틀 위치·통합 순서 — v3.6 컷 유지",
    "next": "B09-07"
   },
   {
@@ -865,6 +871,7 @@
    "carry": "assets/sfx/siren.opus",
    "carry_note": "신고 연결음, 삐—",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B09-08"
   },
@@ -943,6 +950,7 @@
      "kw": "아이"
     }
    ],
+   "v37_delta": "none",
    "still": "assets/still/12/c12_2.webp",
    "next": "B09-09"
   },
@@ -1032,6 +1040,7 @@
      "somi_witness"
     ]
    },
+   "v37_delta": "none",
    "next": "B09-10"
   },
   {
@@ -1108,6 +1117,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B10-01"
   }
  ],

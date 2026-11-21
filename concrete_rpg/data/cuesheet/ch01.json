@@ -180,6 +180,7 @@
    "carry": "assets/sfx/door.opus",
    "carry_note": "차 문이 가볍게 닫히는 소리",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "drag",
    "next": "B01-02"
   },
@@ -259,6 +260,7 @@
      "kw": "핸드크림"
     }
    ],
+   "v37_delta": "none",
    "still": "assets/still/01/c01_2.webp",
    "next": "B01-03"
   },
@@ -336,6 +338,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B01-04"
   },
   {
@@ -541,6 +544,7 @@
    "carry": "assets/sfx/door.opus",
    "carry_note": "차 문이 가볍게 닫히는 소리",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B01-05"
   },
@@ -610,6 +614,7 @@
      "captain_nose"
     ]
    },
+   "v37_delta": "none",
    "next": "B01-06"
   },
   {
@@ -659,6 +664,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B02-01"
   }
  ],

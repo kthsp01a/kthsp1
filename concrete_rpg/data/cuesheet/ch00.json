@@ -271,6 +271,7 @@
    "carry": "assets/sfx/tail.opus",
    "carry_note": "까망의 낮은 꼬리가 담장을 스치는 소리",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "hold",
    "next": "B00-02"
   },
@@ -395,6 +396,7 @@
      "kw": "기다리는 자세"
     }
    ],
+   "v37_delta": "none",
    "still": "assets/still/00/c00_3.webp",
    "next": "B00-03"
   },
@@ -436,6 +438,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B01-01"
   }
  ],

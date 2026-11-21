@@ -261,6 +261,7 @@
    "carry": "assets/sfx/bell.opus",
    "carry_note": "손수건이 바람에 흔드는 소리",
    "silence": null,
+   "v37_delta": "① 별이 성장(일 년 뒤)",
    "gesture": "tap",
    "next": "B18-02"
   },
@@ -293,6 +294,7 @@
      }
     ]
    },
+   "v37_delta": "① 별이 성장(일 년 뒤)",
    "next": "B18-03"
   },
   {
@@ -433,6 +435,7 @@
    "carry": "assets/sfx/bell.opus",
    "carry_note": "손수건이 바람에 흔드는 소리",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B18-04"
   },
@@ -474,6 +477,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": null
   }
  ],

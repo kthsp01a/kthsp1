@@ -333,6 +333,7 @@
    "carry": "assets/sfx/snap.opus",
    "carry_note": "불빛 세 번 + 휘파람",
    "silence": null,
+   "v37_delta": "③ 화자 재귀속 — v3.6 음성 유지, 큐시트 화자 확정",
    "gesture": "hold",
    "next": "B07-02"
   },
@@ -412,6 +413,7 @@
      "kw": "잿빛"
     }
    ],
+   "v37_delta": "③ 화자 재귀속 — v3.6 음성 유지, 큐시트 화자 확정",
    "still": "assets/still/N12/cN12_3.webp",
    "next": "B07-03"
   },
@@ -491,6 +493,7 @@
      "somi_towel"
     ]
    },
+   "v37_delta": "③ 화자 재귀속 — v3.6 음성 유지, 큐시트 화자 확정",
    "next": "B07-04"
   },
   {
@@ -549,6 +552,7 @@
      }
     ]
    },
+   "v37_delta": "③ 화자 재귀속 — v3.6 음성 유지, 큐시트 화자 확정",
    "next": "B07-05"
   },
   {
@@ -718,6 +722,7 @@
    "carry": "assets/sfx/snap.opus",
    "carry_note": "불빛 세 번 + 휘파람",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "drag",
    "next": "B07-06"
   },
@@ -777,6 +782,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B08-01"
   }
  ],

@@ -288,6 +288,7 @@
    "carry": "assets/sfx/water.opus",
    "carry_note": "마지막 빗방울",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "hold",
    "next": "B16-02"
   },
@@ -367,6 +368,7 @@
      "kw": "불빛"
     }
    ],
+   "v37_delta": "none",
    "still": "assets/still/A32/cA32_6.webp",
    "next": "B16-03"
   },
@@ -471,6 +473,7 @@
      "deer_nape"
     ]
    },
+   "v37_delta": "none",
    "next": "B16-04"
   },
   {
@@ -529,6 +532,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B16-05"
   },
   {
@@ -797,6 +801,7 @@
    "carry": "assets/sfx/water.opus",
    "carry_note": "마지막 빗방울",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "hold",
    "next": "B16-06"
   },
@@ -895,6 +900,7 @@
      "deer_nape"
     ]
    },
+   "v37_delta": "none",
    "next": "B16-07"
   },
   {
@@ -935,6 +941,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B17-01"
   }
  ],

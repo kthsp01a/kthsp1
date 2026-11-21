@@ -253,6 +253,7 @@
    "carry": "assets/sfx/paper.opus",
    "carry_note": "크레파스가 부러지는 소리",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B04-02"
   },
@@ -331,6 +332,7 @@
      "kw": "귀 끝"
     }
    ],
+   "v37_delta": "none",
    "still": "assets/still/03/c03_3.webp",
    "next": "B04-03"
   },
@@ -363,6 +365,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B04-04"
   },
   {
@@ -586,6 +589,7 @@
    "carry": "assets/sfx/paper.opus",
    "carry_note": "크레파스가 부러지는 소리",
    "silence": "정리 — 사라짐은 소리가 없다",
+   "v37_delta": "none",
    "gesture": "hold",
    "next": "B04-05"
   },
@@ -627,6 +631,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B04-06"
   },
   {
@@ -967,6 +972,7 @@
    "carry": "assets/sfx/paper.opus",
    "carry_note": "크레파스가 부러지는 소리",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B04-07"
   },
@@ -1045,6 +1051,7 @@
      "kw": "열한"
     }
    ],
+   "v37_delta": "none",
    "still": "assets/still/N07/cN07_s5.webp",
    "next": "B04-08"
   },
@@ -1086,6 +1093,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B05-01"
   }
  ],

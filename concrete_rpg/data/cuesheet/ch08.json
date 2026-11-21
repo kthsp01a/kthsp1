@@ -199,6 +199,7 @@
    "carry": "assets/sfx/horn.opus",
    "carry_note": "트럭 경적",
    "silence": null,
+   "v37_delta": "② 하수구는 이쪽 갓길에서 끝남 — v3.6 컷 유지",
    "gesture": "hold",
    "next": "B08-02"
   },
@@ -277,6 +278,7 @@
      "kw": "쥐"
     }
    ],
+   "v37_delta": "② 하수구는 이쪽 갓길에서 끝남 — v3.6 컷 유지",
    "still": "assets/still/09/c09_2.webp",
    "next": "B08-03"
   },
@@ -352,6 +354,7 @@
      "somi_towel"
     ]
    },
+   "v37_delta": "② 하수구는 이쪽 갓길에서 끝남 — v3.6 컷 유지",
    "next": "B08-04"
   },
   {
@@ -392,6 +395,7 @@
      }
     ]
    },
+   "v37_delta": "② 하수구는 이쪽 갓길에서 끝남 — v3.6 컷 유지",
    "next": "B08-05"
   },
   {
@@ -678,6 +682,7 @@
    "carry": "assets/sfx/horn.opus",
    "carry_note": "트럭 경적",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B08-06"
   },
@@ -767,6 +772,7 @@
      "somi_towel"
     ]
    },
+   "v37_delta": "none",
    "next": "B08-07"
   },
   {
@@ -807,6 +813,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B08-08"
   },
   {
@@ -994,6 +1001,7 @@
    "carry": "assets/sfx/horn.opus",
    "carry_note": "트럭 경적",
    "silence": "헤드라이트가 커지는 순간 — 밤이 없어졌다",
+   "v37_delta": "none",
    "gesture": "drag",
    "next": "B08-09"
   },
@@ -1073,6 +1081,7 @@
      "somi_towel"
     ]
    },
+   "v37_delta": "none",
    "next": "B08-10"
   },
   {
@@ -1158,6 +1167,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B09-01"
   }
  ],

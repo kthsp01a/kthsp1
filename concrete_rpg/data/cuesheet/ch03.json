@@ -341,6 +341,7 @@
    "carry": "assets/sfx/growl.opus",
    "carry_note": "까망의 그르르",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "drag",
    "next": "B03-02"
   },
@@ -419,6 +420,7 @@
      "kw": "들개"
     }
    ],
+   "v37_delta": "none",
    "still": "assets/still/N04/cN04_5.webp",
    "next": "B03-03"
   },
@@ -514,6 +516,7 @@
      "captain_nose"
     ]
    },
+   "v37_delta": "none",
    "next": "B03-04"
   },
   {
@@ -581,6 +584,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B04-01"
   }
  ],

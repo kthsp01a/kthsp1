@@ -325,6 +325,7 @@
    "carry": "assets/sfx/mud.opus",
    "carry_note": "젖은 낙엽, 철벅",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B14-02"
   },
@@ -403,6 +404,7 @@
      "kw": "웅덩이"
     }
    ],
+   "v37_delta": "none",
    "still": "assets/still/A28/cA28_6.webp",
    "next": "B14-03"
   },
@@ -462,6 +464,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B14-04"
   },
   {
@@ -739,6 +742,7 @@
    "carry": "assets/sfx/mud.opus",
    "carry_note": "젖은 낙엽, 철벅",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B14-05"
   },
@@ -761,6 +765,7 @@
     "motion": "push_in",
     "subs": []
    },
+   "v37_delta": "none",
    "next": "B14-06"
   },
   {
@@ -1047,6 +1052,7 @@
    "carry": "assets/sfx/mud.opus",
    "carry_note": "젖은 낙엽, 철벅",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B14-07"
   },
@@ -1141,6 +1147,7 @@
      "deer_nape"
     ]
    },
+   "v37_delta": "none",
    "next": "B14-08"
   },
   {
@@ -1208,6 +1215,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B15-01"
   }
  ],

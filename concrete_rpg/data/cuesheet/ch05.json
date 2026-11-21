@@ -198,6 +198,7 @@
    "carry": "assets/sfx/hammer.opus",
    "carry_note": "망치를 짧게 치는 소리",
    "silence": null,
+   "v37_delta": "⑤ 8년 전 나비, 같은 해 삼색이 새끼 둘 — 자막 대조",
    "gesture": "tap",
    "next": "B05-02"
   },
@@ -276,6 +277,7 @@
      "kw": "나비"
     }
    ],
+   "v37_delta": "⑤ 8년 전 나비, 같은 해 삼색이 새끼 둘 — 자막 대조",
    "still": "assets/still/04/c04_2.webp",
    "next": "B05-03"
   },
@@ -326,6 +328,7 @@
      }
     ]
    },
+   "v37_delta": "⑤ 8년 전 나비, 같은 해 삼색이 새끼 둘 — 자막 대조",
    "next": "B05-04"
   },
   {
@@ -603,6 +606,7 @@
    "carry": "assets/sfx/hammer.opus",
    "carry_note": "망치를 짧게 치는 소리",
    "silence": null,
+   "v37_delta": "⑤ 급식소·삼색이 연대기 — v3.6 컷 유지",
    "gesture": "tap",
    "next": "B05-05"
   },
@@ -635,6 +639,7 @@
      }
     ]
    },
+   "v37_delta": "⑤ 급식소·삼색이 연대기 — v3.6 컷 유지",
    "next": "B06-01"
   }
  ],

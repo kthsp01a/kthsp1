@@ -260,6 +260,7 @@
    "carry": "assets/sfx/drill.opus",
    "carry_note": "보일러의 낮은 웅",
    "silence": null,
+   "v37_delta": "none",
    "gesture": "tap",
    "next": "B02-02"
   },
@@ -338,6 +339,7 @@
      "kw": "젖은"
     }
    ],
+   "v37_delta": "none",
    "still": "assets/still/N03/cN03_3.webp",
    "next": "B02-03"
   },
@@ -407,6 +409,7 @@
      "captain_nose"
     ]
    },
+   "v37_delta": "none",
    "next": "B02-04"
   },
   {
@@ -465,6 +468,7 @@
      }
     ]
    },
+   "v37_delta": "none",
    "next": "B03-01"
   }
  ],
