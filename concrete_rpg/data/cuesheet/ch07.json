@@ -330,6 +330,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/snap.opus",
+   "carry_note": "불빛 세 번 + 휘파람",
+   "silence": null,
    "gesture": "hold",
    "next": "B07-02"
   },
@@ -712,6 +715,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/snap.opus",
+   "carry_note": "불빛 세 번 + 휘파람",
+   "silence": null,
    "gesture": "drag",
    "next": "B07-06"
   },

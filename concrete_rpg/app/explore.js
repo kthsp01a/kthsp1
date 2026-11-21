@@ -33,6 +33,18 @@ const Ex = CJ.Ex = {
     AU.amb(b.amb);
     AU.startBgm(L.bgm);
     AU.fadeAmb(1, 1.0);
+    if (b.carry) AU.play('sfx', b.carry, .5);
+    if (b.silence) {
+      // 침묵 큐 — 모든 버스를 내리고 심장박동 하나만 남긴다
+      AU.stopBgm(); AU.fadeAmb(0, .8);
+      AU.play('sfx', 'assets/sfx/heart.opus', .8);
+      CJ.subtitle(b.silence, 'narrator', { spText: '침묵 · 자막' });
+      CJ.log({ sp: 'narrator', text: b.silence, file: null, late: true });
+      setTimeout(() => {
+        if (CJ.mode !== 'explore' || !this.beat || this.beat.beat_id !== b.beat_id) return;
+        AU.amb(b.amb); AU.startBgm(L.bgm); AU.fadeAmb(1, 1.6);
+      }, 5200);
+    }
     this.panelStrip();
     CJ.layoutStack();
     this.showShot(0);

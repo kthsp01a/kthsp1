@@ -196,6 +196,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/horn.opus",
+   "carry_note": "트럭 경적",
+   "silence": null,
    "gesture": "hold",
    "next": "B08-02"
   },
@@ -672,6 +675,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/horn.opus",
+   "carry_note": "트럭 경적",
+   "silence": null,
    "gesture": "tap",
    "next": "B08-06"
   },
@@ -985,6 +991,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/horn.opus",
+   "carry_note": "트럭 경적",
+   "silence": "헤드라이트가 커지는 순간 — 밤이 없어졌다",
    "gesture": "drag",
    "next": "B08-09"
   },

@@ -177,6 +177,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/door.opus",
+   "carry_note": "차 문이 가볍게 닫히는 소리",
+   "silence": null,
    "gesture": "drag",
    "next": "B01-02"
   },
@@ -535,6 +538,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/door.opus",
+   "carry_note": "차 문이 가볍게 닫히는 소리",
+   "silence": null,
    "gesture": "tap",
    "next": "B01-05"
   },

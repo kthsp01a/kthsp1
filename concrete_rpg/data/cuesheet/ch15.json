@@ -248,6 +248,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/stairs.opus",
+   "carry_note": "담요 속에서 발이 한 번 스치는 소리",
+   "silence": null,
    "gesture": "drag",
    "next": "B15-02"
   },

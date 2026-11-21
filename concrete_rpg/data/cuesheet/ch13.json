@@ -322,6 +322,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/car_by.opus",
+   "carry_note": "멀리 다가오는 차 엔진",
+   "silence": null,
    "gesture": "drag",
    "next": "B13-02"
   },
@@ -772,6 +775,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/car_by.opus",
+   "carry_note": "멀리 다가오는 차 엔진",
+   "silence": "\"여기까지\" — 물소리도 멈췄다",
    "gesture": "hold",
    "next": "B13-04"
   },
@@ -1141,6 +1147,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/car_by.opus",
+   "carry_note": "멀리 다가오는 차 엔진",
+   "silence": null,
    "gesture": "tap",
    "next": "B13-07"
   },

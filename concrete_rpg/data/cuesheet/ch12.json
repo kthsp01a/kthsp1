@@ -303,6 +303,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/lock.opus",
+   "carry_note": "덫, 찰칵",
+   "silence": null,
    "gesture": "hold",
    "next": "B12-02"
   },
@@ -759,6 +762,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/lock.opus",
+   "carry_note": "덫, 찰칵",
+   "silence": null,
    "gesture": "tap",
    "next": "B12-06"
   },

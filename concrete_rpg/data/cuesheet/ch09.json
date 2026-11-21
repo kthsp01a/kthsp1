@@ -187,6 +187,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/siren.opus",
+   "carry_note": "신고 연결음, 삐—",
+   "silence": null,
    "gesture": "tap",
    "next": "B09-02"
   },
@@ -536,6 +539,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/siren.opus",
+   "carry_note": "신고 연결음, 삐—",
+   "silence": null,
    "gesture": "tap",
    "next": "B09-05"
   },
@@ -856,6 +862,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/siren.opus",
+   "carry_note": "신고 연결음, 삐—",
+   "silence": null,
    "gesture": "tap",
    "next": "B09-08"
   },

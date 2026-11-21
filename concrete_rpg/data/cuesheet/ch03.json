@@ -338,6 +338,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/growl.opus",
+   "carry_note": "까망의 그르르",
+   "silence": null,
    "gesture": "drag",
    "next": "B03-02"
   },

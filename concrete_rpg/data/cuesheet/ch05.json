@@ -195,6 +195,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/hammer.opus",
+   "carry_note": "망치를 짧게 치는 소리",
+   "silence": null,
    "gesture": "tap",
    "next": "B05-02"
   },
@@ -597,6 +600,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/hammer.opus",
+   "carry_note": "망치를 짧게 치는 소리",
+   "silence": null,
    "gesture": "tap",
    "next": "B05-05"
   },

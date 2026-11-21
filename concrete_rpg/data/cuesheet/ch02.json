@@ -257,6 +257,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/drill.opus",
+   "carry_note": "보일러의 낮은 웅",
+   "silence": null,
    "gesture": "tap",
    "next": "B02-02"
   },

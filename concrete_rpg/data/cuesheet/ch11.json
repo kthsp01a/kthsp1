@@ -320,6 +320,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/heart.opus",
+   "carry_note": "숨 맞추기, 하나 둘",
+   "silence": null,
    "gesture": "tap",
    "next": "B11-03"
   },
@@ -754,6 +757,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/heart.opus",
+   "carry_note": "숨 맞추기, 하나 둘",
+   "silence": null,
    "gesture": "drag",
    "next": "B11-07"
   },

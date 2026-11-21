@@ -215,6 +215,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/whoosh.opus",
+   "carry_note": "손수건이 바람에 흔드는 소리",
+   "silence": null,
    "gesture": "drag",
    "next": "B17-02"
   },
@@ -521,6 +524,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/whoosh.opus",
+   "carry_note": "손수건이 바람에 흔드는 소리",
+   "silence": null,
    "gesture": "tap",
    "next": "B17-04"
   },
@@ -800,6 +806,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/whoosh.opus",
+   "carry_note": "손수건이 바람에 흔드는 소리",
+   "silence": null,
    "gesture": "tap",
    "next": "B17-06"
   },
@@ -1079,6 +1088,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/whoosh.opus",
+   "carry_note": "손수건이 바람에 흔드는 소리",
+   "silence": null,
    "gesture": "tap",
    "next": "B17-08"
   },

@@ -250,6 +250,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/paper.opus",
+   "carry_note": "크레파스가 부러지는 소리",
+   "silence": null,
    "gesture": "tap",
    "next": "B04-02"
   },
@@ -580,6 +583,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/paper.opus",
+   "carry_note": "크레파스가 부러지는 소리",
+   "silence": "정리 — 사라짐은 소리가 없다",
    "gesture": "hold",
    "next": "B04-05"
   },
@@ -958,6 +964,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/paper.opus",
+   "carry_note": "크레파스가 부러지는 소리",
+   "silence": null,
    "gesture": "tap",
    "next": "B04-07"
   },

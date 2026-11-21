@@ -322,6 +322,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/mud.opus",
+   "carry_note": "젖은 낙엽, 철벅",
+   "silence": null,
    "gesture": "tap",
    "next": "B14-02"
   },
@@ -733,6 +736,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/mud.opus",
+   "carry_note": "젖은 낙엽, 철벅",
+   "silence": null,
    "gesture": "tap",
    "next": "B14-05"
   },
@@ -1038,6 +1044,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/mud.opus",
+   "carry_note": "젖은 낙엽, 철벅",
+   "silence": null,
    "gesture": "tap",
    "next": "B14-07"
   },

@@ -222,6 +222,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/kitten.opus",
+   "carry_note": "작은 점의 숨, 파르르",
+   "silence": null,
    "gesture": "tap",
    "next": "B06-02"
   },
@@ -519,6 +522,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/kitten.opus",
+   "carry_note": "작은 점의 숨, 파르르",
+   "silence": "앞동이 무너진 직후 — 모든 소리가 먼지에 묻혔다",
    "gesture": "drag",
    "next": "B06-04"
   },

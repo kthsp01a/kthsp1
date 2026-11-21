@@ -285,6 +285,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/water.opus",
+   "carry_note": "마지막 빗방울",
+   "silence": null,
    "gesture": "hold",
    "next": "B16-02"
   },
@@ -791,6 +794,9 @@
      ]
     }
    ],
+   "carry": "assets/sfx/water.opus",
+   "carry_note": "마지막 빗방울",
+   "silence": null,
    "gesture": "hold",
    "next": "B16-06"
   },
