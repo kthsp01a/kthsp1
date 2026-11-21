@@ -1228,6 +1228,16 @@ async function playCutBEAT(cutId, next) {
   if (!cap) { cap = document.createElement('div'); cap.className = 'capTop'; cap.id = 'cutCapTop'; $('#cut').appendChild(cap); }
   const sps = [...new Set((meta.subtitles || []).map(x => SPNAME[x.speaker] || ''))].filter(Boolean);
   cap.innerHTML = '마스터본에 새겨진 자막 그대로 · <b>' + sps.join(' / ') + '</b>';
+  let cm = $('#cutMeta');
+  if (!cm) {
+    cm = document.createElement('div'); cm.className = 'capMeta'; cm.id = 'cutMeta';
+    cm.style.top = 'calc(15vh + 56.25vw + 56px)';
+    $('#cut').appendChild(cm);
+    const ct = document.createElement('div'); ct.className = 'capTime'; ct.id = 'cutTime';
+    ct.style.top = 'calc(15vh + 56.25vw + 96px)';
+    $('#cut').appendChild(ct);
+  }
+  cm.textContent = (BEATS[S.beat] && BEATS[S.beat].title) || '결과 컷';
   v.src = meta.cut;
   v.currentTime = 0;
   const canplay = new Promise(res => {
@@ -1245,6 +1255,8 @@ async function playCutBEAT(cutId, next) {
     // 마스터 컷에는 자막이 이미 구워져 있다 — 위에 겹쳐 쓰지 않는다.
     const d = v.duration || (meta.tc_out - meta.tc_in);
     $('#cutBar').style.width = (100 * clamp(t / d, 0, 1)) + '%';
+    const ct = $('#cutTime');
+    if (ct) ct.textContent = fmtTC(t) + ' / ' + fmtTC(d) + ' · ' + fmtTC(meta.tc_in) + '–' + fmtTC(meta.tc_out) + ' (105분 마스터)';
   };
   v.ontimeupdate = onTime;
   const finish = () => {
